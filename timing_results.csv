@@ -1,3 +1,0 @@
-Timestamp,Function Name,Execution Time (s),CPU Usage (%),Memory Usage (MB)
-2025-02-26 14:31:50,generate_random_polygons,0.3071739673614502,27.1,18.984375
-2025-02-26 14:31:50,generate_random_polygons,0.3148338794708252,-50.0,53.09375

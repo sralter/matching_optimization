@@ -1,0 +1,4 @@
+Session ID,Timestamp,Function Name,Execution Time (s),CPU Usage (%),Memory Usage (MB),Arguments
+sid_2025-02-26_16-56-39,2025-02-26 16:56:41,generate_random_polygons,0.17110776901245117,15.100000000000001,28.59375,"{""args"": [], ""kwargs"": {""n"": 10000}}"
+sid_2025-02-26_16-56-39,2025-02-26 16:57:16,generate_random_polygons,0.20551085472106934,43.099999999999994,15.0,"{""args"": [], ""kwargs"": {""n"": 10000}}"
+sid_2025-02-26_16-56-39,2025-02-26 16:57:16,generate_random_polygons,0.1202840805053711,22.9,18.5,"{""args"": [], ""kwargs"": {""n"": 10000}}"

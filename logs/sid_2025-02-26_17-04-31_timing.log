@@ -1,0 +1,6 @@
+2025-02-26 17:04:33,366 - INFO - Function `generate_random_polygons` executed in 0.1515 sec, CPU: 18.00%, Memory: 40.36MB
+2025-02-26 17:04:33,492 - INFO - Function `generate_random_polygons` executed in 0.1255 sec, CPU: 0.00%, Memory: 1.20MB
+2025-02-26 17:04:39,939 - INFO - Function `convert_col_to_string` executed in 0.1237 sec, CPU: 54.30%, Memory: 4.16MB
+2025-02-26 17:04:39,989 - INFO - Function `convert_col_to_string` executed in 0.0487 sec, CPU: 22.20%, Memory: 10.80MB
+2025-02-26 17:10:24,670 - INFO - Function `df_itertuple` executed in 0.0095 sec, CPU: 46.20%, Memory: 3.36MB
+2025-02-26 17:10:24,676 - INFO - Function `df_itertuple` executed in 0.0031 sec, CPU: 42.90%, Memory: 0.00MB

@@ -1,0 +1,3 @@
+Session ID,Timestamp,Function Name,Execution Time (s),CPU Usage (%),Memory Usage (MB),Arguments
+sid_2025-02-26_23-05-52,2025-02-26 23:05:54,generate_random_polygons,0.15428566932678223,6.799999999999997,88.234375,"{""args"": [], ""kwargs"": {""n"": 10000}}"
+sid_2025-02-26_23-05-52,2025-02-26 23:05:55,generate_random_polygons,0.1931171417236328,0.0,0.0,"{""args"": [], ""kwargs"": {""n"": 10000}}"

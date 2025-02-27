@@ -1,0 +1,3 @@
+2025-02-26 23:01:43,115 - INFO - Function `generate_random_polygons` executed in 0.1438 sec, CPU: 30.60%, Memory: 8.27MB
+2025-02-26 23:01:43,238 - INFO - Function `generate_random_polygons` executed in 0.1232 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-26 23:01:44,310 - INFO - Function `add_geohash_column` executed in 0.1865 sec, CPU: 26.30%, Memory: 7.67MB

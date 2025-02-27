@@ -1,3 +1,0 @@
-2025-02-27 11:35:44,307 - ERROR - `data/conus_boundary.parquet' not recognized as a supported file format.
-2025-02-27 11:36:01,350 - ERROR - `data/conus_buffer.parquet' not recognized as a supported file format.
-2025-02-27 11:36:09,328 - INFO - Function `generate_random_polygons` executed in 7.9104 sec, CPU: 12.70%, Memory: 177.67MB

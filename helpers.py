@@ -123,74 +123,75 @@ class Timer:
 timing_decorator = Timer(log_to_console=True, log_to_file=True, track_resources=True)
 
 @timing_decorator
-def generate_random_polygons(n=100, bbox=(-180, -90, 180, 90)):
-    """Generate n random polygons inside a bounding box with a unique ID."""
-    minx, miny, maxx, maxy = bbox
+def generate_random_polygons(n: int, us_boundary: gpd.GeoDataFrame = None, admin_boundaries: gpd.GeoDataFrame = None, precision=8) -> gpd.GeoDataFrame:
+    """
+    Generate n random polygons fully within the contiguous U.S. (CONUS).
+    Ensures all polygons are clipped to the CONUS boundary.
+
+    Params:
+        n (int): number of polygons to be generated
+        us_boundary: a GeoPandas GeoDataframe of the boundary of the US
+        admin_boundaries: a GeoPandas GeoDataframe of the administrative information of the US
+
+    Returns:
+        gdf: a GeoPandas GeoDataframe of the polygon layer with administrative and geohash information.
+    """
+    if us_boundary is None or admin_boundaries is None:
+        raise ValueError("Both U.S. boundary and administrative boundaries are required.")
+
+    # Compute bounding box of CONUS
+    minx, miny, maxx, maxy = us_boundary.total_bounds
+
     polygons = []
-    ids = []  # List to store UUIDs
-    for _ in range(n):
+    ids = []
+
+    while len(polygons) < n:
+        # Generate random coordinates within the bounding box
         x1, y1 = random.uniform(minx, maxx), random.uniform(miny, maxy)
-        x2, y2 = x1 + random.uniform(1, 2), y1 + random.uniform(1, 2)
-        polygons.append(box(x1, y1, x2, y2))  # Create rectangle
-        ids.append(str(uuid.uuid4()))  # Generate unique UUID
+        x2, y2 = x1 + random.uniform(0.0001, 0.001), y1 + random.uniform(0.0001, 0.001)
+        polygon = box(x1, y1, x2, y2)
+
+        # Ensure the polygon is fully within the CONUS boundary
+        if polygon.within(us_boundary.geometry.iloc[0]):  # Checks containment
+            polygons.append(polygon)
+            ids.append(str(uuid.uuid4()))
+
+    # Create GeoDataFrame
     gdf = gpd.GeoDataFrame(geometry=polygons, crs="EPSG:4326")
-    gdf['id'] = ids  # Add the id column
-    return gdf
+    gdf["id"] = ids
 
-@timing_decorator
-def add_geohash_column(gdf, precision=7, num_samples=5):
-    """
-    Adds a geohash column to a GeoDataFrame using grid-based sampling.
+    # Clip to CONUS boundary (extra safeguard)
+    gdf = gpd.clip(gdf, us_boundary)
 
-    :param gdf: GeoDataFrame containing polygon geometries.
-    :param precision: Geohash precision level (default 7).
-    :param num_samples: Number of points sampled per dimension (total = num_samples²).
-    :return: GeoDataFrame with an added 'geohash' column.
-    """
-    # Ensure the GeoDataFrame has a CRS
-    if gdf.crs is None:
-        raise ValueError("GeoDataFrame is missing a CRS. Set it using gdf.set_crs('EPSG:4326').")
+    # Compute representative points for spatial join
+    gdf["rep_point"] = gdf.geometry.representative_point()
 
-    # Convert to a projected CRS (World Mercator) for uniform distances
-    gdf_proj = gdf.to_crs(epsg=3857)
+    # Perform spatial join to get city, county, state
+    gdf = gdf.sjoin(admin_boundaries, how="left", predicate="within")
 
-    # Define a transformation function from EPSG:3857 to EPSG:4326
-    project_back = pyproj.Transformer.from_crs(3857, 4326, always_xy=True).transform
+    # Compute geohash for location
+    gdf["geohash"] = gdf["rep_point"].apply(
+        lambda geom: geohash.encode(geom.y, geom.x, precision) if geom else None
+    )
 
-    def generate_geohashes(polygon):
-        """Generate multiple geohashes for a polygon using grid sampling."""
-        minx, miny, maxx, maxy = polygon.bounds
-        x_coords = np.linspace(minx, maxx, num_samples)
-        y_coords = np.linspace(miny, maxy, num_samples)
+    # Drop temporary columns
+    gdf = gdf.drop(columns=["rep_point", "index_right"])
 
-        geohashes = set()
-        for x in x_coords:
-            for y in y_coords:
-                point = Point(x, y)
-                if polygon.contains(point):  # Ensure point is inside the polygon
-                    point_wgs84 = transform(project_back, point)  # Proper CRS conversion
-                    geohashes.add(geohash.encode(point_wgs84.y, point_wgs84.x, precision))
-
-        return ",".join(geohashes) if geohashes else None  # Store as a comma-separated string
-
-    # Compute geohashes for each polygon
-    gdf["geohash"] = gdf_proj.geometry.apply(generate_geohashes)
+    # Drop other columns
+    cols_to_keep = [
+        'geometry', 
+        'id',
+        'shapeName', 
+        'STATEFP', 
+        'COUNTYFP', 
+        'GEOID', 
+        'NAME', 
+        'NAMELSAD', 
+        'area_fips', 
+        'geohash']
+    gdf = gdf[cols_to_keep]
 
     return gdf
-
-# @timing_decorator
-# def add_geohash_column(gdf, precision=7):
-#     """
-#     Adds a geohash column to a GeoDataFrame based on polygon centroids.
-    
-#     :param gdf: GeoDataFrame containing polygon geometries.
-#     :param precision: Geohash precision level (default 7).
-#     :return: GeoDataFrame with an added 'geohash' column.
-#     """
-#     gdf["geohash"] = gdf["geometry"].centroid.apply(
-#         lambda geom: geohash.encode(geom.y, geom.x, precision) if geom else None
-#     )
-#     return gdf
 
 @timing_decorator
 def convert_col_to_string(df: gpd.GeoDataFrame, col: str = 'geometry') -> gpd.GeoDataFrame:

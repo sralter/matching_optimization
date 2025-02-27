@@ -20,7 +20,7 @@ from psycopg2 import sql
 import geohash2 as geohash
 import numpy as np
 import pyproj
-
+import multiprocessing as mp
 
 class Timer:
     """A class-based decorator for timing and profiling function execution."""
@@ -123,7 +123,10 @@ class Timer:
 timing_decorator = Timer(log_to_console=True, log_to_file=True, track_resources=True)
 
 @timing_decorator
-def generate_random_polygons(n: int, us_boundary: gpd.GeoDataFrame = None, admin_boundaries: gpd.GeoDataFrame = None, precision=8) -> gpd.GeoDataFrame:
+def generate_random_polygons(n: int, 
+                             us_boundary: gpd.GeoDataFrame = gpd.read_file('data/conus_buffer.parquet'), 
+                             admin_boundaries: gpd.GeoDataFrame = gpd.read_file('data/conus_admin.parquet'), 
+                             precision=8) -> gpd.GeoDataFrame:
     """
     Generate n random polygons fully within the contiguous U.S. (CONUS).
     Ensures all polygons are clipped to the CONUS boundary.
@@ -181,13 +184,13 @@ def generate_random_polygons(n: int, us_boundary: gpd.GeoDataFrame = None, admin
     cols_to_keep = [
         'geometry', 
         'id',
-        'shapeName', 
-        'STATEFP', 
-        'COUNTYFP', 
-        'GEOID', 
-        'NAME', 
-        'NAMELSAD', 
-        'area_fips', 
+        # 'shapeName', 
+        # 'STATEFP', 
+        # 'COUNTYFP', 
+        # 'GEOID', 
+        # 'NAME', 
+        # 'NAMELSAD', 
+        # 'area_fips', 
         'geohash']
     gdf = gdf[cols_to_keep]
 
@@ -287,25 +290,40 @@ def create_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matchi
     conn = psycopg2.connect(**postgresql_details)
     cur = conn.cursor()
 
-    # Ensure pgcrypto extension exists & create table
-    cur.execute(sql.SQL(f"""
-        CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-        CREATE TABLE IF NOT EXISTS {table_name} (
-            geometry TEXT,
-            id UUID PRIMARY KEY DEFAULT gen_random_uuid()
-        );
-    """))
+    # Enable pgcrypto extension only once (for UUID generation)
+    cur.execute("CREATE EXTENSION IF NOT EXISTS pgcrypto;")
     conn.commit()
 
-    # **New: Optionally truncate the table**
+    # Securely create the table using sql.Identifier
+    create_table_query = (sql.SQL("""
+        DROP TABLE IF EXISTS {};
+        CREATE TABLE {} (
+            geometry TEXT,
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            geohash TEXT
+        );
+    """).format(sql.Identifier(table_name), sql.Identifier(table_name)))
+
+    cur.execute(create_table_query)
+    conn.commit()
+
+    # Optionally truncate the table
     if truncate:
-        cur.execute(sql.SQL(f"TRUNCATE TABLE {table_name};"))
+        truncate_query = sql.SQL("TRUNCATE TABLE {}").format(sql.Identifier(table_name))
+        cur.execute(truncate_query)
         conn.commit()
         print(f"Table {table_name} truncated.")
 
     # Insert data if available
     if data:
-        cur.executemany(sql.SQL(f'INSERT INTO {table_name} (geometry, id) VALUES (%s, %s);'), data)
+        insert_query = sql.SQL("""
+            INSERT INTO {} (geometry, id, geohash) 
+            VALUES (%s, %s, %s);
+        """).format(sql.Identifier(table_name))
+    # INSERT INTO {} (geometry, id, shapename, statefp, countyfp, geoid, name, namelsad, area_fips, geohash) 
+    # VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+
+        cur.executemany(insert_query, data)
         conn.commit()
         print(f"Inserted {len(data)} records into {table_name}.")
     else:
@@ -345,8 +363,60 @@ def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matc
     conn.close()
 
     # Convert to DataFrame & reapply geometry
-    df = pd.DataFrame(rows, columns=["geometry", "id"])
+    df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
     df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
     print(f"Retrieved {len(df)} records from {table_name}.")
-    
+
     return df
+
+@timing_decorator
+def match_geometries(df_prev, df_curr):
+    """Match geometries using Shapely intersection or equality"""
+    matched = []
+    for _, row1 in df_prev.iterrows():
+        for _, row2 in df_curr.iterrows():
+            if row1.geometry.intersects(row2.geometry):  # Can use equals() if need exact match
+                matched.append((row1.id, row2.id))
+    return matched
+
+@timing_decorator
+def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table):
+    """Process a batch of geohashes"""
+    df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev)
+    df_curr = retrieve_pg_table(postgresql_details, db_name, table_curr)
+
+    # Filter by geohash
+    df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
+    df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
+
+    if df_prev.empty or df_curr.empty:
+        return
+
+    matched_pairs = match_geometries(df_prev, df_curr)
+
+    # Store results in database
+    if matched_pairs:
+        conn = psycopg2.connect(**postgresql_details)
+        cur = conn.cursor()
+        insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
+        psycopg2.extras.execute_values(cur, insert_query, matched_pairs)
+        conn.commit()
+        cur.close()
+        conn.close()
+
+@timing_decorator
+def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=100):
+    """Parallel processing of geohash chunks"""
+    df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev)
+
+    geohashes = df_prev["geohash"].dropna().unique().tolist()
+    chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
+
+    processes = []
+    for chunk in chunks:
+        p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table))
+        p.start()
+        processes.append(p)
+
+    for p in processes:
+        p.join()

@@ -1,0 +1,11 @@
+2025-02-26 21:46:31,433 - INFO - Function `generate_random_polygons` executed in 0.1431 sec, CPU: 20.60%, Memory: 11.61MB
+2025-02-26 21:46:31,554 - INFO - Function `generate_random_polygons` executed in 0.1205 sec, CPU: 20.20%, Memory: 0.31MB
+2025-02-26 21:46:31,710 - INFO - Function `convert_col_to_string` executed in 0.0471 sec, CPU: 13.50%, Memory: 0.00MB
+2025-02-26 21:46:31,757 - INFO - Function `convert_col_to_string` executed in 0.0461 sec, CPU: 23.70%, Memory: 0.00MB
+2025-02-26 21:46:31,764 - INFO - Function `df_itertuple` executed in 0.0019 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-26 21:46:31,767 - INFO - Function `df_itertuple` executed in 0.0012 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-26 21:46:31,801 - INFO - Function `create_pg_db` executed in 0.0308 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-26 21:46:32,261 - INFO - Function `create_pg_table` executed in 0.3939 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-26 21:46:32,691 - INFO - Function `create_pg_table` executed in 0.4047 sec, CPU: 41.30%, Memory: 126.31MB
+2025-02-26 21:46:32,760 - INFO - Function `retrieve_pg_table` executed in 0.0471 sec, CPU: 29.40%, Memory: 0.00MB
+2025-02-26 21:46:32,810 - INFO - Function `retrieve_pg_table` executed in 0.0404 sec, CPU: 9.00%, Memory: 0.00MB

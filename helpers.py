@@ -164,47 +164,128 @@ def df_itertuple(df: gpd.GeoDataFrame):
 def pg_details() -> dict:
     """Default PostgreSQL settings to connect to the database"""
     return {
-    'dbname': 'postgres',  # Use the default database to create a new one
-    'user': 'postgres',
-    'password': 'rootroot',
-    'host': 'localhost',
-    'port': '5432'
+        'dbname': 'postgres',  # Use the default database to create a new one
+        'user': 'postgres',
+        'password': 'rootroot',
+        'host': 'localhost',
+        'port': '5432'
     }
 
 @timing_decorator
-def create_pg_db(pg_details: dict = pg_details()):
+def create_pg_db(postgresql_details: dict = None, db_name: str = 'blob_matching'):
     """
-    Creates 
+    Creates a PostgreSQL database if it doesn't already exist.
+
+    Args:
+        postgresql_details (dict): Connection details for the PostgreSQL instance.
+        db_name (str): Name of the database to create.
     """
-    # Define connection details
-    # Step 1: Connect to PostgreSQL and create a new database (if it doesn't exist)
-    conn = psycopg2.connect(
-        dbname=postgresql_details['dbname'],
-        user=postgresql_details['user'],
-        password=postgresql_details['password'],
-        host=postgresql_details['host'],
-        port=postgresql_details['port']
-    )
+    if postgresql_details is None:
+        postgresql_details = pg_details()
+
+    conn = psycopg2.connect(**postgresql_details)
     cur = conn.cursor()
+    
+    conn.commit()  # Ensure no open transaction block
+    conn.autocommit = True  # Required for creating a database
 
-    # Commit any active transactions before creating a new database
-    conn.commit()  # This ensures no open transaction block
-
-    # Set autocommit to True for creating the database (it cannot run inside a transaction block)
-    conn.autocommit = True
-
-    # Create a new database (only if it doesn't already exist)
-    new_db_name = 'blob_matching'
-    cur.execute(sql.SQL("SELECT 1 FROM pg_database WHERE datname = %s"), [new_db_name])
+    # Create database if it doesn't exist
+    cur.execute(sql.SQL("SELECT 1 FROM pg_database WHERE datname = %s"), [db_name])
     if not cur.fetchone():
-        cur.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(new_db_name)))
-        print(f"Database {new_db_name} created.")
+        cur.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(db_name)))
+        print(f"Database {db_name} created.")
     else:
-        print(f"Database {new_db_name} already exists.")
+        print(f"Database {db_name} already exists.")
 
-    # Reset autocommit to False (we want to manage transactions for the rest of the operations)
-    conn.autocommit = False
-
-    # Close connection for creating the new database
     cur.close()
     conn.close()
+
+@timing_decorator
+def create_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', data: list = None, truncate: bool = False):
+    """
+    Creates a table in PostgreSQL and inserts data. Optionally truncates the table first.
+
+    Args:
+        postgresql_details (dict): Connection details for PostgreSQL.
+        db_name (str): Name of the target database.
+        table_name (str): Name of the table to create.
+        data (list): List of tuples to insert into the table.
+        truncate (bool): If True, deletes existing records before inserting new ones.
+    """
+    if postgresql_details is None:
+        postgresql_details = pg_details()
+    
+    if not table_name:
+        raise ValueError("Table name must be specified.")
+    
+    if data is None:
+        data = []
+
+    # Connect to the database
+    postgresql_details['dbname'] = db_name
+    conn = psycopg2.connect(**postgresql_details)
+    cur = conn.cursor()
+
+    # Ensure pgcrypto extension exists & create table
+    cur.execute(sql.SQL(f"""
+        CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+        CREATE TABLE IF NOT EXISTS {table_name} (
+            geometry TEXT,
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid()
+        );
+    """))
+    conn.commit()
+
+    # **New: Optionally truncate the table**
+    if truncate:
+        cur.execute(sql.SQL(f"TRUNCATE TABLE {table_name};"))
+        conn.commit()
+        print(f"Table {table_name} truncated.")
+
+    # Insert data if available
+    if data:
+        cur.executemany(sql.SQL(f'INSERT INTO {table_name} (geometry, id) VALUES (%s, %s);'), data)
+        conn.commit()
+        print(f"Inserted {len(data)} records into {table_name}.")
+    else:
+        print(f"No data provided for {table_name}.")
+
+    cur.close()
+    conn.close()
+
+@timing_decorator
+def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = ''):
+    """
+    Retrieves data from a PostgreSQL table and converts WKT back to geometries.
+
+    Args:
+        postgresql_details (dict): Connection details for PostgreSQL.
+        db_name (str): Name of the database.
+        table_name (str): Name of the table to retrieve data from.
+
+    Returns:
+        pd.DataFrame: DataFrame with geometry converted back from WKT.
+    """
+    if postgresql_details is None:
+        postgresql_details = pg_details()
+    
+    if not table_name:
+        raise ValueError("Table name must be specified.")
+
+    # Connect to the database
+    postgresql_details['dbname'] = db_name
+    conn = psycopg2.connect(**postgresql_details)
+    cur = conn.cursor()
+
+    # Retrieve data
+    cur.execute(sql.SQL(f"SELECT geometry, id FROM {table_name};"))
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    # Convert to DataFrame & reapply geometry
+    df = pd.DataFrame(rows, columns=["geometry", "id"])
+    df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
+    print(f"Retrieved {len(df)} records from {table_name}.")
+    
+    return df

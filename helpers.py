@@ -10,12 +10,17 @@ import pandas as pd
 import geopandas as gpd
 from shapely import to_wkt
 from shapely.wkt import dumps, loads
-from shapely.geometry import Polygon, box
+from shapely.geometry import Polygon, box, Point
 from shapely.geometry.base import BaseGeometry
+from shapely.ops import transform
 import random
 import uuid
 import psycopg2
 from psycopg2 import sql
+import geohash2 as geohash
+import numpy as np
+import pyproj
+
 
 class Timer:
     """A class-based decorator for timing and profiling function execution."""
@@ -131,6 +136,61 @@ def generate_random_polygons(n=100, bbox=(-180, -90, 180, 90)):
     gdf = gpd.GeoDataFrame(geometry=polygons, crs="EPSG:4326")
     gdf['id'] = ids  # Add the id column
     return gdf
+
+@timing_decorator
+def add_geohash_column(gdf, precision=7, num_samples=5):
+    """
+    Adds a geohash column to a GeoDataFrame using grid-based sampling.
+
+    :param gdf: GeoDataFrame containing polygon geometries.
+    :param precision: Geohash precision level (default 7).
+    :param num_samples: Number of points sampled per dimension (total = num_samples²).
+    :return: GeoDataFrame with an added 'geohash' column.
+    """
+    # Ensure the GeoDataFrame has a CRS
+    if gdf.crs is None:
+        raise ValueError("GeoDataFrame is missing a CRS. Set it using gdf.set_crs('EPSG:4326').")
+
+    # Convert to a projected CRS (World Mercator) for uniform distances
+    gdf_proj = gdf.to_crs(epsg=3857)
+
+    # Define a transformation function from EPSG:3857 to EPSG:4326
+    project_back = pyproj.Transformer.from_crs(3857, 4326, always_xy=True).transform
+
+    def generate_geohashes(polygon):
+        """Generate multiple geohashes for a polygon using grid sampling."""
+        minx, miny, maxx, maxy = polygon.bounds
+        x_coords = np.linspace(minx, maxx, num_samples)
+        y_coords = np.linspace(miny, maxy, num_samples)
+
+        geohashes = set()
+        for x in x_coords:
+            for y in y_coords:
+                point = Point(x, y)
+                if polygon.contains(point):  # Ensure point is inside the polygon
+                    point_wgs84 = transform(project_back, point)  # Proper CRS conversion
+                    geohashes.add(geohash.encode(point_wgs84.y, point_wgs84.x, precision))
+
+        return ",".join(geohashes) if geohashes else None  # Store as a comma-separated string
+
+    # Compute geohashes for each polygon
+    gdf["geohash"] = gdf_proj.geometry.apply(generate_geohashes)
+
+    return gdf
+
+# @timing_decorator
+# def add_geohash_column(gdf, precision=7):
+#     """
+#     Adds a geohash column to a GeoDataFrame based on polygon centroids.
+    
+#     :param gdf: GeoDataFrame containing polygon geometries.
+#     :param precision: Geohash precision level (default 7).
+#     :return: GeoDataFrame with an added 'geohash' column.
+#     """
+#     gdf["geohash"] = gdf["geometry"].centroid.apply(
+#         lambda geom: geohash.encode(geom.y, geom.x, precision) if geom else None
+#     )
+#     return gdf
 
 @timing_decorator
 def convert_col_to_string(df: gpd.GeoDataFrame, col: str = 'geometry') -> gpd.GeoDataFrame:

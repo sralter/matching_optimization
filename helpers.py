@@ -14,6 +14,8 @@ from shapely.geometry import Polygon, box
 from shapely.geometry.base import BaseGeometry
 import random
 import uuid
+import psycopg2
+from psycopg2 import sql
 
 class Timer:
     """A class-based decorator for timing and profiling function execution."""
@@ -158,3 +160,51 @@ def df_itertuple(df: gpd.GeoDataFrame):
         list: A list of tuples representing the rows of the dataframe.
     """
     return list(df.itertuples(index=False, name=None))
+
+def pg_details() -> dict:
+    """Default PostgreSQL settings to connect to the database"""
+    return {
+    'dbname': 'postgres',  # Use the default database to create a new one
+    'user': 'postgres',
+    'password': 'rootroot',
+    'host': 'localhost',
+    'port': '5432'
+    }
+
+@timing_decorator
+def create_pg_db(pg_details: dict = pg_details()):
+    """
+    Creates 
+    """
+    # Define connection details
+    # Step 1: Connect to PostgreSQL and create a new database (if it doesn't exist)
+    conn = psycopg2.connect(
+        dbname=postgresql_details['dbname'],
+        user=postgresql_details['user'],
+        password=postgresql_details['password'],
+        host=postgresql_details['host'],
+        port=postgresql_details['port']
+    )
+    cur = conn.cursor()
+
+    # Commit any active transactions before creating a new database
+    conn.commit()  # This ensures no open transaction block
+
+    # Set autocommit to True for creating the database (it cannot run inside a transaction block)
+    conn.autocommit = True
+
+    # Create a new database (only if it doesn't already exist)
+    new_db_name = 'blob_matching'
+    cur.execute(sql.SQL("SELECT 1 FROM pg_database WHERE datname = %s"), [new_db_name])
+    if not cur.fetchone():
+        cur.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(new_db_name)))
+        print(f"Database {new_db_name} created.")
+    else:
+        print(f"Database {new_db_name} already exists.")
+
+    # Reset autocommit to False (we want to manage transactions for the rest of the operations)
+    conn.autocommit = False
+
+    # Close connection for creating the new database
+    cur.close()
+    conn.close()

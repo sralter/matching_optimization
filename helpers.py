@@ -796,7 +796,11 @@ def worker_logger(logger, cpu_start, mem_start):
 
 @Timer()
 def match_geometries(df_prev, df_curr):
-    """Match geometries using Shapely intersection or equality"""
+    """
+    Match geometries using Shapely intersection or equality.
+    This makes it an O(n * m) operation, 
+        where n is the number of rows in df_prev and m is in df_curr.
+    """
     matched = []
 
     # Explicitly log function entry

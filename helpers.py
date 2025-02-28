@@ -242,7 +242,7 @@ def generate_random_polygons(n: int,
     while len(polygons) < n:
         # Generate random coordinates within the bounding box
         x1, y1 = random.uniform(minx, maxx), random.uniform(miny, maxy)
-        x2, y2 = x1 + random.uniform(0.0001, 0.001), y1 + random.uniform(0.0001, 0.001)
+        x2, y2 = x1 + random.uniform(0.001, 0.01), y1 + random.uniform(0.001, 0.01)
         polygon = box(x1, y1, x2, y2)
 
         # Ensure the polygon is fully within the CONUS boundary
@@ -796,6 +796,9 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
     
     df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
     df_curr = _retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
+    
+    # Log the number of polygons for this geohash chunk
+    logging.info(f"Chunk {geohash_chunk[:3]}...: {len(df_prev)} prev, {len(df_curr)} curr polygons")
 
     # Filter by geohash
     df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
@@ -805,6 +808,7 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
         return
 
     matched_pairs = match_geometries(df_prev, df_curr)
+    logging.info(f"Found {len(matched_pairs)} matches in chunk {geohash_chunk[:3]}...")
 
     # Store results in database
     if matched_pairs:

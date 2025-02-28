@@ -363,3 +363,5 @@
 2025-02-28 09:48:58,352 - INFO - After filtering: 96 prev, 0 curr polygons
 2025-02-28 09:48:58,352 - INFO - Skipping batch - No overlapping geohashes
 2025-02-28 09:48:58,466 - INFO - Function `run_parallel_matching` executed in 115.8288 sec, CPU: 38.00%, Memory: 435.84MB
+2025-02-28 12:46:12,047 - INFO - Function `generate_random_polygons` executed in 86.1941 sec, CPU: 7.70%, Memory: 450.30MB
+2025-02-28 12:47:32,234 - INFO - Function `generate_random_polygons` executed in 80.1859 sec, CPU: 12.00%, Memory: 114.30MB

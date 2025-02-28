@@ -243,7 +243,7 @@ def generate_random_polygons(n: int,
     while len(polygons) < n:
         # Generate random coordinates within the bounding box
         x1, y1 = random.uniform(minx, maxx), random.uniform(miny, maxy)
-        x2, y2 = x1 + random.uniform(0.01, 0.1), y1 + random.uniform(0.01, 0.1)
+        x2, y2 = x1 + random.uniform(0.001, 0.01), y1 + random.uniform(0.001, 0.01)
         polygon = box(x1, y1, x2, y2)
 
         # Ensure the polygon is fully within the CONUS boundary
@@ -914,5 +914,17 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
     # Log overall CPU and memory usage after all processes complete
     worker_logger(logger, cpu_start, None)  # You can replace `None` with memory tracking logic if needed
 
+@Timer()
+def compute_h3_indices(geometry, centroid_res=6, polyfill_res=9):
+    """
+    Compute H3 indices for a polygon:
+    - Single H3 index based on centroid
+    - Full polygon coverage with H3 polyfill at high resolution
+    """
+    centroid = geometry.centroid
+    h3_centroid = h3.geo_to_h3(centroid.y, centroid.x, centroid_res)
 
+    # Full coverage using polyfill
+    h3_polyfill = list(h3.polyfill(geometry.__geo_interface__, polyfill_res))
 
+    return h3_centroid, h3_polyfill

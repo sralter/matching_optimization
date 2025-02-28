@@ -390,3 +390,1567 @@
 2025-02-27 19:43:39,450 - INFO - Chunk ['c8r3h4wd', 'c8r3de56', 'c8r6wf4y']...: 10000 prev, 10000 curr polygons
 2025-02-27 19:43:39,840 - INFO - Chunk ['c86ue2ns', 'c87hb828', 'c87sbj8q']...: 10000 prev, 10000 curr polygons
 2025-02-27 19:43:39,918 - INFO - Function `run_parallel_matching` executed in 40.4700 sec, CPU: 18.20%, Memory: 330.41MB
+2025-02-27 19:55:42,856 - INFO - Function `generate_random_polygons` executed in 8.5516 sec, CPU: 19.80%, Memory: 201.86MB
+2025-02-27 19:55:51,323 - INFO - Function `generate_random_polygons` executed in 8.4658 sec, CPU: 46.80%, Memory: 162.52MB
+2025-02-27 19:55:51,557 - INFO - Function `convert_col_to_string` executed in 0.0552 sec, CPU: 73.00%, Memory: 58.58MB
+2025-02-27 19:55:51,609 - INFO - Function `convert_col_to_string` executed in 0.0503 sec, CPU: 0.00%, Memory: 1.28MB
+2025-02-27 19:55:51,620 - INFO - Function `df_itertuple` executed in 0.0038 sec, CPU: 0.00%, Memory: 0.55MB
+2025-02-27 19:55:51,624 - INFO - Function `df_itertuple` executed in 0.0026 sec, CPU: 0.00%, Memory: 1.23MB
+2025-02-27 19:55:51,711 - INFO - Function `create_pg_db` executed in 0.0821 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 19:55:52,094 - INFO - Function `create_pg_table` executed in 0.3552 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 19:55:52,436 - INFO - Function `create_pg_table` executed in 0.3148 sec, CPU: 45.60%, Memory: 51.56MB
+2025-02-27 19:55:52,509 - INFO - Function `retrieve_pg_table` executed in 0.0491 sec, CPU: 5.70%, Memory: 6.83MB
+2025-02-27 19:55:52,556 - INFO - Function `retrieve_pg_table` executed in 0.0458 sec, CPU: 40.50%, Memory: 3.05MB
+2025-02-27 19:55:55,308 - INFO - Chunk ['dq28n1fc', 'djs0gcnu', 'dje8ysj8']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:55,327 - INFO - Chunk ['dhy6z0gz', 'dhy7r5fz', 'dhy52kw5']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:55,329 - INFO - Chunk ['djf7w2gq', 'djdpehdz', 'djdrgxnz']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:55,371 - INFO - Chunk ['djt47z5n', 'dhwe38xt', 'dhw7q4tm']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:57,079 - INFO - Chunk ['dnjppgh7', 'dn1cjtg6', 'dn19cuku']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:57,085 - INFO - Chunk ['dn0dzcym', 'djv0znx7', 'djv90f8s']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:57,119 - INFO - Chunk ['dnkrcqcu', 'dnnps3rc', 'dnnpwnbw']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:57,120 - INFO - Chunk ['dn3wugh0', 'dnhhw2r7', 'dnhhdp8k']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:58,809 - INFO - Chunk ['9vdembux', '9vr92mr8', '9vr9f9rr']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:58,822 - INFO - Chunk ['dq88344k', 'dnmwj3bv', 'dnmyd2xu']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:58,852 - INFO - Chunk ['dnepc4sy', 'dnqze347', 'dnrpcsjv']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:55:58,917 - INFO - Chunk ['dny9486b', '9v498dc3', '9v4f3d1p']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:00,538 - INFO - Chunk ['djb1u1bj', '9vkpbcz2', '9vkpyz58']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:00,544 - INFO - Chunk ['9vuqgz14', '9vx4t4k5', '9vwdx5cs']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:00,578 - INFO - Chunk ['9vtt94k3', 'dj2k5j3x', '9vrucnnh']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:00,586 - INFO - Chunk ['9vvyyh2c', 'djbh3502', '9vzscr4v']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:02,179 - INFO - Chunk ['9ymb33up', '9vgh10s6', '9vgsp4bq']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:02,295 - INFO - Chunk ['9yk2vmnr', '9yhy6yrk', '9yjnb5kn']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:02,300 - INFO - Chunk ['9ymr951h', '9y5xbm66', '9y722zt0']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:02,341 - INFO - Chunk ['9ysrmgyz', '9y323x6j', '9y328r0v']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:04,055 - INFO - Chunk ['9yzdj5wp', '9yrmgtzz', '9yrnp11p']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:04,055 - INFO - Chunk ['9yv59ub5', '9y9qex6h', '9y9xh907']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:04,085 - INFO - Chunk ['9yb8yvhb', 'dn2t4x49', 'dn2tm52z']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:04,166 - INFO - Chunk ['9z4hsrr8', '9yew8pjs', '9yex0be5']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:05,992 - INFO - Chunk ['9z4jn4dc', 'dndpx75k', 'dn9zytxy']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:06,015 - INFO - Chunk ['9ze80ekh', '9z1hsg4d', '9z1hek72']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:06,018 - INFO - Chunk ['9zmcmgcm', '9zh1fkw9', '9z5fmu08']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:06,097 - INFO - Chunk ['dp0u353f', '9yy9j730', '9yz1mdrc']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:07,806 - INFO - Chunk ['9zwdyy07', '9z6v1nrs', '9z6jm1vc']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:07,822 - INFO - Chunk ['9zf5sm9m', 'dntqq1h0', 'dntn9jyw']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:07,853 - INFO - Chunk ['9z88dvww', '9zjqw82w', '9zhygfrt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:08,184 - INFO - Chunk ['dph0bhb7', 'dq9rxpz0', 'dqb2pun2']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:09,587 - INFO - Chunk ['dpp01ryh', 'dnzzs907', 'dqczenbk']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:09,593 - INFO - Chunk ['dp79uszc', 'dp055n32', 'dp071rr4']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:09,663 - INFO - Chunk ['dpnp9w4k', 'dngqbtjy', 'dngp2mu3']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:10,161 - INFO - Chunk ['dp6p347v', 'dppym6pc', 'dr1q77wt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:11,409 - INFO - Chunk ['dpqvnq9b', 'dr3kjrfk', 'dr2u78tz']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:11,605 - INFO - Chunk ['dr9c8t7n', 'dr838ry2', 'dr89fkne']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:11,649 - INFO - Chunk ['dp6dvbrz', 'dp74c4vr', 'dp6dcs39']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:12,048 - INFO - Chunk ['dpgc3qv4', 'dpu12prs', 'dpu6jb4y']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:13,159 - INFO - Chunk ['9ze31xxb', '9ze9rryp', '9ze4pc38']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:13,543 - INFO - Chunk ['dp6r8r99', 'dp3zc385', 'dp988ky7']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:13,560 - INFO - Chunk ['9zxndg74', '9zwzbmk8', '9zy8kuyk']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:13,950 - INFO - Chunk ['9zg5484k', '9zg54dh7', '9zg5n4rp']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:15,221 - INFO - Chunk ['cbjyk1uf', 'cbnw35n0', 'cbjxnk6y']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:15,605 - INFO - Chunk ['drdp9xk8', 'drtrsru2', 'drsxu82k']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:15,657 - INFO - Chunk ['cb5p1mzy', 'cb78twx6', 'cbk1wwwp']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:15,986 - INFO - Chunk ['dpbc31ep', 'dpb3mw0h', 'dpc40u3f']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:17,251 - INFO - Chunk ['f05gvtf8', 'f05u7g8w', 'f05t31rb']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:17,551 - INFO - Chunk ['f06dsumh', 'f06e109k', 'f067jcdm']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:17,585 - INFO - Chunk ['9v3bru1t', '9v383k65', '9v38y0kh']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:17,915 - INFO - Chunk ['9ttf8ecg', '9tt6c36j', '9ttg1hcm']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:19,107 - INFO - Chunk ['9v8wtzz9', '9v8x5301', '9v8zt4bh']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:19,413 - INFO - Chunk ['9tgkzwr8', '9tgmp6fj', '9tgmhvf8']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:19,421 - INFO - Chunk ['9vbjj16m', '9vbm56d2', '9vbjnu0p']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:19,845 - INFO - Chunk ['9y0sxsut', '9y0ssvw8', '9y0szg0u']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:21,079 - INFO - Chunk ['9wprs07v', '9wnzsg0y', '9wpry5ck']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:21,315 - INFO - Chunk ['9wk0bxc2', '9wk941s6', '9wk90g1h']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:21,329 - INFO - Chunk ['9weex5hq', '9we7th25', '9we7szsu']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:21,719 - INFO - Chunk ['9wx5b5jk', '9wxh0rqj', '9wxkymvv']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:23,079 - INFO - Chunk ['9tbcsp1q', '9tc6qk6k', '9tbfqqd0']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:23,354 - INFO - Chunk ['9w1uzk8z', '9w4jtfe5', '9w4mbqb3']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:23,388 - INFO - Chunk ['9qne7un3', '9qp7wpjm', '9qp78pvr']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:23,769 - INFO - Chunk ['9qm5sdh8', '9qmhh9x1', '9qks47dn']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:24,844 - INFO - Chunk ['9q7t5ytx', '9q7mk6hv', '9q7t86gy']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:25,285 - INFO - Chunk ['9w6j9p14', '9w6jf3py', '9w6wjhz1']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:25,286 - INFO - Chunk ['9qee188b', '9qeeq79k', '9qs77x9k']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:25,633 - INFO - Chunk ['9qwzjdrq', '9qxprm2f', '9qwzkrh3']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:27,083 - INFO - Chunk ['9qg8c257', '9qu1nmu3', '9qu37nm7']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:27,410 - INFO - Chunk ['9x145w2g', '9x14hwwh', '9x0fsdv0']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:27,455 - INFO - Chunk ['9qvhp23m', '9qvh7dkp', '9quugn14']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:27,923 - INFO - Chunk ['9r1f7xs2', '9r548krs', '9r54cdxw']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:28,989 - INFO - Chunk ['9rk8m15s', '9rm88dcd', '9rkbdqv1']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:29,308 - INFO - Chunk ['9x2e0jh7', '9x2ezgun', '9x2k5ev6']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:29,310 - INFO - Chunk ['9r618wku', '9r64kub7', '9r6ddw9k']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:29,690 - INFO - Chunk ['9rwfjmzv', '9rx6qgqc', '9rx6duqf']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:30,874 - INFO - Chunk ['9r8c6ckf', '9r89dnzy', '9r83vjyb']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:31,231 - INFO - Chunk ['9rg0f263', '9rf2ybcf', '9rcbfjwt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:31,237 - INFO - Chunk ['9xb3r526', '9xb33kf0', '9xb3djw1']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:31,641 - INFO - Chunk ['9rygc9xs', '9rzknd2v', '9rzsey26']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:32,913 - INFO - Chunk ['9wuvgke3', '9wumfruc', '9wun48g7']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:33,191 - INFO - Chunk ['9xnd5tpw', '9xn63tfc', '9xnd7wfb']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:33,200 - INFO - Chunk ['9x6bcqn8', '9x68gryv', '9x6944bh']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:33,534 - INFO - Chunk ['9xqsktrn', '9xmut71h', '9xqhc8bs']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:34,961 - INFO - Chunk ['9xsdj2u8', '9xsdp2uj', '9xsd5g8x']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:35,326 - INFO - Chunk ['9xxjhm60', '9xxjwj6m', '9xwvdxr7']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:35,379 - INFO - Chunk ['9xv1bjzb', '9xvdhb3w', '9xvd7kw6']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:35,761 - INFO - Chunk ['cb49rwmw', 'cb49918k', 'cb41ygc4']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:37,072 - INFO - Chunk ['c8hfr4jg', 'c8jdcucc', 'c8j7hmg5']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:37,443 - INFO - Chunk ['9rgptvpf', '9rfzvhm2', 'c24b02yf']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:37,503 - INFO - Chunk ['c84e49kx', 'c84e241s', 'c84g92gn']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:37,730 - INFO - Chunk ['c2p5fvez', 'c2pk40zc', 'c2nus9nc']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:38,872 - INFO - Chunk ['c25zuq9h', 'c2k078zu', 'c278qyun']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:39,246 - INFO - Chunk ['c83v2pnf', 'c83wqsg7', 'c83wqz4b']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:39,254 - INFO - Chunk ['c2s83c0x', 'c2s8613c', 'c2t2e1ms']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:39,689 - INFO - Chunk ['c23pju6g', 'c22xk0cb', 'c22x6t3b']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:40,852 - INFO - Chunk ['c85h2034', 'c85u2jqt', 'c85scf3c']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:41,211 - INFO - Chunk ['cb3gbd6h', 'cb3ev5dz', 'cb3s90mx']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:41,217 - INFO - Chunk ['c8r6x2sv', 'c8qun30f', 'c8rhpd2t']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:41,628 - INFO - Chunk ['c87v9dtr', 'c8knpfpx', 'c87ytce8']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:56:41,734 - INFO - Function `run_parallel_matching` executed in 48.7223 sec, CPU: 20.00%, Memory: 356.89MB
+2025-02-27 19:58:37,344 - INFO - Function `generate_random_polygons` executed in 7.9774 sec, CPU: 3.90%, Memory: 36.80MB
+2025-02-27 19:58:45,442 - INFO - Function `generate_random_polygons` executed in 8.0962 sec, CPU: 32.70%, Memory: 79.92MB
+2025-02-27 19:58:45,609 - INFO - Function `convert_col_to_string` executed in 0.0539 sec, CPU: 20.00%, Memory: 98.45MB
+2025-02-27 19:58:45,667 - INFO - Function `convert_col_to_string` executed in 0.0555 sec, CPU: 51.20%, Memory: 0.00MB
+2025-02-27 19:58:45,686 - INFO - Function `df_itertuple` executed in 0.0044 sec, CPU: 1.90%, Memory: 0.00MB
+2025-02-27 19:58:45,806 - INFO - Function `df_itertuple` executed in 0.1170 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 19:58:45,876 - INFO - Function `create_pg_db` executed in 0.0618 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 19:58:46,319 - INFO - Function `create_pg_table` executed in 0.4193 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 19:58:46,723 - INFO - Function `create_pg_table` executed in 0.3750 sec, CPU: 52.00%, Memory: 97.45MB
+2025-02-27 19:58:47,462 - INFO - Function `retrieve_pg_table` executed in 0.7132 sec, CPU: 17.60%, Memory: 145.70MB
+2025-02-27 19:58:47,519 - INFO - Function `retrieve_pg_table` executed in 0.0569 sec, CPU: 28.90%, Memory: 0.00MB
+2025-02-27 19:58:49,984 - INFO - Chunk ['djmx4ckt', 'djmxk28w', 'djmrqvr8']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:49,991 - INFO - Chunk ['dhy95fpy', 'dhy1pe4r', 'dhy96pg1']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:49,998 - INFO - Chunk ['dhw8fqme', 'dhwkt1y9', 'dhwt56kc']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:50,008 - INFO - Chunk ['dj7nve6y', 'dj6zpnw4', 'dj7p2bfq']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:51,573 - INFO - Chunk ['djg23snf', 'djg0fxss', 'djg9wk8p']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:51,579 - INFO - Chunk ['dn5c56ff', 'dnh973x6', 'dnh9rswb']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:51,582 - INFO - Chunk ['dnr0tpzk', 'dnq8dzzt', 'dnqbu2my']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:51,589 - INFO - Chunk ['dn0tyv8v', 'dn0vcxkz', 'dn1w37ff']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:53,176 - INFO - Chunk ['dn8b4ekf', 'dn985khw', 'dn90k14k']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:53,178 - INFO - Chunk ['dn74x38t', 'dn76d5ek', 'dn7dcn8x']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:53,184 - INFO - Chunk ['9uf6k921', '9uf667zy', '9uf71s0u']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:53,476 - INFO - Chunk ['9v48bmy2', '9v435dzq', '9v436v66']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:54,899 - INFO - Chunk ['9vtwb0gb', '9vtnumjg', '9vtr4x1m']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:54,902 - INFO - Chunk ['9vr8mrh4', '9vr8xfvf', 'dj2397q9']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:54,903 - INFO - Chunk ['9ve7m9pe', '9ve5qxyy', '9veke62c']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:55,310 - INFO - Chunk ['9vdxj32j', '9vdzhfkn', '9vdx0jpb']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:56,561 - INFO - Chunk ['9vyxsm2y', '9vyptz1g', '9vyrve51']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:56,565 - INFO - Chunk ['9yh0y0tv', '9yh1wcp7', '9yh3xhu6']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:56,565 - INFO - Chunk ['djc1u2y2', 'djc9f75e', 'djc42t2b']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:57,000 - INFO - Chunk ['9vcrk56f', '9vbx7h10', '9vcpc631']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:58,448 - INFO - Chunk ['dnx6r8nh', 'dnx4239f', 'dnx6m575']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:58,449 - INFO - Chunk ['dntmdp37', 'dntt8ztg', 'dntvyzbr']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:58,462 - INFO - Chunk ['dny6uuy7', 'dny5jwgy', 'dnyg7ub7']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:58:58,889 - INFO - Chunk ['dnvjee6m', 'dnvt9huq', 'dnvj8mcv']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:00,552 - INFO - Chunk ['dr48bdzv', 'dr43j4dn', 'dr43nvv8']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:00,558 - INFO - Chunk ['dp1kqtnr', 'dp1he4wt', 'dp0utfwy']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:00,593 - INFO - Chunk ['dpnwzzfu', 'dppx0b96', 'dppp4mgy']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:01,019 - INFO - Chunk ['dpjmwr80', 'dpjwh4xy', 'dpjwjxnw']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:02,492 - INFO - Chunk ['dr7hjer5', 'drkknx11', 'drkk5rz9']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:02,492 - INFO - Chunk ['dp6tey2f', 'dp3ty3ts', 'dp6q19y6']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:02,504 - INFO - Chunk ['9y6q1dqs', '9y6qjpz8', '9y6nr1dt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:02,896 - INFO - Chunk ['9yw06066', '9yw891rb', '9ytbex22']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:04,319 - INFO - Chunk ['dnbskzdg', 'dnbk6pcg', 'dnbmu3hk']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:04,350 - INFO - Chunk ['9yudz9gm', '9yu4fxzv', '9yug0323']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:04,356 - INFO - Chunk ['9yvdb29j', '9yvkpyjs', '9yvs9kem']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:04,761 - INFO - Chunk ['9z4yzf1d', '9z4qb4v2', '9z4qbnsn']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:06,644 - INFO - Chunk ['dp87dwr1', '9zxevft7', '9zxu0zfy']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:06,645 - INFO - Chunk ['9zr2v622', '9zr2cwny', '9zr1sbp1']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:06,656 - INFO - Chunk ['9zs95qx3', '9zs36gjb', '9zs3shr1']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:07,056 - INFO - Chunk ['9zzbjtu4', 'dpb0mnu9', 'dpb8fw8e']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:08,451 - INFO - Chunk ['drfc6ey6', 'dru3khk9', 'dru3qwxt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:08,469 - INFO - Chunk ['drt0u8de', 'dre2ugfj', 'drs2gjj9']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:08,470 - INFO - Chunk ['dpstkvsk', 'dpsqnnxc', 'dpsz09tb']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:08,852 - INFO - Chunk ['f04tzqvg', 'f04z2pk2', 'f2p0s23c']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:10,076 - INFO - Chunk ['f065mkj1', 'f065vhk3', 'f034xnp6']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:10,301 - INFO - Chunk ['cb5efz64', 'cb55uxdj', 'cb5h1qbh']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:10,317 - INFO - Chunk ['cbjjmvbw', 'cbjtqxxy', 'f00j3bu1']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:10,732 - INFO - Chunk ['cb0yxnu5', 'cb0ygbq8', 'cb17zzp4']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:12,162 - INFO - Chunk ['cbecqdtv', 'cbscb104', 'cbs6pyun']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:12,174 - INFO - Chunk ['cbqws2u0', 'cbqqsuq0', 'cbrvbux4']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:12,185 - INFO - Chunk ['9vdgd4nv', '9vdeemn9', '9vdkp0c0']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:12,822 - INFO - Chunk ['9tt3r735', '9tt6kdtz', '9tt7xx42']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:13,814 - INFO - Chunk ['9whwq16u', '9whq7qdz', '9whq9ev7']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:13,815 - INFO - Chunk ['9tyj714e', '9tyq1bzj', '9tyq5wp3']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:13,821 - INFO - Chunk ['9tutm72y', '9tgvuebe', '9tgvujex']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:14,667 - INFO - Chunk ['9wprz7r8', '9wr8kp0b', '9wr2xf54']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:15,441 - INFO - Chunk ['9yck1g9r', '9yck2nxf', '9ybykg2p']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:15,441 - INFO - Chunk ['9wwgkbv0', '9wx72k1n', '9wx5ksew']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:15,443 - INFO - Chunk ['9w7pvfnf', '9we8312q', '9wd8qwt0']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:16,319 - INFO - Chunk ['9wz4854z', '9wz6vr3m', '9wz7kv1r']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:17,374 - INFO - Chunk ['9w38dv2f', '9w30zh74', '9w2ch0rt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:17,375 - INFO - Chunk ['9qhdw27h', '9qj6tqu7', '9qj5hr8r']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:17,375 - INFO - Chunk ['9tf5eyqn', '9tcgtpwu', '9tf5v835']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:18,166 - INFO - Chunk ['9q7e8dws', '9q7gsscx', '9q7gbb1w']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:19,233 - INFO - Chunk ['9qtv68n9', '9qtv7cdd', '9qwmx1v4']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:19,243 - INFO - Chunk ['9wd42yy5', '9wddgf3p', '9wdh180s']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:19,251 - INFO - Chunk ['9qe0h4dj', '9qe0pvmt', '9qd82rpt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:19,941 - INFO - Chunk ['9qc8rw06', '9qc2ez77', '9qc16fj0']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:20,960 - INFO - Chunk ['9wgfu15d', '9wudcdrn', '9wu6urv3']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:20,965 - INFO - Chunk ['9qyxb231', '9rn25ess', '9rn26fx5']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:20,967 - INFO - Chunk ['9wcp50w3', '9wcrhh5v', '9wcpr38f']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:21,889 - INFO - Chunk ['9xpxm63v', '9z0rx8km', '9z201w5z']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:22,803 - INFO - Chunk ['9z2pe6j7', '9xrze4zy', '9z8072fu']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:22,821 - INFO - Chunk ['9xhw3u30', '9xhnbn82', '9x5z3f3q']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:22,823 - INFO - Chunk ['9z69up0h', '9z61yphy', '9z6cfryr']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:23,846 - INFO - Chunk ['9xt32cn9', '9xt9b7u6', '9xtdf5dx']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:24,518 - INFO - Chunk ['9zbch1tz', '9zbcwnw8', '9zbfqb6j']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:24,520 - INFO - Chunk ['9xv3bnku', '9xvdfrvy', '9xvecu2p']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:24,523 - INFO - Chunk ['9xfuwy0d', '9xfucxbf', '9xgtmgnb']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:25,676 - INFO - Chunk ['9xchezx9', '9xchfw6p', '9xbtjfss']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:26,201 - INFO - Chunk ['9rpygw0n', '9rpzht2m', '9x0pejdh']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:26,205 - INFO - Chunk ['9r72ck2u', '9r714221', '9r634vbt']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:26,207 - INFO - Chunk ['9r54qtdc', '9r443yq9', '9r54cq3w']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:27,555 - INFO - Chunk ['9rmb6kth', '9rq1wgte', '9rq3dqvj']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:27,932 - INFO - Chunk ['9rw5d0hc', '9rw7f2r3', '9rwhh61s']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:27,945 - INFO - Chunk ['9rxggp12', '9rxu506v', '9x8h0176']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:27,955 - INFO - Chunk ['9r6x5f65', '9r6z4y5k', '9r6pkkus']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:29,389 - INFO - Chunk ['9r9p3mju', '9r8pqt8t', '9r9xwcn9']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:29,631 - INFO - Chunk ['9rzx82yv', 'c2p063fz', 'c2p87syk']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:29,664 - INFO - Chunk ['9rgzjgws', '9rgx2nvz', '9rgxt8tu']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:29,674 - INFO - Chunk ['c85nnvvv', 'c84ynps5', 'c85qqwyr']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:31,226 - INFO - Chunk ['c8rdkk72', 'c8r46yjm', 'c8qfs459']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:31,227 - INFO - Chunk ['c86yhr6g', 'c87n0x9c', 'c86zqcnw']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:31,233 - INFO - Chunk ['cb6g9qx9', 'cb6sr23g', 'cb6uffuq']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:31,499 - INFO - Chunk ['c80466sw', 'c804rrre', 'c8067z25']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:33,043 - INFO - Chunk ['c861n2r1', 'c861fefs', 'c864pbkk']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:33,062 - INFO - Chunk ['c2n7r1nq', 'c2n52eqt', 'c2nhrb87']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:33,080 - INFO - Chunk ['c254x1qb', 'c254cx1h', 'c21gpm7d']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:33,418 - INFO - Chunk ['c27e7h4s', 'c2k7s03k', 'c264fprp']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:34,551 - INFO - Chunk ['c2kv6egk', 'c2ktqhh0', 'c2q7dyk7']...: 10000 prev, 10000 curr polygons
+2025-02-27 19:59:34,637 - INFO - Function `run_parallel_matching` executed in 46.7546 sec, CPU: 28.90%, Memory: 522.38MB
+2025-02-27 19:59:56,840 - INFO - Function `generate_random_polygons` executed in 7.8155 sec, CPU: 3.60%, Memory: 14.56MB
+2025-02-27 20:00:04,885 - INFO - Function `generate_random_polygons` executed in 8.0438 sec, CPU: 33.30%, Memory: 157.08MB
+2025-02-27 20:00:05,019 - INFO - Function `convert_col_to_string` executed in 0.0496 sec, CPU: 29.40%, Memory: 0.00MB
+2025-02-27 20:00:05,070 - INFO - Function `convert_col_to_string` executed in 0.0487 sec, CPU: 2.50%, Memory: 0.00MB
+2025-02-27 20:00:05,079 - INFO - Function `df_itertuple` executed in 0.0034 sec, CPU: 75.00%, Memory: 0.00MB
+2025-02-27 20:00:05,083 - INFO - Function `df_itertuple` executed in 0.0029 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:00:05,118 - INFO - Function `create_pg_db` executed in 0.0310 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:00:05,532 - INFO - Function `create_pg_table` executed in 0.3944 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:00:05,929 - INFO - Function `create_pg_table` executed in 0.3656 sec, CPU: 37.50%, Memory: 18.89MB
+2025-02-27 20:00:05,999 - INFO - Function `retrieve_pg_table` executed in 0.0464 sec, CPU: 11.70%, Memory: 2.61MB
+2025-02-27 20:00:06,044 - INFO - Function `retrieve_pg_table` executed in 0.0445 sec, CPU: 45.90%, Memory: 0.00MB
+2025-02-27 20:00:08,425 - INFO - Chunk ['dj251kbs', 'dj271n8p', 'dj2k5x5m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:08,429 - INFO - Chunk ['dhw94r3p', 'dhw9ep2r', 'dhwmzhys']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:08,435 - INFO - Chunk ['dj7x3mmh', 'djd8pd5j', 'dje0zdhk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:08,442 - INFO - Chunk ['dhy80jx0', 'dhy2z889', 'dhy3eeyg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:10,301 - INFO - Chunk ['dn5jp6ec', 'djfc6wzh', 'djf9vcfq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:10,313 - INFO - Chunk ['djb85cf3', 'djc0328b', 'djb9d65b']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:10,315 - INFO - Chunk ['dnjs2xzr', 'dn5cbfzv', 'dnh4hv63']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:10,658 - INFO - Chunk ['dnmwsem7', 'dnnreg12', 'dnpxeeb2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:11,921 - INFO - Chunk ['dnw1425r', 'dn7gbgzq', 'dn7uyf6h']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:11,923 - INFO - Chunk ['9yz8f35t', '9uf0pe6e', '9ucbsgqe']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:11,924 - INFO - Chunk ['dnsturb6', 'dn2jhfrc', '9yrt3xvc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:12,310 - INFO - Chunk ['9v2vtf1v', '9v55kfxb', '9v5kcvgs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:13,743 - INFO - Chunk ['9vdfwvuj', 'dj20vrem', '9vr9j2mt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:13,757 - INFO - Chunk ['9vb15wew', '9ve3j4tx', '9ve34zb2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:13,783 - INFO - Chunk ['9vtu4f8v', '9v3egpuq', '9v3s6ke7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:14,291 - INFO - Chunk ['9vt3ehy5', '9vt1ent4', '9vscvp5j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:15,609 - INFO - Chunk ['9vuhnjng', '9vuhs7d8', '9vuketwq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:15,625 - INFO - Chunk ['dn1gp4yg', 'dn1e7e53', 'dn4e2nd8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:15,650 - INFO - Chunk ['9vymhr3q', '9vymxbkn', '9vvtet5j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:16,069 - INFO - Chunk ['9yjqr8py', '9yjw6jgx', '9yjqxfk4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:17,336 - INFO - Chunk ['dnw11u2m', 'dnx36pks', 'dnx9db1n']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:17,351 - INFO - Chunk ['dn8z2ny0', 'dn8xdj9t', 'dn8zg433']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:17,363 - INFO - Chunk ['dntv6bep', 'dnsv7jrt', 'dntvtr5f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:17,778 - INFO - Chunk ['dnzb3cjr', 'dqc2377m', 'dqc8y3h6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:19,400 - INFO - Chunk ['dr09pr7z', 'dr017pty', 'dr03f2nv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:19,409 - INFO - Chunk ['dr3bk9vz', 'dr22qsxg', 'dr20qttx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:19,411 - INFO - Chunk ['dnuxdy9f', 'dngxundy', 'dp58hux2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:19,819 - INFO - Chunk ['dphpb750', 'dphpvgxx', 'dp78736u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:21,100 - INFO - Chunk ['dp6mcdpf', 'dp6qq057', 'dp6qkj3y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:21,102 - INFO - Chunk ['dr6m382c', 'drkt3w14', 'dr7vtfcq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:21,108 - INFO - Chunk ['9yq6b4h6', '9yq52v4d', '9yq5wr9m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:21,488 - INFO - Chunk ['9ydrdf82', '9ydxdmnf', '9ydrxn52']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:22,805 - INFO - Chunk ['9z5fej9k', '9z5gp7h2', '9zh798h5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:22,807 - INFO - Chunk ['dp1um22c', 'dp1sq1ks', 'dp4kxvhg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:22,818 - INFO - Chunk ['9ywydc6w', '9ywzpw34', '9ywx3cjm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:23,187 - INFO - Chunk ['9zjueedr', '9zjsuhbj', '9zjsgsgt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:24,709 - INFO - Chunk ['dpb8drhq', 'dpbbggc5', 'dpc1rfn0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:24,718 - INFO - Chunk ['9zm5g03s', '9zmkj0kk', '9zmk40f0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:24,731 - INFO - Chunk ['9zx3uk8j', '9zwdn38u', '9zwdd01z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:25,274 - INFO - Chunk ['9zf9e27n', '9zf9ec1f', '9zfdr593']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:26,601 - INFO - Chunk ['drs6dfhj', 'dre6gqpj', 'dredyywn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:26,641 - INFO - Chunk ['dru406su', 'drffp6cw', 'drg4pm7w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:26,646 - INFO - Chunk ['dpg0gfze', 'dpfcmuz0', 'dpf9scrf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:27,052 - INFO - Chunk ['f06bjqyn', 'f070dugb', 'f2n8vghk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:28,611 - INFO - Chunk ['f061ujzp', 'f03gg8nk', 'f02fguky']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:28,661 - INFO - Chunk ['cbkydtty', 'cbkyzs82', 'cbqh2zt1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:28,679 - INFO - Chunk ['cbnv1n5y', 'cbnv395c', 'cbj5ujtq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:29,039 - INFO - Chunk ['cbsd31yf', 'cbs4sjwe', 'cb7r2s34']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:30,687 - INFO - Chunk ['9ty8u4vx', '9ty0z7vd', '9ty33bz1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:30,700 - INFO - Chunk ['cbdcdy5v', 'cbd9zw59', 'cb83dm6u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:30,737 - INFO - Chunk ['9v2pcvd6', '9tx8j2gj', '9v82xuex']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:31,155 - INFO - Chunk ['9tuhtryu', '9tumntnj', '9tumnmb7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:32,460 - INFO - Chunk ['9wpxt3j9', '9wrb1r76', '9wrb697c']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:32,462 - INFO - Chunk ['9w5vtfj1', '9w5jee8w', '9w5txhku']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:32,466 - INFO - Chunk ['9vfxp0e0', '9vfrfxp3', '9y421t7r']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:32,826 - INFO - Chunk ['9y3fy9eq', '9y37qbn0', '9y3gkks9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:34,421 - INFO - Chunk ['9wxkdncz', '9wwuupxv', '9wxmqtvu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:34,422 - INFO - Chunk ['9y9j7411', '9y8vkezd', '9y8veyg2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:34,443 - INFO - Chunk ['9w6szsn9', '9w6vhjt1', '9w6m5n4p']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:34,851 - INFO - Chunk ['9tb48ure', '9mzg0eby', '9tb722nt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:36,372 - INFO - Chunk ['9qkg24sm', '9qkeqq69', '9qkkp5r1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:36,381 - INFO - Chunk ['9w17zu3h', '9w0unwyu', '9w1s1x1s']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:36,397 - INFO - Chunk ['9qn660eh', '9qn66c1u', '9qn62ymc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:36,692 - INFO - Chunk ['9q6nwecg', '9q3ywuwg', '9q6qgs8z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:38,149 - INFO - Chunk ['9wc8tnyy', '9wc8cprs', '9wc11rgq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:38,150 - INFO - Chunk ['9w2kxm95', '9w2m3unt', '9w2jqmpv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:38,154 - INFO - Chunk ['9qt4uucz', '9qseh7mc', '9qt75r63']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:38,544 - INFO - Chunk ['9qu1xeq4', '9qu1s58e', '9qgfnd0w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:00:50,735 - INFO - Function `generate_random_polygons` executed in 8.4663 sec, CPU: 33.70%, Memory: 185.31MB
+2025-02-27 20:00:58,981 - INFO - Function `generate_random_polygons` executed in 8.2448 sec, CPU: 34.10%, Memory: 92.53MB
+2025-02-27 20:00:59,113 - INFO - Function `convert_col_to_string` executed in 0.0519 sec, CPU: 6.90%, Memory: 2.89MB
+2025-02-27 20:00:59,163 - INFO - Function `convert_col_to_string` executed in 0.0491 sec, CPU: 29.30%, Memory: 0.00MB
+2025-02-27 20:00:59,230 - INFO - Function `df_itertuple` executed in 0.0511 sec, CPU: 27.50%, Memory: 0.00MB
+2025-02-27 20:00:59,234 - INFO - Function `df_itertuple` executed in 0.0022 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:00:59,279 - INFO - Function `create_pg_db` executed in 0.0420 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:00:59,712 - INFO - Function `create_pg_table` executed in 0.4089 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:01:00,132 - INFO - Function `create_pg_table` executed in 0.3898 sec, CPU: 37.60%, Memory: 7.05MB
+2025-02-27 20:01:00,205 - INFO - Function `retrieve_pg_table` executed in 0.0483 sec, CPU: 37.90%, Memory: 9.02MB
+2025-02-27 20:01:00,250 - INFO - Function `retrieve_pg_table` executed in 0.0433 sec, CPU: 0.00%, Memory: 4.92MB
+2025-02-27 20:01:02,668 - INFO - Chunk ['9v4fqjvx', '9v4fxfs0', '9v4fy0zx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:02,691 - INFO - Chunk ['9vwem13j', '9vtg3qfm', '9vw77qyy']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:02,695 - INFO - Chunk ['9vrb85zx', '9vrbgtdk', 'dj21hj48']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:02,695 - INFO - Chunk ['9uf1dfes', '9ucghs1j', '9uf5jzpk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:04,171 - INFO - Chunk ['djb2y9jn', '9vz9q38s', 'djb1dyz7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:04,183 - INFO - Chunk ['9vss25t6', '9vsh819w', '9vshtpu1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:04,432 - INFO - Chunk ['9vux3zwv', '9vury3zv', '9vgzysm3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:04,433 - INFO - Chunk ['9vzh7y9u', '9vzjsbph', '9vzqh3ru']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:05,627 - INFO - Chunk ['9y42fb33', '9y4ck3d2', '9y41xxf4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:05,990 - INFO - Chunk ['9yq8hdr4', '9yq01vtp', '9yq07wjw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:05,997 - INFO - Chunk ['dhw9dx4j', 'dhws5x18', 'dhwkrm97']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:06,006 - INFO - Chunk ['dj7sdt8y', 'dj7kfwhd', 'dj7mp23y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:07,241 - INFO - Chunk ['dhyppvhd', 'dhypzcss', 'djn23u2u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:07,674 - INFO - Chunk ['djs043ds', 'djs0w5fn', 'djs09znf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:07,679 - INFO - Chunk ['dnh1bscu', 'dnh6pxkr', 'dnh6s5dq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:07,700 - INFO - Chunk ['djfc20kw', 'djg1kkmh', 'djfctc38']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:08,900 - INFO - Chunk ['dn19djmg', 'dn0ftcuu', 'dn16wt9y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:09,324 - INFO - Chunk ['dq237un1', 'dq23qjf3', 'dq23sgyp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:09,343 - INFO - Chunk ['dnkdsvj1', 'dnk68tx5', 'dnk7hmhc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:09,359 - INFO - Chunk ['dn3vfduf', 'dn3y1jnw', 'dn6qxx7y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:10,630 - INFO - Chunk ['9y7kqn66', '9y7k8m8m', '9y7hc2ej']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:11,077 - INFO - Chunk ['9yw1gmdx', '9yw46h70', '9ywkyemt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:11,081 - INFO - Chunk ['9yvtwgc0', '9yymg60y', '9yytbg77']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:11,082 - INFO - Chunk ['9yewvftb', '9yexhz08', '9yer9sq0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:12,277 - INFO - Chunk ['9zh15tkm', '9zh1nrjm', '9zh3twjq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:12,765 - INFO - Chunk ['dp0g8ej3', 'dp1e9vz8', 'dp0gxpvs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:12,799 - INFO - Chunk ['9z1p77un', '9z282h1w', '9z2brxwc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:13,130 - INFO - Chunk ['dp677cgq', 'dp6s53t2', 'dp3u1hjm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:14,107 - INFO - Chunk ['9zmv33bm', '9zqmtrw1', '9zqw4tmj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:14,555 - INFO - Chunk ['dq93gnse', 'dq8615s5', 'dq8d0nc2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:14,574 - INFO - Chunk ['9zk5fmtd', '9zkk0fhc', '9zkj4nb8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:15,095 - INFO - Chunk ['dntf5zgn', 'dntfd0r5', 'dnt6fgbp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:16,067 - INFO - Chunk ['dnycfbcv', 'dny3gs48', 'dnzf0w94']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:16,421 - INFO - Chunk ['dnu5f84w', 'dnguerb1', 'dngu8pc7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:16,421 - INFO - Chunk ['dnc29gj6', 'dnc0w521', 'dnbdj0g9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:17,169 - INFO - Chunk ['dr09yy55', 'dr14pfq1', 'dr1d3usq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:17,846 - INFO - Chunk ['dp55dpuj', 'dp5h4scd', 'dp5sjhcg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:18,273 - INFO - Chunk ['dr3beqj2', 'dr60dyw1', 'dr38wx5p']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:01:18,286 - INFO - Chunk ['dprtnfvs', 'dprjhh3u', 'dpqmq396']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:43,053 - INFO - Function `generate_random_polygons` executed in 7.9563 sec, CPU: 3.10%, Memory: 450.00MB
+2025-02-27 20:03:51,511 - INFO - Function `generate_random_polygons` executed in 8.4566 sec, CPU: 42.70%, Memory: 39.08MB
+2025-02-27 20:03:51,835 - INFO - Function `convert_col_to_string` executed in 0.0550 sec, CPU: 52.50%, Memory: 0.22MB
+2025-02-27 20:03:51,890 - INFO - Function `convert_col_to_string` executed in 0.0524 sec, CPU: 19.00%, Memory: 0.55MB
+2025-02-27 20:03:51,901 - INFO - Function `df_itertuple` executed in 0.0045 sec, CPU: 16.70%, Memory: 0.00MB
+2025-02-27 20:03:51,907 - INFO - Function `df_itertuple` executed in 0.0032 sec, CPU: 50.00%, Memory: 0.00MB
+2025-02-27 20:03:51,948 - INFO - Function `create_pg_db` executed in 0.0374 sec, CPU: 33.30%, Memory: 0.00MB
+2025-02-27 20:03:52,455 - INFO - Function `create_pg_table` executed in 0.4821 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:03:52,932 - INFO - Function `create_pg_table` executed in 0.4484 sec, CPU: 41.60%, Memory: 127.80MB
+2025-02-27 20:03:53,007 - INFO - Function `retrieve_pg_table` executed in 0.0505 sec, CPU: 8.80%, Memory: 5.78MB
+2025-02-27 20:03:53,097 - INFO - Function `retrieve_pg_table` executed in 0.0894 sec, CPU: 71.40%, Memory: 8.02MB
+2025-02-27 20:03:55,579 - INFO - Chunk ['dhy11yvf', 'dhy9mszs', 'dhyd5w9f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:55,595 - INFO - Chunk ['djs2t5b2', 'djs3d23t', 'djs1uvzf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:55,596 - INFO - Chunk ['dhwed70w', 'dhws04wf', 'dhwsjned']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:55,601 - INFO - Chunk ['9vr8kfwh', '9vr2tf26', 'dj21qdwg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:57,223 - INFO - Chunk ['dnhgxbbd', 'dnjecugu', 'dnjgvjus']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:57,224 - INFO - Chunk ['dnr276q8', 'dnq22d9g', 'dnq8qgq8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:57,231 - INFO - Chunk ['djv03hec', 'djvb9r0q', 'djv0yctg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:57,235 - INFO - Chunk ['dj9t63jr', 'djdj6gy9', 'dj9tsczd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:58,995 - INFO - Chunk ['dnkjw9gq', 'dn7yk2hq', 'dn7wruyg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:59,000 - INFO - Chunk ['dnqw78cx', 'dnqw817y', 'dnqq9mxc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:59,011 - INFO - Chunk ['9uf4y98v', '9ucg44w1', '9ucu7770']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:03:59,024 - INFO - Chunk ['9v4fzn5e', '9v4dyw9j', '9v4gh1h6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:00,631 - INFO - Chunk ['9ve9tkun', '9ve18q6b', '9ve38wfd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:00,632 - INFO - Chunk ['9vu5g4yu', '9vggzex7', '9vuk4jtt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:00,637 - INFO - Chunk ['9vwqejwe', '9vwph2t0', '9vwr6n7m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:00,644 - INFO - Chunk ['9vr1p2qc', '9vr314k5', '9vr4rdfu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:02,188 - INFO - Chunk ['9vvvzqmr', '9vvwj6jg', '9vvy1rqv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:02,195 - INFO - Chunk ['dn1djfdn', 'dn16px6f', 'dn1fd20y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:02,449 - INFO - Chunk ['9y5mq31n', '9y5j7505', '9y5myz5d']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:02,456 - INFO - Chunk ['9ypr8jgp', '9yq81huy', '9yq86953']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:04,164 - INFO - Chunk ['9ywsvqh4', '9ywt189n', '9yxq34be']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:04,173 - INFO - Chunk ['dn2t89e2', 'dn2mzmep', 'dn2yjs8t']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:04,450 - INFO - Chunk ['9yyp55xy', '9yyr4xeh', '9yyr2u72']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:04,450 - INFO - Chunk ['9yek71pg', '9yessz0w', '9yehy64k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:05,999 - INFO - Chunk ['9zh5h2r1', '9zh77pv2', '9zhee3ks']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:05,999 - INFO - Chunk ['dp04t0mv', '9zpfgeur', 'dp0710xp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:06,275 - INFO - Chunk ['9zq3xxf6', '9zmfkjhb', '9zq6zfuf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:06,276 - INFO - Chunk ['9z7suwz6', '9z7jj0wh', '9z7m4ymm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:07,625 - INFO - Chunk ['9z6n05cw', '9z6ng0r5', '9z3wf76u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:07,632 - INFO - Chunk ['9zxq55pv', '9zxrekve', '9zwx8xcv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:07,968 - INFO - Chunk ['dnszkv3r', 'dnsxtyyg', 'dnszvkp8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:07,973 - INFO - Chunk ['dq9xqre5', 'dq8rd4yn', 'dq9rwsb2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:09,155 - INFO - Chunk ['dnyxumcz', 'dpp2p092', 'dpnbjfqn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:09,168 - INFO - Chunk ['dnc090w6', 'dnbb9y5j', 'dnc2c916']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:09,585 - INFO - Chunk ['dpptt372', 'dpnmt6zh', 'dpnmzxwm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:09,592 - INFO - Chunk ['dnvxnbrs', 'dnvr5db5', 'dnvzm92u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:11,084 - INFO - Chunk ['dpmf5mhs', 'dpm61j6x', 'dpkejst8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:11,088 - INFO - Chunk ['dpq79bvz', 'dpqefyr9', 'dpqk2sqv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:11,555 - INFO - Chunk ['dr83chm0', 'dr9fkumt', 'dr94s56r']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:11,557 - INFO - Chunk ['9zrzkr1h', '9zrxfudx', 'dp800hz7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:12,842 - INFO - Chunk ['dpf2hfrr', 'dpg0r4q6', 'dpfbrg5e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:12,846 - INFO - Chunk ['drgc40zv', 'dru1hu80', 'drg1pk88']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:13,235 - INFO - Chunk ['f04vtddx', 'f05jtzug', 'f04mfc75']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:13,240 - INFO - Chunk ['dpfhjn1c', 'dpfh2gjt', 'dpfjjze9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:14,551 - INFO - Chunk ['cb5m5z4e', 'cb5tb02h', 'cbhhmjbk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:14,552 - INFO - Chunk ['cbruugsm', 'cbrsyv96', 'f02gzxzx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:15,216 - INFO - Chunk ['cb4pgcrd', 'cb381cgb', 'cb3b1nuh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:15,228 - INFO - Chunk ['cbmkfktv', 'cbmt1fn4', 'cbqvhxbw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:16,397 - INFO - Chunk ['cbrw402f', 'f03jgws6', 'f02wp5gk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:16,406 - INFO - Chunk ['9v81eqzp', '9txcv235', '9v866sn9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:17,017 - INFO - Chunk ['9tg6fzsq', '9tg721s5', '9tg566h7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:17,018 - INFO - Chunk ['9v91dkfg', '9v8czbvv', '9v89gvdy']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:18,133 - INFO - Chunk ['9vctfrzv', '9vfn5d30', '9vcy1h67']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:18,134 - INFO - Chunk ['9tzuf45y', '9tzv7vqc', '9tzv92kq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:18,600 - INFO - Chunk ['9wnrs02j', '9wnpe42b', '9wnpw5k9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:18,617 - INFO - Chunk ['9whjkszk', '9whj2vb0', '9w5yrrk3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:20,035 - INFO - Chunk ['9y3gudwj', '9y3uw5vm', '9y6hc9x8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:20,052 - INFO - Chunk ['9wmzb8m4', '9wt01tdb', '9wt0c6u3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:20,396 - INFO - Chunk ['9wx98n0t', '9wx9v5m8', '9wx3bs1j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:20,416 - INFO - Chunk ['9tfhk69v', '9tfkf57q', '9tft7zp3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:21,953 - INFO - Chunk ['9w0vbb0g', '9w1jfdt0', '9w1mzn4r']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:21,965 - INFO - Chunk ['9qp2vnyj', '9qp15qnx', '9qp19jek']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:22,428 - INFO - Chunk ['9q7u9y9e', '9q7m7n53', '9q7w5vdz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:22,444 - INFO - Chunk ['9qm979t0', '9qq16wze', '9qmc99yc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:23,787 - INFO - Chunk ['9w9dbg20', '9w94cwgg', '9w97h82v']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:23,790 - INFO - Chunk ['9qw9z7n7', '9qxdubv8', '9qxe70th']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:24,221 - INFO - Chunk ['9qygeu6k', '9qzjtu84', '9qyvgyp4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:24,223 - INFO - Chunk ['9qezg8u0', '9qerzjx6', '9qgbhbz7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:25,713 - INFO - Chunk ['9wdzh8t0', '9wep06sy', '9wep7bvg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:25,716 - INFO - Chunk ['9r14q0rs', '9r0dcbqh', '9r1dv9dq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:26,131 - INFO - Chunk ['9wzt7npb', '9wzqhq8s', '9wzqy91j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:26,134 - INFO - Chunk ['9yc3j2e4', '9ybc42zt', '9yc1nuh1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:27,435 - INFO - Chunk ['9wcwftre', '9wbzpr43', '9wcx7985']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:27,463 - INFO - Chunk ['9x5tykg1', '9x4yr9qb', '9x5q2kmc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:27,924 - INFO - Chunk ['9xjys2zn', '9xnpjzcv', '9xnrxv0m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:27,963 - INFO - Chunk ['9z61cskk', '9z61cubr', '9z3fj370']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:29,329 - INFO - Chunk ['9xxn5ehu', '9xxn302k', '9xxwrq0h']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:29,360 - INFO - Chunk ['9x6ryjfb', '9xd8j8h1', '9xd802nt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:29,766 - INFO - Chunk ['9rnhtuhg', '9rju8qs9', '9rnkfhgb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:29,776 - INFO - Chunk ['9xgf7qd9', '9xud9fx8', '9xgf9p56']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:31,306 - INFO - Chunk ['9x0w1mn7', '9rpyt5v9', '9x0qzs08']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:31,310 - INFO - Chunk ['9r6512gb', '9r6g69v3', '9r677t79']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:31,633 - INFO - Chunk ['9rkzthz9', '9rmrsxmv', '9rkxuxx5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:31,633 - INFO - Chunk ['9rryf0d4', '9x2quem6', '9rrybkq9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:33,315 - INFO - Chunk ['9reeqsmu', '9reedq87', '9regut3c']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:33,339 - INFO - Chunk ['9x9q3qks', '9x8y2pud', '9x8yd1f4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:33,630 - INFO - Chunk ['9rc8v802', '9rb2ycqh', '9rb8us30']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:33,650 - INFO - Chunk ['9rufgfww', '9rueh2pr', '9rv5014c']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:35,275 - INFO - Chunk ['9zcjsuyz', '9zcjzytj', '9zby62je']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:35,279 - INFO - Chunk ['c24bk6wq', 'c24bcf8d', 'c2490kg9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:35,577 - INFO - Chunk ['c857wn03', 'c84u4ytc', 'c85s1x1x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:35,577 - INFO - Chunk ['c8nuzw7t', 'c8pjdsjn', 'c8pj8vzs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:37,072 - INFO - Chunk ['c8rkujxn', 'c8rm1ukp', 'c8rm1tm1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:37,078 - INFO - Chunk ['c837wtp5', 'c837unky', 'c83kmzuv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:37,373 - INFO - Chunk ['c8mqfwbd', 'c8mrhc2r', 'c8mx71vm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:37,376 - INFO - Chunk ['c812ejj8', 'c810y8rp', 'c809rbp2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:38,937 - INFO - Chunk ['c2jf7e1f', 'c2jfmgtc', 'c2jdfhzh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:38,961 - INFO - Chunk ['c20vufhd', 'c20yn2ve', 'c20yngtr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:39,201 - INFO - Chunk ['c23ubusk', 'c22kzrp4', 'c23v16mg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:39,231 - INFO - Chunk ['c2mk9n3e', 'c2mkxxhs', 'c2kkv463']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:04:39,324 - INFO - Function `run_parallel_matching` executed in 45.8461 sec, CPU: 32.70%, Memory: 1247.44MB
+2025-02-27 20:06:19,908 - INFO - Function `generate_random_polygons` executed in 7.9923 sec, CPU: 8.00%, Memory: 57.28MB
+2025-02-27 20:06:27,966 - INFO - Function `generate_random_polygons` executed in 8.0560 sec, CPU: 29.60%, Memory: 29.78MB
+2025-02-27 20:06:28,121 - INFO - Function `convert_col_to_string` executed in 0.0534 sec, CPU: 6.10%, Memory: 33.66MB
+2025-02-27 20:06:28,173 - INFO - Function `convert_col_to_string` executed in 0.0500 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:06:28,183 - INFO - Function `df_itertuple` executed in 0.0028 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:06:28,187 - INFO - Function `df_itertuple` executed in 0.0023 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:06:28,225 - INFO - Function `create_pg_db` executed in 0.0342 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:06:28,646 - INFO - Function `create_pg_table` executed in 0.4005 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:06:29,045 - INFO - Function `create_pg_table` executed in 0.3714 sec, CPU: 28.10%, Memory: 27.42MB
+2025-02-27 20:06:29,118 - INFO - Function `retrieve_pg_table` executed in 0.0481 sec, CPU: 13.00%, Memory: 1.78MB
+2025-02-27 20:06:29,163 - INFO - Function `retrieve_pg_table` executed in 0.0435 sec, CPU: 73.70%, Memory: 3.41MB
+2025-02-27 20:06:31,445 - INFO - Chunk ['dj24ve5w', 'dj25qu6b', 'dj25rvb1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:31,453 - INFO - Chunk ['dhvu2jh9', 'dhvy0xyc', 'dhyn2q91']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:31,455 - INFO - Chunk ['djs26gx1', 'djebejrr', 'djs0vvzf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:31,459 - INFO - Chunk ['dhwdd548', 'dhwm0ncv', 'dhwttfjv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:33,088 - INFO - Chunk ['dnhkskh4', '9ypekx7w', '9ypgyd8x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:33,088 - INFO - Chunk ['dn67fft8', 'dnh9uj7z', 'dnj3zjwb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:33,091 - INFO - Chunk ['djv7ku1y', 'djv7t3w8', 'djv5tkg7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:33,375 - INFO - Chunk ['dn7xjg2m', 'dnny630c', 'dnnnf72m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:34,781 - INFO - Chunk ['9yzfu5m6', '9uf0rd8m', '9uf02zsp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:34,783 - INFO - Chunk ['dntcr214', 'dn7je4n4', 'dn7mv3w3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:34,793 - INFO - Chunk ['dnerj6vp', 'dn3ezggp', 'dn67uqmg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:35,165 - INFO - Chunk ['9v36dm4u', '9v47xgr0', '9v559zyc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:36,533 - INFO - Chunk ['9vshktk1', '9vr8rnzd', '9vrc01pp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:36,540 - INFO - Chunk ['9vx69yth', '9v61p2kb', '9v613bpu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:36,569 - INFO - Chunk ['9v9ppwhx', '9vt0ddw3', '9vt0thhm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:36,921 - INFO - Chunk ['9vyhht2h', '9vsk7nyy', '9vshsq8j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:38,190 - INFO - Chunk ['9yrhmrtw', '9yj0t6nj', '9yhbxeqw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:38,200 - INFO - Chunk ['dn1585qd', '9vyeznmu', '9vzebx8k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:38,204 - INFO - Chunk ['9y5s07qb', 'dj9rg3v2', 'dj8xvqyt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:38,594 - INFO - Chunk ['9y7qs0y6', '9ym8wg1h', '9yq11bh7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:39,850 - INFO - Chunk ['dqc87syb', 'dneqqxbj', 'dneyxh2g']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:39,850 - INFO - Chunk ['9ywxmnjy', 'dnrrtzrb', 'dq2pbn6s']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:39,853 - INFO - Chunk ['dphbk9p3', 'dnxpf775', 'dnwpgjgn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:40,237 - INFO - Chunk ['dr08n3hp', 'dnc2thhg', 'dnc1n5mr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:41,472 - INFO - Chunk ['dp69qr1h', 'dpnugwye', 'dpnj03uz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:41,479 - INFO - Chunk ['dp0k3th5', 'dqfnhtm6', 'dqcys7es']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:41,482 - INFO - Chunk ['dr0t7yjb', 'dnurtn6e', 'dp58j2up']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:41,935 - INFO - Chunk ['dpqgbykk', 'dp1e3fw8', 'dp453u31']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:43,204 - INFO - Chunk ['dpd0v1p2', 'dr39zkrb', 'dr61ukf9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:43,231 - INFO - Chunk ['dpk6s9rm', 'dp7dv5wn', 'dpk4zhk7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:43,233 - INFO - Chunk ['9ykv4n0t', '9ymm90cp', '9ymtfvw8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:43,681 - INFO - Chunk ['9yeryt1k', '9yexuvg2', '9yg871r0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:44,922 - INFO - Chunk ['9zj6bmup', '9zhgth2j', '9zj7um05']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:44,928 - INFO - Chunk ['9z55zsj8', '9z5kd1jx', '9z5tteqb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:44,932 - INFO - Chunk ['9yv0y34h', '9yv94rgd', '9yv3k90x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:45,309 - INFO - Chunk ['dp2ngvnc', 'dp2ncyc7', '9zrz05nf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:46,813 - INFO - Chunk ['9zkzduxg', '9zmrxsfv', '9zmpww55']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:46,829 - INFO - Chunk ['9zdqfvjn', '9zencx28', '9zdz19c0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:46,830 - INFO - Chunk ['dp89c5k7', 'dp96n9re', 'dp8f0crw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:47,217 - INFO - Chunk ['9zy8jxw7', '9zz0mf7p', '9zz34w4m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:49,067 - INFO - Chunk ['dpu0buu4', 'dpu1xn8d', 'dpg9vuf6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:49,070 - INFO - Chunk ['drsbvbg7', 'drd2f5jq', 'drs8yzx4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:49,074 - INFO - Chunk ['drdpup7n', 'drg853mb', 'drfb30nu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:49,443 - INFO - Chunk ['f057ezvg', 'f057vkvu', 'f04s08m8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:50,989 - INFO - Chunk ['f067n0ub', 'f067nr4b', 'f02d5r71']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:50,989 - INFO - Chunk ['cb4ktrdv', 'cb4vfdn0', 'cbh6fpnp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:50,998 - INFO - Chunk ['cbpgnyj8', 'cbpgt684', 'f0124gvm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:51,370 - INFO - Chunk ['cbq6bxzp', 'cbqs2uk7', 'cbqf2mqt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:52,857 - INFO - Chunk ['9tvf8r38', '9tugpupx', '9tv7qb5x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:52,858 - INFO - Chunk ['9v8egw6b', '9txu0gbn', '9v8se3vb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:52,862 - INFO - Chunk ['cbs253hj', 'cbs8ekzn', 'cbsbjzs2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:53,265 - INFO - Chunk ['9vb3u11w', '9vb9gzcx', '9vb64bsv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:54,809 - INFO - Chunk ['9tzxyzzx', '9wnbt3wv', '9wp9hpx9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:54,829 - INFO - Chunk ['9y0njx7e', '9y0q2872', '9y0nujw4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:54,844 - INFO - Chunk ['9w5j9qws', '9w4vf9h6', '9w5vgmf7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:55,271 - INFO - Chunk ['9wqmbhkm', '9wqw1g9n', '9wqnreu6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:57,016 - INFO - Chunk ['9w7v1hxf', '9w7q54c2', '9w6yr5ez']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:57,020 - INFO - Chunk ['9y880z3e', '9y80x2xn', '9y88gp3p']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:57,089 - INFO - Chunk ['9wdzwvmk', '9wg2m34k', '9wg82sme']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:57,454 - INFO - Chunk ['9mzfz0kt', '9tbemtcf', '9mzgt7tj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:59,383 - INFO - Chunk ['9qqe3f32', '9qq57tgf', '9qqs1hve']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:59,384 - INFO - Chunk ['9qpu0ess', '9w0kqu7q', '9w0hqw2m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:59,426 - INFO - Chunk ['9qjdb438', '9qje5tev', '9qjetq9u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:06:59,742 - INFO - Chunk ['9qe9tsp6', '9qe19yk3', '9qecu046']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:01,172 - INFO - Chunk ['9qs7q7nd', '9qsk38h3', '9qtkm30v']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:01,175 - INFO - Chunk ['9qz2wmrs', '9qybbu09', '9qz2bvd9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:01,188 - INFO - Chunk ['9qx843fs', '9qx02g5e', '9qx8ubct']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:01,544 - INFO - Chunk ['9qgg31s0', '9qg5w2f8', '9qg5x5ru']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:02,927 - INFO - Chunk ['9ybvrgjj', '9ycmy48w', '9ycnqudd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:02,943 - INFO - Chunk ['9wy2p8hk', '9wy816h1', '9wy0j65w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:02,943 - INFO - Chunk ['9quwu3r6', '9quz76xc', '9qvrqkh4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:03,325 - INFO - Chunk ['9xne6udb', '9xns0q52', '9xnhgspe']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:04,874 - INFO - Chunk ['9z65pk8f', '9z3eksts', '9z65826p']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:04,889 - INFO - Chunk ['9x5sp7nc', '9x5kj7kf', '9x5u1kyu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:04,922 - INFO - Chunk ['9x3y5q95', '9x6nm0zd', '9x3ytesk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:05,299 - INFO - Chunk ['9xrmvnkt', '9xqyqzwp', '9xqyyfsx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:06,725 - INFO - Chunk ['9xmnccjy', '9xmyupuy', '9xmpnkhv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:06,741 - INFO - Chunk ['9xg89myd', '9xgb9pwt', '9xg0ysse']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:06,743 - INFO - Chunk ['9xc44vvd', '9xc65p6e', '9xc4qjmv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:07,093 - INFO - Chunk ['9x147ub8', '9x16ry3e', '9x14usyp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:08,636 - INFO - Chunk ['9r57qbwk', '9r55k1ht', '9r55mrct']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:08,637 - INFO - Chunk ['9r73fm3p', '9rk4035j', '9r7660s6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:08,639 - INFO - Chunk ['9rm8n7zu', '9rq81usq', '9rm2qbws']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:08,997 - INFO - Chunk ['9rx0vje3', '9rx1n7nv', '9rw9hnj6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:10,518 - INFO - Chunk ['9ry1nhbp', '9ry33zz1', '9ry3x9tj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:10,530 - INFO - Chunk ['9rernf6t', '9rephkvz', '9rexpy5p']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:10,535 - INFO - Chunk ['9rs0zf8w', '9re1qp5k', '9rec9070']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:10,977 - INFO - Chunk ['9rcr7u9n', '9rcpg45u', '9rcxfwm8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:12,461 - INFO - Chunk ['c2n0cwpd', 'c2j9j3hq', 'c2n11thd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:12,486 - INFO - Chunk ['9xyb6v4u', '9xy8mr89', '9xy104pg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:12,487 - INFO - Chunk ['c85fufgb', 'c8h750t2', 'c8hg1phh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:12,914 - INFO - Chunk ['c8phb88t', 'c8pm64sp', 'c8pm7gc0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:14,473 - INFO - Chunk ['c8rtn590', 'c8rm370e', 'c8rtqs49']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:14,477 - INFO - Chunk ['cb3fdd5u', 'cb64cm8e', 'cb6hmfer']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:14,478 - INFO - Chunk ['c8mp0y9h', 'c8mxte4w', 'c8mzctcq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:14,876 - INFO - Chunk ['c80k05ww', 'c2pu3483', 'c80huptn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:16,815 - INFO - Chunk ['c27v14r9', 'c27t0y6c', 'c27je0dg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:16,849 - INFO - Chunk ['c20qesdd', 'c21qfemf', 'c21r2f3w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:16,851 - INFO - Chunk ['c2q6kkh5', 'c2mgjf91', 'c2mg2nxx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:17,259 - INFO - Chunk ['c86nemnt', 'c86q9w1g', 'c83yzd8b']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:07:17,354 - INFO - Function `run_parallel_matching` executed in 47.7623 sec, CPU: 31.20%, Memory: 420.06MB
+2025-02-27 20:08:18,130 - INFO - Function `generate_random_polygons` executed in 8.6541 sec, CPU: 21.50%, Memory: 28.33MB
+2025-02-27 20:08:26,363 - INFO - Function `generate_random_polygons` executed in 8.2313 sec, CPU: 42.40%, Memory: 85.64MB
+2025-02-27 20:08:26,490 - INFO - Function `convert_col_to_string` executed in 0.0494 sec, CPU: 42.60%, Memory: 0.45MB
+2025-02-27 20:08:26,539 - INFO - Function `convert_col_to_string` executed in 0.0484 sec, CPU: 0.00%, Memory: 9.62MB
+2025-02-27 20:08:26,548 - INFO - Function `df_itertuple` executed in 0.0033 sec, CPU: 0.00%, Memory: 0.55MB
+2025-02-27 20:08:26,552 - INFO - Function `df_itertuple` executed in 0.0026 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:08:26,648 - INFO - Function `create_pg_db` executed in 0.0899 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:08:27,074 - INFO - Function `create_pg_table` executed in 0.4040 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:08:27,477 - INFO - Function `create_pg_table` executed in 0.3766 sec, CPU: 36.40%, Memory: 83.20MB
+2025-02-27 20:08:27,548 - INFO - Function `retrieve_pg_table` executed in 0.0453 sec, CPU: 4.00%, Memory: 3.12MB
+2025-02-27 20:08:27,591 - INFO - Function `retrieve_pg_table` executed in 0.0427 sec, CPU: 26.50%, Memory: 11.33MB
+2025-02-27 20:08:29,657 - INFO - Chunk ['9vr2xf9m', '9vr2tg40', '9vrbdpcc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:29,662 - INFO - Chunk ['dje35ugh', 'djdcpw6f', 'djdcr311']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:29,663 - INFO - Chunk ['dhvc8g2w', 'dhvg18d2', 'dhvsb17z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:29,675 - INFO - Chunk ['dhw7n0vx', 'dhws1rnf', 'dhwm54c4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:31,175 - INFO - Chunk ['dnjkpxne', 'dnjhrhng', 'dnhs8xju']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:31,176 - INFO - Chunk ['djufm5rm', 'djv6m7z6', 'djvf2qvm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:31,183 - INFO - Chunk ['dn03hwdf', 'dn11eq55', 'dn0cvvgv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:31,184 - INFO - Chunk ['9vxy8xvg', '9vz26xjx', '9vz8u3z8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:32,804 - INFO - Chunk ['9vrd8th9', '9vrfg53c', '9vrerkw3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:32,820 - INFO - Chunk ['9v48cet8', '9v49329z', '9v41yw5t']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:32,824 - INFO - Chunk ['dnnpf30h', 'dnnxu9uy', 'dnjzux99']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:32,827 - INFO - Chunk ['dnqq3y6s', 'dnqweh8j', 'dnmyzqz5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:34,439 - INFO - Chunk ['9vs0uprv', '9vecf6yq', '9ved4cfn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:34,580 - INFO - Chunk ['9yp0hxh6', '9ynbtdep', '9yn8z0x4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:34,584 - INFO - Chunk ['9vfk9fhw', '9vcuwufy', '9vfhvmef']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:34,591 - INFO - Chunk ['9vx7cnzc', '9vwu820r', '9vwv5v1e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:36,123 - INFO - Chunk ['9y7dup18', '9yk5h6pf', '9yk77r87']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:36,144 - INFO - Chunk ['dn64r6k7', 'dn36xsyt', 'dn648hbj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:36,347 - INFO - Chunk ['9y3e2ss4', '9y35t2e8', '9y3eb760']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:36,355 - INFO - Chunk ['9ymsqgw6', '9ymv8scu', '9ymvzes7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:38,144 - INFO - Chunk ['dng8pn5s', 'dnu07z2v', 'dng8c4vr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:38,150 - INFO - Chunk ['dntvxtje', 'dnwtxr60', 'dntvgggw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:38,181 - INFO - Chunk ['dn6yp4d8', 'dn7qu0s5', 'dn6qz7dj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:38,185 - INFO - Chunk ['dqbxz91y', 'dqbrvccp', 'dnzxu7hv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:39,763 - INFO - Chunk ['dpkhr21d', 'dpkhf4nd', 'dpkj35r1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:39,776 - INFO - Chunk ['dr4jckf4', 'dr4jften', 'dr4y0wdp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:39,782 - INFO - Chunk ['dnvpy10j', 'dphbez2q', 'dph8u75j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:39,785 - INFO - Chunk ['dprerssn', 'dr35d11s', 'dr37fmks']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:41,245 - INFO - Chunk ['dp2qd3ju', 'dp3nfge7', 'dp3num84']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:41,394 - INFO - Chunk ['9yevzj2h', '9yu05gee', '9yu3kx61']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:41,397 - INFO - Chunk ['dre97jhv', 'drec93vn', 'drd9xtgs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:41,398 - INFO - Chunk ['dnc98jus', 'dncdttgt', 'dncgjnrp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:43,016 - INFO - Chunk ['9yus5bnc', '9yvhwx8m', '9yvkg8uf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:43,022 - INFO - Chunk ['9znmbuuc', '9zjypq15', '9zjx6frz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:43,032 - INFO - Chunk ['dp4n539m', 'dp4nh9fp', 'dp1y1en4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:43,329 - INFO - Chunk ['9zhzs9qn', '9zk80bs2', '9zm23g9f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:44,673 - INFO - Chunk ['9zs9z4pe', '9zsdrwj2', '9zt5p4k5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:44,711 - INFO - Chunk ['9xrbmryt', '9z212nk1', '9z21rrur']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:44,711 - INFO - Chunk ['9zw9sqw5', '9zx1vzhm', '9zwd0hsz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:45,114 - INFO - Chunk ['dpccuttg', 'dpf4f2qj', 'dpc7svp9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:46,649 - INFO - Chunk ['dru3re18', 'drf9wb0r', 'dru1x0sk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:46,650 - INFO - Chunk ['f055zk67', 'f05k4mvm', 'f04snz2j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:46,662 - INFO - Chunk ['dpu23z3q', 'dpu1wsm1', 'dpg9trhk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:47,080 - INFO - Chunk ['f02h5rjq', 'f02h9vs4', 'f03fpbf9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:48,306 - INFO - Chunk ['cb4s30dc', 'cb4s7d0m', 'cb4kf4f9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:48,321 - INFO - Chunk ['cbqj4q08', 'cbqj354b', 'cbqjds98']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:48,341 - INFO - Chunk ['cbn9bjyn', 'cbnf685y', 'cbnfrhu2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:48,798 - INFO - Chunk ['cb3resjw', 'cb6n2e59', 'cb6q75e3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:49,943 - INFO - Chunk ['cbeccfq4', 'cbs3rzyk', 'cbs3qpcr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:50,204 - INFO - Chunk ['9twfhms9', '9twdmjrx', '9twdv992']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:50,207 - INFO - Chunk ['9v28urby', '9v29e42t', '9v319rb8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:50,626 - INFO - Chunk ['9v8nnbm3', '9v8q04rv', '9txw4xcs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:51,803 - INFO - Chunk ['9tfumb4d', '9tgt1wds', '9tgmkyj0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:51,804 - INFO - Chunk ['9y0vg8j3', '9y0q4pyf', '9y0ymuy9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:51,807 - INFO - Chunk ['9tzkuzdp', '9tzmd46z', '9tyvz4g3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:52,165 - INFO - Chunk ['9qpe3vcd', '9qpe883u', '9w07s4jg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:53,401 - INFO - Chunk ['9wr07n9w', '9wqbd17h', '9wqbtcmk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:53,404 - INFO - Chunk ['9wjw8frb', '9wjpntf4', '9wjx2cqc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:53,409 - INFO - Chunk ['9ws86ew6', '9ws2bbww', '9ws1tr3s']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:53,807 - INFO - Chunk ['9tcfym7j', '9tceem77', '9tcgvf9e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:55,052 - INFO - Chunk ['9qp7e9bw', '9qp7sf8z', '9qng9w5f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:55,057 - INFO - Chunk ['9q7yu2ru', '9q7nct2w', '9q6zhqm8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:55,063 - INFO - Chunk ['9qq7d92j', '9qm7z7ew', '9qms25sr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:55,433 - INFO - Chunk ['9w3q1hk0', '9w88b2zn', '9w88fmdc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:56,725 - INFO - Chunk ['9qtv9ujg', '9qtq4v98', '9qwn302p']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:56,731 - INFO - Chunk ['9qcbzf6x', '9qf92zz5', '9qf1d2s8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:56,733 - INFO - Chunk ['9qvwnswk', '9qvq73z9', '9qvxu76d']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:57,100 - INFO - Chunk ['9r59hbjb', '9r531ztm', '9r5cg59e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:58,554 - INFO - Chunk ['9wc7yy1v', '9wc5up0j', '9wbu0x4d']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:58,558 - INFO - Chunk ['9wwm6v73', '9wwjx0yv', '9wtyn4gr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:58,561 - INFO - Chunk ['9rhqvbvb', '9rhngfwr', '9rhqzepz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:08:58,993 - INFO - Chunk ['9wv520uc', '9wveu6en', '9wvk0kd0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:00,640 - INFO - Chunk ['9ycqmus7', '9ycxjfdy', '9ycps275']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:00,644 - INFO - Chunk ['9xjp8bpj', '9xm21285', '9xm05kr6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:00,651 - INFO - Chunk ['9wzj8cw6', '9wyv9dx2', '9wzjw6bu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:01,042 - INFO - Chunk ['9xr7m2e7', '9xqgws7f', '9xrjn6h0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:02,926 - INFO - Chunk ['9x6xnzx4', '9x7pm56t', '9x7x2q43']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:02,941 - INFO - Chunk ['9xty41v1', '9xtyygk5', '9xwrhx32']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:02,978 - INFO - Chunk ['9z9w4f08', '9z9wns3e', '9z9wmgcv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:03,258 - INFO - Chunk ['9x0zqguw', '9x1p7jhb', '9x1p8j0x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:04,654 - INFO - Chunk ['9rmpp0x3', '9rkz1fze', '9rkznm37']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:04,682 - INFO - Chunk ['9x3qxpp3', '9x3nwr6w', '9x3x2btc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:04,689 - INFO - Chunk ['9r341rrn', '9r266de0', '9r3d6dyb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:05,088 - INFO - Chunk ['9re6puey', '9re4ejb9', '9refb0wj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:06,787 - INFO - Chunk ['9ry871he', '9rz2s2b5', '9rybw5vd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:06,800 - INFO - Chunk ['9ru1c6fw', '9rg6yenq', '9rg4u5ds']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:06,827 - INFO - Chunk ['9rz73j3d', '9rygv13p', '9rzk08hc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:07,227 - INFO - Chunk ['c25bd56u', 'c2h08m3u', 'c251440d']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:08,663 - INFO - Chunk ['c81emhke', 'c845f5m0', 'c84s65tx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:08,675 - INFO - Chunk ['cb1499vh', 'cb06w43k', 'cb0dy9bz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:08,675 - INFO - Chunk ['9xg12ezw', '9xg9f3wj', '9xfeh3kp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:09,065 - INFO - Chunk ['c8j58p6e', 'c8hgyspm', 'c8hut80q']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:10,803 - INFO - Chunk ['c85wg311', 'c85qbend', 'c84xjf40']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:10,836 - INFO - Chunk ['c8qy4x3z', 'c8qwmrkm', 'c8qyxqku']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:10,837 - INFO - Chunk ['c8kjnwbu', 'c87txchh', 'c8kjucd5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:11,265 - INFO - Chunk ['c2hcw117', 'c2j199fq', 'c2h3sgy8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:12,636 - INFO - Chunk ['c20qg6jg', 'c21x3sts', 'c21xxdhw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:12,823 - INFO - Chunk ['c2r59bzm', 'c2qe8gxd', 'c2rhhrj8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:12,830 - INFO - Chunk ['c2r20x43', 'c2qbk4e7', 'c2r0z3fn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:13,136 - INFO - Chunk ['c23n2n7m', 'c22n3rz6', 'c22ys75q']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:09:13,234 - INFO - Function `run_parallel_matching` executed in 45.2689 sec, CPU: 26.20%, Memory: 660.17MB
+2025-02-27 20:11:48,730 - INFO - Function `generate_random_polygons` executed in 9.4732 sec, CPU: 16.00%, Memory: 1139.66MB
+2025-02-27 20:11:56,677 - INFO - Function `generate_random_polygons` executed in 7.9456 sec, CPU: 63.80%, Memory: 41.86MB
+2025-02-27 20:11:56,826 - INFO - Function `convert_col_to_string` executed in 0.0548 sec, CPU: 20.40%, Memory: 13.52MB
+2025-02-27 20:11:56,879 - INFO - Function `convert_col_to_string` executed in 0.0517 sec, CPU: 50.00%, Memory: 3.38MB
+2025-02-27 20:11:56,888 - INFO - Function `df_itertuple` executed in 0.0028 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:11:56,892 - INFO - Function `df_itertuple` executed in 0.0025 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:11:56,934 - INFO - Function `create_pg_db` executed in 0.0347 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:11:57,382 - INFO - Function `create_pg_table` executed in 0.4254 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:11:57,798 - INFO - Function `create_pg_table` executed in 0.3883 sec, CPU: 38.00%, Memory: 69.22MB
+2025-02-27 20:11:57,877 - INFO - Function `retrieve_pg_table` executed in 0.0532 sec, CPU: 33.10%, Memory: 25.61MB
+2025-02-27 20:11:57,926 - INFO - Function `retrieve_pg_table` executed in 0.0481 sec, CPU: 0.00%, Memory: 10.53MB
+2025-02-27 20:12:00,422 - INFO - Chunk ['dhy6eeyq', 'dhy5tyv1', 'dhvup51q']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:00,433 - INFO - Chunk ['djdwbdkk', 'djdxnbsy', 'djdxpjrt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:00,490 - INFO - Chunk ['dhwee105', 'dhwkm78e', 'dhwkmrzw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:00,502 - INFO - Chunk ['djeb87b0', 'djs0swum', 'djebv5mv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:02,094 - INFO - Chunk ['dn0jnh8h', 'dn0j7erx', 'dn0mwmgr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:02,114 - INFO - Chunk ['dnh802d0', 'dn586ebr', 'dnh02zcz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:02,334 - INFO - Chunk ['dnprtstq', 'dnpxcg1j', 'dnppvsp9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:02,339 - INFO - Chunk ['dn7bdk39', 'dn7b8qrq', 'dn78g7q6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:03,999 - INFO - Chunk ['dnx81bmu', 'dnx03zqg', 'dnx2w26r']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:04,026 - INFO - Chunk ['dnd08sm0', 'dnd35fk6', 'dnd11k5u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:04,290 - INFO - Chunk ['9v4f7wvb', '9v4g2er5', '9v4e9170']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:04,293 - INFO - Chunk ['dj211hpq', '9vrfvbdn', '9vrgzgvp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:05,899 - INFO - Chunk ['dj2wbffp', 'dj2zx607', 'dj88j6jk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:05,905 - INFO - Chunk ['9vs26et3', '9vs06e9r', '9vs86t1k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:06,395 - INFO - Chunk ['9vxm52ms', '9vxmb9zn', '9vxnkwvp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:06,398 - INFO - Chunk ['9vg0stbg', '9vg310r7', '9vgc41qs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:07,872 - INFO - Chunk ['9yn5j0z3', '9yn70cuk', '9yn51k4w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:07,880 - INFO - Chunk ['djbcye96', 'djbf018n', 'djbf886u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:08,151 - INFO - Chunk ['9y4jdrnv', '9y4q2ux2', '9y1yx831']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:08,169 - INFO - Chunk ['9y4d292f', '9y549cdv', '9y4dehtv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:09,879 - INFO - Chunk ['dnt46xs8', 'dnt485xn', 'dnt6gn5f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:09,894 - INFO - Chunk ['dnz836f8', 'dnyb7w4b', 'dnz86q5z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:10,214 - INFO - Chunk ['dnzrfpk5', 'dpnb1154', 'dpp2pd7h']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:10,220 - INFO - Chunk ['dnus4tpg', 'dnvk64p5', 'dnvht5c2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:12,083 - INFO - Chunk ['9zp93t34', 'dp03rrbc', '9zp9gx4c']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:12,141 - INFO - Chunk ['dr4he424', 'dr4j9510', 'dr1vxstq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:12,443 - INFO - Chunk ['dp4xpvyr', 'dp5pxs5p', 'dp4zwnzr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:12,517 - INFO - Chunk ['dpreq9g2', 'dprg9bbs', 'dpree4d7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:14,146 - INFO - Chunk ['dp6vrrn9', 'dp7je3w4', 'dp6t9vht']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:14,186 - INFO - Chunk ['dre2hqtx', 'drt03b2b', 'dre0396x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:14,554 - INFO - Chunk ['9yqy2wwp', '9yrnmp2t', '9yrqtjp0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:14,574 - INFO - Chunk ['9yev0gnx', '9yejnsmd', '9yem2jm7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:16,135 - INFO - Chunk ['dnb4zs8q', 'dnb54vkn', 'dnb73fdq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:16,183 - INFO - Chunk ['9ytpxbby', '9yv2p997', '9yv02852']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:16,514 - INFO - Chunk ['9znvpwr0', '9zpj2wph', '9zpjrw4w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:16,519 - INFO - Chunk ['9z5fzh16', '9z5fgqyf', '9z55j5h1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:17,866 - INFO - Chunk ['9z7t0vh3', '9z7mpx0y', '9z7jjzsh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:17,872 - INFO - Chunk ['9zqp2ymd', '9zw80y1b', '9zw0zen7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:18,295 - INFO - Chunk ['dpb33dk7', 'dpb3mncp', 'dpb33rxk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:18,312 - INFO - Chunk ['9z3wz9v5', '9z3wurbm', '9z3znyvf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:19,606 - INFO - Chunk ['dr9yyje3', 'drsybveg', 'drex4bwr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:19,616 - INFO - Chunk ['dpsjrnur', 'dpsm81d8', 'dpsmccre']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:20,007 - INFO - Chunk ['f04tgyn0', 'f05nq3c9', 'f2nd49nw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:20,007 - INFO - Chunk ['f03erbcv', 'f03gxr5q', 'f022d384']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:21,567 - INFO - Chunk ['cbj5bv9f', 'cbj7yw1j', 'cbhu4rss']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:21,596 - INFO - Chunk ['cb59dwqx', 'cb5d0qj4', 'cb5f4wtw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:21,882 - INFO - Chunk ['cb4srfsb', 'cb4sms3z', 'cb4kg3tt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:21,893 - INFO - Chunk ['cb7qhb3v', 'cb7q9hrm', 'cb7ydugp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:23,608 - INFO - Chunk ['cbq7mmcz', 'cbmsnq3e', 'cbqke2tu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:23,644 - INFO - Chunk ['9v1s6p81', '9v1jjdjc', '9v1m3w5k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:23,925 - INFO - Chunk ['9tx4bs64', '9tx537rz', '9twgrnz8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:23,940 - INFO - Chunk ['9v8vv5xn', '9v9nqtqu', '9v8y9vb9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:25,631 - INFO - Chunk ['9tveprz0', '9tvs16nb', '9tvs3rdn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:25,688 - INFO - Chunk ['9tyey41m', '9tyt120k', '9tymq81z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:26,029 - INFO - Chunk ['9y41b10f', '9y41fds7', '9y19u51q']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:26,067 - INFO - Chunk ['9wjdru6r', '9wj62y12', '9whfrysd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:27,347 - INFO - Chunk ['9wr41p38', '9wrd89mw', '9wr4efq5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:27,355 - INFO - Chunk ['9w7sgm92', '9w7j447k', '9w7mmd6v']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:27,869 - INFO - Chunk ['9wwzv29t', '9wz07cp6', '9wz285gb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:27,874 - INFO - Chunk ['9tcqz0ej', '9tcnbk4z', '9tbygmb1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:29,220 - INFO - Chunk ['9w3bdr2p', '9w38dzyk', '9w30c8r8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:29,236 - INFO - Chunk ['9qj36m4k', '9qj1v7g9', '9qj3fuvz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:29,679 - INFO - Chunk ['9q6nmg4h', '9q6nzdt3', '9q6wuhz3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:29,717 - INFO - Chunk ['9qmfnn1z', '9qq40ruh', '9qq42v90']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:31,040 - INFO - Chunk ['9w89em8y', '9w89dwmj', '9qx9wrrq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:31,042 - INFO - Chunk ['9qwkhkpd', '9qwk70fv', '9qtumqqt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:31,731 - INFO - Chunk ['9qysmnkc', '9qyskybd', '9qzhckj4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:31,731 - INFO - Chunk ['9qcczn90', '9qc9zzjz', '9qfdp78k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:32,934 - INFO - Chunk ['9wer2kp8', '9wer2kkc', '9wepe25g']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:32,936 - INFO - Chunk ['9r43qggd', '9r49g2qy', '9r41ctrv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:33,876 - INFO - Chunk ['9wb6ns3t', '9wbdq39g', '9wb4y1hs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:33,899 - INFO - Chunk ['9yf3r1dz', '9yf3kczf', '9yfczkpw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:35,000 - INFO - Chunk ['9xhg5tsv', '9xherzdm', '9xhewbh5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:35,003 - INFO - Chunk ['9z04dmur', '9z04y2zd', '9z04c3ur']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:35,775 - INFO - Chunk ['9z1p854n', '9z323x6k', '9z309gwe']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:35,780 - INFO - Chunk ['9x7f19z6', '9x7fkhh5', '9x742z11']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:37,004 - INFO - Chunk ['9xrr8rgn', '9xx2fuxw', '9xwcmdkv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:37,005 - INFO - Chunk ['9xepru2h', '9xerdr82', '9xg03546']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:37,616 - INFO - Chunk ['9z8pyy9e', '9zb26v6c', '9zb8e5zd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:37,632 - INFO - Chunk ['9x05tr5z', '9rpu353f', '9x0m0cb7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:38,909 - INFO - Chunk ['9r4rrchm', '9r4rz5u6', '9r4zgvd3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:38,922 - INFO - Chunk ['9rjnc50b', '9rhxxsvy', '9rk2h586']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:39,278 - INFO - Chunk ['9rrnkfxh', '9rqysgbu', '9rrqfgbw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:39,281 - INFO - Chunk ['9r2z1cz1', '9r3xq132', '9r2zmfjv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:40,956 - INFO - Chunk ['9rsdgpnv', '9rsfur6n', '9rsemmk8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:40,967 - INFO - Chunk ['9r8qnywf', '9r8nwj62', '9r8znd59']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:41,257 - INFO - Chunk ['9rufs0k5', '9rv6e0g1', '9rv73kh6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:41,257 - INFO - Chunk ['9rxy2t42', '9x8qthy7', '9rxyept9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:42,823 - INFO - Chunk ['c8n0jxx7', 'c8n0y52g', 'c8n34fcm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:42,829 - INFO - Chunk ['9rcqspb9', '9rcqcf30', '9rbxhc77']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:43,155 - INFO - Chunk ['c81g28sh', 'c815e13x', 'c815c6ww']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:43,157 - INFO - Chunk ['c8hhhg1e', 'c8hs29zf', 'c8hkqkfq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:44,712 - INFO - Chunk ['c8rtjb6p', 'c8rwp0c9', 'c8rn680y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:44,716 - INFO - Chunk ['cb3t2f59', 'cb3n5vqx', 'cb3qk8sw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:45,061 - INFO - Chunk ['c8kyt8qs', 'c8knbk25', 'c8knbucu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:45,062 - INFO - Chunk ['c2nej6w5', 'c2p7jsry', 'c2pe0qbc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:46,548 - INFO - Chunk ['c2rk94ve', 'c2rkupp1', 'c2qv2ydg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:46,566 - INFO - Chunk ['c24xpeef', 'c24x27wb', 'c21zrh3d']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:46,900 - INFO - Chunk ['c26v8yx8', 'c26jf08c', 'c23y4p2v']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:46,919 - INFO - Chunk ['c2r6gspm', 'c2qgj8dp', 'c2r7t29x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:12:47,032 - INFO - Function `run_parallel_matching` executed in 48.5921 sec, CPU: 71.50%, Memory: 444.73MB
+2025-02-27 20:13:56,036 - INFO - Function `generate_random_polygons` executed in 7.9830 sec, CPU: 11.90%, Memory: 119.06MB
+2025-02-27 20:14:04,310 - INFO - Function `generate_random_polygons` executed in 8.2728 sec, CPU: 35.10%, Memory: 49.16MB
+2025-02-27 20:14:04,454 - INFO - Function `convert_col_to_string` executed in 0.0531 sec, CPU: 24.80%, Memory: 2.84MB
+2025-02-27 20:14:04,503 - INFO - Function `convert_col_to_string` executed in 0.0482 sec, CPU: 50.00%, Memory: 0.00MB
+2025-02-27 20:14:04,512 - INFO - Function `df_itertuple` executed in 0.0036 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:14:04,517 - INFO - Function `df_itertuple` executed in 0.0023 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:14:04,556 - INFO - Function `create_pg_db` executed in 0.0353 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:14:04,991 - INFO - Function `create_pg_table` executed in 0.4146 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:14:05,399 - INFO - Function `create_pg_table` executed in 0.3800 sec, CPU: 39.80%, Memory: 104.05MB
+2025-02-27 20:14:05,545 - INFO - Function `retrieve_pg_table` executed in 0.1213 sec, CPU: 40.00%, Memory: 29.67MB
+2025-02-27 20:14:05,590 - INFO - Function `retrieve_pg_table` executed in 0.0445 sec, CPU: 0.00%, Memory: 6.31MB
+2025-02-27 20:14:07,776 - INFO - Chunk ['9v5k6qpj', '9v5j5rw7', '9v5tuwj0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:07,785 - INFO - Chunk ['9udrcb6g', '9uf2ujnt', '9uf4rmp1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:07,790 - INFO - Chunk ['9vrc86vv', 'dj2753d3', '9vrg5vcd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:07,798 - INFO - Chunk ['9vr2y4x7', '9vr3hjvb', '9vr93gcq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:09,718 - INFO - Chunk ['9vebvmb2', '9ve9dgst', '9vec9wuh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:09,719 - INFO - Chunk ['9vwtvmnc', '9vwn15jn', '9vww8h57']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:09,727 - INFO - Chunk ['9vvsz9t0', '9vvm4b34', '9vuvneew']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:09,727 - INFO - Chunk ['9yj9q0uc', '9yj9tds8', '9yhcwgv7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:11,681 - INFO - Chunk ['dhvbx62v', 'dhvchpfy', 'dhvcmd24']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:11,684 - INFO - Chunk ['dn15ruce', 'dn0gsy0e', 'dn0evwnu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:11,701 - INFO - Chunk ['9y209mk3', '9y20cz25', '9wr9p839']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:11,708 - INFO - Chunk ['dhw6yqrw', 'dhwkr2be', 'dhwkskvn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:13,697 - INFO - Chunk ['dn523p6z', 'dn48xyt9', 'dn50yd0t']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:13,699 - INFO - Chunk ['dj7reqwc', 'dje2ktf7', 'djdbsgj0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:13,703 - INFO - Chunk ['djdrh8yt', 'djdrp7n2', 'dj9zmcy6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:13,711 - INFO - Chunk ['djv80q7p', 'djv06j2c', 'djv88857']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:15,431 - INFO - Chunk ['dq306fhc', 'dq2bmf0w', 'dq28qd3u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:15,440 - INFO - Chunk ['dnmf8fz4', 'dnm6escu', 'dnm6wtjr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:15,446 - INFO - Chunk ['dn3h07hy', 'dn3hr23g', 'dn3hshg1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:15,479 - INFO - Chunk ['dnrxvk8g', 'dq82n9cz', 'dq8b56bn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:17,273 - INFO - Chunk ['9ye5fkyd', '9yeshdmb', '9yeu30sm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:17,277 - INFO - Chunk ['dn26vwzb', 'dn25h4hs', 'dn27jxht']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:17,278 - INFO - Chunk ['9yhxeh21', '9yhxeqxx', '9yhrb84e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:17,282 - INFO - Chunk ['9yd8urq3', '9yd6q9h6', '9ydfe1dq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:18,938 - INFO - Chunk ['9zh80734', '9zh83dwn', '9zh2kyg9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:18,942 - INFO - Chunk ['9ywp7yes', '9ywps51y', '9ywx8krg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:18,949 - INFO - Chunk ['dn8pnx5x', '9yxz7mqz', '9yxzdt5t']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:19,246 - INFO - Chunk ['9zp63xrc', '9zpd7x8d', '9znfrpss']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:20,799 - INFO - Chunk ['9z6dve84', '9z6717d4', '9z6gw2j8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:20,808 - INFO - Chunk ['dns6cce1', 'dnedz7xc', 'dns50hj2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:20,810 - INFO - Chunk ['dp3fmvzp', 'dp3drqc9', 'dp3dw8qk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:21,161 - INFO - Chunk ['dnwrg945', 'dny8k801', 'dny86gkm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:22,622 - INFO - Chunk ['dp0d898u', 'dp0d8sce', 'dp05jzy6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:22,624 - INFO - Chunk ['dnzrbq84', 'dpp84c0k', 'dpp2nefe']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:22,632 - INFO - Chunk ['dnfes6nf', 'dnfgtdms', 'dngkwk96']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:23,071 - INFO - Chunk ['dpjvr4bb', 'dpnt24uj', 'dpnvd3yf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:24,406 - INFO - Chunk ['dphz8qwv', 'dpk8n4k9', 'dpkb0j2z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:24,411 - INFO - Chunk ['dpr47h0p', 'dpqd9u73', 'dprd8tys']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:24,411 - INFO - Chunk ['drs3tudb', 'dre1dmez', 'drecdxcq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:24,810 - INFO - Chunk ['dp9kyn0d', 'dp9t784z', 'dp8v2jur']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:26,061 - INFO - Chunk ['9zezdqpc', '9zgb7evf', '9zg0qsgt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:26,063 - INFO - Chunk ['9xzsntnj', '9xzuej60', '9zbmk6y5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:26,068 - INFO - Chunk ['9zx1vzz2', '9zx4s7fg', '9zx4xjve']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:26,455 - INFO - Chunk ['9zvzp2h5', '9zvz56rm', '9zvzd0pm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:27,716 - INFO - Chunk ['cbe5jrtf', 'cbeetf7x', 'cbe5dh1q']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:27,797 - INFO - Chunk ['cbpwvh3m', 'cbpr50kw', 'cbpxje9y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:27,805 - INFO - Chunk ['cbk0sheh', 'cbk1nzmf', 'cbk1re6y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:28,177 - INFO - Chunk ['drubhghk', 'drv2q17u', 'drf2rysu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:29,327 - INFO - Chunk ['f0335x8w', 'f02cmng9', 'f034wfwr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:29,333 - INFO - Chunk ['f0h35w4t', 'f0h36t0n', 'f0h1mwyt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:29,641 - INFO - Chunk ['9txcjtct', '9v83935u', '9v81v8mu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:29,996 - INFO - Chunk ['9v8du7p9', '9v87mjy9', '9v8s1se0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:31,051 - INFO - Chunk ['9tvjmz4e', '9tvt7pv6', '9tuv96dz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:31,058 - INFO - Chunk ['9tytmuwh', '9tywpcud', '9tzq20ze']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:31,450 - INFO - Chunk ['9y12c1gg', '9y0cx5dj', '9y09wzf2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:31,839 - INFO - Chunk ['9wjhbv10', '9wjmnqev', '9wjj70k1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:32,654 - INFO - Chunk ['9wmf84nb', '9wq4yuhs', '9wmgzx32']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:32,670 - INFO - Chunk ['9w7wpyys', '9wkwkvk7', '9wkqd8w6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:33,060 - INFO - Chunk ['9qxs5b76', '9w8hm12c', '9qxsz7sn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:33,442 - INFO - Chunk ['9wtkmhxq', '9wtku7xb', '9wtsujgk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:34,661 - INFO - Chunk ['9qn9quqf', '9qncv739', '9qp4jdsj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:34,664 - INFO - Chunk ['9tb48d8u', '9mzf9w65', '9tb4zyut']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:35,124 - INFO - Chunk ['9qpzvyzh', '9qr8njm7', '9w20qm3s']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:35,477 - INFO - Chunk ['9qr11hv3', '9qr1qdt1', '9qr3x8qs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:36,539 - INFO - Chunk ['9q6wnfxr', '9q6y5g3c', '9q6w6qe9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:36,542 - INFO - Chunk ['9qtdegss', '9qw7090d', '9qw7ewhw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:36,904 - INFO - Chunk ['9qg0584u', '9qf2r4j9', '9qg02u7w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:37,259 - INFO - Chunk ['9quej3kp', '9qugkuh9', '9qv7sbj6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:38,449 - INFO - Chunk ['9r0bxmr0', '9r02wwed', '9r108rx3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:38,472 - INFO - Chunk ['9qztex2b', '9qzvb2su', '9qzwp082']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:38,889 - INFO - Chunk ['9wsy8tbx', '9wtppdeq', '9wtpv887']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:39,216 - INFO - Chunk ['9wznztew', '9wyxn44r', '9wyxr98n']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:39,958 - INFO - Chunk ['9x4f59ym', '9x4f3s33', '9x56z2yc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:40,283 - INFO - Chunk ['9xpz2c5x', '9xpzkz2r', '9xpz81zd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:40,684 - INFO - Chunk ['9xksmhgj', '9xku2m24', '9xkk8fmw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:41,026 - INFO - Chunk ['9xruwd0p', '9z2j6f69', '9xrwpyc6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:41,776 - INFO - Chunk ['9z9fsefe', '9z9ghwg6', '9z97r07e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:42,104 - INFO - Chunk ['9xtj4gjs', '9xtj2jn7', '9xsvv27b']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:42,498 - INFO - Chunk ['9xy6nfgj', '9xy61yrw', '9xvfhwyq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:42,815 - INFO - Chunk ['c8h25ket', 'c8h23ebd', 'c85bym11']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:43,545 - INFO - Chunk ['9rpjtnsh', '9rnvz9h6', '9rnvvh09']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:43,894 - INFO - Chunk ['9x237vgb', '9rrcz21f', '9x23y4hz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:44,280 - INFO - Chunk ['9r6frkt1', '9r748q5s', '9r6fxqy8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:44,613 - INFO - Chunk ['9xd06tmk', '9xd2mtyd', '9xd91jbf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:45,320 - INFO - Chunk ['9rs9pbh2', '9rt10pp9', '9rt36hcf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:45,676 - INFO - Chunk ['9redht64', '9red5w82', '9re61n8j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:46,117 - INFO - Chunk ['9rc9rf0g', '9rbck7wu', '9rc36w5u']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:46,467 - INFO - Chunk ['9rzf6zf1', '9xbe30j8', '9xb5mhbq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:47,513 - INFO - Chunk ['9ry5rvg7', '9rvedfv6', '9rvs28x3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:47,960 - INFO - Chunk ['c240vf3g', 'c248yjdp', 'c21creqj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:48,437 - INFO - Chunk ['c81ehbzj', 'c8150gnf', 'c815ede8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:48,585 - INFO - Chunk ['c2nrjb88', 'c2np099r', 'c2nr1t4t']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:49,292 - INFO - Chunk ['c2hpdmz1', 'c2k011c6', 'c2k016ej']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:49,812 - INFO - Chunk ['c2rtn7fm', 'c82tce9d', 'c82w19cw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:50,129 - INFO - Chunk ['c2mypjt9', 'c2qqzm64', 'c2qr41wv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:50,529 - INFO - Chunk ['c2kp52c4', 'c2kpw3w6', 'c27reus6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:51,191 - INFO - Chunk ['c8j5w1p5', 'c8j79h2u', 'c8jhn6ex']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:51,572 - INFO - Chunk ['c8me812e', 'c8mhjdjq', 'c8ms1t1v']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:51,897 - INFO - Chunk ['cb3w20vz', 'cb3q7smm', 'cb3y8ugs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:52,294 - INFO - Chunk ['c8q3bmx6', 'c8mdv0uf', 'c8qkx2kf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:14:52,387 - INFO - Function `run_parallel_matching` executed in 46.4196 sec, CPU: 69.20%, Memory: 840.50MB
+2025-02-27 20:21:29,644 - INFO - match_geometries: Found 0 matches
+2025-02-27 20:21:29,648 - INFO - Function `match_geometries` executed in 0.0052 sec, CPU: 21.40%, Memory: 0.47MB
+2025-02-27 20:22:52,130 - INFO - Function `generate_random_polygons` executed in 8.5393 sec, CPU: 18.10%, Memory: 9.81MB
+2025-02-27 20:23:01,919 - INFO - Function `generate_random_polygons` executed in 9.7877 sec, CPU: 50.70%, Memory: 428.11MB
+2025-02-27 20:23:02,173 - INFO - Function `convert_col_to_string` executed in 0.0664 sec, CPU: 20.80%, Memory: 4.78MB
+2025-02-27 20:23:02,226 - INFO - Function `convert_col_to_string` executed in 0.0509 sec, CPU: 65.00%, Memory: 20.23MB
+2025-02-27 20:23:02,235 - INFO - Function `df_itertuple` executed in 0.0028 sec, CPU: 42.90%, Memory: 0.00MB
+2025-02-27 20:23:02,239 - INFO - Function `df_itertuple` executed in 0.0025 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:23:02,282 - INFO - Function `create_pg_db` executed in 0.0390 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:23:02,683 - INFO - Function `create_pg_table` executed in 0.3806 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:23:03,421 - INFO - Function `create_pg_table` executed in 0.7072 sec, CPU: 63.40%, Memory: 209.00MB
+2025-02-27 20:23:03,498 - INFO - Function `retrieve_pg_table` executed in 0.0487 sec, CPU: 12.90%, Memory: 5.97MB
+2025-02-27 20:23:03,551 - INFO - Function `retrieve_pg_table` executed in 0.0482 sec, CPU: 54.10%, Memory: 7.98MB
+2025-02-27 20:23:05,798 - INFO - Chunk ['djgb7j4w', 'dju88wyp', 'djg9kc3f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:05,800 - INFO - Chunk ['dhy00twr', 'dhy8kqjc', 'dhy2w0gd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:05,803 - INFO - Chunk ['dhw9u47n', 'dhwd85nj', 'dhwsfu8x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:05,805 - INFO - Chunk ['dj7xbcdw', 'djd8pub0', 'dje0mm32']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:05,810 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:05,810 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:05,812 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:05,812 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:05,816 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:05,816 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:05,817 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:05,817 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:07,318 - INFO - Chunk ['dnhcqj8h', 'dnj3d8e2', 'dnj3838z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:07,322 - INFO - Chunk ['djb92csn', 'djb388j6', 'djb66647']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:07,326 - INFO - Chunk ['dq0xf05w', 'dq28h9kg', 'dq2049w9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:07,328 - INFO - Chunk ['dn0scq09', 'dn1qr8n4', 'dn0z1hxh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:07,333 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:07,333 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:07,333 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:07,333 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:07,338 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:07,338 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:07,341 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:07,341 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:08,876 - INFO - Chunk ['9uf0rx2x', '9uf1w5tc', '9uf60gyk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:08,876 - INFO - Chunk ['dnkqpyg0', 'dnknx03t', 'dnkqx7vp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:08,887 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:08,887 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:08,888 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:08,888 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:08,890 - INFO - Chunk ['9yryf4gb', '9yrzje75', 'dn2r1grk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:08,902 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:08,902 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:09,189 - INFO - Chunk ['9v4gg923', '9v5h5px8', '9v4u9zyb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:09,200 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:09,200 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:10,492 - INFO - Chunk ['9vr8nm30', '9vrbbznj', 'dj219urs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:10,498 - INFO - Chunk ['9vdb3ys4', '9vd2t128', '9vdb93er']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:10,503 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:10,503 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:10,508 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:10,509 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:10,511 - INFO - Chunk ['dj3wumbg', 'dj6p67z3', 'dj6p2t1r']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:10,523 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:10,523 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:10,927 - INFO - Chunk ['9vt4jz6u', '9vsfe6we', '9vterfkn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:10,938 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:10,938 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:12,104 - INFO - Chunk ['9y4khhqu', '9y5h6s2y', '9y5h9nne']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:12,115 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:12,115 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:12,118 - INFO - Chunk ['9vuh63ju', '9vus61yb', '9vuk26p7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:12,127 - INFO - Chunk ['9vvgkd66', '9vvg6vty', '9vvgcks6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:12,129 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:12,129 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:12,139 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:12,139 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:12,499 - INFO - Chunk ['9yny84cw', '9ypqxuqu', '9ypnwyd3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:12,510 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:12,510 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:13,811 - INFO - Chunk ['dny2uyzr', 'dny8vxd3', 'dnz8fpwx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:13,825 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:13,825 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:13,831 - INFO - Chunk ['dnsxjtfx', 'dnsr9bjx', 'dnezwtgr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:13,837 - INFO - Chunk ['dq8brv06', 'dnxb7muy', 'dnxb91qu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:13,843 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:13,843 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:13,849 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:13,849 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:14,288 - INFO - Chunk ['dnfwkvtt', 'dngnyvb4', 'dngr3z0e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:14,299 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:14,299 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:15,498 - INFO - Chunk ['dp483bs8', 'dp406eu9', 'dp487t7g']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:15,501 - INFO - Chunk ['dppbbqkf', 'dr02vy7e', 'dr0buwf7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:15,512 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:15,513 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:15,515 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:15,515 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:15,517 - INFO - Chunk ['dppqk7y0', 'dpnnmuys', 'dpnnmxzw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:15,537 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:15,538 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:15,990 - INFO - Chunk ['dr6e09gs', 'dr77weg8', 'dr75g0hd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:16,001 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:16,001 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:17,259 - INFO - Chunk ['dpk0x4ez', 'dp7bwpr4', 'dp78uvgs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:17,263 - INFO - Chunk ['9yedgc31', '9yedyed1', '9yeg5xx4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:17,268 - INFO - Chunk ['dre8uwuk', 'drd1104w', 'drd1pcbf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:17,272 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:17,272 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:17,277 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:17,277 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:17,280 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:17,280 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:17,606 - INFO - Chunk ['9ywvzst7', '9ywwpbpr', '9yxw139k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:17,617 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:17,617 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:18,986 - INFO - Chunk ['9yuns9sf', '9zh24y9u', '9zh07rcr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:18,987 - INFO - Chunk ['dnf6j8hx', 'dnfd18yf', 'dnf4pksk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:18,989 - INFO - Chunk ['9yvxvgu9', '9zj2ncer', '9zj2nggh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:18,998 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:18,999 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:18,999 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:18,999 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:19,002 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:19,002 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:19,369 - INFO - Chunk ['9z052tur', '9z05vqwu', '9z0seh42']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:19,379 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:19,379 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:20,587 - INFO - Chunk ['9z7r4xk9', '9z7xr7y7', '9z7zmp5w']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:20,588 - INFO - Chunk ['9zqtmd9r', '9zmven56', '9zqmbf09']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:20,590 - INFO - Chunk ['dp3r00yq', 'dp2x90c1', 'dp2zwg1h']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:20,599 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:20,599 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:20,601 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:20,601 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:20,602 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:20,603 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:20,978 - INFO - Chunk ['9zy3tuum', '9zyd14q6', '9zy4erut']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:20,992 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:20,992 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:22,309 - INFO - Chunk ['dpsskwen', 'dpeu82p4', 'dpss9h69']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:22,323 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:22,324 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:22,324 - INFO - Chunk ['dpc6myq3', 'dpbdcfsx', 'dpbujgh7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:22,326 - INFO - Chunk ['drf22800', 'drg8kr2r', 'drg29byy']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:22,336 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:22,336 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:22,338 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:22,338 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:22,733 - INFO - Chunk ['f05sr11v', 'f05tn6h7', 'f2p2wwmt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:22,744 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:22,744 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:23,958 - INFO - Chunk ['cbhn34tp', 'cbhnmduc', 'cbhn6ejq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:23,961 - INFO - Chunk ['cb0wwh8q', 'cb0x6mj2', 'cb0r7r5r']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:23,961 - INFO - Chunk ['f02k65m5', 'f02hksyh', 'f066m0b5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:23,970 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:23,970 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:23,973 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:23,973 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:23,973 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:23,973 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:24,375 - INFO - Chunk ['cbqjv8pm', 'cbmvzd5j', 'cbqqhf3f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:24,386 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:24,386 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:25,497 - INFO - Chunk ['9txbbjzp', '9tx943ew', '9tx3qk0c']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:25,502 - INFO - Chunk ['cbe18sb6', 'cbdc8qmb', 'cbdd8fwz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:25,510 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:25,510 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:25,513 - INFO - Chunk ['9v97rcxx', '9v952pr3', '9v8grxbz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:25,514 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:25,514 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:25,528 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:25,528 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:25,946 - INFO - Chunk ['9tf7ynj7', '9tfks3kp', '9tft0pz5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:25,961 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:25,961 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:27,153 - INFO - Chunk ['9y17439y', '9y0gt2d4', '9y17tjgd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:27,154 - INFO - Chunk ['9vb4zmb7', '9vb500bc', '9vb76whf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:27,156 - INFO - Chunk ['9wnnj862', '9wnn7y2h', '9wnytc35']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:27,165 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:27,165 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:27,166 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:27,166 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:27,170 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:27,170 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:27,538 - INFO - Chunk ['9wjqendf', '9wjyerhk', '9wjrvh6y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:27,549 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:27,549 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:28,911 - INFO - Chunk ['9wsehzr4', '9wse2dkc', '9ws7x7yf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:28,917 - INFO - Chunk ['9wd2erzq', '9wd0g8pf', '9wdcg6v1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:28,922 - INFO - Chunk ['9y6pmvyb', '9y3zmvcc', '9yd0s81d']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:28,925 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:28,925 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:28,928 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:28,928 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:28,934 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:28,935 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:29,348 - INFO - Chunk ['9mz5tykx', '9mz5ewyb', '9myukxnp']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:29,361 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:29,361 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:30,692 - INFO - Chunk ['9w4hyv5s', '9w4v3wnz', '9w4mtcw9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:30,696 - INFO - Chunk ['9qj1y49n', '9qh7ngw9', '9qhgm2wv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:30,704 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:30,705 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:30,709 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:30,709 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:30,724 - INFO - Chunk ['9q7t4e7j', '9q7t05tw', '9q7mnvp2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:30,737 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:30,737 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:31,074 - INFO - Chunk ['9qr5zdxj', '9qr5z5xk', '9qrh5eh3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:31,084 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:31,084 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:32,467 - INFO - Chunk ['9qwe8f5h', '9qtet6k9', '9qw7zehw']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:32,470 - INFO - Chunk ['9wfs5uwd', '9wfu1t2k', '9wfu0y2d']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:32,473 - INFO - Chunk ['9qez4nqv', '9qer80mv', '9qexs1p4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:32,478 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:32,479 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:32,482 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:32,482 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:32,485 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:32,485 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:32,994 - INFO - Chunk ['9qgwfc65', '9qgz0bsg', '9qgr5103']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:33,005 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:33,005 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:34,319 - INFO - Chunk ['9qzw9xpm', '9qzx08cm', '9qzp1bzr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:34,325 - INFO - Chunk ['9ww63kec', '9wwe4ue7', '9ww7pxbm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:34,326 - INFO - Chunk ['9yce89kt', '9ybezbey', '9yc7gy18']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:34,331 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:34,331 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:34,338 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:34,338 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:34,341 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:34,341 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:34,801 - INFO - Chunk ['9wu4vk9t', '9wug1yyf', '9wuuu1rs']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:34,811 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:34,811 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:35,871 - INFO - Chunk ['9xn03msj', '9xj2tfqf', '9xj0eppq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:35,882 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:35,882 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:36,085 - INFO - Chunk ['9x717ct7', '9x733cf1', '9x713pe9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:36,087 - INFO - Chunk ['9xrmgqtm', '9xrw5sy1', '9xrquj1x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:36,096 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:36,096 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:36,098 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:36,098 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:36,507 - INFO - Chunk ['9xe1s8gm', '9xe9xkkr', '9xe9bkv6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:36,519 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:36,519 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:37,684 - INFO - Chunk ['9xy9wkxj', '9xy98nwv', '9xyfqhj3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:37,700 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:37,700 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:37,703 - INFO - Chunk ['9z8fbh2z', '9z94vrf4', '9z97pk6x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:37,704 - INFO - Chunk ['9xv3xd4r', '9xv3fm26', '9xv6nh4y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:37,714 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:37,715 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:37,715 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:37,715 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:38,110 - INFO - Chunk ['9x4en2dp', '9x4546k1', '9x476j1k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:38,122 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:38,122 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:39,397 - INFO - Chunk ['9rkc03gc', '9rk3t11v', '9rkcwv9y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:39,406 - INFO - Chunk ['9r5y8965', '9r5ws5xw', '9r5nzywb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:39,407 - INFO - Chunk ['9x3uj71h', '9x3krszy', '9x3k7np8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:39,408 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:39,408 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:39,419 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:39,419 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:39,419 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:39,419 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:39,843 - INFO - Chunk ['9re8whex', '9rs0yy8h', '9rec12ez']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:39,854 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:39,854 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:40,979 - INFO - Chunk ['9rt76s1n', '9rt7mnqe', '9rse8f2y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:40,993 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:40,994 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:41,211 - INFO - Chunk ['9rer8x95', '9rspf84v', '9ru019j9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:41,211 - INFO - Chunk ['9xdq6v0m', '9xdr2p8p', '9xdxg9eq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:41,222 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:41,222 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:41,222 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:41,222 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:41,594 - INFO - Chunk ['9ry544gg', '9ry5r3k9', '9ry5dqg5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:41,606 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:41,606 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:42,792 - INFO - Chunk ['9rgnfzrt', '9rfx53x1', '9rczseeh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:42,795 - INFO - Chunk ['c847gc49', 'c84k0jw6', 'c84sqjeu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:42,802 - INFO - Chunk ['c8pk3dsf', 'c8pk81jz', 'c8psdgk5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:42,804 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:42,805 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:42,809 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:42,809 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:42,815 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:42,815 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:43,278 - INFO - Chunk ['c85kmmdh', 'c85suk3e', 'c85jpsxr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:43,290 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:43,290 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:44,599 - INFO - Chunk ['c8mybu0d', 'c8mrjmd2', 'c8mxpzgx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:44,604 - INFO - Chunk ['c8km4yug', 'c8kv4rne', 'c8kj2ezz']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:44,611 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:44,611 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:44,612 - INFO - Chunk ['cb2y61ve', 'cb3n9u0q', 'cb3qzvdj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:44,616 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:44,617 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:44,626 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:44,626 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:45,057 - INFO - Chunk ['c2pe185n', 'c2ng4uzp', 'c2pkh40c']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:45,070 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:45,070 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:46,601 - INFO - Chunk ['c24n0ttu', 'c24nedz3', 'c24wenhq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:46,614 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:46,614 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:46,659 - INFO - Chunk ['c2kt88ue', 'c2mjy6b3', 'c2kw0t8b']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:46,668 - INFO - Chunk ['c83hemh2', 'c83hswus', 'c83jhbnc']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:46,674 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:46,674 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:46,683 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:46,683 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:47,074 - INFO - Chunk ['c26t8vhv', 'c26v9vxt', 'c26mgskk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:23:47,084 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:23:47,084 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:23:47,171 - INFO - Function `run_parallel_matching` executed in 43.2240 sec, CPU: 14.20%, Memory: 546.48MB
+2025-02-27 20:26:28,304 - INFO - Function `generate_random_polygons` executed in 7.7752 sec, CPU: 8.20%, Memory: 1158.61MB
+2025-02-27 20:26:36,139 - INFO - Function `generate_random_polygons` executed in 7.8338 sec, CPU: 26.80%, Memory: 44.73MB
+2025-02-27 20:26:36,264 - INFO - Function `convert_col_to_string` executed in 0.0498 sec, CPU: 42.90%, Memory: 3.64MB
+2025-02-27 20:26:36,313 - INFO - Function `convert_col_to_string` executed in 0.0481 sec, CPU: 0.00%, Memory: 0.06MB
+2025-02-27 20:26:36,323 - INFO - Function `df_itertuple` executed in 0.0033 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:26:36,328 - INFO - Function `df_itertuple` executed in 0.0027 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:26:36,358 - INFO - Function `create_pg_db` executed in 0.0263 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:26:36,779 - INFO - Function `create_pg_table` executed in 0.4013 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:26:37,183 - INFO - Function `create_pg_table` executed in 0.3766 sec, CPU: 29.00%, Memory: 39.94MB
+2025-02-27 20:26:37,254 - INFO - Function `retrieve_pg_table` executed in 0.0460 sec, CPU: 3.90%, Memory: 1.58MB
+2025-02-27 20:26:37,298 - INFO - Function `retrieve_pg_table` executed in 0.0436 sec, CPU: 0.00%, Memory: 0.00MB
+2025-02-27 20:26:39,580 - INFO - Chunk ['9vr2ym', '9vr980', 'dj2409']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:39,581 - INFO - Chunk ['9v44qs', '9v4fd9', '9v44yr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:39,587 - INFO - Chunk ['9uf0g4', '9uf195', '9ucfwe']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:39,591 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:39,591 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:39,593 - INFO - Chunk ['dj2jdt', '9vryge', '9vrxq6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:39,593 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:39,593 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:39,600 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-27 20:26:39,600 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:39,605 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:39,605 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:41,006 - INFO - Chunk ['djdq93', 'dj9qvj', 'dj9zt4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:41,010 - INFO - Chunk ['9vxht8', '9vwssv', '9vwmpb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:41,016 - INFO - Chunk ['9vc6t2', '9vf4ct', '9vcgbh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:41,016 - INFO - Chunk ['9veddn', '9vedv6', '9ve4zm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:41,018 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:41,018 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:41,021 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:41,021 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:41,027 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:41,027 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:41,028 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:41,028 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:42,552 - INFO - Chunk ['dhvgk4', 'dhy7qk', 'dhvumg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:42,562 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:42,562 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:42,572 - INFO - Chunk ['9vgtft', '9vgxc6', '9y52hr']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:42,576 - INFO - Chunk ['9vzmyv', '9vzqn4', '9vzwjj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:42,583 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:42,584 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:42,587 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:42,587 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:42,911 - INFO - Chunk ['dhwd4h', 'dhwegn', 'dhwm5f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:42,922 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:42,922 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:44,147 - INFO - Chunk ['djg37n', 'djf9tu', 'djf3dx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:44,163 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:44,163 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:44,170 - INFO - Chunk ['9ypbk8', 'dn00uc', '9yp8yx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:44,174 - INFO - Chunk ['djt4n9', 'djt4r7', 'djt4xd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:44,184 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:44,184 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:44,187 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:44,187 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:44,548 - INFO - Chunk ['dnh6cb', 'dn5gj0', 'dn5e1p']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:44,560 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:44,560 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:45,898 - INFO - Chunk ['dn3c7h', 'dn3c2t', 'dn39b9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:45,909 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:45,909 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:45,913 - INFO - Chunk ['dnkh3y', 'dn7uqy', 'dnkhzm']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:45,925 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:45,926 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:45,928 - INFO - Chunk ['dnnqc2', 'dnnrnz', 'dnnr5z']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:45,941 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-27 20:26:45,941 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:46,216 - INFO - Chunk ['dq2mb7', 'dq2vf7', 'dnrtyv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:46,228 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:46,228 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:47,470 - INFO - Chunk ['dqcfg9', 'dqf54g', 'dqf5mv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:47,472 - INFO - Chunk ['dnsnm0', 'dnsq60', 'dnsn3c']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:47,476 - INFO - Chunk ['9yxrws', 'dn8pyf', 'dnb0cj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:47,480 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:47,480 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:47,483 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:47,483 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:47,487 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:47,487 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:47,886 - INFO - Chunk ['dnztx3', 'dqbmv8', 'dqbq8h']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:47,898 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-27 20:26:47,899 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:49,087 - INFO - Chunk ['dr6741', 'dr7gnp', 'drk52f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:49,097 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:49,097 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:49,122 - INFO - Chunk ['dnvnxb', 'dnvnw2', 'dnuwyx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:49,124 - INFO - Chunk ['dr1t05', 'dr0t5v', 'dppthn']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:49,134 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:49,134 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:49,135 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:49,135 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:49,531 - INFO - Chunk ['dp76ry', 'dp7d8n', 'dpk58b']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:49,542 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:49,542 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:50,670 - INFO - Chunk ['dn24x3', '9yrfw5', 'dn24zd']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:50,673 - INFO - Chunk ['dp6u95', 'dp6vn7', 'dp6m6g']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:50,679 - INFO - Chunk ['drkrbh', 'drd278', 'drs8rh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:50,681 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:50,681 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:50,684 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-27 20:26:50,684 - INFO - Starting match_geometries()
+2025-02-27 20:26:50,689 - INFO - match_geometries: Found 1 matches
+2025-02-27 20:26:50,691 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:50,691 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:50,695 - INFO - Function `match_geometries` executed in 0.0045 sec, CPU: 13.40%, Memory: 0.72MB
+2025-02-27 20:26:50,696 - INFO - Found 1 matches in chunk ['dp6u95', 'dp6vn7', 'dp6m6g']...
+2025-02-27 20:26:50,696 - INFO - Inserting 1 matches into matched_results
+2025-02-27 20:26:50,696 - INFO - Sample match: [('f05cada6-75be-43ea-a469-18c7f8b84493', '780506c0-7f79-40b5-af68-98133c975f02')]
+2025-02-27 20:26:51,149 - INFO - Chunk ['9ykr2v', '9ykr2t', '9ys04m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:51,160 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:51,160 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:52,373 - INFO - Chunk ['9yx4gy', '9yx5hy', '9yx5vb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:52,374 - INFO - Chunk ['9zn08e', '9zn2dp', '9zn0fb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:52,378 - INFO - Chunk ['9yfur7', '9yfu3q', '9yfss7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:52,384 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:52,384 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:52,385 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:52,385 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:52,390 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:52,390 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:52,745 - INFO - Chunk ['dp0uw7', 'dp0kz3', 'dp1j5f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:52,756 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:52,756 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:54,260 - INFO - Chunk ['9z5phm', '9z5p9c', '9z5py3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:54,273 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:54,273 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:54,274 - INFO - Chunk ['9zsdmx', '9zt689', '9zt7h1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:54,287 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-27 20:26:54,287 - INFO - Starting match_geometries()
+2025-02-27 20:26:54,294 - INFO - match_geometries: Found 1 matches
+2025-02-27 20:26:54,297 - INFO - Chunk ['9zmvdb', '9zqq9s', '9zqndq']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:54,299 - INFO - Function `match_geometries` executed in 0.0067 sec, CPU: 29.10%, Memory: 0.72MB
+2025-02-27 20:26:54,300 - INFO - Found 1 matches in chunk ['9zsdmx', '9zt689', '9zt7h1']...
+2025-02-27 20:26:54,300 - INFO - Inserting 1 matches into matched_results
+2025-02-27 20:26:54,300 - INFO - Sample match: [('3b5011be-9816-4ecb-ae22-b874f5cf1e61', '9f75b548-73e2-428d-92e7-7c07803101d4')]
+2025-02-27 20:26:54,311 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:54,311 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:54,800 - INFO - Chunk ['9z8djj', '9z8fkx', '9z8dwg']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:54,810 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-27 20:26:54,810 - INFO - Starting match_geometries()
+2025-02-27 20:26:54,815 - INFO - match_geometries: Found 1 matches
+2025-02-27 20:26:54,819 - INFO - Function `match_geometries` executed in 0.0043 sec, CPU: 79.90%, Memory: 0.12MB
+2025-02-27 20:26:54,820 - INFO - Found 1 matches in chunk ['9z8djj', '9z8fkx', '9z8dwg']...
+2025-02-27 20:26:54,820 - INFO - Inserting 1 matches into matched_results
+2025-02-27 20:26:54,820 - INFO - Sample match: [('fea03b72-c942-4ffa-a774-1a6c1f021168', '1192c0f2-0ee8-4b62-8446-ae2d95b8d16d')]
+2025-02-27 20:26:56,000 - INFO - Chunk ['dr9zhe', 'drexpm', 'drez4y']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:56,011 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:56,011 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:56,018 - INFO - Chunk ['dpge0y', 'dpu7ge', 'dpuhnb']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:56,025 - INFO - Chunk ['f04kzm', 'f05j45', 'f04vtj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:56,030 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:56,030 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:56,037 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:56,037 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:56,423 - INFO - Chunk ['cbrfp3', 'f0242f', 'cbrdb6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:56,433 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:56,434 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:57,589 - INFO - Chunk ['dpbtjc', 'dpbtmq', 'dpbwm6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:57,591 - INFO - Chunk ['cbhmvv', 'cbhnhc', 'cb5ypx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:57,593 - INFO - Chunk ['9zzwcs', '9zzqvy', 'dpbp7s']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:57,601 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:57,601 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:57,602 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:57,602 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:57,604 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:57,604 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:58,004 - INFO - Chunk ['cbmb20', 'cbm8dc', 'cbq0gy']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:58,015 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:58,015 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:59,204 - INFO - Chunk ['9v85p4', '9v87m8', '9ttbum']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:59,212 - INFO - Chunk ['cbs2yf', 'cbs1rb', 'cbeckf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:59,215 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:59,215 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:59,223 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-27 20:26:59,223 - INFO - Starting match_geometries()
+2025-02-27 20:26:59,224 - INFO - Chunk ['9v8gvh', '9v9h55', '9txevx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:59,229 - INFO - match_geometries: Found 1 matches
+2025-02-27 20:26:59,233 - INFO - Function `match_geometries` executed in 0.0054 sec, CPU: 18.20%, Memory: 0.11MB
+2025-02-27 20:26:59,234 - INFO - Found 1 matches in chunk ['cbs2yf', 'cbs1rb', 'cbeckf']...
+2025-02-27 20:26:59,234 - INFO - Inserting 1 matches into matched_results
+2025-02-27 20:26:59,234 - INFO - Sample match: [('79e3b809-d6e3-43e3-a125-ce5c3120d85d', 'cf195e19-5043-4753-99ec-93310fdc42c5')]
+2025-02-27 20:26:59,237 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:59,237 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:26:59,714 - INFO - Chunk ['9tggjw', '9tgg4z', '9tf37j']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:26:59,725 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:26:59,725 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:00,908 - INFO - Chunk ['9wms47', '9wmuns', '9wqcje']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:00,914 - INFO - Chunk ['9tzp7s', '9tzrd7', '9tzqx5']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:00,919 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:00,919 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:00,920 - INFO - Chunk ['9w57h9', '9w57mt', '9wh1m0']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:00,926 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:00,926 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:00,932 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:00,932 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:01,223 - INFO - Chunk ['9y6j67', '9y3ttd', '9y2st1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:01,234 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:01,234 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:02,460 - INFO - Chunk ['9w99de', '9wd4pw', '9qx9qh']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:02,462 - INFO - Chunk ['9wwqbg', '9wwx6b', '9wxm7t']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:02,463 - INFO - Chunk ['9w3ssp', '9w6m8e', '9wk5mj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:02,471 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:02,471 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:02,473 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-27 20:27:02,473 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:02,474 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:02,474 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:02,850 - INFO - Chunk ['9mzvpx', '9tckyx', '9tbv1h']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:02,861 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:02,861 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:04,167 - INFO - Chunk ['9w2buq', '9w1zwd', '9w4pbk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:04,179 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:04,179 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:04,184 - INFO - Chunk ['9qq7uq', '9qm626', '9qm6qx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:04,196 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:04,196 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:04,198 - INFO - Chunk ['9qn1dr', '9qn1v9', '9qj6nf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:04,209 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:04,210 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:04,604 - INFO - Chunk ['9qdbs7', '9qd2f0', '9q9bud']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:04,615 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:04,615 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:05,887 - INFO - Chunk ['9qwm5t', '9qx77h', '9qx5d1']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:05,891 - INFO - Chunk ['9qbunq', '9qg1ze', '9qgczj']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:05,898 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:05,898 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:05,900 - INFO - Chunk ['9qzu9z', '9wc73u', '9wbeu4']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:05,903 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:05,903 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:05,912 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:05,912 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:06,288 - INFO - Chunk ['9qvrkn', '9qut1v', '9quvd7']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:06,299 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:06,299 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:07,496 - INFO - Chunk ['9ybde3', '9yc31x', '9yc968']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:07,508 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:07,508 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:07,525 - INFO - Chunk ['9wg8bc', '9wdz9u', '9wdxwv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:07,527 - INFO - Chunk ['9r46sq', '9r4e5z', '9r552m']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:07,537 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:07,537 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:07,539 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:07,539 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:07,931 - INFO - Chunk ['9xj9f3', '9xncrb', '9xnfje']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:07,944 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-27 20:27:07,944 - INFO - Starting match_geometries()
+2025-02-27 20:27:07,950 - INFO - match_geometries: Found 1 matches
+2025-02-27 20:27:07,954 - INFO - Function `match_geometries` executed in 0.0060 sec, CPU: 60.90%, Memory: 4.98MB
+2025-02-27 20:27:07,955 - INFO - Found 1 matches in chunk ['9xj9f3', '9xncrb', '9xnfje']...
+2025-02-27 20:27:07,955 - INFO - Inserting 1 matches into matched_results
+2025-02-27 20:27:07,955 - INFO - Sample match: [('5ec12a47-fa02-4dbd-bbeb-ec0433f7c2cc', 'd06c4664-9c7b-4802-857c-cb90477e6e88')]
+2025-02-27 20:27:09,198 - INFO - Chunk ['9x0mur', '9x0gsn', '9x1hp2']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:09,200 - INFO - Chunk ['9z29f7', '9z1rs7', '9z1ru3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:09,205 - INFO - Chunk ['9x5f24', '9xj2mp', '9xj2tx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:09,212 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:09,212 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:09,216 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:09,216 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:09,219 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:09,220 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:09,602 - INFO - Chunk ['9xm6ch', '9xrbqv', '9xr8e9']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:09,612 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:09,612 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:10,778 - INFO - Chunk ['9z8n3g', '9xxjpe', '9xwyw6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:10,779 - INFO - Chunk ['9xdxxg', '9xtjun', '9xtq1f']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:10,780 - INFO - Chunk ['9xksfk', '9x6efb', '9x6gut']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:10,790 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:10,790 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:10,791 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:10,791 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:10,791 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:10,791 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:11,142 - INFO - Chunk ['9rk369', '9rnw7z', '9rpqev']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:11,153 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:11,153 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:12,473 - INFO - Chunk ['9x8bxp', '9x2q9w', '9x2r5b']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:12,476 - INFO - Chunk ['9rk443', '9r68w6', '9r63h8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:12,477 - INFO - Chunk ['9r913m', '9re84k', '9re0hx']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:12,485 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:12,485 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:12,489 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:12,489 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:12,490 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:12,490 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:12,811 - INFO - Chunk ['9rsgz4', '9rx47k', '9rx4xf']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:12,822 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:12,822 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:14,019 - INFO - Chunk ['9rc3ep', '9ru018', '9rg0py']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:14,024 - INFO - Chunk ['9rvhfc', '9ry4es', '9rvfgt']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:14,031 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:14,031 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:14,033 - INFO - Chunk ['9xc193', '9x9zur', '9xcbj6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:14,035 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-27 20:27:14,036 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:14,045 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:14,045 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:14,470 - INFO - Chunk ['9rgnrb', '9rgy6v', '9rgqvy']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:14,481 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:14,482 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:15,963 - INFO - Chunk ['c2hm0u', 'c2hvnu', 'c2hts8']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:15,967 - INFO - Chunk ['cb181p', 'cb19p2', 'cb191h']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:15,979 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:15,979 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:15,981 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:15,981 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:16,042 - INFO - Chunk ['9xzrqw', '9xzrtd', 'c8p0r6']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:16,062 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:16,063 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:16,280 - INFO - Chunk ['c81cmm', 'c843vh', 'c81f5k']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:16,290 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-27 20:27:16,290 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:17,844 - INFO - Chunk ['cb6qpn', 'cb3ue5', 'cb3seu']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:17,849 - INFO - Chunk ['c8r53t', 'c8qges', 'c8rh0q']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:17,853 - INFO - Chunk ['c877z9', 'c87upf', 'c87u9e']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:17,857 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:17,857 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:17,861 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:17,861 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:17,866 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-27 20:27:17,866 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:18,143 - INFO - Chunk ['c80dxg', 'c817k8', 'c80ezk']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:18,154 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:18,154 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:19,537 - INFO - Chunk ['c24qqf', 'c21yk7', 'c24qd3']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:19,548 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:19,548 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:19,555 - INFO - Chunk ['c2kt7t', 'c2mj94', 'c2kmtv']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:19,558 - INFO - Chunk ['c23hkb', 'c23h7w', 'c22s6x']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:19,569 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:19,569 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:19,572 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-27 20:27:19,572 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:20,046 - INFO - Chunk ['c83q0j', 'c83n2x', 'c82yen']...: 10000 prev, 10000 curr polygons
+2025-02-27 20:27:20,056 - INFO - After filtering: 93 prev, 0 curr polygons
+2025-02-27 20:27:20,056 - INFO - Skipping batch - No overlapping geohashes
+2025-02-27 20:27:20,133 - INFO - Function `run_parallel_matching` executed in 42.3933 sec, CPU: 64.80%, Memory: 317.17MB

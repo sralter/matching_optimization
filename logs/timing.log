@@ -365,3 +365,1518 @@
 2025-02-28 09:48:58,466 - INFO - Function `run_parallel_matching` executed in 115.8288 sec, CPU: 38.00%, Memory: 435.84MB
 2025-02-28 12:46:12,047 - INFO - Function `generate_random_polygons` executed in 86.1941 sec, CPU: 7.70%, Memory: 450.30MB
 2025-02-28 12:47:32,234 - INFO - Function `generate_random_polygons` executed in 80.1859 sec, CPU: 12.00%, Memory: 114.30MB
+2025-02-28 13:10:28,841 - ERROR - `data/prev_month_blobs.parquet' not recognized as a supported file format.
+2025-02-28 13:10:34,507 - ERROR - `data/curr_month_blobs.parquet' not recognized as a supported file format.
+2025-02-28 13:11:32,907 - INFO - Function `convert_col_to_string` executed in 0.5009 sec, CPU: 17.40%, Memory: 34.12MB
+2025-02-28 13:11:33,399 - INFO - Function `convert_col_to_string` executed in 0.4905 sec, CPU: 38.30%, Memory: 31.17MB
+2025-02-28 13:11:33,424 - INFO - Function `df_itertuple` executed in 0.0184 sec, CPU: 36.80%, Memory: 4.19MB
+2025-02-28 13:11:33,442 - INFO - Function `df_itertuple` executed in 0.0148 sec, CPU: 57.10%, Memory: 3.52MB
+2025-02-28 13:11:33,550 - INFO - Function `create_pg_db` executed in 0.1007 sec, CPU: 35.70%, Memory: 42.95MB
+2025-02-28 13:11:38,038 - INFO - Function `create_pg_table` executed in 4.4016 sec, CPU: 18.90%, Memory: 83.92MB
+2025-02-28 13:11:42,327 - INFO - Function `create_pg_table` executed in 3.9964 sec, CPU: 7.20%, Memory: 208.91MB
+2025-02-28 13:11:43,310 - INFO - Function `retrieve_pg_table` executed in 0.6174 sec, CPU: 1.60%, Memory: 25.44MB
+2025-02-28 13:11:43,742 - INFO - Function `retrieve_pg_table` executed in 0.4320 sec, CPU: 34.40%, Memory: 62.45MB
+2025-02-28 13:11:50,872 - INFO - Chunk ['djjcwd6', 'dhy55tm', 'dhy7jx5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:50,897 - INFO - Chunk ['djjfndk', 'djj2r0r', 'djj824t']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:50,916 - INFO - Chunk ['dhvdgwe', 'dhvedpr', 'dhvegu2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:50,918 - INFO - Chunk ['dhy2muq', 'dhy0wdc', 'dhy2dne']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:50,948 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:50,948 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:50,968 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:50,968 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:51,002 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:51,002 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:51,002 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:51,002 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:53,278 - INFO - Chunk ['djm42ys', 'djm4824', 'djm498k']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:53,298 - INFO - Chunk ['djjx9ks', 'djjxdz9', 'djjrz0k']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:53,356 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:53,357 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:53,373 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:53,373 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:53,546 - INFO - Chunk ['djkqtt1', 'djky9jj', 'djkqz0w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:53,546 - INFO - Chunk ['djkqps0', 'djkqr1c', 'djkwm62']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:53,609 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:53,609 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:53,611 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:53,611 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:55,923 - INFO - Chunk ['djt02qs', 'djsbt9r', 'djsbey1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:55,976 - INFO - Chunk ['djd8ucc', 'djd2zdz', 'djd8bv7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:56,018 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:56,019 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:56,070 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:56,070 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:56,295 - INFO - Chunk ['djs1jbj', 'djs34dv', 'djs1k6r']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:56,298 - INFO - Chunk ['dhy0pt9', 'dhy0jnx', 'dhy2683']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:56,367 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:56,368 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:56,374 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:56,374 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:58,908 - INFO - Chunk ['djy448w', 'djy476u', 'djy4rew']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:58,945 - INFO - Chunk ['djyv8v1', 'djyv9yp', 'djytfct']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:59,016 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:59,016 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:59,042 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:59,042 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:59,134 - INFO - Chunk ['dnn99h4', 'dnncxhm', 'dnncy04']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:59,150 - INFO - Chunk ['djyz97t', 'djzp958', 'djyzsj7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:11:59,213 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:59,214 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:11:59,221 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:11:59,221 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:01,759 - INFO - Chunk ['dnpj7us', 'dnpjqjj', 'dnpjrwr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:01,759 - INFO - Chunk ['dq0jbsr', 'dnptyy1', 'dnpvzw1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:01,762 - INFO - Chunk ['dnnek3g', 'dnne7kz', 'dnngqt4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:01,839 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:01,839 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:01,841 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:01,841 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:01,843 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:01,843 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:02,096 - INFO - Chunk ['dnnrmu7', 'dnnp3py', 'dnnrtb1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:02,178 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:02,179 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:04,753 - INFO - Chunk ['dq20kdy', 'dnrbkrt', 'dq222xf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:04,782 - INFO - Chunk ['djdfdy7', 'djdfdq9', 'djdepe6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:04,790 - INFO - Chunk ['djsdcwh', 'djsdbns', 'djsepdh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:04,834 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:04,834 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:04,858 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:04,858 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:04,867 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:04,868 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:05,097 - INFO - Chunk ['djsm5dw', 'djsjqfh', 'djsjkft']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:05,176 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:05,176 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:07,562 - INFO - Chunk ['dju8qbc', 'dju2q9w', 'dju831b']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:07,587 - INFO - Chunk ['djemcbr', 'djemb6s', 'djen426']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:07,592 - INFO - Chunk ['djtm7kr', 'djtt2ps', 'djtm9f7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:07,641 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:12:07,641 - INFO - Starting match_geometries()
+2025-02-28 13:12:07,645 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:12:07,651 - INFO - Function `match_geometries` executed in 0.0047 sec, CPU: 5.90%, Memory: 3.67MB
+2025-02-28 13:12:07,652 - INFO - Found 0 matches in chunk ['dju8qbc', 'dju2q9w', 'dju831b']...
+2025-02-28 13:12:07,663 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:07,663 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:07,669 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:07,669 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:07,846 - INFO - Chunk ['djtp850', 'djubj6p', 'djv0n6e']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:07,934 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:07,934 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:10,303 - INFO - Chunk ['djgdyjp', 'djgfgx5', 'djggj2m']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:10,328 - INFO - Chunk ['djv6szr', 'djv6g8y', 'djv4z2f']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:10,337 - INFO - Chunk ['djfc6c9', 'djfcx5n', 'djfcdtj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:10,383 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:10,383 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:10,409 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:10,410 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:10,414 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:10,414 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:10,647 - INFO - Chunk ['djfujqb', 'djfsq2s', 'djfu23s']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:10,720 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:10,720 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:13,163 - INFO - Chunk ['djvj3f4', 'djvj2ms', 'djvj3nr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:13,178 - INFO - Chunk ['djupm3e', 'djupk60', 'djur3ft']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:13,185 - INFO - Chunk ['djuhut3', 'djujh2t', 'djujn92']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:13,258 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:13,258 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:13,275 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:13,275 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:13,288 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:13,288 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:13,465 - INFO - Chunk ['djvzg34', 'djvxvtx', 'dnjb10v']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:13,536 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:13,536 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:16,014 - INFO - Chunk ['dn5d5d7', 'dn5dhgq', 'dn5d0ef']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:16,036 - INFO - Chunk ['dnjf5h6', 'dnjfpvd', 'dnjfjn5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:16,042 - INFO - Chunk ['dn4cvh7', 'dn4cfst', 'dn4dntz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:16,096 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:16,096 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:16,128 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:16,128 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:16,133 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:16,133 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:16,343 - INFO - Chunk ['dn4ud3x', 'dn4sx9d', 'dn4stfs']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:16,426 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:16,426 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:19,072 - INFO - Chunk ['dnjkhfg', 'dnjs1v1', 'dnjk5qr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:19,109 - INFO - Chunk ['djckec7', 'djckx3q', 'djckg27']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:19,121 - INFO - Chunk ['djcuwu9', 'djcuf90', 'djcv6bg']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:19,157 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:12:19,157 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:19,198 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:19,198 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:19,206 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:19,207 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:19,465 - INFO - Chunk ['djgr1c8', 'djgp16y', 'djgp0y0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:19,541 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:19,542 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:22,183 - INFO - Chunk ['djbxw3q', 'djbrtgb', 'djbxv5c']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:22,192 - INFO - Chunk ['9yp9xqv', '9yp9ub0', '9yp9v3z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:22,193 - INFO - Chunk ['djcxkhf', 'djcxkuz', 'djcxs0v']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:22,277 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:22,278 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:22,279 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:22,280 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:22,281 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:22,281 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:22,456 - INFO - Chunk ['dn41bh0', 'dn1cgnh', 'dn1czz1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:22,534 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:22,534 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:25,023 - INFO - Chunk ['dn0m1bg', 'dn0jn18', 'dn0m4mt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:25,079 - INFO - Chunk ['dn1d9rm', 'dn16src', 'dn16g7n']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:25,092 - INFO - Chunk ['dn4j2kp', 'dn1trs7', 'dn1vf4p']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:25,106 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:25,106 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:25,185 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:25,185 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:25,212 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:25,212 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:25,407 - INFO - Chunk ['dnhjp3e', 'dnhjpey', 'dnhj1k2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:25,482 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:25,483 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:27,981 - INFO - Chunk ['dn727m6', 'dn72w96', 'dn78s1c']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:27,992 - INFO - Chunk ['dnhy27p', 'dnhwqnt', 'dnhqqqu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:28,014 - INFO - Chunk ['dn4zkf6', 'dn4z6eg', 'dn4zx3p']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:28,077 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:28,077 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:28,081 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:28,082 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:28,093 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:28,094 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:28,404 - INFO - Chunk ['dnm0enz', 'dnkb9rn', 'dnkbz27']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:28,509 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:28,510 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:30,918 - INFO - Chunk ['dn74ktr', 'dn763ts', 'dn747rm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:30,931 - INFO - Chunk ['dnmgpur', 'dnmg4v6', 'dnmg4wg']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:30,934 - INFO - Chunk ['dnk4f8w', 'dnk6f1j', 'dnk4y57']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:31,008 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:31,008 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:31,019 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:31,020 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:31,028 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:31,028 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:31,510 - INFO - Chunk ['dn7vhnp', 'dn7tpyk', 'dn7vhwy']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:31,590 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:31,591 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:33,955 - INFO - Chunk ['9yr876n', '9yrb2rx', '9yrb2xw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:33,960 - INFO - Chunk ['dn1mvj2', 'dn1w0cb', 'dn1qj7w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:33,979 - INFO - Chunk ['dnkvtkc', 'dnmjduy', 'dnkvesf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:34,037 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:34,038 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:34,053 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:34,053 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:34,068 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:34,069 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:34,652 - INFO - Chunk ['dn3b91y', 'dn38zbu', 'dn3bgc0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:34,733 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:34,734 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:36,848 - INFO - Chunk ['dn310u9', 'dn2cjww', 'dn2cm2x']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:36,849 - INFO - Chunk ['dn37rgj', 'dn3emje', 'dn3e9c0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:36,859 - INFO - Chunk ['9yrfsxc', '9yrfu1w', 'dn24c4y']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:36,949 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:36,949 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:36,960 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:36,960 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:36,961 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:36,961 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:37,678 - INFO - Chunk ['dn2uxt1', 'dn2sxv9', 'dn2usnw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:37,752 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:37,753 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:39,615 - INFO - Chunk ['9yrwrct', '9yry2z4', '9yrws68']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:39,641 - INFO - Chunk ['dn3yx6p', 'dn3wwhc', 'dn3yy3t']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:39,648 - INFO - Chunk ['dn7jsz2', 'dn7mc24', 'dn7jz91']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:39,703 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:39,703 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:39,733 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:39,733 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:39,736 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:39,736 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:40,389 - INFO - Chunk ['dnq968t', 'dnqc6gt', 'dnq9kng']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:40,474 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:40,474 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:42,488 - INFO - Chunk ['dq3e9m5', 'dq35wwe', 'dq37u89']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:42,503 - INFO - Chunk ['dq31cun', 'dq33fjy', 'dq31fyf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:42,514 - INFO - Chunk ['dnq4vjq', 'dnq4vp9', 'dnq74rv']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:42,575 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:42,575 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:42,586 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:42,586 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:42,604 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:42,604 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:43,285 - INFO - Chunk ['dnrky3s', 'dnrhg1s', 'dnrkg62']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:43,368 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:43,368 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:45,705 - INFO - Chunk ['dq3nd1k', 'dq3wt92', 'dq3nsgu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:45,715 - INFO - Chunk ['dq3syeh', 'dq3hvq2', 'dq3sune']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:45,716 - INFO - Chunk ['dnrwv5g', 'dnrqgh4', 'dnrnzv8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:45,797 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:45,797 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:45,798 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:45,798 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:45,805 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:45,805 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:46,401 - INFO - Chunk ['dq2pymr', 'dnxbpb5', 'dq8057b']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:46,487 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:12:46,487 - INFO - Starting match_geometries()
+2025-02-28 13:12:46,492 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:12:46,498 - INFO - Function `match_geometries` executed in 0.0051 sec, CPU: 87.30%, Memory: 7.98MB
+2025-02-28 13:12:46,498 - INFO - Found 0 matches in chunk ['dq2pymr', 'dnxbpb5', 'dq8057b']...
+2025-02-28 13:12:48,703 - INFO - Chunk ['dnx4hyq', 'dnx44rg', 'dnxd3dw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:48,743 - INFO - Chunk ['dq81390', 'dq817sq', 'dnxc6ye']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:48,743 - INFO - Chunk ['dnw2u16', 'dnw2u9w', 'dnw2c3z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:48,796 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:48,796 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:48,839 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:48,839 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:48,854 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:48,854 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:49,680 - INFO - Chunk ['dq8dsw1', 'dq948nn', 'dq8d9nn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:49,809 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:49,809 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:53,358 - INFO - Chunk ['dnxkhcr', 'dnxhn7c', 'dnxkjm3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:53,396 - INFO - Chunk ['dq8hrke', 'dq8hkt7', 'dnxu7yy']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:53,611 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:53,611 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:53,635 - INFO - Chunk ['dnxvdef', 'dq8jxt3', 'dnxtz8n']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:53,669 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:53,670 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:53,807 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:53,807 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:54,834 - INFO - Chunk ['dntwphb', 'dntwpm2', 'dnty0px']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:54,946 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:54,946 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:57,611 - INFO - Chunk ['dnxxtq0', 'dnxpdpk', 'dnxr8xk']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:57,700 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:57,700 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:57,705 - INFO - Chunk ['dnxpnjp', 'dnxx61n', 'dnxpr43']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:57,735 - INFO - Chunk ['dqc2upm', 'dqc9n0m', 'dqcc194']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:57,789 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:57,789 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:57,827 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:12:57,827 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:12:58,528 - INFO - Chunk ['dnkp6g6', 'dnkpmhn', 'dnkpe86']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:12:58,656 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:12:58,656 - INFO - Starting match_geometries()
+2025-02-28 13:12:58,662 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:12:58,668 - INFO - Function `match_geometries` executed in 0.0064 sec, CPU: 1.00%, Memory: 1.44MB
+2025-02-28 13:12:58,668 - INFO - Found 0 matches in chunk ['dnkp6g6', 'dnkpmhn', 'dnkpe86']...
+2025-02-28 13:13:01,123 - INFO - Chunk ['dne3gvv', 'dne9cqm', 'dned4cc']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:01,183 - INFO - Chunk ['dne0my3', 'dne0mrt', 'dne0s4g']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:01,202 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:01,203 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:01,214 - INFO - Chunk ['dnt8nb2', 'dnt8ndn', 'dntbp6q']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:01,274 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:01,275 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:01,299 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:01,299 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:01,837 - INFO - Chunk ['dnt438z', 'dnsfk19', 'dnt47fg']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:01,920 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:01,920 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:04,238 - INFO - Chunk ['dndgznq', 'dndgynq', 'dndgzrr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:04,344 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:04,344 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:04,549 - INFO - Chunk ['dnskuef', 'dnskuz3', 'dnsmnc8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:04,635 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:04,635 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:04,640 - INFO - Chunk ['dnteehw', 'dnt7dvr', 'dnt5z7v']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:04,722 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:04,722 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:05,382 - INFO - Chunk ['dntywge', 'dntyfb1', 'dntwzkh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:05,472 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:05,472 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:07,905 - INFO - Chunk ['9ufx8c8', '9ufxch4', '9v42n5s']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:07,951 - INFO - Chunk ['dnepq9c', 'dnep3k3', 'dnepmxb']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:08,015 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:13:08,015 - INFO - Starting match_geometries()
+2025-02-28 13:13:08,020 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:13:08,026 - INFO - Function `match_geometries` executed in 0.0051 sec, CPU: 22.40%, Memory: 1.22MB
+2025-02-28 13:13:08,027 - INFO - Found 0 matches in chunk ['9ufx8c8', '9ufxch4', '9v42n5s']...
+2025-02-28 13:13:08,043 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:08,044 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:08,390 - INFO - Chunk ['9v400pd', '9v1bjpu', '9v402bq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:08,491 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:08,491 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:09,264 - INFO - Chunk ['9v1u411', '9v1s4dh', '9v1sh76']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:09,373 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:09,373 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:11,441 - INFO - Chunk ['9v28e5s', '9v28fs0', '9v28bu8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:11,505 - INFO - Chunk ['9v4p5q2', '9v4pm3r', '9v4p7yp']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:11,534 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:11,534 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:11,599 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:11,600 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:11,933 - INFO - Chunk ['9v1rss5', '9v1ruz0', '9v325p8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:12,025 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:12,025 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:12,590 - INFO - Chunk ['9v65ct0', '9v3gvwz', '9v3u48k']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:12,693 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:12,693 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:14,884 - INFO - Chunk ['9v35gxs', '9v3hj3y', '9v3hjyt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:14,911 - INFO - Chunk ['9tryw4n', '9v2nbbh', '9v2nbdp']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:14,969 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:14,969 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:15,003 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:15,003 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:15,235 - INFO - Chunk ['9v3rqb6', '9v3r6fk', '9v3rqf2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:15,311 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:15,311 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:15,899 - INFO - Chunk ['9v4sjs2', '9v4sr8s', '9v4s3m9']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:15,981 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:15,981 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:17,740 - INFO - Chunk ['9v78721', '9v72m2d', '9v72qm1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:17,744 - INFO - Chunk ['9v6f3rj', '9v6drzg', '9v6dwz8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:17,822 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:17,823 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:17,823 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:17,824 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:18,137 - INFO - Chunk ['9vk7qdz', '9vk72vp', '9vk73tq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:18,223 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:13:18,223 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:19,007 - INFO - Chunk ['9v7hk91', '9v7h61h', '9vkdbh3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:19,100 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:19,100 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:20,570 - INFO - Chunk ['9vkw8d7', '9vkwt7s', '9v7fzsz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:20,574 - INFO - Chunk ['9vkp98v', '9vkp8mx', '9v758ey']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:20,662 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:20,662 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:20,675 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:20,675 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:20,982 - INFO - Chunk ['9v6zg32', '9v7pc9f', '9vkw9uw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:21,060 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:21,060 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:21,710 - INFO - Chunk ['9vs9vd7', '9vs9bvr', '9v7wz4z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:21,803 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:21,803 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:23,364 - INFO - Chunk ['9ve57rz', '9ve5x2u', '9vr8h0z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:23,433 - INFO - Chunk ['dj2hj53', 'dj2k1ed', '9vr2uu3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:23,450 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:23,450 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:23,515 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:13:23,516 - INFO - Starting match_geometries()
+2025-02-28 13:13:23,521 - INFO - match_geometries: Found 1 matches
+2025-02-28 13:13:23,527 - INFO - Function `match_geometries` executed in 0.0052 sec, CPU: 37.90%, Memory: 1.70MB
+2025-02-28 13:13:23,527 - INFO - Found 1 matches in chunk ['dj2hj53', 'dj2k1ed', '9vr2uu3']...
+2025-02-28 13:13:23,528 - INFO - Inserting 1 matches into matched_results
+2025-02-28 13:13:23,528 - INFO - Sample match: [('db231a36-3b5e-418b-825c-e92199d983d3', 'aaba626b-4578-41cd-97f8-d4b3a54859d7')]
+2025-02-28 13:13:23,897 - INFO - Chunk ['9vqvse5', '9vrjept', '9vqe013']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:23,978 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:23,978 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:24,775 - INFO - Chunk ['9vqn7rr', '9vqn9es', '9vrgx94']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:24,860 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:24,860 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:26,332 - INFO - Chunk ['9vrz0yj', '9vrxm8t', '9vqv0qs']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:26,414 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:26,415 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:26,640 - INFO - Chunk ['9vx1jvu', '9vx15jf', '9vqt8jb']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:26,727 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:26,727 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:27,085 - INFO - Chunk ['9vtc6zv', '9vt9zvb', '9vmjvmq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:27,161 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:27,161 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:27,748 - INFO - Chunk ['9vt3cu7', '9vt4pdg', '9vw8dsg']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:27,827 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:13:27,827 - INFO - Starting match_geometries()
+2025-02-28 13:13:27,832 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:13:27,837 - INFO - Function `match_geometries` executed in 0.0050 sec, CPU: 69.10%, Memory: 0.95MB
+2025-02-28 13:13:27,837 - INFO - Found 0 matches in chunk ['9vt3cu7', '9vt4pdg', '9vw8dsg']...
+2025-02-28 13:13:29,478 - INFO - Chunk ['9vxh4ur', '9vxh5m1', '9vt18vm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:29,563 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:29,563 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:29,768 - INFO - Chunk ['9vtk3en', '9vtkd5q', '9vw3sp6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:29,848 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:29,848 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:30,200 - INFO - Chunk ['9vwm7en', '9vwtd1t', '9v2e6v9']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:30,283 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:30,283 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:30,704 - INFO - Chunk ['9v3pnwp', '9v3p3vj', '9v6dc3v']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:30,789 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:30,789 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:32,681 - INFO - Chunk ['9vd8pu8', '9vd8hmx', '9trwxx7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:32,702 - INFO - Chunk ['9v81bp7', '9v84jft', '9v6n8j0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:32,769 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:32,769 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:32,790 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:32,791 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:33,070 - INFO - Chunk ['9v9g2m2', '9v9g2rf', '9v6r41t']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:33,153 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:33,153 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:33,727 - INFO - Chunk ['9vd70pt', '9vd5r7r', '9v2zjx1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:33,812 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:13:33,813 - INFO - Starting match_geometries()
+2025-02-28 13:13:33,818 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:13:33,822 - INFO - Function `match_geometries` executed in 0.0051 sec, CPU: 63.80%, Memory: 0.53MB
+2025-02-28 13:13:33,823 - INFO - Found 0 matches in chunk ['9vd70pt', '9vd5r7r', '9v2zjx1']...
+2025-02-28 13:13:35,705 - INFO - Chunk ['9v95wfm', '9v97c04', '9vd1cse']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:35,718 - INFO - Chunk ['9v9xx04', '9v9xe54', '9vddxx4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:35,789 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:35,789 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:35,800 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:35,800 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:36,234 - INFO - Chunk ['9vdyfgt', '9vdyfgc', '9v8dz56']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:36,322 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:36,322 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:36,662 - INFO - Chunk ['9v8z04u', '9v8xhu9', '9v8mh46']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:36,741 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:36,741 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:38,823 - INFO - Chunk ['9tz8tyc', '9tzc095', 'dj2mw6q']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:38,916 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:38,917 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:39,086 - INFO - Chunk ['dj89mmk', 'dj83mmf', 'dj3yf0s']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:39,173 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:39,173 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:39,418 - INFO - Chunk ['djd4qzm', 'djd4x9q', '9vrzp3c']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:39,489 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:39,489 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:39,727 - INFO - Chunk ['dj855te', 'dj85jty', 'dj8bgpm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:39,799 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:39,799 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:41,673 - INFO - Chunk ['dj8sjw4', 'dj8kjqj', 'dj99g1h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:41,761 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:41,762 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:42,066 - INFO - Chunk ['dj9wp2b', 'dj9wp1c', '9vxf3sr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:42,156 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:42,156 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:42,468 - INFO - Chunk ['dj8yqvu', 'dj8ykw2', 'djdwhez']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:42,475 - INFO - Chunk ['9vxtu45', '9vxy02d', 'dj9k03u']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:42,556 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:42,556 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:42,556 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:42,557 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:44,890 - INFO - Chunk ['djcck4b', 'dj8qr46', 'dj8w662']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:44,992 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:44,992 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:45,311 - INFO - Chunk ['djc132k', '9vzbt0e', '9vzbw5z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:45,403 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:45,403 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:45,697 - INFO - Chunk ['djb5c9y', '9veckvb', '9vecd0t']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:45,730 - INFO - Chunk ['9veyq7e', '9vedyf3', '9vefgd3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:45,778 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:45,779 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:45,804 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:45,804 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:47,694 - INFO - Chunk ['9veqydj', '9vsmrvf', '9vst2pk']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:47,770 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:47,770 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:48,017 - INFO - Chunk ['9vu1scr', '9vdws14', '9vdwf93']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:48,100 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:48,100 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:48,425 - INFO - Chunk ['9vf4kch', '9vewp7z', '9vey5j6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:48,433 - INFO - Chunk ['9vg7huw', '9vu8sm3', '9vu89p1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:48,507 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:48,507 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:48,509 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:48,509 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:50,667 - INFO - Chunk ['9vusb8s', '9vf3f2h', '9vf3g8d']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:50,753 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:50,753 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:51,115 - INFO - Chunk ['9vfjgky', '9vufmmf', '9vufs0k']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:51,202 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:13:51,202 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:51,589 - INFO - Chunk ['9vgf75k', '9vgdkyh', '9vgf6zt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:51,626 - INFO - Chunk ['9vguqq5', '9vuh7nb', '9vgux3n']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:51,701 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:51,701 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:51,757 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:13:51,757 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:53,712 - INFO - Chunk ['9vx7gme', '9vx5ytz', '9vxkn97']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:53,797 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:13:53,797 - INFO - Starting match_geometries()
+2025-02-28 13:13:53,802 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:13:53,808 - INFO - Function `match_geometries` executed in 0.0050 sec, CPU: 40.10%, Memory: 1.55MB
+2025-02-28 13:13:53,808 - INFO - Found 0 matches in chunk ['9vx7gme', '9vx5ytz', '9vxkn97']...
+2025-02-28 13:13:54,419 - INFO - Chunk ['9vsgynz', '9vsu18k', '9vsukuu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:54,525 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:54,525 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:54,825 - INFO - Chunk ['9vtucjn', '9vtvn32', '9vtv065']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:54,825 - INFO - Chunk ['dj8mk1m', 'dj8m24t', 'dj8j7q3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:54,933 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:54,933 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:54,942 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:54,943 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:57,048 - INFO - Chunk ['9vwy2qq', '9vwy6zs', '9vwy6rb']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:57,144 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:57,144 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:57,726 - INFO - Chunk ['9vtx6ux', '9vtrkrq', '9vtxd81']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:57,816 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:57,816 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:58,046 - INFO - Chunk ['9vy30hp', '9vy1htr', '9vy1pjc']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:58,051 - INFO - Chunk ['9vz1u41', '9vz1us0', '9vyczhk']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:58,126 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:58,127 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:58,128 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:58,128 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:13:59,735 - INFO - Chunk ['djb5777', 'djb5r53', 'djb5sd1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:13:59,821 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:13:59,821 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:00,540 - INFO - Chunk ['9vvs1pj', '9vvs7d8', '9vvkqxz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:00,617 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:00,617 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:00,934 - INFO - Chunk ['9vvmbbg', '9vvjf1k', '9vvmbnd']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:00,941 - INFO - Chunk ['9vyse5b', '9vysemt', '9vysg12']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:01,017 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:01,017 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:01,021 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:01,021 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:02,505 - INFO - Chunk ['9vvx1ty', '9vvx797', '9vvx647']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:02,589 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:02,589 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:03,325 - INFO - Chunk ['9vyz9mg', '9ynb17c', '9yn8jk1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:03,408 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:03,408 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:03,726 - INFO - Chunk ['9yh8dy1', '9yh8ep9', '9yh8g4z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:03,769 - INFO - Chunk ['9yj9xf4', '9yj9wdh', '9yjcddv']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:03,805 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:03,805 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:03,851 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:03,851 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:05,268 - INFO - Chunk ['9yp5mc3', '9yngm52', '9yngx5h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:05,360 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:05,360 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:06,083 - INFO - Chunk ['9yju652', '9yjsqm8', '9yjue6c']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:06,172 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:06,172 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:06,551 - INFO - Chunk ['9yq0emf', '9yq0cbw', '9yq0fg7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:06,555 - INFO - Chunk ['9yny6cz', '9ynwm6q', '9ynwrk8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:06,637 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:06,637 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:06,640 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:06,640 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:08,272 - INFO - Chunk ['9vgqmge', '9vgw6nn', '9vgw88w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:08,378 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:08,378 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:09,313 - INFO - Chunk ['9yh2d01', '9yh2s00', '9yh2wm6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:09,398 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:09,398 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:09,798 - INFO - Chunk ['9y5ch5e', '9y59r86', '9y59s0s']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:09,802 - INFO - Chunk ['9y41q2f', '9y432d1', '9y4395k']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:09,893 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:09,893 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:09,905 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:09,906 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:11,324 - INFO - Chunk ['9yhe9zm', '9yhef59', '9yhefk0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:11,408 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:11,409 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:12,328 - INFO - Chunk ['9yjh64q', '9yjh6wq', '9yjhd71']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:12,405 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:12,405 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:12,744 - INFO - Chunk ['9y4nu6k', '9y4r0ts', '9y4pk6d']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:12,768 - INFO - Chunk ['9y4uk5p', '9y4uq7g', '9y5h9rp']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:12,826 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:14:12,827 - INFO - Starting match_geometries()
+2025-02-28 13:14:12,832 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:14:12,838 - INFO - Function `match_geometries` executed in 0.0057 sec, CPU: 17.90%, Memory: 3.72MB
+2025-02-28 13:14:12,838 - INFO - Found 0 matches in chunk ['9y4nu6k', '9y4r0ts', '9y4pk6d']...
+2025-02-28 13:14:12,853 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:14:12,853 - INFO - Starting match_geometries()
+2025-02-28 13:14:12,859 - INFO - match_geometries: Found 1 matches
+2025-02-28 13:14:12,865 - INFO - Function `match_geometries` executed in 0.0055 sec, CPU: 67.80%, Memory: 0.00MB
+2025-02-28 13:14:12,865 - INFO - Found 1 matches in chunk ['9y4uk5p', '9y4uq7g', '9y5h9rp']...
+2025-02-28 13:14:12,865 - INFO - Inserting 1 matches into matched_results
+2025-02-28 13:14:12,865 - INFO - Sample match: [('397c5d47-f896-423c-9c94-4cf046f883f0', '844d5465-f460-49e7-b21d-f2e40cb74f88')]
+2025-02-28 13:14:14,395 - INFO - Chunk ['9yjp9sw', '9yjpexe', '9ym0j4z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:14,483 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:14,483 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:15,128 - INFO - Chunk ['9yhr19m', '9yhr41c', '9yhrnh8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:15,219 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:15,219 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:15,637 - INFO - Chunk ['9y78r2q', '9y78qb8', '9y7bk09']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:15,666 - INFO - Chunk ['9y6f137', '9y6dn73', '9y6djgt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:15,726 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:15,726 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:15,767 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:15,767 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:17,482 - INFO - Chunk ['9ym689x', '9ym4dx4', '9ym4ucv']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:17,580 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:14:17,581 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:18,372 - INFO - Chunk ['9y7g050', '9y7g6dh', '9y7g6k9']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:18,465 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:18,465 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:18,685 - INFO - Chunk ['9y7s51e', '9y7s477', '9y7s1ut']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:18,774 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:18,775 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:18,961 - INFO - Chunk ['9y6tqq0', '9y6tw4n', '9y6tfum']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:19,046 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:19,046 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:20,392 - INFO - Chunk ['9ykqmju', '9ykq84r', '9ykqdtp']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:20,485 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:20,485 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:21,233 - INFO - Chunk ['9ykynwy', '9yky67b', '9ymn9nf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:21,317 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:21,317 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:21,650 - INFO - Chunk ['9y7w9ce', '9y7w8un', '9y7w8m8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:21,727 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:21,727 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:22,033 - INFO - Chunk ['9ys1sek', '9ys1f57', '9ys1uvh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:22,114 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:14:22,114 - INFO - Starting match_geometries()
+2025-02-28 13:14:22,119 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:14:22,124 - INFO - Function `match_geometries` executed in 0.0049 sec, CPU: 11.10%, Memory: 3.28MB
+2025-02-28 13:14:22,124 - INFO - Found 0 matches in chunk ['9ys1sek', '9ys1f57', '9ys1uvh']...
+2025-02-28 13:14:23,525 - INFO - Chunk ['9yr0f7p', '9yr0cv5', '9yr1187']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:23,656 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:23,656 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:24,666 - INFO - Chunk ['9yrk706', '9yrk3g2', '9yrkxht']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:24,744 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:24,744 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:25,076 - INFO - Chunk ['9ymgg7t', '9ymgbj6', '9ymgbj9']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:25,150 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:25,150 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:25,423 - INFO - Chunk ['9ymx19t', '9ymxhqs', '9ymrquj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:25,501 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:25,502 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:26,690 - INFO - Chunk ['9yrphhu', '9yrp1v7', '9yqzjq7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:26,771 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:26,771 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:27,784 - INFO - Chunk ['9ytf1pe', '9ytf725', '9ytf616']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:27,868 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:27,868 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:28,233 - INFO - Chunk ['9yx9fb4', '9yx9bd0', '9yx9v73']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:28,312 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:28,312 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:28,638 - INFO - Chunk ['9yt4r17', '9yt4mfs', '9yt4672']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:28,737 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:28,737 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:29,695 - INFO - Chunk ['9yx6t63', '9yx6dy0', '9yx4zvr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:29,779 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:14:29,780 - INFO - Starting match_geometries()
+2025-02-28 13:14:29,785 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:14:29,791 - INFO - Function `match_geometries` executed in 0.0060 sec, CPU: 21.20%, Memory: 1.12MB
+2025-02-28 13:14:29,791 - INFO - Found 0 matches in chunk ['9yx6t63', '9yx6dy0', '9yx4zvr']...
+2025-02-28 13:14:30,858 - INFO - Chunk ['9ytuuss', '9yttj30', '9ytvn1c']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:30,950 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:30,950 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:31,315 - INFO - Chunk ['dn35tyu', 'dn35uxd', 'dn3hj9z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:31,394 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:31,394 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:31,742 - INFO - Chunk ['dn3qqfv', 'dn3qqse', 'dn3w2uf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:31,819 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:31,819 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:32,533 - INFO - Chunk ['dn2nmk4', 'dn2q2u3', 'dn2nqv5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:32,622 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:32,622 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:33,700 - INFO - Chunk ['dn3r0t4', 'dn3p5q0', 'dn3r65p']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:33,789 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:33,789 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:34,070 - INFO - Chunk ['dn9c4m9', 'dn9c5w1', 'dn9c5nf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:34,162 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:34,162 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:34,416 - INFO - Chunk ['dn8f21f', 'dn8drmb', 'dn8frzq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:34,503 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:34,503 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:35,208 - INFO - Chunk ['dn9gm6k', 'dn9gqhh', 'dn9g6rn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:35,290 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:35,290 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:36,436 - INFO - Chunk ['dn9j7k4', 'dn9j99e', 'dn9mdg1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:36,516 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:36,516 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:36,834 - INFO - Chunk ['dn8m7v9', 'dn8m3mu', 'dn8m2wn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:36,919 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:14:36,919 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:37,276 - INFO - Chunk ['dndqc90', 'dndqfej', 'dndqcjw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:37,357 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:37,357 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:38,065 - INFO - Chunk ['9ytm3w9', '9ytm95h', '9ytmc3h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:38,156 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:38,156 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:39,367 - INFO - Chunk ['9ywymrp', '9yxnmze', '9yxnt6w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:39,445 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:39,446 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:39,761 - INFO - Chunk ['9yv8n06', '9yvbj35', '9yv8puh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:39,837 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:39,837 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:40,187 - INFO - Chunk ['9yv0wp2', '9yv0f9h', '9yv0f95']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:40,275 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:40,275 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:40,920 - INFO - Chunk ['9yyc5v3', '9yz133y', '9yycrfs']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:41,008 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:41,008 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:42,167 - INFO - Chunk ['9yy5u8s', '9yy5v1d', '9yvgzs5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:42,255 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:42,255 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:42,605 - INFO - Chunk ['9yvk4rc', '9yvh701', '9yvh64m']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:42,684 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:42,684 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:43,098 - INFO - Chunk ['9yzhf5q', '9yyugg9', '9yyuzm1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:43,177 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:43,177 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:43,862 - INFO - Chunk ['9yvwqsn', '9yvyds2', '9yvwxju']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:43,951 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:43,951 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:45,070 - INFO - Chunk ['9yuz1qz', '9yuznrv', '9yuz33p']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:45,151 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:45,151 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:45,500 - INFO - Chunk ['9ye6cd8', '9ye6fst', '9ye5jfg']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:45,588 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:45,588 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:45,872 - INFO - Chunk ['9yss7yb', '9yskx80', '9yssdmm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:45,954 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:45,954 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:46,689 - INFO - Chunk ['9yemszn', '9yetgx7', '9yew654']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:46,768 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:46,768 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:47,902 - INFO - Chunk ['9yu83df', '9yu8k5j', '9yu8kuw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:47,982 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:47,982 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:48,321 - INFO - Chunk ['9yg96ju', '9yg3kn5', '9yg3ws6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:48,401 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:48,401 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:48,751 - INFO - Chunk ['9ygfwy6', '9yu4ugk', '9yggjen']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:48,833 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:48,833 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:49,621 - INFO - Chunk ['9ygh9fq', '9yfueee', '9ygh8hm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:49,703 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:14:49,703 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:50,880 - INFO - Chunk ['9ygzkdb', '9ygz7zw', '9ygzd0g']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:50,977 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:50,977 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:51,272 - INFO - Chunk ['9z50cm6', '9z4cnd4', '9z511j8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:51,352 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:14:51,352 - INFO - Starting match_geometries()
+2025-02-28 13:14:51,357 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:14:51,362 - INFO - Function `match_geometries` executed in 0.0050 sec, CPU: 37.20%, Memory: 1.95MB
+2025-02-28 13:14:51,362 - INFO - Found 0 matches in chunk ['9z50cm6', '9z4cnd4', '9z511j8']...
+2025-02-28 13:14:51,688 - INFO - Chunk ['9z44h4x', '9z460ks', '9z44r82']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:51,766 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:51,766 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:52,501 - INFO - Chunk ['9zp2530', '9zp2011', '9zp23ky']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:52,664 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:14:52,664 - INFO - Starting match_geometries()
+2025-02-28 13:14:52,670 - INFO - match_geometries: Found 1 matches
+2025-02-28 13:14:52,675 - INFO - Function `match_geometries` executed in 0.0057 sec, CPU: 14.20%, Memory: 1.77MB
+2025-02-28 13:14:52,675 - INFO - Found 1 matches in chunk ['9zp2530', '9zp2011', '9zp23ky']...
+2025-02-28 13:14:52,675 - INFO - Inserting 1 matches into matched_results
+2025-02-28 13:14:52,675 - INFO - Sample match: [('2aeb676f-b9c7-4996-9733-420406fdf75c', '39587d5f-6fec-4bed-a85e-7ce0a77ad62b')]
+2025-02-28 13:14:53,779 - INFO - Chunk ['9zj6hcn', '9zj6hfw', '9zjd5qx']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:53,860 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:53,860 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:54,145 - INFO - Chunk ['9zj6zhg', '9zj750p', '9zje1ep']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:54,234 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:54,234 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:54,511 - INFO - Chunk ['9zneujt', '9znu4m4', '9znsjz7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:54,584 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:54,584 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:55,578 - INFO - Chunk ['9zjsvxk', '9zjvq0r', '9zjv6f6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:55,662 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:55,662 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:56,791 - INFO - Chunk ['9zhv6us', '9zhvkqh', '9zhvkwt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:56,881 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:56,881 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:57,149 - INFO - Chunk ['9zmb5dx', '9zm8q8q', '9zmbq6m']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:57,240 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:57,240 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:57,608 - INFO - Chunk ['9zpr64s', '9zppqsh', '9zprrr4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:57,687 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:57,687 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:58,502 - INFO - Chunk ['9zm1zfj', '9zm1vfh', '9zm1fnj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:58,598 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:58,598 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:14:59,741 - INFO - Chunk ['9zq6cgh', '9zq6uyb', '9zq7hjr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:14:59,825 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:14:59,825 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:00,110 - INFO - Chunk ['dp44th5', 'dp44eus', 'dp44ese']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:00,186 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:00,186 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:00,544 - INFO - Chunk ['dp0fskq', 'dp0fsjv', 'dp0dz9p']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:00,631 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:00,631 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:01,774 - INFO - Chunk ['dp0h4zb', '9zpu6bn', '9zpuk1f']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:01,868 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:01,868 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:02,923 - INFO - Chunk ['dp4j3vt', 'dp4jrmc', 'dp4m7n3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:03,021 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:03,022 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:03,257 - INFO - Chunk ['dp1q9hh', 'dp1ntzh', 'dp1qf8e']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:03,344 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:03,344 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:03,708 - INFO - Chunk ['9zpzygy', 'dp0pfnj', 'dp0pcz5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:03,798 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:03,798 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:04,952 - INFO - Chunk ['dp3bhez', 'dp38q34', 'dp3bqd6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:05,046 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:05,047 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:06,428 - INFO - Chunk ['dp2c996', 'dp2c9kn', 'dp2cevv']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:06,458 - INFO - Chunk ['dp64bgj', 'dp65j12', 'dp65hy4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:06,526 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:06,526 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:06,555 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:06,556 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:07,269 - INFO - Chunk ['9zrdtvg', '9zrdz8k', '9zrfb95']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:07,351 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:07,352 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:08,431 - INFO - Chunk ['9zhd763', '9zhd3n5', '9zhd859']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:08,522 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:08,522 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:09,514 - INFO - Chunk ['9z55vsj', '9z57bvp', '9z5hh1w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:09,617 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:09,617 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:09,880 - INFO - Chunk ['9z4mxyz', '9z4mv64', '9z4mfe0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:09,966 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:09,966 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:10,334 - INFO - Chunk ['9zhnf4c', '9z5yywp', '9zhpjcz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:10,432 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:10,432 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:11,639 - INFO - Chunk ['9z5xfu0', '9z72pn3', '9z781ze']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:11,736 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:11,737 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:12,811 - INFO - Chunk ['9zk41cn', '9z7fnd9', '9z7fr3n']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:12,897 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:12,897 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:13,200 - INFO - Chunk ['9z7gk18', '9z7g7h6', '9z7gd1y']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:13,280 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:13,280 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:13,577 - INFO - Chunk ['9z6kt2e', '9z6ks8c', '9z6ktvj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:13,663 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:13,663 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:14,508 - INFO - Chunk ['9zkkg5d', '9zkjp9h', '9zkmnfr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:14,588 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:14,588 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:15,700 - INFO - Chunk ['9z7r4v0', '9z7phjr', '9z7r1xw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:15,782 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:15,782 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:16,107 - INFO - Chunk ['9zr4bjr', '9zqgn5r', '9zr5ks2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:16,201 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:16,201 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:16,618 - INFO - Chunk ['9zmte79', '9zmt8uh', '9zmtdhb']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:16,705 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:16,705 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:17,444 - INFO - Chunk ['9zqjbq9', '9zqnp6b', '9zmyp5u']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:17,534 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:17,534 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:18,724 - INFO - Chunk ['9zqysss', '9zrnvj0', '9zqyynh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:18,810 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:18,810 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:19,048 - INFO - Chunk ['9zsbu0e', '9zsbb8z', '9zt0bk3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:19,141 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:19,141 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:19,500 - INFO - Chunk ['9zw3tkv', '9zw98v9', '9zw3dnb']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:19,583 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:19,584 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:20,440 - INFO - Chunk ['9zx4pve', '9zx65tb', '9zx6mb3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:20,524 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:20,524 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:21,754 - INFO - Chunk ['9zwkfeu', '9zwkukc', '9zwt41e']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:21,843 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:21,844 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:22,121 - INFO - Chunk ['9zxm5rp', '9zxjprb', '9zxm4zf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:22,214 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:22,215 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:22,542 - INFO - Chunk ['9ztnqvg', '9ztn7w9', '9ztnd30']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:22,629 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:22,630 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:23,794 - INFO - Chunk ['dp2u2zt', 'dp2sxj2', 'dp2u8rp']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:23,895 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:23,895 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:25,032 - INFO - Chunk ['dp6m9yq', 'dp6jchk', 'dp6jzy5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:25,113 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:25,113 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:25,392 - INFO - Chunk ['dp2n07x', '9zry5mv', '9zrypyd']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:25,474 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:25,474 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:25,686 - INFO - Chunk ['dp2zf2u', 'dp2zv9p', 'dp2zu70']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:25,766 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:25,766 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:26,807 - INFO - Chunk ['dpd094h', 'dpd0xt6', 'dpd0xvw']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:26,903 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:26,903 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:28,239 - INFO - Chunk ['dp81q6e', 'dp81my9', 'dp81zhh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:28,435 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:28,435 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:28,900 - INFO - Chunk ['dp975wc', 'dp97k0j', 'dp9em7p']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:28,990 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:28,991 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:29,279 - INFO - Chunk ['dp8e0z8', 'dp8emsz', 'dp87rqn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:29,363 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:29,363 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:30,356 - INFO - Chunk ['dp8efq7', 'dp8s090', 'dp8s11x']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:30,444 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:30,444 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:31,686 - INFO - Chunk ['dp8yy3x', 'dp8zh8p', 'dp8zhd1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:31,851 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:31,851 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:32,247 - INFO - Chunk ['9zs21r6', '9zs2qcq', '9zs282y']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:32,413 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:32,413 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:32,942 - INFO - Chunk ['9zdcug0', '9zdcyg9', '9zdcyuu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:33,019 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:33,020 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:33,814 - INFO - Chunk ['9zseq82', '9zsg290', '9zsekcg']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:33,920 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:33,920 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:35,256 - INFO - Chunk ['9zdemz6', '9zdewwj', '9zdg9p8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:35,357 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:35,357 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:35,784 - INFO - Chunk ['9zss6v2', '9zsse7h', '9zssxpu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:35,867 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:35,867 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:36,237 - INFO - Chunk ['9zes6nf', '9zesdwu', '9zesf6q']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:36,324 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:15:36,324 - INFO - Starting match_geometries()
+2025-02-28 13:15:36,331 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:15:36,340 - INFO - Function `match_geometries` executed in 0.0077 sec, CPU: 14.90%, Memory: 1.42MB
+2025-02-28 13:15:36,340 - INFO - Found 0 matches in chunk ['9zes6nf', '9zesdwu', '9zesf6q']...
+2025-02-28 13:15:37,042 - INFO - Chunk ['9zez9by', '9zexsfw', '9zezstt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:37,158 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:37,158 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:38,426 - INFO - Chunk ['9zexbg0', '9zexftj', '9zeryjg']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:38,512 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:38,512 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:39,437 - INFO - Chunk ['9zdpt88', '9zdpdcr', '9zdpdsx']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:39,530 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:39,530 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:39,743 - INFO - Chunk ['9zv19qn', '9zv1bdj', '9zuf54h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:39,821 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:15:39,821 - INFO - Starting match_geometries()
+2025-02-28 13:15:39,826 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:15:39,831 - INFO - Function `match_geometries` executed in 0.0050 sec, CPU: 13.40%, Memory: 0.64MB
+2025-02-28 13:15:39,832 - INFO - Found 0 matches in chunk ['9zv19qn', '9zv1bdj', '9zuf54h']...
+2025-02-28 13:15:40,387 - INFO - Chunk ['dnsjn36', 'dnsjnfr', 'dnsjpsk']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:40,482 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:40,482 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:41,823 - INFO - Chunk ['dnsytux', 'dnsydwu', 'dntng1e']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:41,928 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:41,928 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:43,238 - INFO - Chunk ['dnexjx3', 'dnez62m', 'dnez2gm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:43,279 - INFO - Chunk ['dnv99m8', 'dnv3ufg', 'dnv9f4g']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:43,350 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:43,350 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:43,389 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:43,389 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:44,125 - INFO - Chunk ['dng90xh', 'dng94rf', 'dng3mtp']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:44,207 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:44,207 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:45,420 - INFO - Chunk ['dnff8fw', 'dnffwhr', 'dnffv3s']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:45,547 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:45,547 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:46,577 - INFO - Chunk ['dngtjsq', 'dngv0s9', 'dngvpv0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:46,578 - INFO - Chunk ['dnv7sqe', 'dnv7sq8', 'dnvk58h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:46,703 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:46,703 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:46,707 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:46,707 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:47,440 - INFO - Chunk ['dngt5zv', 'dngmq8h', 'dngt7bz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:47,526 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:47,526 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:49,314 - INFO - Chunk ['dnuyd27', 'dnuydvp', 'dnuyz9w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:49,404 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:49,404 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:50,150 - INFO - Chunk ['dnz8ggb', 'dnz0yu0', 'dnz8ck8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:50,221 - INFO - Chunk ['dnwpmpg', 'dnwpeh1', 'dnwrube']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:50,243 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:50,243 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:50,310 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:50,311 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:50,887 - INFO - Chunk ['dny39pk', 'dny3b21', 'dny3f8u']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:50,983 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:50,983 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:52,240 - INFO - Chunk ['dqcdhvv', 'dqcd394', 'dqcf6e5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:52,321 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:52,321 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:53,022 - INFO - Chunk ['dnvfyx3', 'dnvgh6j', 'dny522p']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:53,104 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:53,104 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:53,418 - INFO - Chunk ['dnykt99', 'dnyhe3e', 'dnyhs9e']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:53,512 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:53,512 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:53,898 - INFO - Chunk ['dqbsre8', 'dqbkrwb', 'dqbkqyv']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:53,973 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:53,973 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:55,701 - INFO - Chunk ['dqcfvuk', 'dqcfywd', 'dqf5jb0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:55,826 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:55,826 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:56,493 - INFO - Chunk ['dnyw3pv', 'dnyqx8g', 'dnyyts2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:56,572 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:56,573 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:56,812 - INFO - Chunk ['dnzwrnm', 'dnzympf', 'dnzydcq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:56,885 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:56,886 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:57,246 - INFO - Chunk ['dndztwz', 'dndzbd6', 'dndzveb']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:57,320 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:57,320 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:15:59,151 - INFO - Chunk ['dnb2zmq', 'dnb94b4', 'dnb9jkx']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:15:59,419 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:15:59,419 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:00,204 - INFO - Chunk ['dnccbs5', 'dnccvvu', 'dncf59j']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:00,292 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:00,292 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:00,666 - INFO - Chunk ['dnb1e3g', 'dnb3ej9', 'dnb1etu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:00,757 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:00,757 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:01,115 - INFO - Chunk ['dnbgxsj', 'dnbgstp', 'dnc58m5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:01,219 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:16:01,219 - INFO - Starting match_geometries()
+2025-02-28 13:16:01,226 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:16:01,233 - INFO - Function `match_geometries` executed in 0.0067 sec, CPU: 7.90%, Memory: 2.69MB
+2025-02-28 13:16:01,234 - INFO - Found 0 matches in chunk ['dnbgxsj', 'dnbgstp', 'dnc58m5']...
+2025-02-28 13:16:03,021 - INFO - Chunk ['dncs778', 'dncke1s', 'dncs9dn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:03,125 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:03,125 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:03,849 - INFO - Chunk ['9yztw3g', '9yzt946', '9yztxn4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:03,942 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:03,943 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:04,308 - INFO - Chunk ['dncqd1k', 'dncnwe4', 'dncnxeq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:04,393 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:04,393 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:04,624 - INFO - Chunk ['dncwvj7', 'dncr544', 'dncr5em']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:04,705 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:16:04,706 - INFO - Starting match_geometries()
+2025-02-28 13:16:04,712 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:16:04,717 - INFO - Function `match_geometries` executed in 0.0062 sec, CPU: 10.80%, Memory: 0.88MB
+2025-02-28 13:16:04,717 - INFO - Found 0 matches in chunk ['dncwvj7', 'dncr544', 'dncr5em']...
+2025-02-28 13:16:06,476 - INFO - Chunk ['9zpcpub', '9zpcr3u', '9zpcqth']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:06,567 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:06,567 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:07,284 - INFO - Chunk ['dr12rc7', 'dr12ry2', 'dr186py']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:07,401 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:07,401 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:07,779 - INFO - Chunk ['dpn83kj', 'dpn8rpe', 'dpn88dv']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:07,852 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:07,852 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:08,144 - INFO - Chunk ['dr09z1m', 'dr03vc6', 'dr09ud5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:08,221 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:08,221 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:09,829 - INFO - Chunk ['dpn64n3', 'dpn4pzw', 'dpn6kb7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:09,923 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:09,923 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:10,464 - INFO - Chunk ['dr4d193', 'dr4d14f', 'dr44py1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:10,550 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:10,550 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:10,912 - INFO - Chunk ['dr1e1hd', 'dr155vs', 'dr174nu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:11,000 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:11,000 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:11,286 - INFO - Chunk ['dpjujgz', 'dpjujt4', 'dpju0zq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:11,364 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:11,364 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:12,879 - INFO - Chunk ['dr1udwk', 'dr1kg25', 'dr1sv00']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:12,983 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:12,984 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:13,276 - INFO - Chunk ['dr0jfv6', 'dpptzv9', 'dppvbyy']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:13,358 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:13,358 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:13,997 - INFO - Chunk ['dr4uuyd', 'dr1vn8y', 'dr4vn4m']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:14,089 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:14,089 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:14,376 - INFO - Chunk ['dngzy1d', 'dngzf3f', 'dngzyd9']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:14,458 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:14,458 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:16,003 - INFO - Chunk ['dnfrxps', 'dnfrwxb', 'dnfxf8w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:16,088 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:16,089 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:16,352 - INFO - Chunk ['dpj0xnk', 'dphbybt', 'dphbuc6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:16,440 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:16,440 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:17,095 - INFO - Chunk ['dpj6jx6', 'dpjd608', 'dpj62sn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:17,181 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:17,181 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:17,497 - INFO - Chunk ['dp56m5n', 'dp5d6sq', 'dp56mkx']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:17,578 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:17,578 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:19,050 - INFO - Chunk ['dp564df', 'dp541rc', 'dp543fm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:19,143 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:19,144 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:19,452 - INFO - Chunk ['dpjkvbn', 'dpjkvdt', 'dpjkzde']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:19,527 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:19,527 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:20,101 - INFO - Chunk ['dphhf0u', 'dphhy1h', 'dphhgw6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:20,184 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:20,184 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:20,549 - INFO - Chunk ['dp5m1tj', 'dp5jptt', 'dp5jrd5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:20,630 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:20,630 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:22,106 - INFO - Chunk ['dphyctm', 'dpjnbvq', 'dphyyq1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:22,186 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:22,186 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:22,513 - INFO - Chunk ['dppqp35', 'dppnhdb', 'dppn4qj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:22,602 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:22,603 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:22,936 - INFO - Chunk ['dr0pnwj', 'dppzpp7', 'dr0phxm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:23,020 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:23,020 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:23,374 - INFO - Chunk ['dr4p7tr', 'dr4zmnm', 'dr4xe9f']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:23,460 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:23,460 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:25,141 - INFO - Chunk ['dpq000k', 'dpmb508', 'dpmbndk']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:25,229 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:25,229 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:25,595 - INFO - Chunk ['dr32t0d', 'dr38t8b', 'dr38w34']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:25,667 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:25,667 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:25,941 - INFO - Chunk ['dr73df6', 'dr798e4', 'dr79sgb']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:26,015 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:26,016 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:26,341 - INFO - Chunk ['dpqcb6f', 'dpq3zkw', 'dpq9fv8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:26,420 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:26,420 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:28,253 - INFO - Chunk ['dr2czy1', 'dr29bz6', 'dr29vxt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:28,339 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:28,339 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:28,720 - INFO - Chunk ['drk4v6y', 'dr76fj6', 'drk4bj9']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:28,799 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:28,800 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:29,146 - INFO - Chunk ['dr2gq9n', 'dr3525w', 'dr2e6m4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:29,238 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:29,238 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:29,574 - INFO - Chunk ['dpre3s4', 'dpre6t1', 'dpre7y7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:29,658 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:29,658 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:31,193 - INFO - Chunk ['dr7u0c3', 'drkk4c9', 'dr7s51g']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:31,297 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:31,297 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:31,958 - INFO - Chunk ['drkt1h0', 'drkmphw', 'drkt345']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:32,042 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:32,042 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:32,373 - INFO - Chunk ['dr3sv7v', 'dr3szhp', 'dr3sgj2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:32,444 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:32,444 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:32,812 - INFO - Chunk ['dprjj9b', 'dprjp5p', 'dprt1v0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:32,911 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:32,912 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:34,469 - INFO - Chunk ['drknspe', 'dr7qsxu', 'dr7wbb5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:34,549 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:34,549 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:35,369 - INFO - Chunk ['dr3pjw5', 'dr3ppn8', 'dr3x4rp']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:35,475 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:35,475 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:35,868 - INFO - Chunk ['dr6x80n', 'dr6z9bd', 'dr6zt1h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:35,960 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:35,960 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:36,251 - INFO - Chunk ['drs839d', 'drsb2d2', 'drs8m69']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:36,343 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:36,343 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:38,133 - INFO - Chunk ['dr90vgu', 'dr90ceg', 'dr98cs4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:38,242 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:38,242 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:38,959 - INFO - Chunk ['dpk12te', 'dp7c93x', 'dp7cwv0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:39,108 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:39,108 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:39,462 - INFO - Chunk ['dp746xy', 'dp74d1d', 'dp74w4b']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:39,570 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:39,570 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:39,834 - INFO - Chunk ['dpkhfdq', 'dpkhcfg', 'dpkkgvr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:39,957 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:39,957 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:42,237 - INFO - Chunk ['dp6t4dd', 'dp6tjdx', 'dp6mjk1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:42,356 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:42,356 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:43,180 - INFO - Chunk ['dp6ry9y', 'dp6ruup', 'dp6xfsx']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:43,287 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:43,288 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:43,510 - INFO - Chunk ['dpe8ufz', 'dpe8fv6', 'dpe8fme']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:43,616 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:43,616 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:43,989 - INFO - Chunk ['dpsgg58', 'dpsv422', 'dpsvwn0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:44,081 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:44,081 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:45,996 - INFO - Chunk ['dpe6jj9', 'dpe65ye', 'dpe6t8z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:46,100 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:46,100 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:46,805 - INFO - Chunk ['dps76rb', 'dps59qr', 'dps5f56']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:46,908 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:46,908 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:47,213 - INFO - Chunk ['dpemdkt', 'dpejg3q', 'dpen19u']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:47,319 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:47,319 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:47,654 - INFO - Chunk ['drt173w', 'drs926t', 'drscmen']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:47,750 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:16:47,750 - INFO - Starting match_geometries()
+2025-02-28 13:16:47,755 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:16:47,762 - INFO - Function `match_geometries` executed in 0.0050 sec, CPU: 26.90%, Memory: 1.08MB
+2025-02-28 13:16:47,763 - INFO - Found 0 matches in chunk ['drt173w', 'drs926t', 'drscmen']...
+2025-02-28 13:16:49,693 - INFO - Chunk ['dr9dkvz', 'dr96e29', 'dr9dt76']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:49,798 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:49,798 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:50,371 - INFO - Chunk ['drs6k1k', 'drefm5g', 'dred2hh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:50,465 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:50,466 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:50,720 - INFO - Chunk ['drt541z', 'drsgp4e', 'drt517d']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:50,795 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:50,796 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:51,087 - INFO - Chunk ['drssj77', 'drssj5m', 'drth4ks']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:51,180 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:51,181 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:52,987 - INFO - Chunk ['dr9swjm', 'dr9k8ys', 'dr9hc2h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:53,075 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:53,075 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:53,694 - INFO - Chunk ['drdkyjh', 'drdscjr', 'drduyn6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:53,784 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:53,784 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:54,081 - INFO - Chunk ['drdvgc0', 'drdmycp', 'drdmcdf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:54,160 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:54,160 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:54,392 - INFO - Chunk ['drswqj9', 'drtnky1', 'drsqrx9']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:54,468 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:54,468 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:55,751 - INFO - Chunk ['dpev40p', 'dpevjcc', 'dpevjnd']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:55,836 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:55,836 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:56,568 - INFO - Chunk ['dpep8qt', 'dpg043z', 'dpg04e1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:56,672 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:56,672 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:57,039 - INFO - Chunk ['dpg2qbe', 'dpg27b9', 'dpg2my5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:57,120 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:57,120 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:57,458 - INFO - Chunk ['dpubekn', 'dpv08nr', 'dpv0b96']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:57,540 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:57,540 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:58,683 - INFO - Chunk ['dpu504u', 'dpu50zc', 'dpggmf5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:58,778 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:58,778 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:59,425 - INFO - Chunk ['dpfd6ty', 'dpf6qpp', 'dpfdey4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:59,506 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:16:59,507 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:16:59,835 - INFO - Chunk ['dpgvxz5', 'dpujbcn', 'dpgvuy0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:16:59,918 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:16:59,918 - INFO - Starting match_geometries()
+2025-02-28 13:16:59,923 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:16:59,928 - INFO - Function `match_geometries` executed in 0.0052 sec, CPU: 37.90%, Memory: 1.19MB
+2025-02-28 13:16:59,928 - INFO - Found 0 matches in chunk ['dpgvxz5', 'dpujbcn', 'dpgvuy0']...
+2025-02-28 13:17:00,241 - INFO - Chunk ['dpfywex', 'dpfyz06', 'dpfwymt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:00,326 - INFO - After filtering: 100 prev, 2 curr polygons
+2025-02-28 13:17:00,326 - INFO - Starting match_geometries()
+2025-02-28 13:17:00,334 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:17:00,340 - INFO - Function `match_geometries` executed in 0.0082 sec, CPU: 18.60%, Memory: 2.47MB
+2025-02-28 13:17:00,341 - INFO - Found 0 matches in chunk ['dpfywex', 'dpfyz06', 'dpfwymt']...
+2025-02-28 13:17:01,469 - INFO - Chunk ['dpgzpwc', 'dpgxmb7', 'dpgzrcu']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:01,552 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:01,552 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:02,288 - INFO - Chunk ['drszjev', 'drtpjsj', 'drsz5mk']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:02,379 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:02,379 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:02,702 - INFO - Chunk ['drspcgn', 'drepvt2', 'drepzj7']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:02,783 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:02,784 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:03,081 - INFO - Chunk ['drv0sq7', 'dru8sp5', 'drv2wxh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:03,162 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:03,162 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:04,309 - INFO - Chunk ['dru19sr', 'drgc8jh', 'drg38m2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:04,395 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:04,395 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:05,140 - INFO - Chunk ['druf3vj', 'drvfmn2', 'drvd3ne']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:05,228 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:05,228 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:05,528 - INFO - Chunk ['drv5w6n', 'drvg9dk', 'drvgd4z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:05,608 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:05,608 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:05,941 - INFO - Chunk ['drgh0h3', 'drfunke', 'druk4uz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:06,035 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:06,035 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:07,282 - INFO - Chunk ['drgtp22', 'druj095', 'drgvjcm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:07,382 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:07,383 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:08,167 - INFO - Chunk ['drzq6r5', 'drznmpm', 'drzn7pz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:08,253 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:08,253 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:08,632 - INFO - Chunk ['f2p25x4', 'f2n0pps', 'f2n8m0w']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:08,719 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:08,719 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:09,012 - INFO - Chunk ['dp9ygs0', 'dp9zp8j', 'dp9xnek']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:09,101 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:09,101 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:10,090 - INFO - Chunk ['dp8rxfq', 'dp8rsds', 'dp8rwz3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:10,174 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:10,174 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:11,255 - INFO - Chunk ['dpc3rfx', 'dpc3k5r', 'dpcd5kt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:11,347 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:11,347 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:11,641 - INFO - Chunk ['dpb403g', '9zzfpdc', 'dpb44us']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:11,718 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:11,718 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:12,064 - INFO - Chunk ['dpcdc9d', 'dpc6u5r', 'dpc7n9h']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:12,145 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:12,145 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:13,208 - INFO - Chunk ['dpbsrwq', 'dpbu2p1', 'dpbsyuh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:13,293 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:13,293 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:14,339 - INFO - Chunk ['dpcvgbg', 'dpcvbs3', 'dpcyp2k']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:14,419 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:14,419 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:14,688 - INFO - Chunk ['f0120ju', 'f0105rt', 'f01269z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:14,763 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:14,763 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:15,106 - INFO - Chunk ['f040gru', 'f041hk6', 'f0415j5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:15,195 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:15,195 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:16,199 - INFO - Chunk ['f00g6z5', 'f0152r4', 'f0152rc']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:16,292 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:16,292 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:17,328 - INFO - Chunk ['f042mzs', 'f048e0m', 'f042xdm']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:17,420 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:17,420 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:17,659 - INFO - Chunk ['f05sts7', 'f05udkz', 'f05tq6q']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:17,756 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:17,757 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:18,228 - INFO - Chunk ['f05jzb4', 'f05jc29', 'f05jygj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:18,316 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:18,317 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:19,343 - INFO - Chunk ['f2nvvrk', 'f2ntzrv', 'f2nw461']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:19,443 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:19,443 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:20,579 - INFO - Chunk ['f01eys1', 'f01gvj4', 'f045bn1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:20,660 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:20,660 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:20,825 - INFO - Chunk ['cbpsxmp', 'cbpsdw8', 'cbpsdwv']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:20,908 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:20,908 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:21,259 - INFO - Chunk ['f04nh3c', 'f04nprd', 'f04nr9r']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:21,352 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:21,352 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:22,434 - INFO - Chunk ['f05n745', 'f05n773', 'f05n2q1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:22,526 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:22,526 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:23,729 - INFO - Chunk ['f00qu9t', 'f00wvdm', 'f00qyg4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:23,732 - INFO - Chunk ['f00psmp', 'f00rgkt', 'f00pvxs']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:23,822 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:23,822 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:23,823 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:23,823 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:24,471 - INFO - Chunk ['f0699gw', 'f069g6u', 'f069us8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:24,554 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:24,555 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:25,597 - INFO - Chunk ['f02g433', 'f035039', 'f02epq5']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:25,680 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:25,680 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:26,827 - INFO - Chunk ['f03g8fu', 'f03geu6', 'f03gerj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:26,834 - INFO - Chunk ['cbrugth', 'cbrvn8y', 'cbrvjd3']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:26,909 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:26,910 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:26,923 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:26,923 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:27,508 - INFO - Chunk ['f03mbkw', 'f03mfkv', 'f03q1me']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:27,589 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:27,589 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:28,640 - INFO - Chunk ['9zy8hj3', '9zy84q1', '9zyb8xk']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:28,721 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:28,721 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:29,841 - INFO - Chunk ['9zvc0k2', '9zvc4s9', '9zvc0v2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:29,847 - INFO - Chunk ['9zygrnb', '9zz5szm', '9zz5vu2']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:29,935 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:29,936 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:29,942 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:29,942 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:30,568 - INFO - Chunk ['9zy5f4s', '9zy5be2', '9zy5bu6']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:30,653 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:30,654 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:31,736 - INFO - Chunk ['9zuts9n', '9zuttkm', '9zutdwx']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:31,819 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:31,820 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:32,850 - INFO - Chunk ['9zzq8tp', '9zzqy0k', '9zznzf1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:32,876 - INFO - Chunk ['dpbj8kd', '9zzvgch', '9zzvz49']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:32,941 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:32,941 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:32,966 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:32,966 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:33,552 - INFO - Chunk ['9zypyt1', '9zypbwc', 'cbn0481']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:33,631 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:33,631 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:34,822 - INFO - Chunk ['cbhbjhk', 'cbhb287', 'cbj02bt']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:34,928 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:34,928 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:35,930 - INFO - Chunk ['cbpc88e', 'cbp9t7v', 'cbp9syz']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:35,939 - INFO - Chunk ['9zgu6jk', '9zgukwb', '9zgsqxn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:36,016 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:36,016 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:36,032 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:36,032 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:36,757 - INFO - Chunk ['9zgh11m', '9zfuju4', '9zfuk2t']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:36,840 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:36,840 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:38,252 - INFO - Chunk ['9zfjtej', '9zfjxn9', '9zfjwz1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:38,338 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:38,338 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:39,456 - INFO - Chunk ['cb427t7', 'cb43r0n', 'cb433fj']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:39,465 - INFO - Chunk ['9zur20p', '9zur67s', '9zurqh0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:39,548 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:39,549 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:39,550 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:39,551 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:40,252 - INFO - Chunk ['cb50xqs', 'cb52bqt', 'cb50fpq']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:40,337 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:40,337 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:41,626 - INFO - Chunk ['cbh5hqq', 'cb5gpye', 'cbh5hnf']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:41,744 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:41,744 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:42,764 - INFO - Chunk ['cb57zez', 'cb5ebuw', 'cb5egxr']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:42,792 - INFO - Chunk ['cb4s5ry', 'cb4s75e', 'cb4u2tc']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:42,865 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:42,865 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:42,892 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:42,892 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:43,551 - INFO - Chunk ['cbhwn2k', 'cbhqp5j', 'cbhwm35']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:43,631 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:43,631 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:44,747 - INFO - Chunk ['cbncyzn', 'cbp4h9f', 'cbp4m51']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:44,852 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:44,852 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:46,000 - INFO - Chunk ['cbj79uu', 'cbj5dj5', 'cbj5cby']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:46,032 - INFO - Chunk ['cbjex21', 'cbjgu8z', 'cbjezf0']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:46,091 - INFO - After filtering: 101 prev, 0 curr polygons
+2025-02-28 13:17:46,091 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:46,119 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:46,119 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:46,790 - INFO - Chunk ['cbnvqt1', 'cbnvs1c', 'cbpjgk8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:46,883 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:46,884 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:48,162 - INFO - Chunk ['cbjyfjm', 'cbjyfx4', 'cbjxjz4']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:48,252 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:48,252 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:49,515 - INFO - Chunk ['cbq2hnt', 'cbq2qjw', 'cbq83q8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:49,559 - INFO - Chunk ['cbmf3gp', 'cbmdw9t', 'cbmfsgh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:49,613 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:49,613 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:49,665 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:49,666 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:50,412 - INFO - Chunk ['cbm6st3', 'cbm6evd', 'cbmdbj1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:50,513 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:50,513 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:51,839 - INFO - Chunk ['cbr56zj', 'cbqgt9v', 'cbqgwhh']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:51,938 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:51,938 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:53,355 - INFO - Chunk ['cbrwmkt', 'cbrwrkf', 'cbrwqz8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:53,390 - INFO - Chunk ['cb28thb', 'cb28dt5', 'cb28g8q']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:53,455 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:53,456 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:53,488 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:53,488 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:54,210 - INFO - Chunk ['cb239nd', 'cb21wpp', 'cb23wz8']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:54,317 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:54,317 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:55,365 - INFO - Chunk ['cb3f7wx', 'cb3fg2w', 'cb3g47f']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:55,473 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:55,473 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:56,895 - INFO - Chunk ['cb6nf5k', 'cb6nujr', 'cb6p53e']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:56,905 - INFO - Chunk ['cb2e91w', 'cb27xug', 'cb2exw1']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:56,987 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:56,988 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:57,002 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:57,002 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:57,661 - INFO - Chunk ['cb2wcx0', 'cb2rpdb', 'cb2xkdn']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:57,761 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:57,762 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:17:58,977 - INFO - Chunk ['cb86t4f', 'cb86eqp', 'cb869ws']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:17:59,068 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:17:59,068 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:18:00,396 - INFO - Chunk ['cb9g589', 'cb9gptv', 'cb9gryc']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:18:00,429 - INFO - Chunk ['cbe40ds', 'cbdf1gq', 'cbdfqbc']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:18:00,492 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:18:00,492 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:18:00,515 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:18:00,515 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:18:01,183 - INFO - Chunk ['cb85qvg', 'cb876jc', 'cb87s1z']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:18:01,296 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:18:01,296 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:18:02,300 - INFO - Chunk ['cbm4446', 'cbm4n7d', 'cbm4r78']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:18:02,390 - INFO - After filtering: 100 prev, 1 curr polygons
+2025-02-28 13:18:02,390 - INFO - Starting match_geometries()
+2025-02-28 13:18:02,397 - INFO - match_geometries: Found 0 matches
+2025-02-28 13:18:02,403 - INFO - Function `match_geometries` executed in 0.0064 sec, CPU: 3.70%, Memory: 0.62MB
+2025-02-28 13:18:02,403 - INFO - Found 0 matches in chunk ['cbm4446', 'cbm4n7d', 'cbm4r78']...
+2025-02-28 13:18:03,661 - INFO - Chunk ['cb67e5h', 'cb67eey', 'cb67spe']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:18:03,673 - INFO - Chunk ['cb76eq0', 'cb7db3p', 'cb7df60']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:18:03,748 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:18:03,748 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:18:03,761 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:18:03,761 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:18:04,387 - INFO - Chunk ['cbkknvj', 'cbkk7gn', 'cbkk807']...: 100000 prev, 100000 curr polygons
+2025-02-28 13:18:04,502 - INFO - After filtering: 100 prev, 0 curr polygons
+2025-02-28 13:18:04,502 - INFO - Skipping batch - No overlapping geohashes
+2025-02-28 13:18:05,481 - INFO - Chunk ['cb7wth0', 'cb7yc30', 'cb7wy1k']...: 100000 prev, 100000 curr polygons

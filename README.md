@@ -2,6 +2,8 @@
 
 By Samuel Alter
 
+🚧 Under Construction 🚧
+
 ## Overview
 
 This project serves as a demonstration of how geospatial-native approaches can improve a polygon matching process.
@@ -11,8 +13,8 @@ This project is divided into **two parts**:
 
 ## Table of Contents <a name='toc'></a>
 
-1. test
-2. test
+1. Under Construction...
+2. Under Construction...
 3. [Challenges and Solutions](#challenges)
 
 ## Challenges and Solutions <a name='challenges'></a>

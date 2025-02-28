@@ -284,9 +284,22 @@ def generate_random_polygons(n: int,
         # 'NAMELSAD', 
         # 'area_fips', 
         'geohash']
+    
+    # save metadata
+    meta_df = gdf[[
+        'id',
+        'shapeName', 
+        'STATEFP', 
+        'COUNTYFP', 
+        'GEOID', 
+        'NAME', 
+        'NAMELSAD', 
+        'area_fips']]
+
+    # save gdf with dropped cols
     gdf = gdf[cols_to_keep]
 
-    return gdf
+    return gdf, meta_df
 
 # @timing_decorator
 

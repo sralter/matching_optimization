@@ -18,6 +18,7 @@ import uuid
 import psycopg2
 from psycopg2 import sql, extras
 import geohash2 as geohash
+import itertools
 import numpy as np
 import pyproj
 import multiprocessing as mp
@@ -217,7 +218,7 @@ class Timer:
 def generate_random_polygons(n: int, 
                              us_boundary: gpd.GeoDataFrame = gpd.read_file('data/conus_buffer.parquet'), 
                              admin_boundaries: gpd.GeoDataFrame = gpd.read_file('data/conus_admin.parquet'), 
-                             precision=8) -> gpd.GeoDataFrame:
+                             precision=6) -> gpd.GeoDataFrame:
     """
     Generate n random polygons fully within the contiguous U.S. (CONUS).
     Ensures all polygons are clipped to the CONUS boundary.
@@ -242,7 +243,7 @@ def generate_random_polygons(n: int,
     while len(polygons) < n:
         # Generate random coordinates within the bounding box
         x1, y1 = random.uniform(minx, maxx), random.uniform(miny, maxy)
-        x2, y2 = x1 + random.uniform(0.001, 0.01), y1 + random.uniform(0.001, 0.01)
+        x2, y2 = x1 + random.uniform(0.01, 0.1), y1 + random.uniform(0.01, 0.1)
         polygon = box(x1, y1, x2, y2)
 
         # Ensure the polygon is fully within the CONUS boundary
@@ -780,14 +781,37 @@ def worker_logger(logger, cpu_start, mem_start):
         log_message = f"Process completed in {elapsed_time:.4f} seconds, CPU: {cpu_end:.2f}%, Memory: {mem_end:.2f}MB"
         logger.info(log_message)
 
+@Timer()
 def match_geometries(df_prev, df_curr):
     """Match geometries using Shapely intersection or equality"""
     matched = []
+
+    # Explicitly log function entry
+    logging.info("Starting match_geometries()")
+
     for _, row1 in df_prev.iterrows():
         for _, row2 in df_curr.iterrows():
-            if row1.geometry.intersects(row2.geometry):  # Can use equals() if needed
+            if row1.geometry.intersects(row2.geometry):  # Using intersects() instead of equals()
                 matched.append((row1.id, row2.id))
+    
+    # Add logging to confirm whether matches are found
+    logging.info(f"match_geometries: Found {len(matched)} matches")
+    
     return matched
+
+def get_neighbors(ghash, precision=7):
+    """Compute the 8 neighboring geohashes."""
+    lat, lon = geohash.decode(ghash)  # Decode geohash into latitude & longitude
+    lat, lon = float(lat), float(lon)  # 🔧 Ensure values are floats
+
+    delta = 10 ** (-precision)  # Small shift based on precision
+
+    neighbors = [
+        geohash.encode(lat + dy * delta, lon + dx * delta, precision)
+        for dx, dy in itertools.product([-1, 0, 1], repeat=2)
+        if not (dx == 0 and dy == 0)  # Exclude the center geohash itself
+    ]
+    return neighbors
 
 # Applying Timer to process_batch to track each batch's start and end time
 # @Timer(log_to_console=True, log_to_file=True, track_resources=True)
@@ -796,15 +820,25 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
     
     df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
     df_curr = _retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
-    
+
     # Log the number of polygons for this geohash chunk
     logging.info(f"Chunk {geohash_chunk[:3]}...: {len(df_prev)} prev, {len(df_curr)} curr polygons")
 
-    # Filter by geohash
-    df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
-    df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
+    # Filter by geohash, including neighboring ones
+    # df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
+    # df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
+    neighboring_geohashes = set()
+    for g in geohash_chunk:
+        neighboring_geohashes.add(g)
+        neighboring_geohashes.update(get_neighbors(g))  # Get 8 adjacent geohashes
+
+    df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
+    df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
+
+    logging.info(f'After filtering: {len(df_prev)} prev, {len(df_curr)} curr polygons')
 
     if df_prev.empty or df_curr.empty:
+        logging.info('Skipping batch - No overlapping geohashes')
         return
 
     matched_pairs = match_geometries(df_prev, df_curr)
@@ -812,13 +846,20 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
 
     # Store results in database
     if matched_pairs:
+        logging.info(f"Inserting {len(matched_pairs)} matches into {output_table}")
+        logging.info(f"Sample match: {matched_pairs[:5]}")  # Log a few matches
         conn = psycopg2.connect(**postgresql_details)
         cur = conn.cursor()
         insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
-        extras.execute_values(cur, insert_query, matched_pairs)
-        conn.commit()
-        cur.close()
-        conn.close()
+        try:
+            extras.execute_values(cur, insert_query, matched_pairs)
+            conn.commit()
+        except Exception as e:
+            logging.error(f'Database insert failed: {e}')
+            conn.rollback()
+        finally:
+            cur.close()
+            conn.close()
 
 # Main multiprocessing function with Timer applied
 @Timer(log_to_console=True, log_to_file=True, track_resources=True)

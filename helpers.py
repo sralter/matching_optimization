@@ -717,6 +717,28 @@ def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matc
 #     for p in processes:
 #         p.join()
 
+def create_matched_results_table(postgresql_details: dict, db_name: str, table_name: str):
+    """
+    Drops the matched_results table if it exists and creates a new one.
+    """
+    postgresql_details['dbname'] = db_name
+    conn = psycopg2.connect(**postgresql_details)
+    cur = conn.cursor()
+    
+    create_table_query = sql.SQL("""
+        DROP TABLE IF EXISTS {};
+        CREATE TABLE {} (
+            prev_id UUID,
+            curr_id UUID
+        );
+    """).format(sql.Identifier(table_name), sql.Identifier(table_name))
+    
+    cur.execute(create_table_query)
+    conn.commit()
+    cur.close()
+    conn.close()
+    print(f"Table {table_name} created successfully.")
+
 def _retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled=True):
     """
     Hidden function version for multiprocessing without the logging.
@@ -763,7 +785,7 @@ def match_geometries(df_prev, df_curr):
     matched = []
     for _, row1 in df_prev.iterrows():
         for _, row2 in df_curr.iterrows():
-            if row1.geometry.equals(row2.geometry):  # Can use intersects() if needed
+            if row1.geometry.intersects(row2.geometry):  # Can use equals() if needed
                 matched.append((row1.id, row2.id))
     return matched
 
@@ -799,11 +821,13 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
 def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=100):
     """Parallel processing of geohash chunks with worker limit"""
     
+    # Create (or recreate) the matched_results table
+    create_matched_results_table(postgresql_details, db_name, output_table)
+
     manager = mp.Manager()
     logger = manager.list()  # Shared memory list to store logs
 
     df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev)
-
     geohashes = df_prev["geohash"].dropna().unique().tolist()
     chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
 

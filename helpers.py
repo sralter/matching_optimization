@@ -289,6 +289,7 @@ def generate_random_polygons(n: int,
 
 # @timing_decorator
 
+@Timer()
 def convert_col_to_string(df: gpd.GeoDataFrame, col: str = 'geometry') -> gpd.GeoDataFrame:
     """
     Converts a specified geometry column to a WKT string representation.
@@ -304,7 +305,8 @@ def convert_col_to_string(df: gpd.GeoDataFrame, col: str = 'geometry') -> gpd.Ge
     df[col] = df[col].apply(lambda geom: to_wkt(geom) if isinstance(geom, BaseGeometry) else str(geom))
     return df
 
-@timing_decorator
+# @timing_decorator
+@Timer()
 def df_itertuple(df: gpd.GeoDataFrame):
     """
     Converts a GeoDataFrame into a list of tuples without index.
@@ -327,7 +329,8 @@ def pg_details() -> dict:
         'port': '5432'
     }
 
-@timing_decorator
+# @timing_decorator
+@Timer()
 def create_pg_db(postgresql_details: dict = None, db_name: str = 'blob_matching'):
     """
     Creates a PostgreSQL database if it doesn't already exist.
@@ -356,7 +359,8 @@ def create_pg_db(postgresql_details: dict = None, db_name: str = 'blob_matching'
     cur.close()
     conn.close()
 
-@timing_decorator
+# @timing_decorator
+@Timer()
 def create_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', data: list = None, truncate: bool = False):
     """
     Creates a table in PostgreSQL and inserts data. Optionally truncates the table first.
@@ -424,6 +428,7 @@ def create_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matchi
     cur.close()
     conn.close()
 
+@Timer()
 def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled=True):
     """
     Retrieves data from a PostgreSQL table and converts WKT back to geometries.
@@ -453,39 +458,30 @@ def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matc
 
     return df
 
-def match_geometries(df_prev, df_curr):
-    """Match geometries using Shapely intersection or equality"""
-    matched = []
-    for _, row1 in df_prev.iterrows():
-        for _, row2 in df_curr.iterrows():
-            if row1.geometry.equals(row2.geometry):  # Can use intersects() if needed
-                matched.append((row1.id, row2.id))
-    return matched
-
-def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table):
-    """Process a batch of geohashes"""
+# def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table):
+#     """Process a batch of geohashes"""
     
-    df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
-    df_curr = retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
+#     df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
+#     df_curr = retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
 
-    # Filter by geohash
-    df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
-    df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
+#     # Filter by geohash
+#     df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
+#     df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
 
-    if df_prev.empty or df_curr.empty:
-        return
+#     if df_prev.empty or df_curr.empty:
+#         return
 
-    matched_pairs = match_geometries(df_prev, df_curr)
+#     matched_pairs = match_geometries(df_prev, df_curr)
 
-    # Store results in database
-    if matched_pairs:
-        conn = psycopg2.connect(**postgresql_details)
-        cur = conn.cursor()
-        insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
-        extras.execute_values(cur, insert_query, matched_pairs)
-        conn.commit()
-        cur.close()
-        conn.close()
+#     # Store results in database
+#     if matched_pairs:
+#         conn = psycopg2.connect(**postgresql_details)
+#         cur = conn.cursor()
+#         insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
+#         extras.execute_values(cur, insert_query, matched_pairs)
+#         conn.commit()
+#         cur.close()
+#         conn.close()
 
 # class SimpleTimer:
 #     """Lightweight timer for logging execution time across multiple processes without duplicating log sessions."""
@@ -585,28 +581,28 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
 # simple_timing_decorator = SimpleTimer(log_to_console=True, log_to_file=True, track_resources=True)
 
 # @simple_timing_decorator  # Only timing the main function
-def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=100):
-    """Parallel processing of geohash chunks with worker limit"""
-    df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev)
+# def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=100):
+#     """Parallel processing of geohash chunks with worker limit"""
+#     df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev)
 
-    geohashes = df_prev["geohash"].dropna().unique().tolist()
-    chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
+#     geohashes = df_prev["geohash"].dropna().unique().tolist()
+#     chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
 
-    processes = []
-    for chunk in chunks:
-        # Limit the number of concurrent processes to num_workers
-        while len(processes) >= num_workers:
-            for p in processes:
-                p.join(timeout=0.1)  # Check if process is finished
-            processes = [p for p in processes if p.is_alive()]  # Remove completed processes
+#     processes = []
+#     for chunk in chunks:
+#         # Limit the number of concurrent processes to num_workers
+#         while len(processes) >= num_workers:
+#             for p in processes:
+#                 p.join(timeout=0.1)  # Check if process is finished
+#             processes = [p for p in processes if p.is_alive()]  # Remove completed processes
 
-        p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table))
-        p.start()
-        processes.append(p)
+#         p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table))
+#         p.start()
+#         processes.append(p)
 
-    # Ensure all processes finish
-    for p in processes:
-        p.join()
+#     # Ensure all processes finish
+#     for p in processes:
+#         p.join()
 
 # def track_execution_time(func, *args, **kwargs):
 #     """
@@ -720,6 +716,37 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
 
 #     for p in processes:
 #         p.join()
+
+def _retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled=True):
+    """
+    Hidden function version for multiprocessing without the logging.
+    Retrieves data from a PostgreSQL table and converts WKT back to geometries.
+    """
+    if postgresql_details is None:
+        postgresql_details = pg_details()
+    
+    if not table_name:
+        raise ValueError("Table name must be specified.")
+
+    postgresql_details['dbname'] = db_name
+    conn = psycopg2.connect(**postgresql_details)
+    cur = conn.cursor()
+
+    # Retrieve data
+    cur.execute(sql.SQL(f"SELECT geometry, id, geohash FROM {table_name};"))
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    # Convert to DataFrame & reapply geometry
+    df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
+    df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
+
+    if log_enabled:
+        print(f"Retrieved {len(df)} records from {table_name}.")
+
+    return df
+
 # Helper function to handle multiprocessing actions
 def worker_logger(logger, cpu_start, mem_start):
     """Helper function to log CPU and memory usage for multiprocessing."""
@@ -731,6 +758,42 @@ def worker_logger(logger, cpu_start, mem_start):
         log_message = f"Process completed in {elapsed_time:.4f} seconds, CPU: {cpu_end:.2f}%, Memory: {mem_end:.2f}MB"
         logger.info(log_message)
 
+def match_geometries(df_prev, df_curr):
+    """Match geometries using Shapely intersection or equality"""
+    matched = []
+    for _, row1 in df_prev.iterrows():
+        for _, row2 in df_curr.iterrows():
+            if row1.geometry.equals(row2.geometry):  # Can use intersects() if needed
+                matched.append((row1.id, row2.id))
+    return matched
+
+# Applying Timer to process_batch to track each batch's start and end time
+# @Timer(log_to_console=True, log_to_file=True, track_resources=True)
+def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table, logger):
+    """Process a batch of geohashes"""
+    
+    df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
+    df_curr = _retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
+
+    # Filter by geohash
+    df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
+    df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
+
+    if df_prev.empty or df_curr.empty:
+        return
+
+    matched_pairs = match_geometries(df_prev, df_curr)
+
+    # Store results in database
+    if matched_pairs:
+        conn = psycopg2.connect(**postgresql_details)
+        cur = conn.cursor()
+        insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
+        extras.execute_values(cur, insert_query, matched_pairs)
+        conn.commit()
+        cur.close()
+        conn.close()
+
 # Main multiprocessing function with Timer applied
 @Timer(log_to_console=True, log_to_file=True, track_resources=True)
 def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=100):
@@ -739,7 +802,7 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
     manager = mp.Manager()
     logger = manager.list()  # Shared memory list to store logs
 
-    df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev)
+    df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev)
 
     geohashes = df_prev["geohash"].dropna().unique().tolist()
     chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
@@ -766,30 +829,4 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
     worker_logger(logger, cpu_start, None)  # You can replace `None` with memory tracking logic if needed
 
 
-# Applying Timer to process_batch to track each batch's start and end time
-@Timer(log_to_console=True, log_to_file=True, track_resources=True)
-def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table, logger):
-    """Process a batch of geohashes"""
-    
-    df_prev = retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
-    df_curr = retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
-
-    # Filter by geohash
-    df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
-    df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
-
-    if df_prev.empty or df_curr.empty:
-        return
-
-    matched_pairs = match_geometries(df_prev, df_curr)
-
-    # Store results in database
-    if matched_pairs:
-        conn = psycopg2.connect(**postgresql_details)
-        cur = conn.cursor()
-        insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
-        extras.execute_values(cur, insert_query, matched_pairs)
-        conn.commit()
-        cur.close()
-        conn.close()
 

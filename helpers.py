@@ -24,6 +24,7 @@ import pyproj
 import multiprocessing as mp
 import os
 import math
+from typing import Literal
 
 # Timer class for logging timing, CPU, and memory usage
 class Timer:
@@ -754,14 +755,14 @@ def create_matched_results_table(postgresql_details: dict, db_name: str, table_n
     conn.close()
     print(f"Table {table_name} created successfully.")
 
-def _retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled=True):
+def _retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_queue=None):
     """
-    Hidden function version for multiprocessing without the logging.
+    Hidden function version for multiprocessing without direct logging.
     Retrieves data from a PostgreSQL table and converts WKT back to geometries.
     """
     if postgresql_details is None:
         postgresql_details = pg_details()
-    
+
     if not table_name:
         raise ValueError("Table name must be specified.")
 
@@ -779,13 +780,51 @@ def _retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_mat
     df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
     df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
 
-    if log_enabled:
-        print(f"Retrieved {len(df)} records from {table_name}.")
+    # ✅ Log the retrieved records
+    if log_queue:
+        log_queue.put(logging.LogRecord(
+            name="multiprocessing_logger",
+            level=logging.INFO,
+            pathname="",
+            lineno=0,
+            msg=f"Retrieved {len(df)} records from {table_name}.",
+            args=None,
+            exc_info=None
+        ))
 
     return df
+# def _retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled=True):
+#     """
+#     Hidden function version for multiprocessing without the logging.
+#     Retrieves data from a PostgreSQL table and converts WKT back to geometries.
+#     """
+#     if postgresql_details is None:
+#         postgresql_details = pg_details()
+    
+#     if not table_name:
+#         raise ValueError("Table name must be specified.")
+
+#     postgresql_details['dbname'] = db_name
+#     conn = psycopg2.connect(**postgresql_details)
+#     cur = conn.cursor()
+
+#     # Retrieve data
+#     cur.execute(sql.SQL(f"SELECT geometry, id, geohash FROM {table_name};"))
+#     rows = cur.fetchall()
+#     cur.close()
+#     conn.close()
+
+#     # Convert to DataFrame & reapply geometry
+#     df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
+#     df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
+
+#     if log_enabled:
+#         print(f"Retrieved {len(df)} records from {table_name}.")
+
+#     return df
 
 # Helper function to handle multiprocessing actions
-def worker_logger(logger_list, start_time, memory_start, log_queue):
+def worker_logger(start_time, memory_start, log_queue):
     """Logs final CPU, memory, and execution time at the end of processing."""
     elapsed_time = time.time() - start_time
     cpu_usage = psutil.cpu_percent(interval=None)
@@ -801,6 +840,26 @@ def worker_logger(logger_list, start_time, memory_start, log_queue):
         args=None,
         exc_info=None
     ))
+
+    # Optionally, append to CSV here if needed.
+
+# def worker_logger(logger, start_time, memory_start, log_queue):
+#     """Logs final CPU, memory, and execution time at the end of processing."""
+#     elapsed_time = time.time() - start_time
+#     cpu_usage = psutil.cpu_percent(interval=None)
+#     memory_end = psutil.virtual_memory().used / (1024 ** 2)
+#     memory_usage = abs(memory_end - memory_start) if memory_start else None
+
+#     log_queue.put(logging.LogRecord(
+#         name="multiprocessing_logger",
+#         level=logging.INFO,
+#         pathname="",
+#         lineno=0,
+#         msg=f"Total Execution Time: {elapsed_time:.4f} sec, CPU Usage: {cpu_usage:.2f}%, Memory Usage: {memory_usage:.2f}MB",
+#         args=None,
+#         exc_info=None
+#     ))
+
 # def worker_logger(logger, cpu_start, mem_start):
 #     """Helper function to log CPU and memory usage for multiprocessing."""
 #     if logger:
@@ -811,27 +870,79 @@ def worker_logger(logger_list, start_time, memory_start, log_queue):
 #         log_message = f"Process completed in {elapsed_time:.4f} seconds, CPU: {cpu_end:.2f}%, Memory: {mem_end:.2f}MB"
 #         logger.info(log_message)
 
-@Timer()
-def match_geometries(df_prev, df_curr):
+# @Timer()
+def match_geometries(df_prev, df_curr, log_queue):
     """
     Match geometries using Shapely intersection or equality.
     This makes it an O(n * m) operation, 
         where n is the number of rows in df_prev and m is in df_curr.
     """
     matched = []
+    total = len(df_prev)
+    last_report = 0
 
-    # Explicitly log function entry
-    logging.info("Starting match_geometries()")
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg="Starting match_geometries()",
+        args=None,
+        exc_info=None
+    ))
 
-    for _, row1 in df_prev.iterrows():
+    for i, (_, row1) in enumerate(df_prev.iterrows(), start=1):
         for _, row2 in df_curr.iterrows():
             if row1.geometry.intersects(row2.geometry):  # Using intersects() instead of equals()
                 matched.append((row1.id, row2.id))
+        # report progress every 10%
+        percent = (i / total) * 100
+        if percent >= last_report + 10:
+            last_report = int(percent // 10) * 10
+            print(f"match_geometries: {last_report}% of rows processed")
+            # Optionally, also log this:
+            log_queue.put(logging.LogRecord(
+                name="multiprocessing_logger",
+                level=logging.INFO,
+                pathname="",
+                lineno=0,
+                msg=f"match_geometries: {last_report}% of rows processed",
+                args=None,
+                exc_info=None
+            ))           
     
-    # Add logging to confirm whether matches are found
-    logging.info(f"match_geometries: Found {len(matched)} matches")
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg=f"match_geometries: Found {len(matched)} matches",
+        args=None,
+        exc_info=None
+    ))
     
     return matched
+# @Timer()
+# def match_geometries(df_prev, df_curr):
+#     """
+#     Match geometries using Shapely intersection or equality.
+#     This makes it an O(n * m) operation, 
+#         where n is the number of rows in df_prev and m is in df_curr.
+#     """
+#     matched = []
+
+#     # Explicitly log function entry
+#     logging.info("Starting match_geometries()")
+
+#     for _, row1 in df_prev.iterrows():
+#         for _, row2 in df_curr.iterrows():
+#             if row1.geometry.intersects(row2.geometry):  # Using intersects() instead of equals()
+#                 matched.append((row1.id, row2.id))
+    
+#     # Add logging to confirm whether matches are found
+#     logging.info(f"match_geometries: Found {len(matched)} matches")
+    
+#     return matched
 
 def get_neighbors(ghash, precision=7):
     """Compute the 8 neighboring geohashes."""
@@ -849,19 +960,26 @@ def get_neighbors(ghash, precision=7):
 
 # Applying Timer to process_batch to track each batch's start and end time
 # @Timer(log_to_console=True, log_to_file=True, track_resources=True)
-def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table, logger):
+def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue): # logger argument removed
     """Process a batch of geohashes"""
     start_time = time.time()
+    memory_start = psutil.virtual_memory().used / (1024 ** 2)  # Capture memory start in MB
 
-    df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
-    df_curr = _retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
+    df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_queue=log_queue)
+    df_curr = _retrieve_pg_table(postgresql_details, db_name, table_curr, log_queue=log_queue)
 
-    # Log the number of polygons for this geohash chunk
-    logging.info(f"Chunk {geohash_chunk[:3]}...: {len(df_prev)} prev, {len(df_curr)} curr polygons")
+    # Use log_queue instead of direct logging
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg=f"Chunk {geohash_chunk[:3]}...: {len(df_prev)} prev, {len(df_curr)} curr polygons",
+        args=None,
+        exc_info=None
+    ))
 
     # Filter by geohash, including neighboring ones
-    # df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
-    # df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
     neighboring_geohashes = set()
     for g in geohash_chunk:
         neighboring_geohashes.add(g)
@@ -870,19 +988,32 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
     df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
     df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
 
-    logging.info(f'After filtering: {len(df_prev)} prev, {len(df_curr)} curr polygons')
-
     if df_prev.empty or df_curr.empty:
-        logging.info('Skipping batch - No overlapping geohashes')
+        log_queue.put(logging.LogRecord(
+            name="multiprocessing_logger",
+            level=logging.INFO,
+            pathname="",
+            lineno=0,
+            msg="Skipping batch - No overlapping geohashes",
+            args=None,
+            exc_info=None
+        ))
         return
 
-    matched_pairs = match_geometries(df_prev, df_curr)
-    logging.info(f"Found {len(matched_pairs)} matches in chunk {geohash_chunk[:3]}...")
+    matched_pairs = match_geometries(df_prev, df_curr, log_queue)
+
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg=f"Found {len(matched_pairs)} matches in chunk {geohash_chunk[:3]}...",
+        args=None,
+        exc_info=None
+    ))
 
     # Store results in database
     if matched_pairs:
-        logging.info(f"Inserting {len(matched_pairs)} matches into {output_table}")
-        logging.info(f"Sample match: {matched_pairs[:5]}")  # Log a few matches
         conn = psycopg2.connect(**postgresql_details)
         cur = conn.cursor()
         insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
@@ -890,35 +1021,135 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
             extras.execute_values(cur, insert_query, matched_pairs)
             conn.commit()
         except Exception as e:
-            logging.error(f'Database insert failed: {e}')
+            log_queue.put(logging.LogRecord(
+                name="multiprocessing_logger",
+                level=logging.ERROR,
+                pathname="",
+                lineno=0,
+                msg=f"Database insert failed: {e}",
+                args=None,
+                exc_info=None
+            ))
             conn.rollback()
         finally:
             cur.close()
             conn.close()
 
+    # Log elapsed time and memory usage after processing the batch
     elapsed_time = time.time() - start_time
+    memory_end = psutil.virtual_memory().used / (1024 ** 2)  # Capture memory after batch
+    memory_used = abs(memory_end - memory_start)
+
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg=f"Chunk {geohash_chunk[:3]} completed in {elapsed_time:.4f} sec, Memory Used: {memory_used:.2f} MB",
+        args=None,
+        exc_info=None
+    ))
+
+# def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table, logger):
+#     """Process a batch of geohashes"""
+#     start_time = time.time()
+
+#     df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_enabled=False)
+#     df_curr = _retrieve_pg_table(postgresql_details, db_name, table_curr, log_enabled=False)
+
+#     # Log the number of polygons for this geohash chunk
+#     logging.info(f"Chunk {geohash_chunk[:3]}...: {len(df_prev)} prev, {len(df_curr)} curr polygons")
+
+#     # Filter by geohash, including neighboring ones
+#     # df_prev = df_prev[df_prev['geohash'].isin(geohash_chunk)]
+#     # df_curr = df_curr[df_curr['geohash'].isin(geohash_chunk)]
+#     neighboring_geohashes = set()
+#     for g in geohash_chunk:
+#         neighboring_geohashes.add(g)
+#         neighboring_geohashes.update(get_neighbors(g))  # Get 8 adjacent geohashes
+
+#     df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
+#     df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
+
+#     logging.info(f'After filtering: {len(df_prev)} prev, {len(df_curr)} curr polygons')
+
+#     if df_prev.empty or df_curr.empty:
+#         logging.info('Skipping batch - No overlapping geohashes')
+#         return
+
+#     matched_pairs = match_geometries(df_prev, df_curr)
+#     logging.info(f"Found {len(matched_pairs)} matches in chunk {geohash_chunk[:3]}...")
+
+#     # Store results in database
+#     if matched_pairs:
+#         logging.info(f"Inserting {len(matched_pairs)} matches into {output_table}")
+#         logging.info(f"Sample match: {matched_pairs[:5]}")  # Log a few matches
+#         conn = psycopg2.connect(**postgresql_details)
+#         cur = conn.cursor()
+#         insert_query = sql.SQL(f"INSERT INTO {output_table} (prev_id, curr_id) VALUES %s")
+#         try:
+#             extras.execute_values(cur, insert_query, matched_pairs)
+#             conn.commit()
+#         except Exception as e:
+#             logging.error(f'Database insert failed: {e}')
+#             conn.rollback()
+#         finally:
+#             cur.close()
+#             conn.close()
+
+#     elapsed_time = time.time() - start_time
+
+def logging_listener(log_queue):
+    """Listener function that handles logs coming from multiple processes."""
+    while True:
+        try:
+            record = log_queue.get()
+            if record is None:
+                break  # Exit when sentinel value is received
+            logger = logging.getLogger(record.name)
+            logger.handle(record)
+        except EOFError:
+            print("Log queue closed unexpectedly.")
+            break  # Prevents crash if the queue is closed early
+        except Exception as e:
+            print(f"Logging error: {e}")
+# def logging_listener(log_queue):
+#     """Listener function that handles logs coming from multiple processes."""
+#     while True:
+#         record = log_queue.get()
+#         if record is None:
+#             break  # Exit when sentinel value is received
+
+#         logger = logging.getLogger(record.name)
+#         logger.handle(record)
 
 # Main multiprocessing function with Timer applied
 @Timer(log_to_console=True, log_to_file=True, track_resources=True)
-def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=None, log_queue=None):
+def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=None, verbose = Literal[0, 1, 2]):
     """Parallel processing of geohash chunks with adaptive batch size and worker limit."""
+
+    manager = mp.Manager()
+    log_queue = manager.Queue() # Initialize log queue for multiprocessing
+    log_process = mp.Process(target=logging_listener, args=(log_queue,))
+    log_process.start()  # Start logging process
+    logger = manager.list()  # Shared memory list for logs
 
     # Create (or recreate) the matched_results table
     create_matched_results_table(postgresql_details, db_name, output_table)
 
-    manager = mp.Manager()
-    logger = manager.list()  # Shared memory list to store logs
+    # Start the logging process
+    log_process = mp.Process(target=logging_listener, args=(log_queue,))
+    log_process.start()
 
-    df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev)
+    df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_queue)
     geohashes = df_prev["geohash"].dropna().unique().tolist()
-    
-    # Dynamically determine batch size if not provided
+
     if batch_size is None:
         total_geohashes = len(geohashes)
-        max_batches = min(num_workers * 4, 100)  # ✅ Prevent excessive small batches (cap at 100)
-        batch_size = max(1000, math.ceil(total_geohashes / max_batches))  # ✅ Ensure batch size is at least 1000
+        max_batches = min(num_workers * 4, 100)  # Prevent excessive small batches (cap at 100)
+        batch_size = max(1000, math.ceil(total_geohashes / max_batches))  # Ensure batch size is at least 1000
 
-    # Send batch size info to log instead of print()
+    # Send batch size info to log queue
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
         level=logging.INFO,
@@ -928,30 +1159,112 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
         args=None,
         exc_info=None
     ))
-    
-    # Create batches dynamically
+
     chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
+    total_batches = len(chunks)
+    print(f'Total batches to process: {total_batches}')
+    last_report = 0
 
     processes = []
     cpu_start = time.time()  # Start overall time tracking
+    memory_start = psutil.virtual_memory().used / (1024 ** 2)  # Capture memory start in MB
 
-    for chunk in chunks:
-        # Limit number of concurrent processes
+    for i, chunk in enumerate(chunks, start=1):
         while len(processes) >= num_workers:
             for p in processes:
                 p.join(timeout=0.1)
             processes = [p for p in processes if p.is_alive()]
 
-        p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table, logger, log_queue))
+        # start a worker process
+        p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue)) # logger argument removed
         p.start()
         processes.append(p)
 
-    # Ensure all processes finish
+        # Calculate progress and log it (every 10% increment)
+        percent = (i / total_batches) * 100
+        if percent >= last_report + 10:
+            last_report = int(percent // 10) * 10
+            log_queue.put(logging.LogRecord(
+                name="multiprocessing_logger",
+                level=logging.INFO,
+                pathname="",
+                lineno=0,
+                msg=f"Dispatched batch {i}/{total_batches} ({last_report}% complete)",
+                args=None,
+                exc_info=None
+            ))
+
+        # print progress info
+        if verbose == 1 and i % max(1, int(total_batches / 10)) == 0:
+            print(f"Dispatched batch {i}/{total_batches}) #({(i/total_batches)*100:.1f}% complete)")
+        elif verbose == 2:
+            percent = (i / total_batches) * 100
+            print(f"Dispatched batch {i}/{total_batches} ({percent:.1f}% complete)")
+
+    # ensure all processes finish
     for p in processes:
         p.join()
 
     # Log overall CPU and memory usage after all processes complete
-    worker_logger(logger, cpu_start, None, log_queue)  # Replace `None` with memory tracking if needed
+    worker_logger(cpu_start, memory_start, log_queue)
+
+    # Stop the logging process
+    log_queue.put(None)  # Sentinel value to signal the logger to stop
+    log_process.join()
+# @Timer(log_to_console=True, log_to_file=True, track_resources=True)
+# def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=None, log_queue=None):
+#     """Parallel processing of geohash chunks with adaptive batch size and worker limit."""
+
+#     # Create (or recreate) the matched_results table
+#     create_matched_results_table(postgresql_details, db_name, output_table)
+
+#     manager = mp.Manager()
+#     logger = manager.list()  # Shared memory list to store logs
+
+#     df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev)
+#     geohashes = df_prev["geohash"].dropna().unique().tolist()
+    
+#     # Dynamically determine batch size if not provided
+#     if batch_size is None:
+#         total_geohashes = len(geohashes)
+#         max_batches = min(num_workers * 4, 100)  # Prevent excessive small batches (cap at 100)
+#         batch_size = max(1000, math.ceil(total_geohashes / max_batches))  # Ensure batch size is at least 1000
+
+#     # Send batch size info to log instead of print()
+#     log_queue.put(logging.LogRecord(
+#         name="multiprocessing_logger",
+#         level=logging.INFO,
+#         pathname="",
+#         lineno=0,
+#         msg=f"Using batch size: {batch_size}, Total batches: {math.ceil(len(geohashes) / batch_size)}",
+#         args=None,
+#         exc_info=None
+#     ))
+    
+#     # Create batches dynamically
+#     chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
+
+#     processes = []
+#     cpu_start = time.time()  # Start overall time tracking
+#     memory_start = psutil.virtual_memory().used / (1024 ** 2)  # Capture memory start in MB
+
+#     for chunk in chunks:
+#         # Limit number of concurrent processes
+#         while len(processes) >= num_workers:
+#             for p in processes:
+#                 p.join(timeout=0.1)
+#             processes = [p for p in processes if p.is_alive()]
+
+#         p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table, logger, log_queue))
+#         p.start()
+#         processes.append(p)
+
+#     # Ensure all processes finish
+#     for p in processes:
+#         p.join()
+
+#     # Log overall CPU and memory usage after all processes complete
+#     worker_logger(logger, cpu_start, memory_start, log_queue)  # Replace `None` with memory tracking if needed
 
 # @Timer(log_to_console=True, log_to_file=True, track_resources=True)
 # def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=100):

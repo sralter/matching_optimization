@@ -220,7 +220,8 @@ class Timer:
 def generate_random_polygons(n: int, 
                              us_boundary: gpd.GeoDataFrame = gpd.read_file('data/conus_buffer.parquet'), 
                              admin_boundaries: gpd.GeoDataFrame = gpd.read_file('data/conus_admin.parquet'), 
-                             precision=6) -> gpd.GeoDataFrame:
+                            #  precision=7) -> gpd.GeoDataFrame:
+                             precision=8) -> gpd.GeoDataFrame:
     """
     Generate n random polygons fully within the contiguous U.S. (CONUS).
     Ensures all polygons are clipped to the CONUS boundary.
@@ -245,7 +246,8 @@ def generate_random_polygons(n: int,
     while len(polygons) < n:
         # Generate random coordinates within the bounding box
         x1, y1 = random.uniform(minx, maxx), random.uniform(miny, maxy)
-        x2, y2 = x1 + random.uniform(0.001, 0.01), y1 + random.uniform(0.001, 0.01)
+        x2, y2 = x1 + random.uniform(0.01, 0.1), y1 + random.uniform(0.01, 0.1)
+        # x2, y2 = x1 + random.uniform(0.0001, 0.001), y1 + random.uniform(0.0001, 0.001)
         polygon = box(x1, y1, x2, y2)
 
         # Ensure the polygon is fully within the CONUS boundary
@@ -302,6 +304,91 @@ def generate_random_polygons(n: int,
     gdf = gdf[cols_to_keep]
 
     return gdf, meta_df
+# def generate_random_polygons(n: int, 
+#                              us_boundary: gpd.GeoDataFrame = gpd.read_file('data/conus_buffer.parquet'), 
+#                              admin_boundaries: gpd.GeoDataFrame = gpd.read_file('data/conus_admin.parquet'), 
+#                              precision=6) -> gpd.GeoDataFrame:
+#     """
+#     Generate n random polygons fully within the contiguous U.S. (CONUS).
+#     Ensures all polygons are clipped to the CONUS boundary.
+
+#     Params:
+#         n (int): number of polygons to be generated
+#         us_boundary: a GeoPandas GeoDataframe of the boundary of the US
+#         admin_boundaries: a GeoPandas GeoDataframe of the administrative information of the US
+
+#     Returns:
+#         gdf: a GeoPandas GeoDataframe of the polygon layer with administrative and geohash information.
+#     """
+#     if us_boundary is None or admin_boundaries is None:
+#         raise ValueError("Both U.S. boundary and administrative boundaries are required.")
+
+#     # Compute bounding box of CONUS
+#     minx, miny, maxx, maxy = us_boundary.total_bounds
+
+#     polygons = []
+#     ids = []
+
+#     while len(polygons) < n:
+#         # Generate random coordinates within the bounding box
+#         x1, y1 = random.uniform(minx, maxx), random.uniform(miny, maxy)
+#         x2, y2 = x1 + random.uniform(0.001, 0.01), y1 + random.uniform(0.001, 0.01)
+#         polygon = box(x1, y1, x2, y2)
+
+#         # Ensure the polygon is fully within the CONUS boundary
+#         if polygon.within(us_boundary.geometry.iloc[0]):  # Checks containment
+#             polygons.append(polygon)
+#             ids.append(str(uuid.uuid4()))
+
+#     # Create GeoDataFrame
+#     gdf = gpd.GeoDataFrame(geometry=polygons, crs="EPSG:4326")
+#     gdf["id"] = ids
+
+#     # Clip to CONUS boundary (extra safeguard)
+#     gdf = gpd.clip(gdf, us_boundary)
+
+#     # Compute representative points for spatial join
+#     gdf["rep_point"] = gdf.geometry.representative_point()
+
+#     # Perform spatial join to get city, county, state
+#     gdf = gdf.sjoin(admin_boundaries, how="left", predicate="within")
+
+#     # Compute geohash for location
+#     gdf["geohash"] = gdf["rep_point"].apply(
+#         lambda geom: geohash.encode(geom.y, geom.x, precision) if geom else None
+#     )
+
+#     # Drop temporary columns
+#     gdf = gdf.drop(columns=["rep_point", "index_right"])
+
+#     # Drop other columns
+#     cols_to_keep = [
+#         'geometry', 
+#         'id',
+#         # 'shapeName', 
+#         # 'STATEFP', 
+#         # 'COUNTYFP', 
+#         # 'GEOID', 
+#         # 'NAME', 
+#         # 'NAMELSAD', 
+#         # 'area_fips', 
+#         'geohash']
+    
+#     # save metadata
+#     meta_df = gdf[[
+#         'id',
+#         'shapeName', 
+#         'STATEFP', 
+#         'COUNTYFP', 
+#         'GEOID', 
+#         'NAME', 
+#         'NAMELSAD', 
+#         'area_fips']]
+
+#     # save gdf with dropped cols
+#     gdf = gdf[cols_to_keep]
+
+#     return gdf, meta_df
 
 # @timing_decorator
 
@@ -445,7 +532,7 @@ def create_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matchi
     conn.close()
 
 @Timer()
-def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled=True):
+def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled: bool = True, count: bool = False):
     """
     Retrieves data from a PostgreSQL table and converts WKT back to geometries.
     """
@@ -459,20 +546,33 @@ def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matc
     conn = psycopg2.connect(**postgresql_details)
     cur = conn.cursor()
 
-    # Retrieve data
-    cur.execute(sql.SQL(f"SELECT geometry, id, geohash FROM {table_name};"))
-    rows = cur.fetchall()
-    cur.close()
-    conn.close()
+    if not count:
+        # Retrieve data
+        cur.execute(sql.SQL(f"SELECT geometry, id, geohash FROM {table_name};"))
+        rows = cur.fetchall()
+        cur.close()
+        conn.close()
 
-    # Convert to DataFrame & reapply geometry
-    df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
-    df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
+        # Convert to DataFrame & reapply geometry
+        df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
+        df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
 
-    if log_enabled:
-        print(f"Retrieved {len(df)} records from {table_name}.")
+        if log_enabled:
+            print(f"Retrieved {len(df)} records from {table_name}.")
 
-    return df
+        return df
+    else:
+        # Retrieve count of matches
+        cur.execute(sql.SQL(f"SELECT COUNT(*) FROM {table_name};"))
+        match_count = cur.fetchone()[0]  # Extract count
+
+        cur.close()
+        conn.close()
+
+        if log_enabled:
+            print(f"Total matches in {table_name}: {match_count}")
+
+        return match_count
 
 # def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table):
 #     """Process a batch of geohashes"""
@@ -876,10 +976,12 @@ def match_geometries(df_prev, df_curr, log_queue):
     Match geometries using Shapely intersection or equality.
     This makes it an O(n * m) operation, 
         where n is the number of rows in df_prev and m is in df_curr.
+        Pre-filtering by geohash will help speed things up.
     """
     matched = []
     total = len(df_prev)
     last_report = 0
+    match_count = 0 # track number of matches found so far
 
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
@@ -895,28 +997,35 @@ def match_geometries(df_prev, df_curr, log_queue):
         for _, row2 in df_curr.iterrows():
             if row1.geometry.intersects(row2.geometry):  # Using intersects() instead of equals()
                 matched.append((row1.id, row2.id))
+                match_count += 1 # increment match counter
+
         # report progress every 10%
         percent = (i / total) * 100
         if percent >= last_report + 10:
             last_report = int(percent // 10) * 10
-            print(f"match_geometries: {last_report}% of rows processed")
-            # Optionally, also log this:
+            message = f"match_geometries: {last_report}% of rows processed, {match_count} matches found"
+            # print progress to console
+            print(message)
+
+            # Log progress:
             log_queue.put(logging.LogRecord(
                 name="multiprocessing_logger",
                 level=logging.INFO,
                 pathname="",
                 lineno=0,
-                msg=f"match_geometries: {last_report}% of rows processed",
+                msg=message,
                 args=None,
                 exc_info=None
             ))           
-    
+
+    final_message = f'match_geometries: Processing complete, {match_count} total matches found.'
+
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
         level=logging.INFO,
         pathname="",
         lineno=0,
-        msg=f"match_geometries: Found {len(matched)} matches",
+        msg=final_message,
         args=None,
         exc_info=None
     ))
@@ -985,8 +1094,8 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
         neighboring_geohashes.add(g)
         neighboring_geohashes.update(get_neighbors(g))  # Get 8 adjacent geohashes
 
-    df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
-    df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
+    # df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
+    # df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
 
     if df_prev.empty or df_curr.empty:
         log_queue.put(logging.LogRecord(
@@ -1000,7 +1109,18 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
         ))
         return
 
-    matched_pairs = match_geometries(df_prev, df_curr, log_queue)
+    try:
+        matched_pairs = match_geometries(df_prev, df_curr, log_queue)
+    except Exception as e:
+        log_queue.put(logging.LogRecord(
+            name="multiprocessing_logger",
+            level=logging.ERROR,
+            pathname="",
+            lineno=0,
+            msg=f"Error in match_geometries: {e}",
+            args=None,
+            exc_info=True
+        ))
 
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
@@ -1113,6 +1233,7 @@ def logging_listener(log_queue):
             break  # Prevents crash if the queue is closed early
         except Exception as e:
             print(f"Logging error: {e}")
+    print('Logging listener has shut down.')
 # def logging_listener(log_queue):
 #     """Listener function that handles logs coming from multiple processes."""
 #     while True:
@@ -1125,22 +1246,21 @@ def logging_listener(log_queue):
 
 # Main multiprocessing function with Timer applied
 @Timer(log_to_console=True, log_to_file=True, track_resources=True)
-def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=None, verbose = Literal[0, 1, 2]):
+def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=None, verbose=2):
     """Parallel processing of geohash chunks with adaptive batch size and worker limit."""
 
+    # Initialize manager and log queue
     manager = mp.Manager()
-    log_queue = manager.Queue() # Initialize log queue for multiprocessing
+    log_queue = manager.Queue()
+
+    # Start a single logging process
     log_process = mp.Process(target=logging_listener, args=(log_queue,))
-    log_process.start()  # Start logging process
-    logger = manager.list()  # Shared memory list for logs
+    log_process.start()
 
     # Create (or recreate) the matched_results table
     create_matched_results_table(postgresql_details, db_name, output_table)
 
-    # Start the logging process
-    log_process = mp.Process(target=logging_listener, args=(log_queue,))
-    log_process.start()
-
+    # Retrieve data and prepare geohash chunks
     df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_queue)
     geohashes = df_prev["geohash"].dropna().unique().tolist()
 
@@ -1149,7 +1269,7 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
         max_batches = min(num_workers * 4, 100)  # Prevent excessive small batches (cap at 100)
         batch_size = max(1000, math.ceil(total_geohashes / max_batches))  # Ensure batch size is at least 1000
 
-    # Send batch size info to log queue
+    # Log batch size info
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
         level=logging.INFO,
@@ -1160,27 +1280,30 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
         exc_info=None
     ))
 
+    # Create chunks of geohashes
     chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
     total_batches = len(chunks)
     print(f'Total batches to process: {total_batches}')
     last_report = 0
 
     processes = []
-    cpu_start = time.time()  # Start overall time tracking
-    memory_start = psutil.virtual_memory().used / (1024 ** 2)  # Capture memory start in MB
+    cpu_start = time.time()  # Overall start time
+    memory_start = psutil.virtual_memory().used / (1024 ** 2)  # Memory at start in MB
 
+    # Dispatch worker processes for each chunk
     for i, chunk in enumerate(chunks, start=1):
+        # Wait until fewer than num_workers are running
         while len(processes) >= num_workers:
             for p in processes:
                 p.join(timeout=0.1)
             processes = [p for p in processes if p.is_alive()]
 
-        # start a worker process
-        p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue)) # logger argument removed
+        # Start a worker process for this chunk
+        p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue))
         p.start()
         processes.append(p)
 
-        # Calculate progress and log it (every 10% increment)
+        # Log progress every 10% increment
         percent = (i / total_batches) * 100
         if percent >= last_report + 10:
             last_report = int(percent // 10) * 10
@@ -1194,23 +1317,139 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
                 exc_info=None
             ))
 
-        # print progress info
+        # Print progress info to console based on verbosity level
         if verbose == 1 and i % max(1, int(total_batches / 10)) == 0:
-            print(f"Dispatched batch {i}/{total_batches}) #({(i/total_batches)*100:.1f}% complete)")
+            print(f"Dispatched batch {i}/{total_batches} ({(i/total_batches)*100:.1f}% complete)")
         elif verbose == 2:
-            percent = (i / total_batches) * 100
             print(f"Dispatched batch {i}/{total_batches} ({percent:.1f}% complete)")
 
-    # ensure all processes finish
+    # Ensure all worker processes have finished
     for p in processes:
+        if p.is_alive():
+            message = f"Waiting for process {p.pid} to finish."
+            print(message)
+        log_queue.put(logging.LogRecord(
+            name="multiprocessing_logger",
+            level=logging.INFO,
+            pathname="",
+            lineno=0,
+            msg=message,
+            args=None,
+            exc_info=None
+        ))
         p.join()
+
+    # ensure all worker processes are truly terminated
+    for p in processes:
+        if p.is_alive():
+            message = f"Process {p.pid} is still running, terminating it."
+            print(message)
+            log_queue.put(logging.LogRecord(
+                name="multiprocessing_logger",
+                level=logging.WARNING,  # Set to WARNING since termination is not normal behavior
+                pathname="",
+                lineno=0,
+                msg=message,
+                args=None,
+                exc_info=None
+            ))
+            p.terminate()
+            p.join()
 
     # Log overall CPU and memory usage after all processes complete
     worker_logger(cpu_start, memory_start, log_queue)
 
-    # Stop the logging process
-    log_queue.put(None)  # Sentinel value to signal the logger to stop
+    # Signal the logging process to exit and wait for it to join
+    log_queue.put(None)  # Sentinel value to tell logging_listener() to stop
     log_process.join()
+    log_process.terminate()
+# @Timer(log_to_console=True, log_to_file=True, track_resources=True)
+# def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=None, verbose = Literal[0, 1, 2]):
+#     """Parallel processing of geohash chunks with adaptive batch size and worker limit."""
+
+#     manager = mp.Manager()
+#     log_queue = manager.Queue() # Initialize log queue for multiprocessing
+#     log_process = mp.Process(target=logging_listener, args=(log_queue,))
+#     log_process.start()  # Start logging process
+#     logger = manager.list()  # Shared memory list for logs
+
+#     # Create (or recreate) the matched_results table
+#     create_matched_results_table(postgresql_details, db_name, output_table)
+
+#     # Start the logging process
+#     log_process = mp.Process(target=logging_listener, args=(log_queue,))
+#     log_process.start()
+
+#     df_prev = _retrieve_pg_table(postgresql_details, db_name, table_prev, log_queue)
+#     geohashes = df_prev["geohash"].dropna().unique().tolist()
+
+#     if batch_size is None:
+#         total_geohashes = len(geohashes)
+#         max_batches = min(num_workers * 4, 100)  # Prevent excessive small batches (cap at 100)
+#         batch_size = max(1000, math.ceil(total_geohashes / max_batches))  # Ensure batch size is at least 1000
+
+#     # Send batch size info to log queue
+#     log_queue.put(logging.LogRecord(
+#         name="multiprocessing_logger",
+#         level=logging.INFO,
+#         pathname="",
+#         lineno=0,
+#         msg=f"Using batch size: {batch_size}, Total batches: {math.ceil(len(geohashes) / batch_size)}",
+#         args=None,
+#         exc_info=None
+#     ))
+
+#     chunks = [geohashes[i:i + batch_size] for i in range(0, len(geohashes), batch_size)]
+#     total_batches = len(chunks)
+#     print(f'Total batches to process: {total_batches}')
+#     last_report = 0
+
+#     processes = []
+#     cpu_start = time.time()  # Start overall time tracking
+#     memory_start = psutil.virtual_memory().used / (1024 ** 2)  # Capture memory start in MB
+
+#     for i, chunk in enumerate(chunks, start=1):
+#         while len(processes) >= num_workers:
+#             for p in processes:
+#                 p.join(timeout=0.1)
+#             processes = [p for p in processes if p.is_alive()]
+
+#         # start a worker process
+#         p = mp.Process(target=process_batch, args=(chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue)) # logger argument removed
+#         p.start()
+#         processes.append(p)
+
+#         # Calculate progress and log it (every 10% increment)
+#         percent = (i / total_batches) * 100
+#         if percent >= last_report + 10:
+#             last_report = int(percent // 10) * 10
+#             log_queue.put(logging.LogRecord(
+#                 name="multiprocessing_logger",
+#                 level=logging.INFO,
+#                 pathname="",
+#                 lineno=0,
+#                 msg=f"Dispatched batch {i}/{total_batches} ({last_report}% complete)",
+#                 args=None,
+#                 exc_info=None
+#             ))
+
+#         # print progress info
+#         if verbose == 1 and i % max(1, int(total_batches / 10)) == 0:
+#             print(f"Dispatched batch {i}/{total_batches}) #({(i/total_batches)*100:.1f}% complete)")
+#         elif verbose == 2:
+#             percent = (i / total_batches) * 100
+#             print(f"Dispatched batch {i}/{total_batches} ({percent:.1f}% complete)")
+
+#     # ensure all processes finish
+#     for p in processes:
+#         p.join()
+
+#     # Log overall CPU and memory usage after all processes complete
+#     worker_logger(cpu_start, memory_start, log_queue)
+
+#     # Stop the logging process
+#     log_queue.put(None)  # Sentinel value to signal the logger to stop
+#     log_process.join()
 # @Timer(log_to_console=True, log_to_file=True, track_resources=True)
 # def run_parallel_matching(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, batch_size=None, log_queue=None):
 #     """Parallel processing of geohash chunks with adaptive batch size and worker limit."""
@@ -1301,6 +1540,38 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
 #     # Log overall CPU and memory usage after all processes complete
 #     worker_logger(logger, cpu_start, None)  # You can replace `None` with memory tracking logic if needed
 
+def convert_logs_to_parquet(csv_path: str, log_path: str, output_dir: str = "logs"):
+    """
+    Converts timing_results.csv and timing.log into Parquet files for efficient storage.
+    
+    Args:
+        csv_path (str): Path to the CSV file.
+        log_path (str): Path to the log file.
+        output_dir (str): Directory to store Parquet files.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Convert CSV to Parquet
+    csv_output_path = os.path.join(output_dir, "timing_results.parquet")
+    try:
+        df_csv = pd.read_csv(csv_path)
+        df_csv.to_parquet(csv_output_path, index=False)
+        print(f"Converted {csv_path} to {csv_output_path}")
+    except Exception as e:
+        print(f"Error converting CSV to Parquet: {e}")
+    
+    # Convert log file to Parquet
+    log_output_path = os.path.join(output_dir, "timing_log.parquet")
+    try:
+        with open(log_path, "r") as log_file:
+            log_lines = log_file.readlines()
+        
+        df_log = pd.DataFrame({"log_entry": log_lines})
+        df_log.to_parquet(log_output_path, index=False)
+        print(f"Converted {log_path} to {log_output_path}")
+    except Exception as e:
+        print(f"Error converting log file to Parquet: {e}")
+
 @Timer()
 def compute_h3_indices(geometry, centroid_res=6, polyfill_res=9):
     """
@@ -1315,3 +1586,4 @@ def compute_h3_indices(geometry, centroid_res=6, polyfill_res=9):
     h3_polyfill = list(h3.polyfill(geometry.__geo_interface__, polyfill_res))
 
     return h3_centroid, h3_polyfill
+

@@ -22,6 +22,7 @@ import itertools
 import numpy as np
 import pyproj
 import multiprocessing as mp
+from multiprocessing import Value, Lock, Pool, Manager
 import os
 import math
 from typing import Literal
@@ -461,17 +462,17 @@ def worker_logger(start_time, memory_start, log_queue):
     # Optionally, append to CSV here if needed.
 
 # @Timer()
-def match_geometries(df_prev, df_curr, log_queue):
+def match_geometries(df_prev, df_curr, log_queue, match_count, lock):
     """
     Match geometries using Shapely intersection or equality.
     This makes it an O(n * m) operation, 
         where n is the number of rows in df_prev and m is in df_curr.
-        Pre-filtering by geohash will help speed things up.
+    Pre-filtering by geohash will help speed things up.
     """
     matched = []
     total = len(df_prev)
     last_report = 0
-    match_count = 0 # track number of matches found so far
+    # match_count = 0 # track number of matches found so far
 
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
@@ -487,26 +488,23 @@ def match_geometries(df_prev, df_curr, log_queue):
         for _, row2 in df_curr.iterrows():
             if row1.geometry.intersects(row2.geometry):  # Using intersects() instead of equals()
                 matched.append((row1.id, row2.id))
-                match_count += 1 # increment match counter
+                with lock:
+                    match_count.value += 1 # safely increment match counter
 
         # report progress every 10%
         percent = (i / total) * 100
         if percent >= last_report + 10:
             last_report = int(percent // 10) * 10
-            message = f"match_geometries: {last_report}% of rows processed, {match_count} matches found"
-            # print progress to console
-            print(message)
-
-            # Log progress:
-            log_queue.put(logging.LogRecord(
-                name="multiprocessing_logger",
-                level=logging.INFO,
-                pathname="",
-                lineno=0,
-                msg=message,
-                args=None,
-                exc_info=None
-            ))           
+            if i == 1:  # Only log the first worker's progress
+                log_queue.put(logging.LogRecord(
+                    name="multiprocessing_logger",
+                    level=logging.INFO,
+                    pathname="",
+                    lineno=0,
+                    msg=f"match_geometries: {last_report}% of rows processed, {match_count.value} matches found",
+                    args=None,
+                    exc_info=None
+                ))
 
     final_message = f'match_geometries: Processing complete, {match_count} total matches found.'
 

@@ -561,18 +561,18 @@ def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matc
             print(f"Retrieved {len(df)} records from {table_name}.")
 
         return df
-    else:
-        # Retrieve count of matches
-        cur.execute(sql.SQL(f"SELECT COUNT(*) FROM {table_name};"))
-        match_count = cur.fetchone()[0]  # Extract count
+    
+    # Retrieve count of matches
+    cur.execute(sql.SQL(f"SELECT COUNT(*) FROM {table_name};"))
+    match_count = cur.fetchone()[0]  # Extract count
 
-        cur.close()
-        conn.close()
+    cur.close()
+    conn.close()
 
-        if log_enabled:
-            print(f"Total matches in {table_name}: {match_count}")
+    if log_enabled:
+        print(f"Total matches in {table_name}: {match_count}")
 
-        return match_count
+    return match_count
 
 # def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table):
 #     """Process a batch of geohashes"""

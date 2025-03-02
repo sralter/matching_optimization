@@ -563,6 +563,7 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
         neighboring_geohashes.add(g)
         neighboring_geohashes.update(get_neighbors(g))  # Get 8 adjacent geohashes
 
+    # testing if this helps or not - comment or uncomment this
     df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
     df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
 

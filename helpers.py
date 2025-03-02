@@ -832,7 +832,7 @@ def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matc
 
 #     for p in processes:
 #         p.join()
-
+# 
 def create_matched_results_table(postgresql_details: dict, db_name: str, table_name: str):
     """
     Drops the matched_results table if it exists and creates a new one.

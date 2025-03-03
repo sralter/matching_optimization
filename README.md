@@ -26,3 +26,5 @@ This project is divided into **two parts**:
   > I used the `logging` library and add it as a decorator to the functions that I want to track.
 * Multiprocessing with logging was creating log files for every batch
   > I edited the timing decorator function and wrapped the parallel matching function series in a larger function so that I could control the logging.
+* Matching/Overlapping code does not find all true overlaps
+  > Decrease the precision of the geohash prefiltering so that more candidates are included and not just exact matches. If the precision is too high, only exact matches will be included. 

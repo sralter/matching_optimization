@@ -579,7 +579,7 @@ def get_neighbors(ghash, precision=7):
 
 # Applying Timer to process_batch to track each batch's start and end time
 # @Timer(log_to_console=True, log_to_file=True, track_resources=True)
-def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue): # logger argument removed
+def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue, match_count, lock): # logger argument removed
     """Process a batch of geohashes"""
     start_time = time.time()
     memory_start = psutil.virtual_memory().used / (1024 ** 2)  # Capture memory start in MB
@@ -621,7 +621,7 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
         return
 
     try:
-        matched_pairs = match_geometries(df_prev, df_curr, log_queue)
+        matched_pairs = match_geometries(df_prev, df_curr, log_queue, match_count, lock)
     except Exception as e:
         log_queue.put(logging.LogRecord(
             name="multiprocessing_logger",

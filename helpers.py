@@ -730,7 +730,7 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
 
     # After the pool has finished processing all batches:
     message = f"Total matches found: {match_count.value}"
-    
+    print(message)
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
         level=logging.INFO,

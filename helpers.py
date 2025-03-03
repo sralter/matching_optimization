@@ -728,6 +728,20 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
     with Pool(processes=num_workers) as pool:
         pool.starmap(process_batch, [(chunk, table_prev, table_curr, postgresql_details, db_name, output_table, log_queue, match_count, lock) for chunk in chunks])
 
+    # After the pool has finished processing all batches:
+    message = f"Total matches found: {match_count.value}"
+    
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg=message,
+        args=None,
+        exc_info=None
+    ))
+
+
     log_queue.put(None)
     log_process.join()
     log_process.terminate()

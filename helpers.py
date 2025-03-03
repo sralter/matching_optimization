@@ -506,12 +506,57 @@ def match_geometries(df_prev, df_curr, log_queue, match_count, lock):
 
     return matched
 
-def get_neighbors(ghash, precision=7):
+def match_geometries_sjoin(gdf_prev, gdf_curr, log_queue, match_count, lock):
+    """
+    Match geometries using a spatial join.
+    Returns a list of (prev_id, curr_id) tuples for intersecting polygons.
+    
+    Both gdf_prev and gdf_curr should be GeoDataFrames that include an 'id' column.
+    """
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg="Starting match_geometries_sjoin()",
+        args=None,
+        exc_info=None
+    ))
+    
+    # Ensure both DataFrames have an index column or a unique identifier.
+    # You might want to rename the id columns for clarity before the join.
+    # For example, add suffixes to differentiate:
+    gdf_prev = gdf_prev.copy().rename(columns={"id": "prev_id"})
+    gdf_curr = gdf_curr.copy().rename(columns={"id": "curr_id"})
+    
+    # Perform spatial join with predicate "intersects"
+    joined = gpd.sjoin(gdf_prev, gdf_curr, how="inner", predicate="intersects")
+    
+    # The result will include columns from both GeoDataFrames.
+    # By default, GeoPandas will add a suffix to overlapping column names.
+    matches = list(zip(joined["prev_id"], joined["curr_id"]))
+    
+    with lock:
+        match_count.value += len(matches)
+    
+    log_queue.put(logging.LogRecord(
+        name="multiprocessing_logger",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg=f"match_geometries_sjoin found {len(matches)} matches",
+        args=None,
+        exc_info=None
+    ))
+    
+    return matches
+
+def get_neighbors(ghash, precision=1):
     """Compute the 8 neighboring geohashes."""
     lat, lon = geohash.decode(ghash)  # Decode geohash into latitude & longitude
     lat, lon = float(lat), float(lon)  # 🔧 Ensure values are floats
 
-    delta = 10 ** (-precision)  # Small shift based on precision
+    delta = 10 ** (-precision) # precision = 7  # Small shift based on precision
 
     neighbors = [
         geohash.encode(lat + dy * delta, lon + dx * delta, precision)
@@ -548,8 +593,8 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
         neighboring_geohashes.update(get_neighbors(g))  # Get 8 adjacent geohashes
 
     # testing if this helps or not - comment or uncomment this
-    df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
-    df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
+    # df_prev = df_prev[df_prev['geohash'].isin(neighboring_geohashes)]
+    # df_curr = df_curr[df_curr['geohash'].isin(neighboring_geohashes)]
 
     if df_prev.empty or df_curr.empty:
         log_queue.put(logging.LogRecord(
@@ -563,8 +608,13 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
         ))
         return
 
+    # Convert to GeoDataFrames if they aren't already
+    gdf_prev = gpd.GeoDataFrame(df_prev, geometry='geometry', crs="EPSG:4326")
+    gdf_curr = gpd.GeoDataFrame(df_curr, geometry='geometry', crs="EPSG:4326")
+
     try:
-        matched_pairs = match_geometries(df_prev, df_curr, log_queue, match_count, lock)
+        matched_pairs = match_geometries_sjoin(gdf_prev, gdf_curr, log_queue, match_count, lock)
+        # matched_pairs = match_geometries(df_prev, df_curr, log_queue, match_count, lock)
     except Exception as e:
         log_queue.put(logging.LogRecord(
             name="multiprocessing_logger",
@@ -575,6 +625,7 @@ def process_batch(geohash_chunk, table_prev, table_curr, postgresql_details, db_
             args=None,
             exc_info=True
         ))
+        matched_pairs = []
 
     log_queue.put(logging.LogRecord(
         name="multiprocessing_logger",
@@ -683,7 +734,6 @@ def run_parallel_matching(table_prev, table_curr, output_table, postgresql_detai
         args=None,
         exc_info=None
     ))
-
 
     log_queue.put(None)
     log_process.join()

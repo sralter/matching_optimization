@@ -1,3 +1,4 @@
+import helpers as h
 import time, math, itertools, logging, random
 import multiprocessing as mp
 from multiprocessing import Pool, Manager
@@ -115,20 +116,25 @@ def create_spatial_grid(gdf, num_workers):
     for i in range(num_workers):
         cell = shapely.geometry.box(xmin + i * cell_width, ymin, xmin + (i + 1) * cell_width, ymax)
         cells.append(cell)
-    grid = gpd.GeoDataFrame({'geometry': cells}, crs=grid.crs)
+    # Use the CRS of the input GeoDataFrame
+    grid = gpd.GeoDataFrame({'geometry': cells}, crs=gdf.crs)
     grid['cell_id'] = range(num_workers)
     return grid
 
+# @h.Timer()
 def assign_polygons_to_grid(gdf, grid):
     """
     Assign each polygon to a grid cell based on its centroid.
     Returns a GeoDataFrame with a new column 'cell_id'.
     """
     gdf = gdf.copy()
+    gdf = gdf.to_crs(epsg=3857)
     gdf['centroid'] = gdf.geometry.centroid
+    grid = grid.to_crs(gdf.crs)
     joined = gpd.sjoin(gdf, grid, how='left', predicate='within')
     return joined
 
+# @h.Timer()
 def create_spatial_partitions(gdf_prev, gdf_curr, num_workers):
     """
     Partition the previous and current GeoDataFrames into non-overlapping spatial cells.
@@ -230,6 +236,7 @@ def process_partition(gdf_prev, gdf_curr, output_table, postgresql_details, db_n
 # Main Parallel Matching Function Using Spatial Grid Partitions
 # ================================
 
+@h.Timer()
 def run_parallel_matching_with_grid(table_prev, table_curr, output_table, postgresql_details, db_name, num_workers=4, verbose=2):
     """
     Runs parallel matching using spatial grid partitions.

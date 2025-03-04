@@ -17,6 +17,15 @@ This project is divided into **two parts**:
 2. Under Construction...
 3. [Challenges and Solutions](#challenges)
 
+## 1. Non-Optimized Method
+
+One can go about this in a myriad of ways, but my process involved the following:
+
+🚧 Under Construction 🚧
+
+We were able to view a sampling of the polygons to confirm that they were indeed matches:
+[Overlapping Polygons Map with a Sampling of those Polygons](figs/overlapping_polygons_map_10k.png)
+
 ## Challenges and Solutions <a name='challenges'></a>
 
 * Matching was returning no results

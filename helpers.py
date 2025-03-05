@@ -478,26 +478,26 @@ def compute_h3_polyfill_udf(geom_wkt: str, polyfill_res: int = 9) -> str:
 #     # Return the polyfill as a JSON string (or any format you prefer)
 #     return str(polyfill)
 
-@Timer()
-# Worker function that processes a single batch (DataFrame chunk)
-def process_h3_info_chunk(df_chunk: pd.DataFrame) -> pd.DataFrame:
-    # Each worker must create its own DuckDB connection
-    con = duckdb.connect()
-    # Register the UDFs
-    con.create_function('compute_h3_centroid', compute_h3_centroid_udf)
-    con.create_function('compute_h3_polyfill', compute_h3_polyfill_udf)
-    # Register the batch DataFrame as a temporary table (name can be fixed since each worker has its own connection)
-    con.register('df_chunk', df_chunk)
-    # Execute the query
-    result = con.execute('''
-        SELECT
-            *,
-            compute_h3_centroid(geometry_wkt, 6) AS h3_centroid,
-            compute_h3_polyfill(geometry_wkt, 9) AS h3_polyfill
-        FROM df_chunk
-    ''').fetch_df()
-    con.close()
-    return result
+# @Timer()
+# # Worker function that processes a single batch (DataFrame chunk)
+# def process_h3_info_chunk(df_chunk: pd.DataFrame) -> pd.DataFrame:
+#     # Each worker must create its own DuckDB connection
+#     con = duckdb.connect()
+#     # Register the UDFs
+#     con.create_function('compute_h3_centroid', compute_h3_centroid_udf)
+#     con.create_function('compute_h3_polyfill', compute_h3_polyfill_udf)
+#     # Register the batch DataFrame as a temporary table (name can be fixed since each worker has its own connection)
+#     con.register('df_chunk', df_chunk)
+#     # Execute the query
+#     result = con.execute('''
+#         SELECT
+#             *,
+#             compute_h3_centroid(geometry_wkt, 6) AS h3_centroid,
+#             compute_h3_polyfill(geometry_wkt, 9) AS h3_polyfill
+#         FROM df_chunk
+#     ''').fetch_df()
+#     con.close()
+#     return result
 
 @Timer()  # Time the overall parallel processing
 def create_h3_info_parallel(df_prev: pd.DataFrame, df_curr: pd.DataFrame, num_workers: int = 4) -> tuple:
@@ -581,3 +581,178 @@ def create_h3_info_parallel(df_prev: pd.DataFrame, df_curr: pd.DataFrame, num_wo
 #     ''').fetch_df()
     
 #     return df_prev, df_curr
+
+# @Timer()  # Time the overall parallel processing
+# def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, iceberg_path: str, num_workers: int = 4) -> None:
+#     """
+#     Computes H3 centroids and polyfill in parallel using 4 workers,
+#     and directly saves results as an Apache Iceberg table.
+    
+#     Args:
+#         df_prev (pd.DataFrame): Previous DataFrame.
+#         df_curr (pd.DataFrame): Current DataFrame.
+#         iceberg_path (str): Path to store the Iceberg table.
+#         num_workers (int): Number of parallel workers (default = 4).
+#     """
+#     import duckdb
+
+#     # Load Iceberg extension in DuckDB
+#     con = duckdb.connect()
+#     con.sql("INSTALL iceberg;")
+#     con.sql("LOAD iceberg;")
+
+#     # Create Iceberg table (if it doesn't exist)
+#     con.sql(f"""
+#         CREATE TABLE IF NOT EXISTS iceberg.{iceberg_path} (
+#             id UUID,
+#             geohash STRING,
+#             geometry_wkt STRING,
+#             h3_centroid STRING,
+#             h3_polyfill STRING
+#         ) USING iceberg;
+#     """)
+
+#     # Create WKT columns (DuckDB will work with these strings)
+#     df_prev['geometry_wkt'] = df_prev['geometry'].apply(lambda geom: geom.wkt)
+#     df_curr['geometry_wkt'] = df_curr['geometry'].apply(lambda geom: geom.wkt)
+
+#     # Drop the unsupported 'geometry' column (DuckDB cannot register it)
+#     df_prev = df_prev.drop(columns=['geometry'])
+#     df_curr = df_curr.drop(columns=['geometry'])
+
+#     # Split the DataFrames into 4 chunks each
+#     num_workers = 4 if not num_workers else num_workers
+#     chunks_prev = np.array_split(df_prev, num_workers)
+#     chunks_curr = np.array_split(df_curr, num_workers)
+
+#     # Process each chunk in parallel using multiprocessing Pool
+#     with mp.Pool(processes=num_workers) as pool:
+#         results_prev = pool.map(process_h3_info_chunk, chunks_prev)
+#         results_curr = pool.map(process_h3_info_chunk, chunks_curr)
+
+#     # Concatenate results
+#     df_prev_processed = pd.concat(results_prev, ignore_index=True)
+#     df_curr_processed = pd.concat(results_curr, ignore_index=True)
+
+#     # Register & Append results to Iceberg Table
+#     con.register("df_prev_processed", df_prev_processed)
+#     con.register("df_curr_processed", df_curr_processed)
+#     con.sql(f"INSERT INTO iceberg.{iceberg_path} SELECT * FROM df_prev_processed;")
+#     con.sql(f"INSERT INTO iceberg.{iceberg_path} SELECT * FROM df_curr_processed;")
+
+#     con.close()
+#     print(f"Iceberg table updated at {iceberg_path}")
+
+@Timer()
+def process_h3_info_chunk(df_chunk: pd.DataFrame) -> pd.DataFrame:
+    """
+    Processes a single DataFrame chunk using DuckDB UDFs.
+    
+    Args:
+        df_chunk (pd.DataFrame): The chunk of data assigned to the worker.
+    
+    Returns:
+        pd.DataFrame: Processed chunk with H3 centroid and polyfill.
+    """
+    con = duckdb.connect()
+    con.create_function('compute_h3_centroid', compute_h3_centroid_udf)
+    con.create_function('compute_h3_polyfill', compute_h3_polyfill_udf)
+    con.register('df_chunk', df_chunk)
+
+    result = con.execute('''
+        SELECT
+            *,
+            compute_h3_centroid(geometry_wkt, 6) AS h3_centroid,
+            compute_h3_polyfill(geometry_wkt, 9) AS h3_polyfill
+        FROM df_chunk
+    ''').fetch_df()
+
+    con.close()
+    return result
+
+@Timer()  # Time the overall parallel processing
+def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, iceberg_path: str, num_workers: int = 4) -> tuple:
+    """
+    Computes H3 centroids and polyfill in parallel using multiprocessing and saves to an Iceberg table.
+    
+    Args:
+        df_prev (pd.DataFrame): Previous DataFrame.
+        df_curr (pd.DataFrame): Current DataFrame.
+        iceberg_path (str): Path to store the Iceberg table.
+        num_workers (int): Number of parallel workers (default = 4).
+    
+    Returns:
+        tuple: (df_prev_processed, df_curr_processed)
+    """
+    # Connect to DuckDB
+    con = duckdb.connect()
+    con.sql("INSTALL iceberg;")
+    con.sql("LOAD iceberg;")
+
+    logging.info("Loaded Iceberg extension in DuckDB")
+
+    # Create Iceberg table if not exists
+    con.sql(f"""
+        CREATE TABLE IF NOT EXISTS iceberg.{iceberg_path} (
+            id UUID,
+            geohash STRING,
+            geometry_wkt STRING,
+            h3_centroid STRING,
+            h3_polyfill STRING
+        ) USING iceberg;
+    """)
+    logging.info(f"Iceberg table initialized at {iceberg_path}")
+
+    # Convert geometries to WKT format and drop unsupported column
+    df_prev['geometry_wkt'] = df_prev['geometry'].apply(lambda geom: geom.wkt)
+    df_curr['geometry_wkt'] = df_curr['geometry'].apply(lambda geom: geom.wkt)
+
+    df_prev = df_prev.drop(columns=['geometry'])
+    df_curr = df_curr.drop(columns=['geometry'])
+
+    # Total rows
+    total_rows_prev = len(df_prev)
+    total_rows_curr = len(df_curr)
+
+    logging.info(f"Total rows: df_prev={total_rows_prev}, df_curr={total_rows_curr}")
+
+    # Split the DataFrames into chunks for workers
+    num_workers = 4 if not num_workers else num_workers
+    chunks_prev = np.array_split(df_prev, num_workers)
+    chunks_curr = np.array_split(df_curr, num_workers)
+
+    # Log the size of each chunk and total data distribution
+    for i, chunk in enumerate(chunks_prev):
+        logging.info(f"Worker {i} assigned {len(chunk)} rows from df_prev.")
+    for i, chunk in enumerate(chunks_curr):
+        logging.info(f"Worker {i} assigned {len(chunk)} rows from df_curr.")
+
+    logging.info(f"Starting multiprocessing with {num_workers} workers...")
+
+    # Process chunks in parallel
+    with mp.Pool(processes=num_workers) as pool:
+        results_prev = pool.map(process_h3_info_chunk, chunks_prev)
+        results_curr = pool.map(process_h3_info_chunk, chunks_curr)
+
+    logging.info("Parallel H3 computation completed!")
+
+    # Concatenate processed chunks
+    df_prev_processed = pd.concat(results_prev, ignore_index=True)
+    df_curr_processed = pd.concat(results_curr, ignore_index=True)
+
+    logging.info(f"Processed df_prev: {len(df_prev_processed)} rows, df_curr: {len(df_curr_processed)} rows.")
+
+    # Register & append to Iceberg Table
+    con.register("df_prev_processed", df_prev_processed)
+    con.register("df_curr_processed", df_curr_processed)
+
+    con.sql(f"INSERT INTO iceberg.{iceberg_path} SELECT * FROM df_prev_processed;")
+    con.sql(f"INSERT INTO iceberg.{iceberg_path} SELECT * FROM df_curr_processed;")
+
+    logging.info(f"Data successfully inserted into Iceberg table at {iceberg_path}")
+
+    con.close()
+    print(f"Iceberg table updated at {iceberg_path}")
+    logging.info(f"Iceberg table update complete at {iceberg_path}")
+
+    return df_prev_processed, df_curr_processed

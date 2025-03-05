@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 import pandas as pd
 import geopandas as gpd
-from shapely import to_wkt
+from shapely import to_wkt, wkt
 from shapely.wkt import dumps, loads
 from shapely.geometry import Polygon, box, Point
 from shapely.geometry.base import BaseGeometry
@@ -26,6 +26,8 @@ from multiprocessing import Value, Lock, Pool, Manager
 import os
 import math
 from typing import Literal
+import h3
+import duckdb
 
 # Timer class for logging timing, CPU, and memory usage
 class Timer:
@@ -419,11 +421,163 @@ def compute_h3_indices(geometry, centroid_res=6, polyfill_res=9):
     - Single H3 index based on centroid
     - Full polygon coverage with H3 polyfill at high resolution
     """
+    # Compute centroid H3 index
     centroid = geometry.centroid
-    h3_centroid = h3.geo_to_h3(centroid.y, centroid.x, centroid_res)
+    h3_centroid = h3.latlng_to_cell(centroid.y, centroid.x, centroid_res)
 
-    # Full coverage using polyfill
-    h3_polyfill = list(h3.polyfill(geometry.__geo_interface__, polyfill_res))
+    # Convert exterior coordinates to lists (not tuples)
+    coords = [[list(coord) for coord in geometry.exterior.coords]]
+    geojson = {
+        "type": "Polygon",
+        "coordinates": coords
+    }
+
+    # Compute full polygon coverage using polygon_to_cells
+    h3_polyfill = list(h3.polygon_to_cells(geojson, polyfill_res))
 
     return h3_centroid, h3_polyfill
 
+def compute_h3_centroid_udf(geom_wkt: str, centroid_res: int = 6) -> str:
+    # Convert the WKT string back to a geometry
+    geometry = wkt.loads(geom_wkt)
+    centroid = geometry.centroid
+    return h3.latlng_to_cell(centroid.y, centroid.x, centroid_res)
+
+def compute_h3_polyfill_udf(geom_wkt: str, polyfill_res: int = 9) -> str:
+    # Convert the WKT string back to a Shapely geometry.
+    geometry = wkt.loads(geom_wkt)
+    
+    # Get the __geo_interface__; this returns coordinates in (lng, lat) order.
+    geo_interface = geometry.__geo_interface__
+    
+    # Function to swap coordinate order from (lng, lat) to (lat, lng)
+    def swap_coords(coords):
+        return [[list((pt[1], pt[0])) for pt in ring] for ring in coords]
+    
+    # Build a new GeoJSON polygon with swapped coordinates.
+    corrected_geojson = {
+        "type": geo_interface["type"],
+        "coordinates": swap_coords(geo_interface["coordinates"])
+    }
+    
+    # Convert the corrected GeoJSON polygon to an H3Shape.
+    h3shape = h3.geo_to_h3shape(corrected_geojson)
+    
+    # Get the H3 cells covering the polygon at the specified resolution.
+    polyfill = list(h3.h3shape_to_cells(h3shape, polyfill_res))
+    
+    # Return the polyfill as a string (or you could return a JSON string or list).
+    return str(polyfill)
+# def compute_h3_polyfill_udf(geom_wkt: str, polyfill_res: int = 9) -> str:
+#     # Convert the WKT string back to a geometry
+#     geometry = wkt.loads(geom_wkt)
+#     # Convert exterior coordinates from tuples to lists
+#     coords = [[list(coord) for coord in geometry.exterior.coords]]
+#     geojson = {"type": "Polygon", "coordinates": coords}
+#     polyfill = list(h3.polygon_to_cells(geojson, polyfill_res))
+#     # Return the polyfill as a JSON string (or any format you prefer)
+#     return str(polyfill)
+
+@Timer()
+# Worker function that processes a single batch (DataFrame chunk)
+def process_h3_info_chunk(df_chunk: pd.DataFrame) -> pd.DataFrame:
+    # Each worker must create its own DuckDB connection
+    con = duckdb.connect()
+    # Register the UDFs
+    con.create_function('compute_h3_centroid', compute_h3_centroid_udf)
+    con.create_function('compute_h3_polyfill', compute_h3_polyfill_udf)
+    # Register the batch DataFrame as a temporary table (name can be fixed since each worker has its own connection)
+    con.register('df_chunk', df_chunk)
+    # Execute the query
+    result = con.execute('''
+        SELECT
+            *,
+            compute_h3_centroid(geometry_wkt, 6) AS h3_centroid,
+            compute_h3_polyfill(geometry_wkt, 9) AS h3_polyfill
+        FROM df_chunk
+    ''').fetch_df()
+    con.close()
+    return result
+
+@Timer()  # Time the overall parallel processing
+def create_h3_info_parallel(df_prev: pd.DataFrame, df_curr: pd.DataFrame, num_workers: int = 4) -> tuple:
+    """
+    Computes H3 centroids and polyfill in parallel using 4 workers.
+    
+    Each DataFrame is preprocessed (WKT conversion, drop geometry), split into 4 batches,
+    and processed in parallel via DuckDB UDFs.
+    
+    Returns:
+        tuple: (df_prev_processed, df_curr_processed)
+    """
+    # Create WKT columns (DuckDB will work with these strings)
+    df_prev['geometry_wkt'] = df_prev['geometry'].apply(lambda geom: geom.wkt)
+    df_curr['geometry_wkt'] = df_curr['geometry'].apply(lambda geom: geom.wkt)
+    
+    # Drop the unsupported 'geometry' column (DuckDB cannot register it)
+    df_prev = df_prev.drop(columns=['geometry'])
+    df_curr = df_curr.drop(columns=['geometry'])
+    
+    # Split the DataFrames into 4 chunks each
+    num_workers = 4 if not num_workers else num_workers
+    chunks_prev = np.array_split(df_prev, num_workers)
+    chunks_curr = np.array_split(df_curr, num_workers)
+    
+    # Process each chunk in parallel using multiprocessing Pool
+    with mp.Pool(processes=num_workers) as pool:
+        results_prev = pool.map(process_h3_info_chunk, chunks_prev)
+        results_curr = pool.map(process_h3_info_chunk, chunks_curr)
+    
+    # Concatenate the results back into single DataFrames
+    df_prev_processed = pd.concat(results_prev, ignore_index=True)
+    df_curr_processed = pd.concat(results_curr, ignore_index=True)
+    
+    return df_prev_processed, df_curr_processed
+# def create_h3_info(df_prev: pd.DataFrame,
+#                    df_curr: pd.DataFrame) -> tuple:
+#     """
+#     Creates H3 centroids and polyfill using DuckDB UDFs.
+    
+#     Args:
+#         df_prev (pd.DataFrame): Previous DataFrame.
+#         df_curr (pd.DataFrame): Current DataFrame.
+    
+#     Returns:
+#         tuple: Updated (df_prev, df_curr) DataFrames with H3 info.
+#     """
+#     # Create WKT columns
+#     df_prev['geometry_wkt'] = df_prev['geometry'].apply(lambda geom: geom.wkt)
+#     df_curr['geometry_wkt'] = df_curr['geometry'].apply(lambda geom: geom.wkt)
+    
+#     # Drop the unsupported 'geometry' column (DuckDB cannot register it)
+#     df_prev = df_prev.drop(columns=['geometry'])
+#     df_curr = df_curr.drop(columns=['geometry'])
+    
+#     # Connect to DuckDB and register UDFs
+#     con = duckdb.connect()
+#     con.create_function('compute_h3_centroid', compute_h3_centroid_udf)
+#     con.create_function('compute_h3_polyfill', compute_h3_polyfill_udf)
+    
+#     # Register the DataFrames as DuckDB tables
+#     con.register('df_prev', df_prev)
+#     con.register('df_curr', df_curr)
+    
+#     # Process df_prev
+#     df_prev = con.execute('''
+#         SELECT
+#             *,
+#             compute_h3_centroid(geometry_wkt, 6) AS h3_centroid,
+#             compute_h3_polyfill(geometry_wkt, 9) AS h3_polyfill
+#         FROM df_prev
+#     ''').fetch_df()
+    
+#     # Process df_curr (make sure to query from df_curr)
+#     df_curr = con.execute('''
+#         SELECT
+#             *,
+#             compute_h3_centroid(geometry_wkt, 6) AS h3_centroid,
+#             compute_h3_polyfill(geometry_wkt, 9) AS h3_polyfill
+#         FROM df_curr
+#     ''').fetch_df()
+    
+#     return df_prev, df_curr

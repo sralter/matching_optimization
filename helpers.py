@@ -1002,8 +1002,116 @@ def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, ic
 #             with open(checkpoint_path, "w") as f:
 #                 json.dump(checkpoint_data, f)
 #             break
+# @Timer()
+# def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
+#     """
+#     Downloads data in chunks from a PostgreSQL database using CTID for pagination.
+    
+#     - Each chunk contains up to `chunk_size` rows.
+#     - Logs when each chunk starts, the chunk number, and the distribution (counts) of months.
+#     - Saves the last CTID and chunk number to a checkpoint file so processing can resume.
+#     - Saves each chunk as a Parquet file named like blob_data_chunk_XX.parquet.
+    
+#     Parameters:
+#       chunk_size (int): Number of rows per chunk (default: 100000)
+#       use_checkpoint (bool): If True, resume processing from a saved checkpoint.
+#       engine_url (str): Optional SQLAlchemy connection string. If not provided, reads credentials from data files.
+#     """
+#     # Set up logging (make sure your logging config captures INFO-level messages)
+#     logging.basicConfig(level=logging.INFO)
+    
+#     # Load connection details if engine_url is not provided.
+#     if engine_url is None:
+#         with open('data/user.txt', 'r') as file:
+#             user = file.read().strip()
+#         with open('data/pass.txt', 'r') as file:
+#             pw = file.read().strip()
+#         with open('data/db_host.txt', 'r') as file:
+#             host = file.read().strip()
+#         with open('data/db_port.txt', 'r') as file:
+#             port = file.read().strip()
+#         with open('data/db_name.txt', 'r') as file:
+#             name = file.read().strip()
+    
+#         engine_url = f'postgresql://{user}:{pw}@{host}:{port}/{name}'
+    
+#     engine = create_engine(engine_url)
+    
+#     # Check for an existing checkpoint.
+#     checkpoint_path = Path("data/chunk_checkpoint.json")
+#     if use_checkpoint and checkpoint_path.exists():
+#         with open(checkpoint_path, "r") as f:
+#             checkpoint = json.load(f)
+#         chunk_number = checkpoint.get("chunk_number", 1)
+#         last_ctid = checkpoint.get("last_ctid", None)
+#         logging.info(f"Resuming from checkpoint: chunk {chunk_number}, last_ctid = {last_ctid}")
+#     else:
+#         chunk_number = 1
+#         last_ctid = None
+    
+#     while True:
+#         try:
+#             # Build the query. We alias the system CTID as pgt_ctid to avoid duplicates.
+#             query = f"""
+#                 SELECT *, ctid as pgt_ctid
+#                 FROM blob
+#                 WHERE "YEAR" = '2024'
+#                   AND "MONTH" BETWEEN '03' AND '07'
+#             """
+#             if last_ctid is not None:
+#                 # If last_ctid is numeric (e.g. in our fake dataset) don't quote it.
+#                 if isinstance(last_ctid, int):
+#                     query += f" AND pgt_ctid > {last_ctid}"
+#                 else:
+#                     query += f" AND pgt_ctid > '{last_ctid}'"
+#             query += " ORDER BY pgt_ctid LIMIT " + str(chunk_size) + ";"
+    
+#             logging.info(f"Starting chunk {chunk_number}. Last CTID: {last_ctid}")
+    
+#             # Fetch the chunk into a DataFrame.
+#             df = pd.read_sql(query, engine)
+    
+#             if df.empty:
+#                 logging.info("No more rows to fetch. Ending pagination.")
+#                 # Remove the checkpoint file since we're done.
+#                 if checkpoint_path.exists():
+#                     checkpoint_path.unlink()
+#                 break
+    
+#             # Log month distribution (keys are months; values are counts).
+#             month_counts = df["MONTH"].value_counts().to_dict()
+#             logging.info(f"Chunk {chunk_number} month counts: {month_counts}")
+    
+#             # Save the DataFrame as a Parquet file.
+#             parquet_path = Path(f"data/blob_data_chunk_{chunk_number}.parquet")
+#             df.to_parquet(parquet_path, engine='pyarrow')
+#             logging.info(f"Chunk {chunk_number} saved to: {parquet_path}")
+    
+#             # Get the last CTID from this chunk for pagination.
+#             last_ctid = df['pgt_ctid'].iloc[-1]
+#             # Convert last_ctid to a native Python int if it's a numpy.int64
+#             last_ctid = int(last_ctid)
+    
+#             # Save a checkpoint so that we can resume processing later.
+#             checkpoint_data = {"chunk_number": chunk_number + 1, "last_ctid": last_ctid}
+#             with open(checkpoint_path, "w") as f:
+#                 json.dump(checkpoint_data, f)
+#             # Also, save a separate file for this chunk's checkpoint if desired.
+#             ct_file_path = Path(f"data/chunk_{chunk_number}_last_ctid_{last_ctid}.txt")
+#             with open(ct_file_path, 'w') as f:
+#                 f.write(str(last_ctid))
+#             logging.info(f"Saved last CTID for chunk {chunk_number} to: {ct_file_path}")
+    
+#             chunk_number += 1
+#         except Exception as e:
+#             logging.error(f"Error occurred in chunk {chunk_number}: {e}", exc_info=True)
+#             # Save a checkpoint upon error so that resumption is possible.
+#             checkpoint_data = {"chunk_number": chunk_number, "last_ctid": int(last_ctid) if last_ctid is not None else None}
+#             with open(checkpoint_path, "w") as f:
+#                 json.dump(checkpoint_data, f)
+#             break
 @Timer()
-def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
+def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None, max_chunks=None):
     """
     Downloads data in chunks from a PostgreSQL database using CTID for pagination.
     
@@ -1016,8 +1124,8 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
       chunk_size (int): Number of rows per chunk (default: 100000)
       use_checkpoint (bool): If True, resume processing from a saved checkpoint.
       engine_url (str): Optional SQLAlchemy connection string. If not provided, reads credentials from data files.
+      max_chunks (int): Optional; maximum number of chunks to process. If None, process the entire dataset.
     """
-    # Set up logging (make sure your logging config captures INFO-level messages)
     logging.basicConfig(level=logging.INFO)
     
     # Load connection details if engine_url is not provided.
@@ -1032,12 +1140,10 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
             port = file.read().strip()
         with open('data/db_name.txt', 'r') as file:
             name = file.read().strip()
-    
         engine_url = f'postgresql://{user}:{pw}@{host}:{port}/{name}'
     
     engine = create_engine(engine_url)
     
-    # Check for an existing checkpoint.
     checkpoint_path = Path("data/chunk_checkpoint.json")
     if use_checkpoint and checkpoint_path.exists():
         with open(checkpoint_path, "r") as f:
@@ -1050,8 +1156,13 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
         last_ctid = None
     
     while True:
+        # If a stopping condition is provided, check it.
+        if max_chunks is not None and chunk_number > max_chunks:
+            logging.info(f"Reached maximum chunk limit ({max_chunks}). Stopping pagination.")
+            break
+        
         try:
-            # Build the query. We alias the system CTID as pgt_ctid to avoid duplicates.
+            # Build query with CTID aliased as pgt_ctid.
             query = f"""
                 SELECT *, ctid as pgt_ctid
                 FROM blob
@@ -1059,7 +1170,6 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
                   AND "MONTH" BETWEEN '03' AND '07'
             """
             if last_ctid is not None:
-                # If last_ctid is numeric (e.g. in our fake dataset) don't quote it.
                 if isinstance(last_ctid, int):
                     query += f" AND pgt_ctid > {last_ctid}"
                 else:
@@ -1068,35 +1178,25 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
     
             logging.info(f"Starting chunk {chunk_number}. Last CTID: {last_ctid}")
     
-            # Fetch the chunk into a DataFrame.
             df = pd.read_sql(query, engine)
-    
             if df.empty:
                 logging.info("No more rows to fetch. Ending pagination.")
-                # Remove the checkpoint file since we're done.
                 if checkpoint_path.exists():
                     checkpoint_path.unlink()
                 break
     
-            # Log month distribution (keys are months; values are counts).
             month_counts = df["MONTH"].value_counts().to_dict()
             logging.info(f"Chunk {chunk_number} month counts: {month_counts}")
     
-            # Save the DataFrame as a Parquet file.
             parquet_path = Path(f"data/blob_data_chunk_{chunk_number}.parquet")
             df.to_parquet(parquet_path, engine='pyarrow')
             logging.info(f"Chunk {chunk_number} saved to: {parquet_path}")
     
-            # Get the last CTID from this chunk for pagination.
-            last_ctid = df['pgt_ctid'].iloc[-1]
-            # Convert last_ctid to a native Python int if it's a numpy.int64
-            last_ctid = int(last_ctid)
-    
-            # Save a checkpoint so that we can resume processing later.
+            last_ctid = int(df['pgt_ctid'].iloc[-1])
             checkpoint_data = {"chunk_number": chunk_number + 1, "last_ctid": last_ctid}
             with open(checkpoint_path, "w") as f:
                 json.dump(checkpoint_data, f)
-            # Also, save a separate file for this chunk's checkpoint if desired.
+    
             ct_file_path = Path(f"data/chunk_{chunk_number}_last_ctid_{last_ctid}.txt")
             with open(ct_file_path, 'w') as f:
                 f.write(str(last_ctid))
@@ -1105,12 +1205,11 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None):
             chunk_number += 1
         except Exception as e:
             logging.error(f"Error occurred in chunk {chunk_number}: {e}", exc_info=True)
-            # Save a checkpoint upon error so that resumption is possible.
             checkpoint_data = {"chunk_number": chunk_number, "last_ctid": int(last_ctid) if last_ctid is not None else None}
             with open(checkpoint_path, "w") as f:
                 json.dump(checkpoint_data, f)
             break
-
+        
 # For confirmation:
 # The following code logs the month distribution for the current chunk.
 # It uses:

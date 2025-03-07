@@ -33,6 +33,9 @@ from pyiceberg.catalog import load_catalog
 from pyiceberg.schema import Schema
 from pyiceberg.table import Table
 from pyiceberg.io.pyarrow import PyArrowFileIO
+import pandas as pd
+from psycopg2 import sql
+from pathlib import Path
 
 # Timer class for logging timing, CPU, and memory usage
 class Timer:
@@ -649,6 +652,67 @@ def create_h3_info_parallel(df_prev: pd.DataFrame, df_curr: pd.DataFrame, num_wo
 #     print(f"Iceberg table updated at {iceberg_path}")
 
 @Timer()
+def retrieve_and_save_pg_table(postgresql_details: dict = None, 
+                               db_name: str = 'blob_matching', 
+                               table_name: str = '', 
+                               parquet_path: str = 'filtered_blob.parquet', 
+                               log_enabled: bool = True):
+    """
+    Retrieves filtered data from a PostgreSQL table and saves it as a Parquet file.
+    
+    Args:
+        postgresql_details (dict): Connection details for PostgreSQL.
+        db_name (str): Name of the database.
+        table_name (str): Name of the table.
+        parquet_path (str): Path to save the Parquet file.
+        log_enabled (bool): Whether to print logs.
+        
+    Returns:
+        str: Path of the saved Parquet file.
+    """
+
+    if postgresql_details is None:
+        postgresql_details = pg_details()  # Function that retrieves DB details
+    
+    if not table_name:
+        raise ValueError("Table name must be specified.")
+
+    postgresql_details['dbname'] = db_name
+    conn = psycopg2.connect(**postgresql_details)
+    cur = conn.cursor()
+
+    # Define SQL query with filtering criteria
+    query = sql.SQL(f"""
+        SELECT geometry, id, geohash 
+        FROM {table_name} 
+        WHERE "YEAR" = '2024' 
+        AND "MONTH" BETWEEN '03' AND '07';
+    """)
+
+    # Retrieve data
+    cur.execute(query)
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    # Convert to DataFrame
+    df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
+    
+    # Convert WKT to Shapely geometry
+    df["geometry"] = df["geometry"].apply(lambda x: loads(x) if x else None)
+    
+    # Remove invalid geometries
+    df = df[df["geometry"].notna()]
+
+    # Save to Parquet
+    df.to_parquet(parquet_path, engine="pyarrow", compression="snappy")
+
+    if log_enabled:
+        print(f"Retrieved {len(df)} records from {table_name} and saved to {parquet_path}")
+
+    return parquet_path  # Return the saved file path
+
+@Timer()
 def process_h3_info_chunk(df_chunk: pd.DataFrame) -> pd.DataFrame:
     """
     Processes a single DataFrame chunk using DuckDB UDFs.
@@ -761,7 +825,7 @@ def process_h3_info_chunk(df_chunk: pd.DataFrame) -> pd.DataFrame:
 
 #     return df_prev_processed, df_curr_processed
 @Timer()  # Time the overall parallel processing
-def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, iceberg_path: str, num_workers: int = 4) -> tuple:
+def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, iceberg_path: Path, num_workers: int = 4) -> tuple:
     """
     Computes H3 centroids and polyfill in parallel using multiprocessing and saves to Parquet.
     
@@ -774,12 +838,14 @@ def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, ic
     Returns:
         tuple: (df_prev_processed, df_curr_processed)
     """
-    # DuckDB processing steps (same as before)
-    df_prev['geometry_wkt'] = df_prev['geometry'].apply(lambda geom: geom.wkt)
-    df_curr['geometry_wkt'] = df_curr['geometry'].apply(lambda geom: geom.wkt)
+    # processing steps
+    if 'geometry' in df_prev.columns:
+        df_prev['geometry_wkt'] = df_prev['geometry'].apply(lambda geom: geom.wkt)
+    if 'geometry' in df_curr.columns:
+        df_curr['geometry_wkt'] = df_curr['geometry'].apply(lambda geom: geom.wkt)
 
-    df_prev = df_prev.drop(columns=['geometry'])
-    df_curr = df_curr.drop(columns=['geometry'])
+    df_prev = df_prev.drop(columns=['geometry'], errors='ignore')
+    df_curr = df_curr.drop(columns=['geometry'], errors='ignore')
 
     num_workers = 4 if not num_workers else num_workers
     chunks_prev = np.array_split(df_prev, num_workers)
@@ -793,8 +859,10 @@ def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, ic
     df_curr_processed = pd.concat(results_curr, ignore_index=True)
 
     # Save to Parquet first
-    parquet_file_prev = f"{iceberg_path}/df_prev_processed.parquet"
-    parquet_file_curr = f"{iceberg_path}/df_curr_processed.parquet"
+    parquet_file_prev = iceberg_path / 'df_prev_processed.parquet'
+    # parquet_file_prev = f"{iceberg_path}/df_prev_processed.parquet"
+    parquet_file_curr = iceberg_path / 'df_curr_processed.parquet'
+    # parquet_file_curr = f"{iceberg_path}/df_curr_processed.parquet"
     df_prev_processed.to_parquet(parquet_file_prev)
     df_curr_processed.to_parquet(parquet_file_curr)
 

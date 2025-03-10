@@ -44,4 +44,4 @@ We were able to view a sampling of the polygons to confirm that they were indeed
 	> * Controlled Worker Parallelism: The number of concurrent workers is controlled by the num_workers parameter. You can adjust this value to match the available hardware resources. The Pool approach ensures that all workers are kept busy until all batches are processed.
 	> * Overall Logging: The logging captures overall metrics—total execution time, CPU usage, and memory usage for the complete operation. This provides you with a global performance summary, regardless of the number of workers or batches used.
 * Downloading data from Postgres database
-  > The overall dataset is large, so I had to employ chunking to pull the in batches so as not to overload the database.
+  > The overall dataset is large, so I had to employ chunking to download in batches so as not to overload the database with requests.

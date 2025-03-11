@@ -8,8 +8,6 @@ By Samuel Alter
 
 This project is designed to showcase how to improve the speed of a **polygon matching procedure**. 
 
-This project is designed to showcase how to improve the speed of a polygon matching procedure. 
-
 For this project, I am comparing two similar approaches, albeit with key differences in their executions, and use terms like **_"geospatial-native"_** or **_"geosptially-optimized"_** when describing and running them. A **_geospatially-optimized_** approach uses the latest tools and techniques to make geospatial data processing efficient, while a **_"geospatially-naive"_** or a **_"geospatially non-optimized"_** approach as one that does not take full advantage of the latest advances in geospatial data engineering and analysis.
 
 There are two main areas that could benefit from taking a geospatial-native approach:

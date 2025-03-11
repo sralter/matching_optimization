@@ -6,14 +6,32 @@ By Samuel Alter
 
 ## Overview
 
-This project serves as a demonstration of how geospatial-native approaches can improve a polygon matching process.
+This project is designed to showcase how to improve the speed of a **polygon matching procedure**. 
 
-This project is divided into **two parts**:
-1. Non-geospatial-native 
+This project is designed to showcase how to improve the speed of a polygon matching procedure. 
+
+For this project, I am comparing two similar approaches, albeit with key differences in their executions, and use terms like **_"geospatial-native"_** or **_"geosptially-optimized"_** when describing and running them. A **_geospatially-optimized_** approach uses the latest tools and techniques to make geospatial data processing efficient, while a **_"geospatially-naive"_** or a **_"geospatially non-optimized"_** approach as one that does not take full advantage of the latest advances in geospatial data engineering and analysis.
+
+There are two main areas that could benefit from taking a geospatial-native approach:
+
+1. Data encoding, fetching, and storage
+2. Searching for overlaps
+
+I use both a non-geospatial-native and geospatial-native approach to matching blos in a dataset. We will benchmark the execution time, CPU usage, and memory usage for both to see how they differ, with the implicit hypothesis being that the geospatial-native approaches will be more efficient and process more quickly.
+
+Therefore, this project is divided into **two parts**:
+
+1. **Geospatially-non-optimized**
+   * Encoding spatial data as strings
+   * Storing data in a Postgres database
+   * Using GeoPandas for polygon matching
+2. **Geospatially-optimized**
+   * Under construction...
+   * Under construction...
 
 ## Table of Contents <a name='toc'></a>
 
-1. Under Construction...
+1. [Geospatially Naive Approach](#naive)
 2. Under Construction...
 3. [Challenges and Solutions](#challenges)
 
@@ -22,6 +40,16 @@ This project is divided into **two parts**:
 One can go about this in a myriad of ways, but my process involved the following:
 
 🚧 Under Construction 🚧
+
+I downloaded a sampling of the data, specifically polygons from 2024, between the months of March and July. On a map, they look like this:
+
+![Texas blobs with cluster bounding boxes](figs/blob_map_with_clusters.png)
+
+The blobs seem to be located in four major cities in Texas: Dallas, Austin, Houston, and San Antonio.
+
+We can zoom in on a sample of the polygons. Note that the blobs are very small, and their shapes are complex with many vertices. This will increase the storage requirements and thus retrieval times.
+
+![Sample of blob shapes with scalebar](figs/blob_samples.png)
 
 We were able to view a sampling of the polygons to confirm that they were indeed matches:
 

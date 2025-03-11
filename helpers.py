@@ -124,7 +124,7 @@ class Timer:
 @Timer()
 def generate_random_polygons(n: int, 
                              us_boundary: gpd.GeoDataFrame = gpd.read_file('archive/conus_buffer.parquet'), 
-                             admin_boundaries: gpd.GeoDataFrame = gpd.read_file('archive/conus_admin.parquet'), 
+                             admin_boundaries: gpd.GeoDataFrame = gpd.read_file('data/conus_admin.parquet'), 
                             #  precision=7) -> gpd.GeoDataFrame:
                              precision=8) -> gpd.GeoDataFrame:
     """

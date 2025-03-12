@@ -102,7 +102,16 @@ class Timer:
             mem_end = psutil.virtual_memory().used / (1024 ** 2) if self.track_resources else None
 
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            args_repr = json.dumps({"args": args, "kwargs": kwargs}, default=str)
+            def safe_serialize(obj):
+                """Safely convert args/kwargs for logging, handling DataFrames."""
+                if isinstance(obj, (pd.DataFrame, gpd.GeoDataFrame)):
+                    return f"<DataFrame with {len(obj)} rows>"
+                return str(obj)
+            args_repr = json.dumps(
+                {"args": [safe_serialize(arg) for arg in args], "kwargs": {k: safe_serialize(v) for k, v in kwargs.items()}},
+                default=str
+            )
+            # args_repr = json.dumps({"args": args, "kwargs": kwargs}, default=str)
 
             log_message = f"Function `{func.__name__}` executed in {elapsed_time:.4f} sec"
             if self.track_resources:

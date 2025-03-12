@@ -1719,3 +1719,55 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None, max_c
 # and values are the counts of rows for each month in that chunk.
 # This meets your requirement to log which months are present and how many rows each month has.
 
+@Timer()
+def compare_geometry_matches(geoms1, geoms2, decimal=6, log=True):
+    """
+    Compares two collections of geometries using Shapely's almost_equals method.
+
+    For each geometry in geoms1, it checks whether there exists a geometry in geoms2
+    that is almost equal within a given decimal tolerance. Then it does the reverse
+    comparison to determine "extra" geometries in geoms2.
+
+    Args:
+        geoms1 (iterable): An iterable of Shapely geometry objects (e.g. a DataFrame column).
+        geoms2 (iterable): Another iterable of Shapely geometry objects.
+        decimal (int): Number of decimal places to use for the almost_equals comparison.
+        log (bool): If True, logs the summary using the logging package.
+        
+    Returns:
+        dict: A dictionary with keys:
+            - 'common': List of geometries in geoms1 that match some geometry in geoms2.
+            - 'missing': List of geometries in geoms1 that have no match in geoms2.
+            - 'extra': List of geometries in geoms2 that have no match in geoms1.
+    """
+    import logging  # ensure logging is imported
+    
+    def find_geometry_matches(geoms_a, geoms_b, tol):
+        common = []
+        missing = []
+        for g in geoms_a:
+            if any(g.almost_equals(g2, decimal=tol) for g2 in geoms_b):
+                common.append(g)
+            else:
+                missing.append(g)
+        return common, missing
+
+    # Compare geometries in both directions:
+    common_geoms, missing_from_first = find_geometry_matches(geoms1, geoms2, decimal)
+    _, extra_in_second = find_geometry_matches(geoms2, geoms1, decimal)
+
+    if log:
+        logging.info(f"Number of matching geometries: {len(common_geoms)}")
+        logging.info(f"Missing geometries in first set: {len(missing_from_first)}")
+        logging.info(f"Extra geometries in second set: {len(extra_in_second)}")
+        if missing_from_first:
+            logging.info(f"Example missing record: {missing_from_first[0]}")
+        if extra_in_second:
+            logging.info(f"Example extra record: {extra_in_second[0]}")
+
+    return {
+        "common": common_geoms,
+        "missing": missing_from_first,
+        "extra": extra_in_second
+    }
+

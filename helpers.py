@@ -459,10 +459,26 @@ def create_pg_table(postgresql_details: dict = None,
     cur.close()
     conn.close()
 
-@Timer()
-def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', log_enabled: bool = True, count: bool = False):
+def is_wkt_geometry(value):
     """
-    Retrieves data from a PostgreSQL table and converts WKT back to geometries.
+    Checks if a value (string) looks like a WKT geometry.
+    """
+    if isinstance(value, str):
+        value = value.strip().upper()
+        for prefix in ["POINT", "LINESTRING", "POLYGON", "MULTIPOINT", "MULTILINESTRING", "MULTIPOLYGON", "GEOMETRYCOLLECTION"]:
+            if value.startswith(prefix):
+                return True
+    return False
+
+@Timer()
+def retrieve_pg_table(postgresql_details: dict = None, 
+                      db_name: str = 'blob_matching', 
+                      table_name: str = '', 
+                      log_enabled: bool = True, 
+                      count: bool = False):
+    """
+    Retrieves data from a PostgreSQL table and converts any WKT strings back to geometries.
+    If count is False, all columns are selected dynamically.
     """
     if postgresql_details is None:
         postgresql_details = pg_details()
@@ -475,24 +491,35 @@ def retrieve_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matc
     cur = conn.cursor()
 
     if not count:
-        # Retrieve data
-        cur.execute(sql.SQL(f"SELECT geometry, id, geohash FROM {table_name};"))
+        # Retrieve all columns dynamically
+        cur.execute(sql.SQL("SELECT * FROM {}").format(sql.Identifier(table_name)))
         rows = cur.fetchall()
+        # Extract column names from the cursor description
+        columns = [desc[0] for desc in cur.description]
+        
         cur.close()
         conn.close()
 
-        # Convert to DataFrame & reapply geometry
-        df = pd.DataFrame(rows, columns=["geometry", "id", "geohash"])
-        df["geometry"] = df["geometry"].apply(loads)  # Convert WKT to Shapely geometry
+        # Convert to DataFrame
+        df = pd.DataFrame(rows, columns=columns)
 
+        # Automatically detect and convert any column with WKT geometry strings
+        for col in df.columns:
+            non_null = df[col].dropna()
+            if not non_null.empty:
+                first_val = non_null.iloc[0]
+                if is_wkt_geometry(first_val):
+                    # Convert entire column from WKT to a Shapely geometry
+                    df[col] = df[col].apply(loads)
+                    
         if log_enabled:
             print(f"Retrieved {len(df)} records from {table_name}.")
 
         return df
     
-    # Retrieve count of matches
-    cur.execute(sql.SQL(f"SELECT COUNT(*) FROM {table_name};"))
-    match_count = cur.fetchone()[0]  # Extract count
+    # If count=True, retrieve just the count of records.
+    cur.execute(sql.SQL("SELECT COUNT(*) FROM {}").format(sql.Identifier(table_name)))
+    match_count = cur.fetchone()[0]
 
     cur.close()
     conn.close()

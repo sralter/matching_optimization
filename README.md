@@ -6,34 +6,35 @@ By Samuel Alter
 
 ## Overview
 
-This project is designed to showcase how to improve the speed of a **polygon matching procedure**. 
+This project is designed to demonstrate how to improve the speed of a **polygon matching procedure**. 
 
-For this project, I am comparing two similar approaches, albeit with key differences in their executions, and use terms like **_"geospatial-native"_** or **_"geosptially-optimized"_** when describing and running them. A **_geospatially-optimized_** approach uses the latest tools and techniques to make geospatial data processing efficient, while a **_"geospatially-naive"_** or a **_"geospatially non-optimized"_** approach as one that does not take full advantage of the latest advances in geospatial data engineering and analysis.
+For this project, I am comparing the performance of a polygon matching process, both before and after implementing optimizations. I am using terms like **_"geospatial-native"_** or **_"geosptially-optimized"_** when describing the improved method. A **_geospatially-optimized_** approach uses the latest tools and techniques to make geospatial data processing efficient, while a **_"geospatially-naive"_** or a **_"geospatially non-optimized"_** approach as one that does not take full advantage of the latest advances in geospatial data engineering and analysis.
 
 There are two main areas that could benefit from taking a geospatial-native approach:
 
 1. Data encoding, fetching, and storage
-2. Searching for overlaps
+2. Searching for matching polygons
 
-I use both a non-geospatial-native and geospatial-native approach to matching blos in a dataset. We will benchmark the execution time, CPU usage, and memory usage for both to see how they differ, with the implicit hypothesis being that the geospatial-native approaches will be more efficient and process more quickly.
+I use both a non-geospatial-native and a geospatial-native approach to matching blos in a dataset. I will benchmark the execution time, CPU usage, and memory usage for both to see how they differ, with the implicit hypothesis being that the geospatial-native approaches will be more efficient and process more quickly.
 
 Therefore, this project is divided into **two parts**:
 
 1. **Geospatially-non-optimized**
    * Encoding spatial data as strings
    * Storing data in a Postgres database
+   * Using geohash strings to index the polygons and pre-filter the polygons before matching
    * Using GeoPandas for polygon matching
 2. **Geospatially-optimized**
-   * Under construction...
+   * Replace geohash index with H3
    * Under construction...
 
 ## Table of Contents <a name='toc'></a>
 
-1. [Geospatially Naive Approach](#naive)
-2. Under Construction...
+1. [Geospatially non-Optimized Approach](#naive)
+2. [Geospatially Optimized Approach](#optimized)
 3. [Challenges and Solutions](#challenges)
 
-## 1. Non-Optimized Method
+## 1. Non-Optimized Method<a name='naive'></a>
 
 One can go about this in a myriad of ways, but my process involved the following:
 
@@ -52,6 +53,8 @@ We can zoom in on a sample of the polygons. Note that the blobs are very small, 
 We were able to view a sampling of the polygons to confirm that they were indeed matches:
 
 ![Overlapping Polygons Map with a Sampling of those Polygons](figs/overlapping_polygons_map_10k.png)
+
+## 2. Optimized Method <a name='optimized'></a>
 
 ## Challenges and Solutions <a name='challenges'></a>
 

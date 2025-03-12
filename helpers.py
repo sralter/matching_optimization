@@ -219,20 +219,55 @@ def generate_random_polygons(n: int,
 
     return gdf, meta_df
 
+# @Timer()
+# def convert_col_to_string(df: gpd.GeoDataFrame, col: str = 'geometry') -> gpd.GeoDataFrame:
+#     """
+#     Converts a specified geometry column to a WKT string representation.
+
+#     Args:
+#         df (gpd.GeoDataFrame): The GeoDataFrame with the geometry column.
+#         col (str): The column that will be converted, defaults to 'geometry'.
+
+#     Returns:
+#         gpd.GeoDataFrame: A new GeoDataFrame with the converted column.
+#     """
+#     df = df.copy()  # Ensure we don't modify the original dataframe
+#     df[col] = df[col].apply(lambda geom: to_wkt(geom) if isinstance(geom, BaseGeometry) else str(geom))
+#     return df
 @Timer()
-def convert_col_to_string(df: gpd.GeoDataFrame, col: str = 'geometry') -> gpd.GeoDataFrame:
+def convert_geom_columns_to_string(df: gpd.GeoDataFrame, geom_columns: list = None) -> gpd.GeoDataFrame:
     """
-    Converts a specified geometry column to a WKT string representation.
-
+    Converts geometry-like columns in a GeoDataFrame to their WKT string representations.
+    
+    If no geom_columns list is provided, the function automatically detects columns
+    containing shapely geometry objects by checking the first non-null value in each column.
+    
     Args:
-        df (gpd.GeoDataFrame): The GeoDataFrame with the geometry column.
-        col (str): The column that will be converted, defaults to 'geometry'.
-
+        df (gpd.GeoDataFrame): Input GeoDataFrame.
+        geom_columns (list, optional): List of column names to convert. If None,
+            the function will detect columns with geometry-like data.
+    
     Returns:
-        gpd.GeoDataFrame: A new GeoDataFrame with the converted column.
+        gpd.GeoDataFrame: Modified GeoDataFrame with converted columns.
     """
-    df = df.copy()  # Ensure we don't modify the original dataframe
-    df[col] = df[col].apply(lambda geom: to_wkt(geom) if isinstance(geom, BaseGeometry) else str(geom))
+    from shapely.geometry.base import BaseGeometry  # Ensure BaseGeometry is imported
+    
+    df = df.copy()
+    # Automatically detect geometry-like columns if not provided
+    if geom_columns is None:
+        geom_columns = []
+        for col in df.columns:
+            non_null = df[col].dropna()
+            if not non_null.empty:
+                first_value = non_null.iloc[0]
+                if isinstance(first_value, BaseGeometry):
+                    geom_columns.append(col)
+    
+    # Convert the detected geometry-like columns to WKT strings
+    for col in geom_columns:
+        if col in df.columns:
+            df[col] = df[col].apply(lambda geom: to_wkt(geom) if isinstance(geom, BaseGeometry) else str(geom))
+    
     return df
 
 # @timing_decorator

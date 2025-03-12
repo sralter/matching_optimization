@@ -330,7 +330,7 @@ def generate_pg_schema(df: pd.DataFrame) -> str:
     Generate a PostgreSQL table schema from a pandas DataFrame.
     
     The function maps common pandas dtypes to PostgreSQL types.
-    You can extend the type_mapping dictionary as needed.
+    All column names are converted to lower-case to match PostgreSQL's default behavior.
     
     Args:
         df (pd.DataFrame): The input DataFrame.
@@ -354,82 +354,15 @@ def generate_pg_schema(df: pd.DataFrame) -> str:
 
         # Optionally, if the column name is "id" (case insensitive) we set it as a UUID PK.
         if col.lower() == 'id':
-            column_def = f"{col} UUID PRIMARY KEY DEFAULT gen_random_uuid()"
+            column_def = f"{col.lower()} UUID PRIMARY KEY DEFAULT gen_random_uuid()"
         else:
-            column_def = f"{col} {pg_type}"
+            column_def = f"{col.lower()} {pg_type}"
         columns_schema.append(column_def)
     
     # Join all column definitions with commas
     schema = ",\n".join(columns_schema)
     return schema
 
-# @Timer()
-# def create_pg_table(postgresql_details: dict = None, db_name: str = 'blob_matching', table_name: str = '', data: list = None, truncate: bool = False):
-#     """
-#     Creates a table in PostgreSQL and inserts data. Optionally truncates the table first.
-
-#     Args:
-#         postgresql_details (dict): Connection details for PostgreSQL.
-#         db_name (str): Name of the target database.
-#         table_name (str): Name of the table to create.
-#         data (list): List of tuples to insert into the table.
-#         truncate (bool): If True, deletes existing records before inserting new ones.
-#     """
-#     if postgresql_details is None:
-#         postgresql_details = pg_details()
-    
-#     if not table_name:
-#         raise ValueError("Table name must be specified.")
-    
-#     if data is None:
-#         data = []
-
-#     # Connect to the database
-#     postgresql_details['dbname'] = db_name
-#     conn = psycopg2.connect(**postgresql_details)
-#     cur = conn.cursor()
-
-#     # Enable pgcrypto extension only once (for UUID generation)
-#     cur.execute("CREATE EXTENSION IF NOT EXISTS pgcrypto;")
-#     conn.commit()
-
-#     # Securely create the table using sql.Identifier
-#     create_table_query = (sql.SQL("""
-#         DROP TABLE IF EXISTS {};
-#         CREATE TABLE {} (
-#             geometry TEXT,
-#             id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-#             geohash TEXT
-#         );
-#     """).format(sql.Identifier(table_name), sql.Identifier(table_name)))
-
-#     cur.execute(create_table_query)
-#     conn.commit()
-
-#     # Optionally truncate the table
-#     if truncate:
-#         truncate_query = sql.SQL("TRUNCATE TABLE {}").format(sql.Identifier(table_name))
-#         cur.execute(truncate_query)
-#         conn.commit()
-#         print(f"Table {table_name} truncated.")
-
-#     # Insert data if available
-#     if data:
-#         insert_query = sql.SQL("""
-#             INSERT INTO {} (geometry, id, geohash) 
-#             VALUES (%s, %s, %s);
-#         """).format(sql.Identifier(table_name))
-#     # INSERT INTO {} (geometry, id, shapename, statefp, countyfp, geoid, name, namelsad, area_fips, geohash) 
-#     # VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-
-#         cur.executemany(insert_query, data)
-#         conn.commit()
-#         print(f"Inserted {len(data)} records into {table_name}.")
-#     else:
-#         print(f"No data provided for {table_name}.")
-
-#     cur.close()
-#     conn.close()
 @Timer()
 def create_pg_table(postgresql_details: dict = None, 
                     db_name: str = 'blob_matching', 
@@ -501,8 +434,16 @@ def create_pg_table(postgresql_details: dict = None,
         # Convert DataFrame rows to a list of tuples (internal conversion)
         data_tuples = list(data.itertuples(index=False, name=None))
         
+        # # Create an INSERT statement dynamically based on DataFrame columns
+        # columns = list(data.columns)
+        # placeholders = ", ".join(["%s"] * len(columns))
+        # insert_query = sql.SQL("INSERT INTO {} ({}) VALUES ({})").format(
+        #     sql.Identifier(table_name),
+        #     sql.SQL(", ").join(map(sql.Identifier, columns)),
+        #     sql.SQL(placeholders)
+        # )
         # Create an INSERT statement dynamically based on DataFrame columns
-        columns = list(data.columns)
+        columns = [col.lower() for col in data.columns]
         placeholders = ", ".join(["%s"] * len(columns))
         insert_query = sql.SQL("INSERT INTO {} ({}) VALUES ({})").format(
             sql.Identifier(table_name),

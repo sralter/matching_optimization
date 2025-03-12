@@ -426,8 +426,8 @@ def create_pg_table(postgresql_details: dict = None,
         print(f"Table {table_name} truncated.")
     
     # debug
-    print(f"DEBUG: Type of data received: {type(data)}")
-    print(f"DEBUG: Data is empty? {data.empty if isinstance(data, pd.DataFrame) else 'N/A'}")
+    # print(f"DEBUG: Type of data received: {type(data)}")
+    # print(f"DEBUG: Data is empty? {data.empty if isinstance(data, pd.DataFrame) else 'N/A'}")
 
     # Insert data if available
     if not data.empty:

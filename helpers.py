@@ -96,7 +96,7 @@ class Timer:
             mem_start = psutil.virtual_memory().used / (1024 ** 2) if self.track_resources else None
             
             result = func(*args, **kwargs)
-
+            
             elapsed_time = time.time() - start_time
             cpu_end = psutil.cpu_percent(interval=None) if self.track_resources else None
             mem_end = psutil.virtual_memory().used / (1024 ** 2) if self.track_resources else None
@@ -107,11 +107,11 @@ class Timer:
                 if isinstance(obj, (pd.DataFrame, gpd.GeoDataFrame)):
                     return f"<DataFrame with {len(obj)} rows>"
                 return str(obj)
+            # Remove default=str to avoid fallback conversion that triggers __nonzero__
             args_repr = json.dumps(
-                {"args": [safe_serialize(arg) for arg in args], "kwargs": {k: safe_serialize(v) for k, v in kwargs.items()}},
-                default=str
+                {"args": [safe_serialize(arg) for arg in args],
+                "kwargs": {k: safe_serialize(v) for k, v in kwargs.items()}}
             )
-            # args_repr = json.dumps({"args": args, "kwargs": kwargs}, default=str)
 
             log_message = f"Function `{func.__name__}` executed in {elapsed_time:.4f} sec"
             if self.track_resources:
@@ -289,6 +289,7 @@ def create_pg_db(postgresql_details: dict = None, db_name: str = 'blob_matching'
     cur.close()
     conn.close()
 
+@Timer()
 def generate_pg_schema(df: pd.DataFrame) -> str:
     """
     Generate a PostgreSQL table schema from a pandas DataFrame.

@@ -7,3 +7,4 @@ backup.bundle
 *.log
 *.csv
 /archive
+/iceberg

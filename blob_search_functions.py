@@ -1,10 +1,23 @@
+import helpers as h
+import pandas as pd
+
 # ======
-# 
+# Database Access Functions ===================================================
 # ======
 
-def query_db(query):
+# database/commonDatabaseFunctions.py
+def close_db_engine(engine=None):
     """
+    To avoid having too many idle connections open
+    """
+    if engine != None:
+        engine.dispose()
+        engine = None
 
+# database/commonDatabaseFunctions.py
+def query_db(conn = None, query: str = None):
+    """
+    _summary_
     
     Args:
         query (_type_): _description_
@@ -15,11 +28,25 @@ def query_db(query):
     Returns:
         _type_: _description_
     """
-    pass
+    # def query_db(query, db_conn_str=None):
+    #     conn = getDataBaseEngine(db_conn_str=db_conn_str)
+    #     df = pd.read_sql_query(query, conn)
+    #     close_db_engine(conn)
+    #     return df
+    if conn == None:
+        conn = h.pg_details()
+    if query == None:
+        query = """
+        test
+        """
+    df = pd.read_sql_query(query, conn)
+    close_db_engine(conn)
+    return df
+
 
 def command_to_db(query, commit: bool = True):
     """
-    _summary_
+    Executes a SQL command like CREATE, INSERT, DELETE, UPDATE, etc.
 
     Args:
         query (_type_): _description_
@@ -31,7 +58,42 @@ def command_to_db(query, commit: bool = True):
     Returns:
         _type_: _description_
     """
-    pass
+    # def command_to_db(command, db_conn_str=None, commit=False):
+    # """
+    # Execute a SQL command like CREATE, INSERT, DELETE, UPDATE, etc.
+    # """
+    #     engine = getDataBaseEngine(db_conn_str=db_conn_str)
+    #     try:
+    #         with engine.connect() as connection:
+    #             if commit:
+    #                 with connection.begin():  # Use transaction for commands requiring commit
+    #                     result = connection.execute(command)
+    #                     # print("Rows affected:", result.rowcount)
+    #                     return result
+    #             else:
+    #                 result = connection.execute(command)
+    #                 return result
+    #     except Exception as e:
+    #         print(f"Error: Unable to execute the command. {e}")
+    #         print(traceback.format_exc())
+    #         raise e     # Raise the exception to the caller
+    engine = h.pg_details()
+    try:
+        with engine.connect() as connection:
+            if commit:
+                with connection.begin():  # Use transaction for commands requiring commit
+                    result = connection.execute(command)
+                    
+                    # print("Rows affected:", result.rowcount)
+                    return result
+            else:
+                result = connection.execute(command)
+                return result
+    except Exception as e:
+        print(f"Error: Unable to execute the command. {e}")
+        print(traceback.format_exc())
+        raise e     # Raise the exception to the caller
+
 
 # ======
 # Data Retrieval ==============================================================
@@ -368,7 +430,7 @@ def create_unmatched_blob_records(unmatched_blob_ids, prev_blobs_df):
     return blobs
 
 # ======
-# Data Storage/Output =========================================================
+# Update Results/Data Storage/Output ==========================================
 # ======
 
 # Data Storage/Output (Updating the Database with Results)

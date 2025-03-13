@@ -7,5 +7,3 @@ backup.bundle
 *.log
 *.csv
 /archive
-blob_search_functions.py
-

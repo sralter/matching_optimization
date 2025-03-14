@@ -43,7 +43,6 @@ def query_db(conn = None, query: str = None):
     close_db_engine(conn)
     return df
 
-
 def command_to_db(query, commit: bool = True):
     """
     Executes a SQL command like CREATE, INSERT, DELETE, UPDATE, etc.

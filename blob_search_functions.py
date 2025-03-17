@@ -702,7 +702,7 @@ if __name__ == "__main__":
     year = 2024
     month = "06"
     place = "Collin"  # or another city/county present in your data
-    place_type = "city"  # "city" or "county" if applicable
+    place_type = "county"  # "city" or "county" if applicable
 
     # Run the matching function that processes the specified year, month, and place.
     matches = process_year_month_place(year, month, place, place_type)

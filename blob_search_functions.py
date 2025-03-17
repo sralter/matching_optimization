@@ -696,18 +696,18 @@ def update_blob_bc_records(self, blob_bc_ids):
 # ======
 # Main block ==================================================================
 # ======
-# if __name__ == "__main__":
-#     # Define the parameters for the match you want to run.
-#     # Adjust these values to match data available in your database.
-#     year = 2024
-#     month = 7
-#     place = "Collin County"  # or another city/county present in your data
-#     place_type = "CITY"  # or "COUNTY" if applicable
+if __name__ == "__main__":
+    # Define the parameters for the match you want to run.
+    # Adjust these values to match data available in your database.
+    year = 2024
+    month = "06"
+    place = "Collin"  # or another city/county present in your data
+    place_type = "city"  # "city" or "county" if applicable
 
-#     # Run the matching function that processes the specified year, month, and place.
-#     matches = process_year_month_place(year, month, place, place_type)
+    # Run the matching function that processes the specified year, month, and place.
+    matches = process_year_month_place(year, month, place, place_type)
 
-#     # Output the result: this should print the list of blob-footprint tuples that were matched.
-#     print(f"Found {len(matches)} matching blob-footprint pairs:")
-#     for match in matches:
-#         print(match)
+    # Output the result: this should print the list of blob-footprint tuples that were matched.
+    print(f"Found {len(matches)} matching blob-footprint pairs:")
+    for match in matches:
+        print(match)

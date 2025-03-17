@@ -1280,7 +1280,7 @@ def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, ic
 #         engine_url = f'postgresql://{user}:{pw}@{host}:{port}/{name}'
     
 #     engine = create_engine(engine_url)
-    
+     
 #     checkpoint_path = Path("data/chunk_checkpoint.json")
 #     if use_checkpoint and checkpoint_path.exists():
 #         with open(checkpoint_path, "r") as f:

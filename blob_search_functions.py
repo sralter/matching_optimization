@@ -2,7 +2,45 @@ import helpers as h
 import pandas as pd
 import geopandas as gpd
 import uuid
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
+# ======
+# HELPER FUNCTIONS ============================================================
+# ======
+
+def connect_to_db():
+    """Establishes and returns a connection to the local PostgreSQL database."""
+    details = pg_details()
+    try:
+        conn = psycopg2.connect(**details)
+        return conn
+    except Exception as e:
+        print("Error connecting to database:", e)
+        raise
+
+def get_table_data(table_name: str):
+    """
+    Fetches all records from the specified table.
+    
+    Args:
+        table_name (str): The name of the table ('footprints' or 'blobs').
+    
+    Returns:
+        list of dict: The rows from the table as a list of dictionaries.
+    """
+    conn = connect_to_db()
+    try:
+        with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+            query = f"SELECT * FROM {table_name}"
+            cursor.execute(query)
+            records = cursor.fetchall()
+            return records
+    except Exception as e:
+        print(f"Error fetching data from table {table_name}:", e)
+        raise
+    finally:
+        conn.close()
 
 # ======
 # Database Access Functions ===================================================

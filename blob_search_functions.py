@@ -1,9 +1,13 @@
 import helpers as h
+
+import datetime
+
 import pandas as pd
 import geopandas as gpd
 import uuid
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from squalchemy import create_engine
 
 # ======
 # HELPER FUNCTIONS ============================================================
@@ -634,3 +638,22 @@ def update_blob_bc_records(self, blob_bc_ids):
     command_to_db(command, commit=True)
     print(f"Updated {len(blob_bc_ids)} Business Classes as Invalid")
     return True
+
+# ======
+# Main block ==================================================================
+# ======
+if __name__ == "__main__":
+    # Define the parameters for the match you want to run.
+    # Adjust these values to match data available in your database.
+    year = 2024
+    month = 7
+    place = "Collin County"  # or another city/county present in your data
+    place_type = "CITY"  # or "COUNTY" if applicable
+
+    # Run the matching function that processes the specified year, month, and place.
+    matches = process_year_month_place(year, month, place, place_type)
+
+    # Output the result: this should print the list of blob-footprint tuples that were matched.
+    print(f"Found {len(matches)} matching blob-footprint pairs:")
+    for match in matches:
+        print(match)

@@ -7,7 +7,7 @@ import geopandas as gpd
 import uuid
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from squalchemy import create_engine
+from sqlalchemy import create_engine, text
 
 # ======
 # HELPER FUNCTIONS ============================================================
@@ -60,7 +60,7 @@ def close_db_engine(engine=None):
         engine = None
 
 # database/commonDatabaseFunctions.py
-def query_db(conn = None, query: str = None):
+# def query_db(conn = None, query: str = None):
     # """
     # _summary_
     
@@ -87,21 +87,57 @@ def query_db(conn = None, query: str = None):
     # df = pd.read_sql_query(query, conn)
     # close_db_engine(conn)
     # return df
-    """
-    Executes a SQL query and returns a DataFrame.
+    # 
+    # """
+    # Executes a SQL query and returns a DataFrame.
     
+    # Args:
+    #     query (str): The SQL query to execute.
+    
+    # Returns:
+    #     DataFrame: The result as a pandas DataFrame.
+    # """
+    # conn = connect_to_db()  # use the connection helper
+    # try:
+    #     df = pd.read_sql_query(query, conn)
+    #     return df
+    # finally:
+    #     conn.close()
+def query_db(*args, **kwargs):
+    """
+    Executes a SQL query and returns a DataFrame using a SQLAlchemy engine.
+    This override supports both the signatures:
+      query_db(query)  and  query_db(conn, query)
+      
     Args:
-        query (str): The SQL query to execute.
+        Either a single positional argument (the SQL query as a string),
+        or two positional arguments where the second is the SQL query.
+        Also accepts a keyword argument "query".
     
     Returns:
         DataFrame: The result as a pandas DataFrame.
     """
-    conn = connect_to_db()  # use the connection helper
+    # Determine the query string
+    if len(args) == 1:
+        query_str = args[0]
+    elif len(args) >= 2:
+        query_str = args[1]
+    else:
+        query_str = kwargs.get("query", None)
+    
+    if query_str is None:
+        raise ValueError("Query must be provided and not be None")
+    
+    details = h.pg_details()
+    # Build connection string for SQLAlchemy
+    conn_str = f"postgresql://{details['user']}:{details['password']}@{details['host']}:{details['port']}/{details['dbname']}"
+    engine = create_engine(conn_str)
     try:
-        df = pd.read_sql_query(query, conn)
+        # Wrap the query string with text()
+        df = pd.read_sql_query(text(query_str), engine)
         return df
     finally:
-        conn.close()
+        engine.dispose()
 
 def command_to_db(query, commit: bool = True):
     # """
@@ -642,18 +678,18 @@ def update_blob_bc_records(self, blob_bc_ids):
 # ======
 # Main block ==================================================================
 # ======
-if __name__ == "__main__":
-    # Define the parameters for the match you want to run.
-    # Adjust these values to match data available in your database.
-    year = 2024
-    month = 7
-    place = "Collin County"  # or another city/county present in your data
-    place_type = "CITY"  # or "COUNTY" if applicable
+# if __name__ == "__main__":
+#     # Define the parameters for the match you want to run.
+#     # Adjust these values to match data available in your database.
+#     year = 2024
+#     month = 7
+#     place = "Collin County"  # or another city/county present in your data
+#     place_type = "CITY"  # or "COUNTY" if applicable
 
-    # Run the matching function that processes the specified year, month, and place.
-    matches = process_year_month_place(year, month, place, place_type)
+#     # Run the matching function that processes the specified year, month, and place.
+#     matches = process_year_month_place(year, month, place, place_type)
 
-    # Output the result: this should print the list of blob-footprint tuples that were matched.
-    print(f"Found {len(matches)} matching blob-footprint pairs:")
-    for match in matches:
-        print(match)
+#     # Output the result: this should print the list of blob-footprint tuples that were matched.
+#     print(f"Found {len(matches)} matching blob-footprint pairs:")
+#     for match in matches:
+#         print(match)

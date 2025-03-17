@@ -8,6 +8,8 @@ import uuid
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from sqlalchemy import create_engine, text
+from shapely import wkt
+import multiprocessing as mp
 
 # ======
 # HELPER FUNCTIONS ============================================================
@@ -16,6 +18,7 @@ from sqlalchemy import create_engine, text
 def connect_to_db():
     """Establishes and returns a connection to the local PostgreSQL database."""
     details = h.pg_details()
+    details['dbname'] = 'blob_matching'
     try:
         conn = psycopg2.connect(**details)
         return conn
@@ -129,6 +132,7 @@ def query_db(*args, **kwargs):
         raise ValueError("Query must be provided and not be None")
     
     details = h.pg_details()
+    details['dbname'] = 'blob_matching'
     # Build connection string for SQLAlchemy
     conn_str = f"postgresql://{details['user']}:{details['password']}@{details['host']}:{details['port']}/{details['dbname']}"
     engine = create_engine(conn_str)
@@ -219,7 +223,7 @@ def command_to_db(query, commit: bool = True):
 
 # Data Retrieval (Fetching Polygons from the Database)
 # BlobSearch/Helpers/BlobOverlappingFootprints.py
-def get_data_by_year_month_place(year: int, month: int, place: str, place_type='CITY'):
+def get_data_by_year_month_place(year: int, month: int, place: str, place_type='city'):
     """
     Get data for a specific year, month, and city or county.
     
@@ -232,39 +236,50 @@ def get_data_by_year_month_place(year: int, month: int, place: str, place_type='
     Returns:
     - A DataFrame with the BLOB data for the specified year, month, and place.
     """
-    query = f"""SELECT "BLOB_ID", "BLOB_POLYGON" 
+    query = f"""SELECT "blob_id", "blob_polygon" 
                 FROM "public"."blob" 
-                WHERE "YEAR" = '{year}' AND "MONTH" = '{month}' AND "{place_type}" = '{place}'"""
-    
+                WHERE "year" = '{year}' AND "month" = '{month}' AND "{place_type}" = '{place}'"""
+    # query = f"""SELECT "BLOB_ID", "blob_polygon" 
+    #             FROM "blob_matching"."blob" 
+    #             WHERE "YEAR" = '{year}' AND "MONTH" = '{month}' AND "{place_type}" = '{place}'"""    
+
     df = query_db(query)
-    df['BLOB_POLYGON'] = df['BLOB_POLYGON'].apply(wkt.loads)
+    df['blob_polygon'] = df['blob_polygon'].apply(wkt.loads)
     return df
 
 # Data Retrieval (Fetching Polygons from the Database)
 # BlobSearch/Helpers/BlobOverlappingFootprints.py
-def get_footprint_data_by_place(place: str, place_type='CITY'):
+def get_footprint_data_by_place(place: str, place_type='city'):
     """
     Get footprint data based on city or county.
 
     Parameters:
     - place: The city or county to process.
-    - place_type: 'CITY' or 'COUNTY'
+    - place_type: 'city' or 'county'
 
     Returns:
     - A DataFrame with footprint data for the specified place.
     """
-    if place_type == 'CITY':
-        query = f"""SELECT "FOOTPRINT_ID",
-                    "GEOMETRY" as "geometry"
+    if place_type == 'city':
+        query = f"""SELECT "footprint_id",
+                    "geometry" as "geometry"
                     FROM "public"."footprints" 
                     WHERE "{place_type}" = '{place}'"""
-    elif place_type == 'COUNTY':
+        # query = f"""SELECT "FOOTPRINT_ID",
+        #     "GEOMETRY" as "geometry"
+        #     FROM "blob_matching"."footprints" 
+        #     WHERE "{place_type}" = '{place}'"""
+    elif place_type == 'county':
         place = place.capitalize()
         place += ' County'
-        query = f"""SELECT "FOOTPRINT_ID",
-                    "GEOMETRY" as "geometry"
+        query = f"""SELECT "footprint_id",
+                    "geometry" as "geometry"
                     FROM "public"."footprints" 
-                    WHERE "COUNTY_NAME" = '{place}'"""
+                    WHERE "county_name" = '{place}'"""
+        # query = f"""SELECT "FOOTPRINT_ID",
+        #             "GEOMETRY" as "geometry"
+        #             FROM "blob_matching"."footprints" 
+        #             WHERE "COUNTY_NAME" = '{place}'"""
 
     df_footprints = query_db(query)
     df_footprints['geometry'] = df_footprints['geometry'].apply(wkt.loads)
@@ -288,10 +303,10 @@ def get_footprint_data_by_cities(cities: list):
     if len(escaped_cities) == 0:
         return pd.DataFrame()
 
-    query = f"""SELECT "FOOTPRINT_ID",
-                "GEOMETRY" as "geometry"
-                FROM FOOTPRINTS
-                WHERE "CITY" IN ({','.join(f"'{city}'" for city in escaped_cities)})"""
+    query = f"""SELECT "footprint_id",
+                "geometry" as "geometry"
+                FROM footprints
+                WHERE "city" IN ({','.join(f"'{city}'" for city in escaped_cities)})"""
 
     df_footprints = query_db(query)
     df_footprints['geometry'] = df_footprints['geometry'].apply(wkt.loads)
@@ -299,13 +314,13 @@ def get_footprint_data_by_cities(cities: list):
 
 # Data Retrieval (Fetching Polygons from the Database)
 # BlobSearch/Helpers/BlobOverlappingFootprints.py
-def get_distinct_places_from_footprints(place_type='CITY', table_name='blob', year=None, month=None):
+def get_distinct_places_from_footprints(place_type='city', table_name='blob', year=None, month=None):
     """
     Get distinct cities or counties from the footprints table that also exist in the blob table, 
     based on the place_type, and filter by year and month if provided.
     
     Parameters:
-    - place_type: 'CITY' or 'COUNTY'
+    - place_type: 'city' or 'county'
     - table_name: The name of the table to check for distinct places (default is 'blob').
     - year: Optional year to filter the results.
     - month: Optional month to filter the results.
@@ -316,17 +331,18 @@ def get_distinct_places_from_footprints(place_type='CITY', table_name='blob', ye
     """
 
     # Query distinct places from the blob table first
-    blob_place_type = place_type if place_type != 'COUNTY' else 'COUNTY'  # Adjust place_type for blob
+    blob_place_type = place_type if place_type != 'county' else 'county'  # Adjust place_type for blob
 
     query_blob = f'SELECT DISTINCT "{blob_place_type}" FROM "public"."{table_name}"'
+    # query_blob = f'SELECT DISTINCT "{blob_place_type}" FROM "blob_matching"."{table_name}"'
 
     # Filter by year and month if provided
     conditions = []
     if year:
-        conditions.append(f""""YEAR" = '{year}'""")
+        conditions.append(f""""year" = '{year}'""")
     if month:
         
-        conditions.append(f""""MONTH" = '{month.zfill(2)}'""")
+        conditions.append(f""""month" = '{month.zfill(2)}'""")
 
     if conditions:
         query_blob += f" WHERE {' AND '.join(conditions)}"
@@ -339,6 +355,7 @@ def get_distinct_places_from_footprints(place_type='CITY', table_name='blob', ye
 
     # Query distinct places from the footprints table
     query_footprints = f'SELECT DISTINCT "{place_type}" FROM "public"."footprints"'
+    # query_footprints = f'SELECT DISTINCT "{place_type}" FROM "blob_matching"."footprints"'
     df_footprints = query_db(query_footprints)
 
     # Find the intersection of places in both tables
@@ -353,12 +370,12 @@ def get_distinct_places_from_footprints(place_type='CITY', table_name='blob', ye
 # BlobSearch/BlobSearchBusinessClass.py
 def match_property_between_months(curr_row, prev_data, return_dict={}, j=-1):
     """ Match curr_polygon with the bbox of the previous and previous previous month to find blob_ids that match """
-    curr_polygon = make_polygon_valid(curr_row["BLOB_POLYGON"], curr_row["POLYGON_BOUNDRY_BOX"])
+    curr_polygon = make_polygon_valid(curr_row["blob_polygon"], curr_row["polygon_boundry_box"])
     if not curr_polygon:
         return []                                   # TODO: REMOVE RETURN
     
-    if "IS_IMPUTED" in curr_row and curr_row["IS_IMPUTED"] and curr_row["IS_IMPUTED"] == True:
-        prev_match = curr_row["PREVIOUS_MONTH_BLOB_IDS"].split("|")
+    if "is_imputed" in curr_row and curr_row["is_imputed"] and curr_row["is_imputed"] == True:
+        prev_match = curr_row["previous_month_blob_ids"].split("|")
         return_dict[j] = prev_match
         return prev_match
     
@@ -369,9 +386,9 @@ def match_property_between_months(curr_row, prev_data, return_dict={}, j=-1):
 
     prev_match = []
     if prev_data is not None:
-        matched_df = match_polygon_with_dataframe(curr_polygon, prev_data, "BLOB_POLYGON")
+        matched_df = match_polygon_with_dataframe(curr_polygon, prev_data, "blob_polygon")
         if len(matched_df) > 0:
-            prev_match += matched_df["BLOB_ID"].values.tolist()
+            prev_match += matched_df["blob_id"].values.tolist()
 
     return_dict[j] = prev_match
 
@@ -387,7 +404,7 @@ def match_properties_batched(curr_data, prev_data, return_dict={}, start_index=-
 
 # BlobSearch/BlobSearchBusinessClass.py
 def match_properties_between_months(curr_data, prev_data):
-    """ Match the property between the previous and current month based on the BLOB_POLYGON column field."""
+    """ Match the property between the previous and current month based on the blob_polygon column field."""
 
     manager = mp.Manager()
     return_dict = manager.dict()
@@ -395,15 +412,15 @@ def match_properties_between_months(curr_data, prev_data):
         
     # Convert all string polygons to Shapely Polygon objects
     if isinstance(curr_data, pd.DataFrame) and len(curr_data) > 0:
-        curr_data["MATCHED_BLOB_IDS"] = [None]*len(curr_data)
-        if type(curr_data["BLOB_POLYGON"].iloc[0]) == str:
-            curr_data["BLOB_POLYGON"] = curr_data["BLOB_POLYGON"].apply(wkt.loads)
+        curr_data["matched_blob_ids"] = [None]*len(curr_data)
+        if type(curr_data["blob_polygon"].iloc[0]) == str:
+            curr_data["blob_polygon"] = curr_data["blob_polygon"].apply(wkt.loads)
     else:
         return pd.DataFrame()
 
     if isinstance(prev_data, pd.DataFrame) and len(prev_data) > 0:
-        if type(prev_data["BLOB_POLYGON"].iloc[0]) == str:
-            prev_data["BLOB_POLYGON"] = prev_data["BLOB_POLYGON"].apply(wkt.loads)
+        if type(prev_data["blob_polygon"].iloc[0]) == str:
+            prev_data["blob_polygon"] = prev_data["blob_polygon"].apply(wkt.loads)
     else:
         return pd.DataFrame()
     
@@ -433,9 +450,9 @@ def match_properties_between_months(curr_data, prev_data):
 
     for i in return_dict.keys():
         if return_dict[i] != []:
-            curr_data.loc[i, "MATCHED_BLOB_IDS"] = "|".join(return_dict[i])
+            curr_data.loc[i, "matched_blob_ids"] = "|".join(return_dict[i])
 
-    curr_data["NUM_MATCHED"] = curr_data["MATCHED_BLOB_IDS"].apply(lambda x: len(str(x).split("|")) if x != None else 0)
+    curr_data["num_matched"] = curr_data["matched_blob_ids"].apply(lambda x: len(str(x).split("|")) if x != None else 0)
     
     return curr_data
 
@@ -504,16 +521,16 @@ def exclude_footprints(df_city, df_fp):
     - A list of tuples (BLOB_ID, FOOTPRINT_ID) that need to be updated
     """
     # Convert the DataFrames into GeoDataFrames
-    gdf_city = gpd.GeoDataFrame(df_city, geometry='BLOB_POLYGON')
+    gdf_city = gpd.GeoDataFrame(df_city, geometry='blob_polygon')
     gdf_fp = gpd.GeoDataFrame(df_fp, geometry='geometry')
     # Perform spatial join
     df2 = gpd.sjoin(gdf_city, gdf_fp, how='left', predicate='intersects')
     # Drop duplicate BLOB_IDs
-    df_drop_dupes = df2.drop_duplicates('BLOB_ID')
+    df_drop_dupes = df2.drop_duplicates('blob_id')
     # Filter out rows where there is no intersection (i.e., NaN footprint data)
     df_no_null = df_drop_dupes[df_drop_dupes['index_right'].notna()]
     # Select relevant columns (BLOB_ID, FOOTPRINT_ID)
-    final_df = df_no_null[['BLOB_ID', 'FOOTPRINT_ID']]
+    final_df = df_no_null[['blob_id', 'footprint_id']]
     # Return as a list of tuples
     #final_df = final_df.head(20)
     blob_footprint_tuples = list(final_df.itertuples(index=False, name=None))
@@ -522,7 +539,7 @@ def exclude_footprints(df_city, df_fp):
 
 # Polygon Matching (Processing and Comparing Polygons)
 # BlobSearch/Helpers/BlobOverlappingFootprints.py
-def process_year_month_place(year, month, place, place_type='CITY'):
+def process_year_month_place(year, month, place, place_type='city'):
     """
     Processes data by Year, Month, and City or County by downloading the relevant data, 
     comparing it with footprint data, and returning the BLOB_IDs that need to be updated.
@@ -531,7 +548,7 @@ def process_year_month_place(year, month, place, place_type='CITY'):
     - year: The year to process.
     - month: The month to process.
     - place: The city or county to process.
-    - place_type: 'CITY' or 'COUNTY'
+    - place_type: 'city' or 'county'
 
     Returns:
     - blob_ids: A list of BLOB_IDs to be updated.
@@ -574,7 +591,7 @@ def get_unmatched_blob_ids(matched_blobs, prev_blobs):
     
     matched_blob_ids = []
     for i, row in matched_blobs.iterrows():
-        matched_blob_ids += str(row['MATCHED_BLOB_IDS']).split("|")
+        matched_blob_ids += str(row['matched_blob_ids']).split("|")
     matched_blob_ids = list(set(matched_blob_ids))
     unmatched_blob_ids = list(set(prev_blob_ids) - set(matched_blob_ids))
 
@@ -589,7 +606,7 @@ def create_unmatched_blob_records(unmatched_blob_ids, prev_blobs_df):
 
     prev_yyyymm = prev_blobs_df["YEAR"].values[0] + prev_blobs_df["MONTH"].values[0]
     curr_yyyymm = get_next_yyyymm(prev_yyyymm)
-    df = prev_blobs_df[prev_blobs_df["BLOB_ID"].isin(unmatched_blob_ids)]
+    df = prev_blobs_df[prev_blobs_df["blob_id"].isin(unmatched_blob_ids)]
     df.set_index('BLOB_ID', inplace=True)   # Super fast for searching by BLOB_ID
     # for i, blob_id in tqdm(enumerate(unmatched_blob_ids), desc=f"Create Imputed Blobs ({len(unmatched_blob_ids)}) for {curr_yyyymm}", unit="iteration"):
     for i, blob_id in enumerate(unmatched_blob_ids):
@@ -608,7 +625,7 @@ def create_unmatched_blob_records(unmatched_blob_ids, prev_blobs_df):
 
             POINT=str(row["POINT"]),
             SIZE=int(row["SIZE"]),
-            BLOB_POLYGON=str(row["BLOB_POLYGON"]),
+            blob_polygon=str(row["blob_polygon"]),
             POLYGON_BOUNDRY_BOX=str(row["POLYGON_BOUNDRY_BOX"]),
             GEO_HASHES=str(row["GEO_HASHES"]),
             

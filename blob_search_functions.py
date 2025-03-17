@@ -154,6 +154,82 @@ def get_footprint_data_by_place(place: str, place_type='CITY'):
     df_footprints['geometry'] = df_footprints['geometry'].apply(wkt.loads)
     return df_footprints
 
+# Data Retrieval (Fetching Polygons from the Database)
+# BlobSearch/Helpers/BlobOverlappingFootprints.py
+def get_footprint_data_by_cities(cities: list):
+    """
+    Get footprint data based on a list of cities.
+
+    Parameters:
+    - cities: A list of cities to process.
+
+    Returns:
+    - A DataFrame with footprint data for the specified cities.
+    """
+
+    escaped_cities = [escape_single_quotes(city) for city in cities if city != None]
+
+    if len(escaped_cities) == 0:
+        return pd.DataFrame()
+
+    query = f"""SELECT "FOOTPRINT_ID",
+                "GEOMETRY" as "geometry"
+                FROM FOOTPRINTS
+                WHERE "CITY" IN ({','.join(f"'{city}'" for city in escaped_cities)})"""
+
+    df_footprints = query_db(query)
+    df_footprints['geometry'] = df_footprints['geometry'].apply(wkt.loads)
+    return df_footprints
+
+# Data Retrieval (Fetching Polygons from the Database)
+# BlobSearch/Helpers/BlobOverlappingFootprints.py
+def get_distinct_places_from_footprints(place_type='CITY', table_name='blob', year=None, month=None):
+    """
+    Get distinct cities or counties from the footprints table that also exist in the blob table, 
+    based on the place_type, and filter by year and month if provided.
+    
+    Parameters:
+    - place_type: 'CITY' or 'COUNTY'
+    - table_name: The name of the table to check for distinct places (default is 'blob').
+    - year: Optional year to filter the results.
+    - month: Optional month to filter the results.
+
+    Returns:
+    - A list of distinct cities or counties that are present in both the footprints and blob tables, 
+      filtered by year and month if provided.
+    """
+
+    # Query distinct places from the blob table first
+    blob_place_type = place_type if place_type != 'COUNTY' else 'COUNTY'  # Adjust place_type for blob
+
+    query_blob = f'SELECT DISTINCT "{blob_place_type}" FROM "public"."{table_name}"'
+
+    # Filter by year and month if provided
+    conditions = []
+    if year:
+        conditions.append(f""""YEAR" = '{year}'""")
+    if month:
+        
+        conditions.append(f""""MONTH" = '{month.zfill(2)}'""")
+
+    if conditions:
+        query_blob += f" WHERE {' AND '.join(conditions)}"
+    
+    df_blob = query_db(query_blob)
+
+    # Adjust place_type for footprints table after blob query
+    if place_type == 'COUNTY':
+        place_type = 'COUNTY_NAME'
+
+    # Query distinct places from the footprints table
+    query_footprints = f'SELECT DISTINCT "{place_type}" FROM "public"."footprints"'
+    df_footprints = query_db(query_footprints)
+
+    # Find the intersection of places in both tables
+    place_list = list(set(df_footprints[place_type]).intersection(set(df_blob[blob_place_type])))
+    
+    return place_list
+
 # ======
 # Polygon Matching ============================================================
 # ======

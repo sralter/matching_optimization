@@ -1589,7 +1589,12 @@ def create_h3_info_parallel_new(df_prev: pd.DataFrame, df_curr: pd.DataFrame, ic
 #                 json.dump(checkpoint_data, f)
 #             break
 @Timer()
-def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None, max_chunks=None, prefix='blob_data'):
+def retrieve_data(chunk_size: int = 100000, 
+                  use_checkpoint: bool = True, 
+                  engine_url: str = None, 
+                  max_chunks: str = None, 
+                  prefix: str = 'blob_data',
+                  target_table: str = 'blob'):
     """
     Downloads data in chunks from a PostgreSQL or SQLite database using CTID for pagination.
     
@@ -1601,9 +1606,10 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None, max_c
     Parameters:
       chunk_size (int): Number of rows per chunk (default: 100000)
       use_checkpoint (bool): If True, resume processing from a saved checkpoint.
-      engine_url (str): Optional SQLAlchemy connection string. If not provided, reads credentials from data files.
+      engine_url (str): Optional; SQLAlchemy connection string. If not provided, reads credentials from data files.
       max_chunks (int): Optional; maximum number of chunks to process. If None, process the entire dataset.
       prefix (str): Base name for the output parquet and txt files (default: 'blob_data').
+      target_table (str): Table name where the data will be pulled from.
     """
     logging.basicConfig(level=logging.INFO)
     
@@ -1651,7 +1657,7 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None, max_c
             if is_sqlite:
                 query = f"""
                     SELECT *, ctid as pgt_ctid
-                    FROM blob
+                    FROM {target_table}
                     WHERE "YEAR" = '2024'
                       AND "MONTH" BETWEEN '03' AND '07'
                 """
@@ -1663,7 +1669,7 @@ def retrieve_data(chunk_size=100000, use_checkpoint=True, engine_url=None, max_c
                     SELECT *
                     FROM (
                         SELECT *, CAST(ctid AS text) as pgt_ctid
-                        FROM blob
+                        FROM {target_table}
                         WHERE "YEAR" = '2024'
                           AND "MONTH" BETWEEN '03' AND '07'
                     ) sub

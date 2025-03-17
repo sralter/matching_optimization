@@ -8,3 +8,4 @@ backup.bundle
 *.csv
 /archive
 /iceberg
+*.pages

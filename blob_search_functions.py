@@ -11,7 +11,7 @@ from psycopg2.extras import RealDictCursor
 
 def connect_to_db():
     """Establishes and returns a connection to the local PostgreSQL database."""
-    details = pg_details()
+    details = h.pg_details()
     try:
         conn = psycopg2.connect(**details)
         return conn
@@ -57,82 +57,120 @@ def close_db_engine(engine=None):
 
 # database/commonDatabaseFunctions.py
 def query_db(conn = None, query: str = None):
+    # """
+    # _summary_
+    
+    # Args:
+    #     query (_type_): _description_
+
+    # Raises:
+    #     e: _description_
+
+    # Returns:
+    #     _type_: _description_
+    # """
+    # # def query_db(query, db_conn_str=None):
+    # #     conn = getDataBaseEngine(db_conn_str=db_conn_str)
+    # #     df = pd.read_sql_query(query, conn)
+    # #     close_db_engine(conn)
+    # #     return df
+    # if conn == None:
+    #     conn = h.pg_details()
+    # if query == None:
+    #     query = """
+    #     test
+    #     """
+    # df = pd.read_sql_query(query, conn)
+    # close_db_engine(conn)
+    # return df
     """
-    _summary_
+    Executes a SQL query and returns a DataFrame.
     
     Args:
-        query (_type_): _description_
-
-    Raises:
-        e: _description_
-
+        query (str): The SQL query to execute.
+    
     Returns:
-        _type_: _description_
+        DataFrame: The result as a pandas DataFrame.
     """
-    # def query_db(query, db_conn_str=None):
-    #     conn = getDataBaseEngine(db_conn_str=db_conn_str)
-    #     df = pd.read_sql_query(query, conn)
-    #     close_db_engine(conn)
-    #     return df
-    if conn == None:
-        conn = h.pg_details()
-    if query == None:
-        query = """
-        test
-        """
-    df = pd.read_sql_query(query, conn)
-    close_db_engine(conn)
-    return df
+    conn = connect_to_db()  # use the connection helper
+    try:
+        df = pd.read_sql_query(query, conn)
+        return df
+    finally:
+        conn.close()
 
 def command_to_db(query, commit: bool = True):
-    """
-    Executes a SQL command like CREATE, INSERT, DELETE, UPDATE, etc.
-
-    Args:
-        query (_type_): _description_
-        commit (bool, optional): _description_. Defaults to True.
-
-    Raises:
-        e: _description_
-
-    Returns:
-        _type_: _description_
-    """
-    # def command_to_db(command, db_conn_str=None, commit=False):
     # """
-    # Execute a SQL command like CREATE, INSERT, DELETE, UPDATE, etc.
+    # Executes a SQL command like CREATE, INSERT, DELETE, UPDATE, etc.
+
+    # Args:
+    #     query (_type_): _description_
+    #     commit (bool, optional): _description_. Defaults to True.
+
+    # Raises:
+    #     e: _description_
+
+    # Returns:
+    #     _type_: _description_
     # """
-    #     engine = getDataBaseEngine(db_conn_str=db_conn_str)
-    #     try:
-    #         with engine.connect() as connection:
-    #             if commit:
-    #                 with connection.begin():  # Use transaction for commands requiring commit
-    #                     result = connection.execute(command)
-    #                     # print("Rows affected:", result.rowcount)
-    #                     return result
-    #             else:
+    # # def command_to_db(command, db_conn_str=None, commit=False):
+    # # """
+    # # Execute a SQL command like CREATE, INSERT, DELETE, UPDATE, etc.
+    # # """
+    # #     engine = getDataBaseEngine(db_conn_str=db_conn_str)
+    # #     try:
+    # #         with engine.connect() as connection:
+    # #             if commit:
+    # #                 with connection.begin():  # Use transaction for commands requiring commit
+    # #                     result = connection.execute(command)
+    # #                     # print("Rows affected:", result.rowcount)
+    # #                     return result
+    # #             else:
+    # #                 result = connection.execute(command)
+    # #                 return result
+    # #     except Exception as e:
+    # #         print(f"Error: Unable to execute the command. {e}")
+    # #         print(traceback.format_exc())
+    # #         raise e     # Raise the exception to the caller
+    # engine = h.pg_details()
+    # try:
+    #     with engine.connect() as connection:
+    #         if commit:
+    #             with connection.begin():  # Use transaction for commands requiring commit
     #                 result = connection.execute(command)
-    #                 return result
-    #     except Exception as e:
-    #         print(f"Error: Unable to execute the command. {e}")
-    #         print(traceback.format_exc())
-    #         raise e     # Raise the exception to the caller
-    engine = h.pg_details()
-    try:
-        with engine.connect() as connection:
-            if commit:
-                with connection.begin():  # Use transaction for commands requiring commit
-                    result = connection.execute(command)
                     
-                    # print("Rows affected:", result.rowcount)
-                    return result
-            else:
-                result = connection.execute(command)
-                return result
+    #                 # print("Rows affected:", result.rowcount)
+    #                 return result
+    #         else:
+    #             result = connection.execute(command)
+    #             return result
+    # except Exception as e:
+    #     print(f"Error: Unable to execute the command. {e}")
+    #     print(traceback.format_exc())
+    #     raise e     # Raise the exception to the caller
+    """
+    Executes a SQL command (e.g., CREATE, INSERT, DELETE, UPDATE).
+    
+    Args:
+        query (str): The SQL command to execute.
+        commit (bool, optional): Whether to commit the transaction. Defaults to True.
+    
+    Returns:
+        int: The number of affected rows.
+    """
+    conn = connect_to_db()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            if commit:
+                conn.commit()
+            return cursor.rowcount
     except Exception as e:
-        print(f"Error: Unable to execute the command. {e}")
-        print(traceback.format_exc())
-        raise e     # Raise the exception to the caller
+        print(f"Error executing command: {e}")
+        conn.rollback()
+        raise e
+    finally:
+        conn.close()
 
 
 # ======

@@ -6,7 +6,7 @@ By Samuel Alter
 
 This project is designed to investigate how to improve the speed of a **polygon matching procedure**.
 
-**The [results](#results) of the work yielded a 40x increase in the speed of the matching.**
+**The [results](#results) of the work yielded a 40x increase in the execution time.**
 
 The data is of building shapes in four municipal areas in Texas:
 

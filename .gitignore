@@ -10,4 +10,5 @@ backup.bundle
 /iceberg
 *.pages
 *.key
+hidden_stuff/
 

@@ -77,7 +77,7 @@ Here are selections of the performance results of the smaller and larger sample 
 
 Given the complexity of the script that we're trying to optimize, any change had effects to multiple other areas of the function. In the end, I realized that changing the way the multiprocessing handles child processes has a huge impact on the total execution time.
 
-### List of Functions or Methods to focus future optimization efforts:
+### Future optimization efforts should focus on these functions:
 
 | Function or Method             |
 |--------------------------------|

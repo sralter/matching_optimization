@@ -9,3 +9,5 @@ backup.bundle
 /archive
 /iceberg
 *.pages
+*.key
+

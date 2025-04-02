@@ -2,75 +2,78 @@
 
 By Samuel Alter
 
-🚧 Under Construction 🚧
+## Introduction
 
-## Overview
+This project is designed to investigate how to improve the speed of a **polygon matching procedure**.
 
-This project is designed to demonstrate how to improve the speed of a **polygon matching procedure**. 
+**The [results](#results) of the work yielded a 40x increase in the speed of the matching.**
 
-For this project, I am comparing the performance of a polygon matching process, both before and after implementing optimizations. I am using terms like **_"geospatial-native"_** or **_"geosptially-optimized"_** when describing the improved method. A **_geospatially-optimized_** approach uses the latest tools and techniques to make geospatial data processing efficient, while a **_"geospatially-naive"_** or a **_"geospatially non-optimized"_** approach as one that does not take full advantage of the latest advances in geospatial data engineering and analysis.
-
-There are two main areas that could benefit from taking a geospatial-native approach:
-
-1. Data encoding, fetching, and storage
-2. Searching for matching polygons
-
-I use both a non-geospatial-native and a geospatial-native approach to matching blos in a dataset. I will benchmark the execution time, CPU usage, and memory usage for both to see how they differ, with the implicit hypothesis being that the geospatial-native approaches will be more efficient and process more quickly.
-
-Therefore, this project is divided into **two parts**:
-
-1. **Geospatially-non-optimized**
-   * Encoding spatial data as strings
-   * Storing data in a Postgres database
-   * Using geohash strings to index the polygons and pre-filter the polygons before matching
-   * Using GeoPandas for polygon matching
-2. **Geospatially-optimized**
-   * Replace geohash index with H3
-   * Under construction...
-
-## Table of Contents <a name='toc'></a>
-
-1. [Geospatially non-Optimized Approach](#naive)
-2. [Geospatially Optimized Approach](#optimized)
-3. [Challenges and Solutions](#challenges)
-
-## 1. Non-Optimized Method<a name='naive'></a>
-
-One can go about this in a myriad of ways, but my process involved the following:
-
-🚧 Under Construction 🚧
-
-I downloaded a sampling of the data, specifically polygons from 2024, between the months of March and July. On a map, they look like this:
+The data is of building shapes in four municipal areas in Texas:
 
 ![Texas blobs with cluster bounding boxes](figs/blob_map_with_clusters.png)
 
-The blobs seem to be located in four major cities in Texas: Dallas, Austin, Houston, and San Antonio.
+The areas appear to be in four major cities in Texas: Dallas, Austin, Houston, and San Antonio.
 
 We can zoom in on a sample of the polygons. Note that the blobs are very small, and their shapes are complex with many vertices. This will increase the storage requirements and thus retrieval times.
 
 ![Sample of blob shapes with scalebar](figs/blob_samples.png)
 
-We were able to view a sampling of the polygons to confirm that they were indeed matches:
+## Work Timeline
 
-![Overlapping Polygons Map with a Sampling of those Polygons](figs/overlapping_polygons_map_10k.png)
+The flow of work for this project was as follows:
+1. Isolate blob matching functions within `BlobSearchBusinesssClass.py`
+2. Expand scope to supporting functions and scripts
+3. Refocus with just the `BlobMatchingBusinessClass.py` script
+4. Write benchmarking tools to measure and analyze performance of script
+  * @Timer decorator
+  * @ErrorCatcher decorator
+  * Results analysis CLI script
+5. Add logging messages and benchmarking hooks throughout script
+6. Get performance results with limited, 835-row sample dataset
+7. Get performance results with larger, ~6,000-row sample dataset
+8. Swap `spawn` for `fork` in the `set_start_method` of multiprocessing:
+  * `mp.set_start_method('fork', force=True)`
+9. Determine which functions within script are least efficient
 
-## 2. Optimized Method <a name='optimized'></a>
+## Performance Results
 
-## Challenges and Solutions <a name='challenges'></a>
+Here are selections of the performance results of the smaller and larger sample datasets:
 
-* Matching was returning no results
-  > I confirmed on QGIS that there were indeed overlaps, so I **reduced the resolution of the geohash** which allowed for a larger pre-filtering window.
-  > I also made the polygons bigger in testing to increase the chances that there will be an overlap.
-* Similarly, matching/overlapping code does not find all true overlaps
-  > Decrease the precision of the geohash prefiltering so that more candidates are included and not just exact matches. If the precision is too high, only exact matches will be included. 
-* How to keep track of execution time, CPU and memory usage?
-  > I used the `logging` library and add it as a decorator to the functions that I want to track.
-* Multiprocessing with logging was creating log files for every batch
-  > I edited the timing decorator function and wrapped the parallel matching function series in a larger function so that I could control the logging.
-* Multiprocessing was not working properly
-  > I used a combination of:
-  > * Dynamic Batching: The code splits the work into batches (chunks) based on your data size and a calculated batch size. If you increase the data 5-fold or even 100-fold, it will create more batches accordingly.
-	> * Controlled Worker Parallelism: The number of concurrent workers is controlled by the num_workers parameter. You can adjust this value to match the available hardware resources. The Pool approach ensures that all workers are kept busy until all batches are processed.
-	> * Overall Logging: The logging captures overall metrics—total execution time, CPU usage, and memory usage for the complete operation. This provides you with a global performance summary, regardless of the number of workers or batches used.
-* Downloading data from Postgres database
-  > The overall dataset is large, so I had to employ chunking to download in batches so as not to overload the database with requests.
+### Execution Time
+
+![Execution time for smaller sample](figs/sample_smaller/execution_time_per_function.png)
+
+![Execution time for larger sample](figs/sample_larger/execution_time_per_function.png)
+
+### Function Calls over Time
+
+![Function calls over time for smaller sample](figs/sample_smaller/function_calls_over_time.png)
+
+![Function calls over time for larger sample](figs/sample_larger/function_calls_over_time.png)
+
+### Memory Change per Function Call
+
+![Memory change per function call for smaller sample](figs/sample_smaller/memory_change_per_function_call.png)
+
+![Memory change per function call for larger sample](figs/sample_larger/memory_change_per_function_call.png)
+
+### Select Histograms
+
+![Match property between months for smaller sample](figs/sample_smaller/hist_1_match_property_between_months_perf_duration.png)
+
+![Match property between months for larger sample](figs/sample_larger/hist_1_match_property_between_months_perf_duration.png)
+
+![Match properties batched for smaller](figs/sample_smaller/hist_10_match_properties_batched_perf_duration.png)
+
+![Match properties batched for karger](figs/sample_larger/hist_10_match_properties_batched_perf_duration.png)
+
+### Top 10 Functions by Total Time
+
+![Top 10 functions for smaller sample](figs/sample_smaller/top10_functions_by_total_time.png)
+
+![Top 10 functions for larger sample](figs/sample_larger/top10_functions_by_total_time.png)
+
+## Results <a name='results'></a>
+
+Given the complexity of the script that we're trying to optimize, any change had effects to multiple other areas of the function. In the end, I realized that changing the way the multiprocessing handles child processes has a huge impact on the total execution time.
+

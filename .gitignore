@@ -11,4 +11,4 @@ backup.bundle
 *.pages
 *.key
 hidden_stuff/
-
+/logs

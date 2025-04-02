@@ -77,3 +77,14 @@ Here are selections of the performance results of the smaller and larger sample 
 
 Given the complexity of the script that we're trying to optimize, any change had effects to multiple other areas of the function. In the end, I realized that changing the way the multiprocessing handles child processes has a huge impact on the total execution time.
 
+### List of Functions or Methods to focus future optimization efforts:
+
+| Function or Method             |
+|--------------------------------|
+| match_properties_batched       |
+| match_property_between_months  |
+| match_polygon_with_dataframe   |
+| process_yyyymm_geohash_batches |
+| process_yyyymm_geohash         |
+| process_geo_hashes             |
+| __init__                       |

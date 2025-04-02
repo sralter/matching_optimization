@@ -59,11 +59,11 @@ Here are selections of the performance results of the smaller and larger sample 
 
 ### Select Histograms
 
-![Match property between months for smaller sample](figs/sample_smaller/hist_9_match_properties_batched_perf_duration.png)
+![Match property between months for smaller sample](figs/sample_smaller/hist_10_match_property_between_months_perf_duration.png)
 
 ![Match property between months for larger sample](figs/sample_larger/hist_1_match_property_between_months_perf_duration.png)
 
-![Match properties batched for smaller](figs/sample_smaller/hist_10_match_properties_batched_perf_duration.png)
+![Match properties batched for smaller](figs/sample_smaller/hist_9_match_properties_batched_perf_duration.png)
 
 ![Match properties batched for karger](figs/sample_larger/hist_10_match_properties_batched_perf_duration.png)
 

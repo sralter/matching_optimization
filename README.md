@@ -18,7 +18,7 @@ We can zoom in on a sample of the polygons. Note that the blobs are very small, 
 
 ![Sample of blob shapes with scalebar](figs/blob_samples.png)
 
-## Work Timeline
+## Work Timeline <a name='work_timeline'></a>
 
 The flow of work for this project was as follows:
 1. Isolate blob matching functions within `BlobSearchBusinesssClass.py`
@@ -75,7 +75,7 @@ Here are selections of the performance results of the smaller and larger sample 
 
 ## Results <a name='results'></a>
 
-Given the complexity of the script that we're trying to optimize, any change had effects to multiple other areas of the function. In the end, I realized that changing the way the multiprocessing handles child processes has a huge impact on the total execution time.
+Given the complexity of the script that we're trying to optimize, any change had effects to multiple other areas of the function. In the end, I realized that [**changing the way the multiprocessing handles child processes**](#work_timeline) had a huge impact on the total execution time.
 
 ### Future optimization efforts should focus on these functions:
 

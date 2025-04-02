@@ -81,10 +81,10 @@ Given the complexity of the script that we're trying to optimize, any change had
 
 | Function or Method             |
 |--------------------------------|
-| match_properties_batched       |
-| match_property_between_months  |
-| match_polygon_with_dataframe   |
-| process_yyyymm_geohash_batches |
-| process_yyyymm_geohash         |
-| process_geo_hashes             |
-| __init__                       |
+| `match_properties_batched`       |
+| `match_property_between_months`  |
+| `match_polygon_with_dataframe`   |
+| `process_yyyymm_geohash_batches` |
+| `process_yyyymm_geohash`         |
+| `process_geo_hashes`             |
+| `__init__`                       |

@@ -31,7 +31,7 @@ The flow of work for this project was as follows:
 5. Add logging messages and benchmarking hooks throughout script
 6. Get performance results with limited, 835-row sample dataset
 7. Get performance results with larger, ~6,000-row sample dataset
-8. Swap `spawn` for `fork` in the `set_start_method` of multiprocessing:
+8. **Swap `spawn` for `fork` in the `set_start_method` of multiprocessing**:
   * `mp.set_start_method('fork', force=True)`
 9. Determine which functions within script are least efficient
 
